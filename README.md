@@ -1,16 +1,50 @@
-# fladder
 
-A new Flutter project.
+<h1 align="center">
+  <br>
+<!--   <a href="https://github.com/Fladder-App/Fladder"><img src="" alt="Fladder" width="200"></a> -->
+  <br>
+  Fladder
+  <br>
+</h1>
 
-## Getting Started
+<h4 align="center">A Simple Jellyfin Frontend built on top of <a href="https://flutter.dev/" target="_blank">Flutter</a>.</h4>
 
-This project is a starting point for a Flutter application.
+<p align="center">
+  <a href="#key-features">Key Features</a> •
+  <a href="#planned-features">Planned Featuress</a> •
+  <a href="#download">Download</a> •
+  <a href="#credits">Credits</a> •
+  <a href="#license">License</a>
+</p>
 
-A few resources to get you started if this is your first Flutter project:
+<!--  ![screenshot]() -->
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Key Features
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* Play media – Stream or sync content locally to your device.
+* Manage your library – Refresh content and edit metadata.
+* Multiple profiles – Lock profiles and connect to different servers.
+* Direct/Transcode playback
+* Dark/Light mode
+* Cross platform
+  - Android, iOS, Windows, macOS and Linux.
+
+## Planned Features
+
+* Music playback
+* Android TV
+
+## Download
+
+The latest version will be available in the release tab.
+
+## Credits
+
+This software uses the following open source packages:
+- [Flutter](https://flutter.dev/)
+
+## License
+
+GNU General Public License v3.0
+
+
