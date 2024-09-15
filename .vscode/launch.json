@@ -1,0 +1,91 @@
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "fladder",
+			"request": "launch",
+			"type": "dart",
+			"args": [
+				"--web-port",
+				"8096"
+			],
+		},
+		{
+			"name": "fladder (profile mode)",
+			"request": "launch",
+			"type": "dart",
+			"flutterMode": "profile",
+			"args": [
+				"--web-port",
+				"9090"
+			],
+		},
+		{
+			"name": "fladder (release mode)",
+			"request": "launch",
+			"type": "dart",
+			"flutterMode": "release",
+			"args": [
+				"--web-port",
+				"9090"
+			],
+		},
+		{
+			"name": "Android",
+			"request": "launch",
+			"type": "dart",
+		},
+		{
+			"name": "iPhone",
+			"request": "launch",
+			"type": "dart",
+			"deviceId": "iphone"
+		},
+		{
+			"name": "Windows",
+			"request": "launch",
+			"type": "dart",
+			"flutterMode": "debug",
+			"deviceId": "windows"
+		},
+		{
+			"name": "Web",
+			"request": "launch",
+			"type": "dart",
+			"deviceId": "chrome",
+			"args": [
+				"--web-port",
+				"9090"
+			],
+		},
+		{
+			"name": "Web (release mode)",
+			"request": "launch",
+			"type": "dart",
+			"deviceId": "chrome",
+			"flutterMode": "release",
+			"args": [
+				"--web-port",
+				"9090"
+			],
+		},
+		{
+			"name": "AndroidTV",
+			"request": "launch",
+			"program": "lib/android_tv/main.dart",
+			"type": "dart",
+		},
+	],
+	"compounds": [
+		{
+			"name": "All Devices",
+			"configurations": [
+				"Windows",
+				"Android"
+			],
+		}
+	]
+}

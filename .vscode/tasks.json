@@ -1,0 +1,86 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Generate Localization",
+			"type": "dart",
+			"command": "flutter",
+			"args": [
+				"gen-l10n"
+			],
+			"isBackground": true,
+			"presentation": {
+				"reveal": "never",
+				"revealProblems": "onProblem",
+				"panel": "dedicated",
+				"showReuseMessage": false,
+				"clear": true,
+				"focus": false
+			},
+			"problemMatcher": []
+		},
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"build",
+				"windows"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+			"label": "flutter: flutter build windows",
+			"detail": ""
+		},
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"build",
+				"macos"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"label": "flutter: flutter build macos",
+			"detail": ""
+		},
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"build",
+				"apk"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"label": "flutter: flutter build apk",
+			"detail": ""
+		},
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"build",
+				"aab"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"label": "flutter: flutter build aab",
+			"detail": ""
+		},
+		{
+			"type": "flutter",
+			"command": "dart",
+			"args": [
+				"run",
+				"flutter_launcher_icons"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"label": "flutter: flutter create launcher icons",
+			"detail": ""
+		}
+	],
+}
