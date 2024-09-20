@@ -1,42 +1,340 @@
 {
   "@@locale": "ja",
-  "switchUser": "ユーザーを切り替える",
-  "userName": "ユーザー名",
-  "password": "パスワード",
-  "login": "ログイン",
-  "logout": "ログアウト",
-  "cancel": "キャンセル",
+  "about": "情報",
   "accept": "承認",
-  "code": "コード",
-  "error": "エラー",
-  "clear": "クリア",
-  "days": "日",
-  "search": "検索",
-  "loggedIn": "ログイン済み",
-  "change": "変更",
-  "other": "その他",
-  "dynamicText": "動的",
-  "enabled": "有効",
-  "disabled": "無効",
-  "dashboard": "ダッシュボード",
+  "active": "アクティブ",
+  "actor": "{count, plural, other{俳優} one{俳優}}",
+  "@actor": {
+    "description": "俳優",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "addAsFavorite": "お気に入りに追加",
+  "addToCollection": "コレクションに追加",
+  "addToPlaylist": "プレイリストに追加",
   "advanced": "高度な",
-  "refresh": "リフレッシュ",
-  "delete": "削除",
-  "goTo": "行く",
-  "loop": "ループ",
-  "empty": "空",
-  "noRating": "評価なし",
-  "backgroundBlur": "背景ぼかし",
+  "all": "すべて",
+  "amoledBlack": "アモレッドブラック",
+  "appLockAutoLogin": "自動ログイン",
+  "appLockBiometrics": "生体認証",
+  "appLockPasscode": "パスコード",
+  "appLockTitle": "{userName}のログイン方法を設定",
+  "@appLockTitle": {
+    "description": "ログイン方法を選択するポップアップ",
+    "placeholders": {
+      "userName": {
+        "type": "String"
+      }
+    }
+  },
+  "ascending": "昇順",
+  "audio": "オーディオ",
   "autoPlay": "自動再生",
-  "resume": "{item}を再開する",
-  "@resume": {
-    "description": "再開する",
+  "backgroundBlur": "背景ぼかし",
+  "backgroundOpacity": "背景の不透明度",
+  "biometricsFailedCheckAgain": "生体認証に失敗しました。設定を確認してもう一度お試しください。",
+  "bold": "ボールド",
+  "cancel": "キャンセル",
+  "change": "変更",
+  "chapter": "{count, plural, other{チャプター} one{チャプター}}",
+  "@chapter": {
+    "description": "チャプター",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "clear": "クリア",
+  "clearAllSettings": "すべての設定をクリア",
+  "clearAllSettingsQuestion": "すべての設定をクリアしますか？",
+  "clearChanges": "変更をクリア",
+  "clearSelection": "選択をクリア",
+  "close": "閉じる",
+  "code": "コード",
+  "collectionFolder": "コレクションフォルダ",
+  "color": "カラー",
+  "combined": "組み合わせ",
+  "communityRating": "コミュニティ評価",
+  "continuePage": "続行 - ページ {page}",
+  "@continuePage": {
+    "description": "続行 - ページ 1",
+    "placeholders": {
+      "page": {
+        "type": "int"
+      }
+    }
+  },
+  "controls": "コントロール",
+  "dashboard": "ダッシュボード",
+  "dashboardContinue": "続行",
+  "dashboardContinueListening": "リスニングを続ける",
+  "dashboardContinueReading": "読み続ける",
+  "dashboardContinueWatching": "視聴を続ける",
+  "dashboardNextUp": "次へ",
+  "dashboardRecentlyAdded": "{name}に最近追加",
+  "@dashboardRecentlyAdded": {
+    "description": "ホーム画面に最近追加",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "dateAdded": "追加日",
+  "dateLastContentAdded": "最後にコンテンツが追加された日",
+  "datePlayed": "再生日",
+  "days": "日",
+  "delete": "削除",
+  "deleteFileFromSystem": "このアイテム {item} を削除すると、ファイルシステムとメディアライブラリの両方から削除されます。\n続行してもよろしいですか？",
+  "@deleteFileFromSystem": {
+    "description": "システムからファイルを削除",
     "placeholders": {
       "item": {
         "type": "String"
       }
     }
   },
+  "deleteItem": "{item}を削除しますか？",
+  "@deleteItem": {
+    "description": "deleteItem",
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "descending": "降順",
+  "director": "{count, plural, other{監督} one{監督}}",
+  "@director": {
+    "description": "監督",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "disableFilters": "フィルターを無効にする",
+  "disabled": "無効",
+  "discovered": "発見済み",
+  "displayLanguage": "表示言語",
+  "downloadsClearDesc": "すべての同期データを削除してもよろしいですか？\nこれにより、すべての同期ユーザーのデータがクリアされます！",
+  "downloadsClearTitle": "同期データをクリア",
+  "downloadsPath": "パス",
+  "downloadsSyncedData": "同期データ",
+  "downloadsTitle": "ダウンロード",
+  "dynamicText": "動的",
+  "editMetadata": "メタデータを編集",
+  "empty": "空",
+  "enabled": "有効",
+  "episode": "{count, plural, other{エピソード} one{エピソード}}",
+  "@episode": {
+    "description": "エピソード",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "error": "エラー",
+  "failedToLoadImage": "画像の読み込みに失敗しました",
+  "favorite": "お気に入り",
+  "favorites": "お気に入り",
+  "fetchingLibrary": "ライブラリアイテムを取得しています",
+  "filter": "{count, plural, other{フィルター} one{フィルター}}",
+  "@filter": {
+    "description": "フィルター",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "folders": "フォルダ",
+  "fontColor": "フォントの色",
+  "fontSize": "フォントサイズ",
+  "forceRefresh": "強制リフレッシュ",
+  "genre": "{count, plural, other{ジャンル} one{ジャンル}}",
+  "@genre": {
+    "description": "ジャンル",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "goTo": "行く",
+  "grid": "グリッド",
+  "group": "グループ",
+  "groupBy": "グループ化",
+  "heightOffset": "高さのオフセット",
+  "hide": "非表示",
+  "hideEmpty": "空を非表示",
+  "home": "ホーム",
+  "identify": "識別",
+  "immediately": "すぐに",
+  "incorrectPinTryAgain": "PINが間違っています、もう一度試してください",
+  "info": "情報",
+  "invalidUrl": "無効なURL",
+  "invalidUrlDesc": "URLはhttp(s)://で始まる必要があります",
+  "itemCount": "アイテム数: {count}",
+  "@itemCount": {
+    "description": "アイテム数",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "label": "{count, plural, other{ラベル} one{ラベル}}",
+  "@label": {
+    "description": "ラベル",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "library": "{count, plural, other{ライブラリ} one{ライブラリ}}",
+  "@library": {
+    "description": "複数",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "libraryFetchNoItemsFound": "アイテムが見つかりませんでした。設定を変更してみてください。",
+  "libraryPageSizeDesc": "一度に読み込む量を設定します。0はページングを無効にします。",
+  "libraryPageSizeTitle": "ライブラリページのサイズ",
+  "light": "ライト",
+  "list": "リスト",
+  "lockscreen": "ロック画面",
+  "loggedIn": "ログイン済み",
+  "login": "ログイン",
+  "logout": "ログアウト",
+  "logoutUserPopupContent": "これにより、{userName} がログアウトされ、アプリからユーザーが削除されます。\n{serverName}に再ログインする必要があります。",
+  "@logoutUserPopupContent": {
+    "description": "ユーザーをログアウトするためのポップアップの説明",
+    "placeholders": {
+      "userName": {
+        "type": "String"
+      },
+      "serverName": {
+        "type": "String"
+      }
+    }
+  },
+  "logoutUserPopupTitle": "ユーザー {userName} をログアウトしますか？",
+  "@logoutUserPopupTitle": {
+    "description": "ユーザーをログアウトするためのポップアップ",
+    "placeholders": {
+      "userName": {
+        "type": "String"
+      }
+    }
+  },
+  "loop": "ループ",
+  "markAsUnwatched": "未視聴にマーク",
+  "markAsWatched": "視聴済みにマーク",
+  "masonry": "石工",
+  "mediaTypeBase": "基本タイプ",
+  "mediaTypeBook": "本",
+  "mediaTypeBoxset": "ボックスセット",
+  "mediaTypeEpisode": "エピソード",
+  "mediaTypeFolder": "フォルダー",
+  "mediaTypeMovie": "映画",
+  "mediaTypePerson": "人物",
+  "mediaTypePhoto": "写真",
+  "mediaTypePhotoAlbum": "フォトアルバム",
+  "mediaTypePlaylist": "プレイリスト",
+  "mediaTypeSeason": "シーズン",
+  "mediaTypeSeries": "シリーズ",
+  "metaDataSavedFor": "{item} のメタデータが保存されました",
+  "@metaDataSavedFor": {
+    "description": "メタデータが保存されました",
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "metadataRefreshDefault": "新しいファイルと更新されたファイルをスキャン",
+  "metadataRefreshFull": "すべてのメタデータを置き換える",
+  "metadataRefreshValidation": "欠落しているメタデータを検索",
+  "minutes": "分",
+  "@minutes": {
+    "description": "分",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "mode": "モード",
+  "moreFrom": "{info}の詳細",
+  "@moreFrom": {
+    "description": "詳細",
+    "placeholders": {
+      "info": {
+        "type": "String"
+      }
+    }
+  },
+  "moreOptions": "その他のオプション",
+  "mouseDragSupport": "マウスでドラッグ",
+  "musicAlbum": "アルバム",
+  "name": "名前",
+  "navigation": "ナビゲーション",
+  "navigationDashboard": "ダッシュボード",
+  "navigationFavorites": "お気に入り",
+  "navigationSync": "同期済み",
+  "never": "なし",
+  "nextUp": "次へ",
+  "noItemsSynced": "同期されたアイテムはありません",
+  "noItemsToShow": "表示するアイテムがありません",
+  "noRating": "評価なし",
+  "noResults": "結果がありません",
+  "noServersFound": "新しいサーバーが見つかりません",
+  "noSuggestionsFound": "提案が見つかりません",
+  "none": "なし",
+  "normal": "ノーマル",
+  "notPartOfAlbum": "アルバムの一部ではありません",
+  "openParent": "親フォルダを開く",
+  "openShow": "番組を開く",
+  "openWebLink": "ウェブリンクを開く",
+  "options": "オプション",
+  "other": "その他",
+  "outlineColor": "アウトラインの色",
+  "outlineSize": "アウトラインのサイズ",
+  "overview": "概要",
+  "page": "{index} ページ",
+  "@page": {
+    "description": "ページ",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "parentalRating": "ペアレンタル評価",
+  "password": "パスワード",
+  "pathClearTitle": "ダウンロードパスをクリア",
+  "pathEditDesc": "この場所はすべてのユーザーに設定されており、同期されたデータはもうアクセスできません。\nストレージに残ります。",
+  "pathEditSelect": "ダウンロード先を選択",
+  "pathEditTitle": "場所を変更",
   "play": "{item}を再生する",
   "@play": {
     "description": "再生する",
@@ -46,6 +344,44 @@
       }
     }
   },
+  "playCount": "再生回数",
+  "playFrom": "{name}から再生する",
+  "@playFrom": {
+    "description": "から再生する",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "playFromStart": "{name} を最初から再生",
+  "@playFromStart": {
+    "description": "最初から再生",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "playLabel": "再生",
+  "playVideos": "ビデオを再生",
+  "played": "再生済み",
+  "quickConnectAction": "クイック接続コードを入力",
+  "quickConnectInputACode": "コードを入力",
+  "quickConnectTitle": "クイック接続",
+  "quickConnectWrongCode": "コードが間違っています",
+  "random": "ランダム",
+  "rating": "{count, plural, other{評価} one{評価}}",
+  "@rating": {
+    "description": "評価",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "reWatch": "再視聴",
   "read": "{item}を読む",
   "@read": {
     "description": "読む",
@@ -64,243 +400,48 @@
       }
     }
   },
-  "playFrom": "{name}から再生する",
-  "@playFrom": {
-    "description": "から再生する",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "moreFrom": "{info}の詳細",
-  "@moreFrom": {
-    "description": "詳細",
-    "placeholders": {
-      "info": {
-        "type": "String"
-      }
-    }
-  },
-  "selectedWith": "{info}を選択済み",
-  "@selectedWith": {
-    "description": "選択済み",
-    "placeholders": {
-      "info": {
-        "type": "String"
-      }
-    }
-  },
-  "selected": "選択済み",
-  "restart": "再起動",
-  "reWatch": "再視聴",
-  "watchOn": "で見る",
-  "options": "オプション",
-  "list": "リスト",
-  "grid": "グリッド",
-  "masonry": "石工",
-  "start": "スタート",
-  "none": "なし",
-  "chapter": "{count, plural, other{チャプター} one{チャプター}}",
-  "@chapter": {
-    "description": "チャプター",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "sync": "同期",
-  "moreOptions": "その他のオプション",
-  "continuePage": "続行 - ページ {page}",
-  "@continuePage": {
-    "description": "続行 - ページ 1",
-    "placeholders": {
-      "page": {
-        "type": "int"
-      }
-    }
-  },
-  "openShow": "番組を開く",
-  "showDetails": "詳細を表示",
-  "showAlbum": "アルバムを表示",
-  "season": "{count, plural, other{シーズン} one{シーズン}}",
-  "@season": {
-    "description": "シーズン",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "episode": "{count, plural, other{エピソード} one{エピソード}}",
-  "@episode": {
-    "description": "エピソード",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "addToCollection": "コレクションに追加",
-  "addToPlaylist": "プレイリストに追加",
-  "removeFromCollection": "コレクションから削除",
-  "removeFromPlaylist": "プレイリストから削除",
-  "markAsWatched": "視聴済みにマーク",
-  "markAsUnwatched": "未視聴にマーク",
-  "removeAsFavorite": "お気に入りから削除",
-  "addAsFavorite": "お気に入りに追加",
-  "editMetadata": "メタデータを編集",
+  "recursive": "再帰的",
+  "refresh": "リフレッシュ",
   "refreshMetadata": "メタデータを更新",
-  "syncDetails": "詳細を同期",
-  "identify": "識別",
-  "info": "情報",
-  "clearAllSettings": "すべての設定をクリア",
-  "clearAllSettingsQuestion": "すべての設定をクリアしますか？",
-  "unableToReverseAction": "この操作は元に戻せません。すべての設定が削除されます。",
-  "navigationDashboard": "ダッシュボード",
-  "navigationFavorites": "お気に入り",
-  "navigationSync": "同期済み",
-  "navigation": "ナビゲーション",
-  "library": "{count, plural, other{ライブラリ} one{ライブラリ}}",
-  "@library": {
-    "description": "複数",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "scanLibrary": "ライブラリをスキャン",
-  "dashboardContinue": "続行",
-  "dashboardContinueWatching": "視聴を続ける",
-  "dashboardContinueReading": "読み続ける",
-  "dashboardContinueListening": "リスニングを続ける",
-  "dashboardNextUp": "次へ",
-  "dashboardRecentlyAdded": "{name}に最近追加",
-  "@dashboardRecentlyAdded": {
-    "description": "ホーム画面に最近追加",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "settings": "設定",
-  "settingsClientTitle": "Fladder",
-  "settingsClientDesc": "一般, タイムアウト, レイアウト, テーマ",
-  "settingsQuickConnectTitle": "クイック接続",
-  "settingsProfileTitle": "プロフィール",
-  "settingsProfileDesc": "ロック画面",
-  "settingsPlayerTitle": "プレーヤー",
-  "settingsPlayerDesc": "アスペクト比, 高度な",
-  "logoutUserPopupTitle": "ユーザー {userName} をログアウトしますか？",
-  "@logoutUserPopupTitle": {
-    "description": "ユーザーをログアウトするためのポップアップ",
-    "placeholders": {
-      "userName": {
-        "type": "String"
-      }
-    }
-  },
-  "logoutUserPopupContent": "これにより、{userName} がログアウトされ、アプリからユーザーが削除されます。\n{serverName}に再ログインする必要があります。",
-  "@logoutUserPopupContent": {
-    "description": "ユーザーをログアウトするためのポップアップの説明",
-    "placeholders": {
-      "userName": {
-        "type": "String"
-      },
-      "serverName": {
-        "type": "String"
-      }
-    }
-  },
-  "quickConnectTitle": "クイック接続",
-  "quickConnectAction": "クイック接続コードを入力",
-  "quickConnectInputACode": "コードを入力",
-  "quickConnectWrongCode": "コードが間違っています",
-  "downloadsTitle": "ダウンロード",
-  "downloadsPath": "パス",
-  "pathEditTitle": "場所を変更",
-  "pathEditSelect": "ダウンロード先を選択",
-  "pathClearTitle": "ダウンロードパスをクリア",
-  "pathEditDesc": "この場所はすべてのユーザーに設定されており、同期されたデータはもうアクセスできません。\nストレージに残ります。",
-  "downloadsSyncedData": "同期データ",
-  "downloadsClearTitle": "同期データをクリア",
-  "downloadsClearDesc": "すべての同期データを削除してもよろしいですか？\nこれにより、すべての同期ユーザーのデータがクリアされます！",
-  "lockscreen": "ロック画面",
-  "timeOut": "タイムアウト",
-  "home": "ホーム",
-  "settingsHomeCarouselTitle": "ダッシュボードのカルーセル",
-  "settingsHomeCarouselDesc": "ダッシュボード画面にカルーセルを表示",
-  "settingsHomeNextUpTitle": "次のポスター",
-  "settingsHomeNextUpDesc": "ダッシュボード画面に表示されるポスターの種類",
-  "settingsVisual": "ビジュアル",
-  "settingsBlurredPlaceholderTitle": "ぼかしプレースホルダー",
-  "settingsBlurredPlaceholderDesc": "ポスターの読み込み中にぼかし背景を表示",
-  "settingsBlurEpisodesTitle": "次のエピソードをぼかす",
-  "settingsBlurEpisodesDesc": "次のエピソードをすべてぼかす",
-  "settingsEnableOsMediaControls": "OSメディアコントロールを有効にする",
-  "settingsNextUpCutoffDays": "次のカットオフ日",
-  "settingsShowScaleSlider": "ポスターサイズスライダーを表示",
-  "settingsPosterSize": "ポスターサイズ",
-  "settingsPosterSlider": "スケールスライダーを表示",
-  "settingsPosterPinch": "ポスターをスケールするためにピンチズーム",
-  "theme": "テーマ",
-  "mode": "モード",
-  "themeModeSystem": "システム",
-  "themeModeLight": "ライト",
-  "themeModeDark": "ダーク",
-  "themeColor": "テーマカラー",
-  "color": "カラー",
-  "amoledBlack": "アモレッドブラック",
-  "hide": "非表示",
-  "nextUp": "次へ",
-  "settingsContinue": "続行",
-  "separate": "分離",
-  "combined": "組み合わせ",
-  "settingsSecurity": "セキュリティ",
-  "settingSecurityApplockTitle": "アプリロック",
-  "appLockTitle": "{userName}のログイン方法を設定",
-  "@appLockTitle": {
-    "description": "ログイン方法を選択するポップアップ",
-    "placeholders": {
-      "userName": {
-        "type": "String"
-      }
-    }
-  },
-  "biometricsFailedCheckAgain": "生体認証に失敗しました。設定を確認してもう一度お試しください。",
-  "appLockAutoLogin": "自動ログイン",
-  "appLockPasscode": "パスコード",
-  "appLockBiometrics": "生体認証",
-  "settingsPlayerVideoHWAccelTitle": "ハードウェアアクセラレーション",
-  "settingsPlayerVideoHWAccelDesc": "ビデオをレンダリングするためにGPUを使用する（推奨）",
-  "settingsPlayerNativeLibassAccelTitle": "ネイティブlibass字幕",
-  "settingsPlayerNativeLibassAccelDesc": "ビデオプレーヤーlibass字幕レンダラーを使用する",
-  "settingsPlayerMobileWarning": "Androidでハードウェアアクセラレーションとネイティブlibass字幕を有効にすると、一部の字幕がレンダリングされない場合があります。",
-  "settingsPlayerCustomSubtitlesTitle": "字幕のカスタマイズ",
-  "settingsPlayerCustomSubtitlesDesc": "サイズ、色、位置、アウトラインをカスタマイズする",
-  "videoScalingFillScreenTitle": "画面全体に表示",
-  "videoScalingFillScreenDesc": "ナビゲーションバーとステータスバーを埋める",
-  "videoScalingFillScreenNotif": "画面全体はビデオフィットを上書きし、水平回転で",
-  "videoScaling": "ビデオスケーリング",
-  "videoScalingFill": "全体に表示",
-  "videoScalingContain": "含む",
-  "videoScalingCover": "カバー",
-  "videoScalingFitWidth": "幅に合わせる",
-  "videoScalingFitHeight": "高さに合わせる",
-  "videoScalingScaleDown": "スケールダウン",
-  "subtitleConfiguratorPlaceHolder": "これはプレースホルダーテキストです。\nここには何もありません。",
-  "subtitleConfigurator": "字幕コンフィギュレーター",
   "refreshPopup": "リフレッシュ - {name}",
   "@refreshPopup": {
     "placeholders": {
       "name": {
+        "type": "String"
+      }
+    }
+  },
+  "refreshPopupContentMetadata": "メタデータはダッシュボードで有効にされた設定とインターネットサービスに基づいて更新されます。",
+  "related": "関連",
+  "releaseDate": "リリース日",
+  "removeAsFavorite": "お気に入りから削除",
+  "removeFromCollection": "コレクションから削除",
+  "removeFromPlaylist": "プレイリストから削除",
+  "replaceAllImages": "すべての画像を置き換える",
+  "replaceExistingImages": "既存の画像を置き換える",
+  "restart": "再起動",
+  "result": "結果",
+  "resumable": "再開可能",
+  "resume": "{item}を再開する",
+  "@resume": {
+    "description": "再開する",
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "retrievePublicListOfUsers": "ユーザーの公開リストを取得",
+  "retry": "再試行",
+  "runTime": "再生時間",
+  "save": "保存",
+  "saved": "保存済み",
+  "scanBiometricHint": "身元を確認する",
+  "scanLibrary": "ライブラリをスキャン",
+  "scanYourFingerprintToAuthenticate": "指紋をスキャンして{user}を認証してください",
+  "@scanYourFingerprintToAuthenticate": {
+    "placeholders": {
+      "user": {
         "type": "String"
       }
     }
@@ -313,258 +454,11 @@
       }
     }
   },
-  "refreshPopupContentMetadata": "メタデータはダッシュボードで有効にされた設定とインターネットサービスに基づいて更新されます。",
-  "replaceExistingImages": "既存の画像を置き換える",
-  "metadataRefreshDefault": "新しいファイルと更新されたファイルをスキャン",
-  "metadataRefreshValidation": "欠落しているメタデータを検索",
-  "metadataRefreshFull": "すべてのメタデータを置き換える",
-  "syncedItems": "同期されたアイテム",
-  "noItemsSynced": "同期されたアイテムはありません",
-  "syncDeletePopupPermanent": "この操作は恒久的であり、すべてのローカルに同期されたファイルを削除します",
-  "totalSize": "合計サイズ: {size}",
-  "@totalSize": {
-    "placeholders": {
-      "size": {
-        "type": "String"
-      }
-    }
-  },
-  "mediaTypeBase": "基本タイプ",
-  "mediaTypeMovie": "映画",
-  "mediaTypeSeries": "シリーズ",
-  "mediaTypeSeason": "シーズン",
-  "mediaTypeEpisode": "エピソード",
-  "mediaTypePhoto": "写真",
-  "mediaTypePerson": "人物",
-  "mediaTypePhotoAlbum": "フォトアルバム",
-  "mediaTypeFolder": "フォルダー",
-  "mediaTypeBoxset": "ボックスセット",
-  "mediaTypePlaylist": "プレイリスト",
-  "mediaTypeBook": "本",
-  "actor": "{count, plural, other{俳優} one{俳優}}",
-  "@actor": {
-    "description": "俳優",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "writer": "{count, plural, other{作家} one{作家}}",
-  "@writer": {
-    "description": "作家",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "director": "{count, plural, other{監督} one{監督}}",
-  "@director": {
-    "description": "監督",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "video": "ビデオ",
-  "audio": "オーディオ",
-  "subtitles": "字幕",
-  "related": "関連",
-  "all": "すべて",
-  "overview": "概要",
-  "selectViewType": "ビュータイプを選択",
-  "noItemsToShow": "表示するアイテムがありません",
-  "sortBy": "並び替え",
-  "groupBy": "グループ化",
   "scrollToTop": "トップにスクロール",
-  "disableFilters": "フィルターを無効にする",
-  "selectAll": "すべて選択",
-  "clearSelection": "選択をクリア",
-  "shuffleVideos": "ビデオをシャッフル",
-  "shuffleGallery": "ギャラリーをシャッフル",
-  "unknown": "不明",
-  "favorites": "お気に入り",
-  "recursive": "再帰的",
-  "genre": "{count, plural, other{ジャンル} one{ジャンル}}",
-  "@genre": {
-    "description": "ジャンル",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "studio": "{count, plural, other{スタジオ} one{スタジオ}}",
-  "@studio": {
-    "description": "スタジオ",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "label": "{count, plural, other{ラベル} one{ラベル}}",
-  "@label": {
-    "description": "ラベル",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "group": "グループ",
-  "type": "{count, plural, other{タイプ} one{タイプ}}",
-  "@type": {
-    "description": "タイプ",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "filter": "{count, plural, other{フィルター} one{フィルター}}",
-  "@filter": {
-    "description": "フィルター",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "showEmpty": "空を表示",
-  "hideEmpty": "空を非表示",
-  "rating": "{count, plural, other{評価} one{評価}}",
-  "@rating": {
-    "description": "評価",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "year": "{count, plural, other{年} one{年}}",
-  "@year": {
-    "description": "年",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "playVideos": "ビデオを再生",
-  "playLabel": "再生",
-  "forceRefresh": "強制リフレッシュ",
-  "itemCount": "アイテム数: {count}",
-  "@itemCount": {
-    "description": "アイテム数",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "invalidUrl": "無効なURL",
-  "invalidUrlDesc": "URLはhttp(s)://で始まる必要があります",
-  "incorrectPinTryAgain": "PINが間違っています、もう一度試してください",
-  "somethingWentWrongPasswordCheck": "何かがうまくいかなかった、パスワードを確認してください",
-  "unableToConnectHost": "ホストに接続できません",
-  "server": "サーバー",
-  "retrievePublicListOfUsers": "ユーザーの公開リストを取得",
-  "displayLanguage": "表示言語",
-  "deleteItem": "{item}を削除しますか？",
-  "@deleteItem": {
-    "description": "deleteItem",
-    "placeholders": {
-      "item": {
-        "type": "String"
-      }
-    }
-  },
-  "syncDeleteItemTitle": "同期されたアイテムを削除",
-  "syncDeleteItemDesc": "すべての同期されたデータを削除しますか？\n{item}",
-  "@syncDeleteItemDesc": {
-    "description": "同期削除アイテムのポップアップウィンドウ",
-    "placeholders": {
-      "item": {
-        "type": "String"
-      }
-    }
-  },
-  "syncOpenParent": "親を開く",
-  "syncRemoveDataTitle": "同期データを削除しますか？",
-  "syncRemoveDataDesc": "同期されたビデオデータを削除しますか？これは永久的なもので、ファイルを再同期する必要があります",
-  "collectionFolder": "コレクションフォルダ",
-  "musicAlbum": "アルバム",
-  "active": "アクティブ",
-  "name": "名前",
-  "result": "結果",
-  "close": "閉じる",
-  "replaceAllImages": "すべての画像を置き換える",
-  "noResults": "結果がありません",
-  "openWebLink": "ウェブリンクを開く",
-  "setIdentityTo": "{name}にアイデンティティを設定",
-  "@setIdentityTo": {
-    "description": "setIdentityTo",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "somethingWentWrong": "問題が発生しました",
-  "clearChanges": "変更をクリア",
-  "useDefaults": "デフォルトを使用",
-  "light": "ライト",
-  "normal": "ノーマル",
-  "bold": "ボールド",
-  "fontSize": "フォントサイズ",
-  "heightOffset": "高さのオフセット",
-  "fontColor": "フォントの色",
-  "outlineColor": "アウトラインの色",
-  "outlineSize": "アウトラインのサイズ",
-  "backgroundOpacity": "背景の不透明度",
-  "shadow": "影",
-  "played": "再生済み",
-  "unPlayed": "未再生",
-  "resumable": "再開可能",
-  "sortOrder": "並び順",
-  "sortName": "名前",
-  "communityRating": "コミュニティ評価",
-  "parentalRating": "ペアレンタル評価",
-  "dateAdded": "追加日",
-  "dateLastContentAdded": "最後にコンテンツが追加された日",
-  "favorite": "お気に入り",
-  "datePlayed": "再生日",
-  "folders": "フォルダ",
-  "playCount": "再生回数",
-  "releaseDate": "リリース日",
-  "runTime": "再生時間",
-  "ascending": "昇順",
-  "descending": "降順",
-  "playFromStart": "{name} を最初から再生",
-  "@playFromStart": {
-    "description": "最初から再生",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "minutes": "分",
-  "@minutes": {
-    "description": "分",
+  "search": "検索",
+  "season": "{count, plural, other{シーズン} one{シーズン}}",
+  "@season": {
+    "description": "シーズン",
     "placeholders": {
       "count": {
         "type": "int",
@@ -582,23 +476,126 @@
       }
     }
   },
-  "page": "{index} ページ",
-  "@page": {
-    "description": "ページ",
+  "selectAll": "すべて選択",
+  "selectTime": "時間を選択",
+  "selectViewType": "ビュータイプを選択",
+  "selected": "選択済み",
+  "selectedWith": "{info}を選択済み",
+  "@selectedWith": {
+    "description": "選択済み",
     "placeholders": {
-      "index": {
-        "type": "int"
+      "info": {
+        "type": "String"
       }
     }
   },
+  "separate": "分離",
+  "server": "サーバー",
   "set": "設定",
   "@set": {
     "description": "特定の値を設定するために使用",
     "context": "時間を設定"
   },
-  "never": "なし",
-  "selectTime": "時間を選択",
-  "immediately": "すぐに",
+  "setIdentityTo": "{name}にアイデンティティを設定",
+  "@setIdentityTo": {
+    "description": "setIdentityTo",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "settingSecurityApplockTitle": "アプリロック",
+  "settings": "設定",
+  "settingsBlurEpisodesDesc": "次のエピソードをすべてぼかす",
+  "settingsBlurEpisodesTitle": "次のエピソードをぼかす",
+  "settingsBlurredPlaceholderDesc": "ポスターの読み込み中にぼかし背景を表示",
+  "settingsBlurredPlaceholderTitle": "ぼかしプレースホルダー",
+  "settingsClientDesc": "一般, タイムアウト, レイアウト, テーマ",
+  "settingsClientTitle": "Fladder",
+  "settingsContinue": "続行",
+  "settingsEnableOsMediaControls": "OSメディアコントロールを有効にする",
+  "settingsHomeCarouselDesc": "ダッシュボード画面にカルーセルを表示",
+  "settingsHomeCarouselTitle": "ダッシュボードのカルーセル",
+  "settingsHomeNextUpDesc": "ダッシュボード画面に表示されるポスターの種類",
+  "settingsHomeNextUpTitle": "次のポスター",
+  "settingsNextUpCutoffDays": "次のカットオフ日",
+  "settingsPlayerCustomSubtitlesDesc": "サイズ、色、位置、アウトラインをカスタマイズする",
+  "settingsPlayerCustomSubtitlesTitle": "字幕のカスタマイズ",
+  "settingsPlayerDesc": "アスペクト比, 高度な",
+  "settingsPlayerMobileWarning": "Androidでハードウェアアクセラレーションとネイティブlibass字幕を有効にすると、一部の字幕がレンダリングされない場合があります。",
+  "settingsPlayerNativeLibassAccelDesc": "ビデオプレーヤーlibass字幕レンダラーを使用する",
+  "settingsPlayerNativeLibassAccelTitle": "ネイティブlibass字幕",
+  "settingsPlayerTitle": "プレーヤー",
+  "settingsPlayerVideoHWAccelDesc": "ビデオをレンダリングするためにGPUを使用する（推奨）",
+  "settingsPlayerVideoHWAccelTitle": "ハードウェアアクセラレーション",
+  "settingsPosterPinch": "ポスターをスケールするためにピンチズーム",
+  "settingsPosterSize": "ポスターサイズ",
+  "settingsPosterSlider": "スケールスライダーを表示",
+  "settingsProfileDesc": "ロック画面",
+  "settingsProfileTitle": "プロフィール",
+  "settingsQuickConnectTitle": "クイック接続",
+  "settingsSecurity": "セキュリティ",
+  "settingsShowScaleSlider": "ポスターサイズスライダーを表示",
+  "settingsVisual": "ビジュアル",
+  "shadow": "影",
+  "showAlbum": "アルバムを表示",
+  "showDetails": "詳細を表示",
+  "showEmpty": "空を表示",
+  "shuffleGallery": "ギャラリーをシャッフル",
+  "shuffleVideos": "ビデオをシャッフル",
+  "somethingWentWrong": "問題が発生しました",
+  "somethingWentWrongPasswordCheck": "何かがうまくいかなかった、パスワードを確認してください",
+  "sortBy": "並び替え",
+  "sortName": "名前",
+  "sortOrder": "並び順",
+  "start": "スタート",
+  "studio": "{count, plural, other{スタジオ} one{スタジオ}}",
+  "@studio": {
+    "description": "スタジオ",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "subtitleConfigurator": "字幕コンフィギュレーター",
+  "subtitleConfiguratorPlaceHolder": "これはプレースホルダーテキストです。\nここには何もありません。",
+  "subtitles": "字幕",
+  "switchUser": "ユーザーを切り替える",
+  "sync": "同期",
+  "syncDeleteItemDesc": "すべての同期されたデータを削除しますか？\n{item}",
+  "@syncDeleteItemDesc": {
+    "description": "同期削除アイテムのポップアップウィンドウ",
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "syncDeleteItemTitle": "同期されたアイテムを削除",
+  "syncDeletePopupPermanent": "この操作は恒久的であり、すべてのローカルに同期されたファイルを削除します",
+  "syncDetails": "詳細を同期",
+  "syncOpenParent": "親を開く",
+  "syncRemoveDataDesc": "同期されたビデオデータを削除しますか？これは永久的なもので、ファイルを再同期する必要があります",
+  "syncRemoveDataTitle": "同期データを削除しますか？",
+  "syncedItems": "同期されたアイテム",
+  "tag": "{count, plural, one{タグ} other{タグ}}",
+  "@tag": {
+    "description": "タグ",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "theme": "テーマ",
+  "themeColor": "テーマカラー",
+  "themeModeDark": "ダーク",
+  "themeModeLight": "ライト",
+  "themeModeSystem": "システム",
   "timeAndAnnotation": "{minutes} と {seconds}",
   "@timeAndAnnotation": {
     "description": "timeAndAnnotation",
@@ -611,47 +608,18 @@
       }
     }
   },
-  "scanYourFingerprintToAuthenticate": "指紋をスキャンして{user}を認証してください",
-  "@scanYourFingerprintToAuthenticate": {
+  "timeOut": "タイムアウト",
+  "totalSize": "合計サイズ: {size}",
+  "@totalSize": {
     "placeholders": {
-      "user": {
+      "size": {
         "type": "String"
       }
     }
   },
-  "scanBiometricHint": "身元を確認する",
-  "deleteFileFromSystem": "このアイテム {item} を削除すると、ファイルシステムとメディアライブラリの両方から削除されます。\n続行してもよろしいですか？",
-  "@deleteFileFromSystem": {
-    "description": "システムからファイルを削除",
-    "placeholders": {
-      "item": {
-        "type": "String"
-      }
-    }
-  },
-  "notPartOfAlbum": "アルバムの一部ではありません",
-  "retry": "再試行",
-  "failedToLoadImage": "画像の読み込みに失敗しました",
-  "save": "保存",
-  "metaDataSavedFor": "{item} のメタデータが保存されました",
-  "@metaDataSavedFor": {
-    "description": "メタデータが保存されました",
-    "placeholders": {
-      "item": {
-        "type": "String"
-      }
-    }
-  },
-  "libraryPageSizeTitle": "ライブラリページのサイズ",
-  "libraryPageSizeDesc": "一度に読み込む量を設定します。0はページングを無効にします。",
-  "fetchingLibrary": "ライブラリアイテムを取得しています",
-  "libraryFetchNoItemsFound": "アイテムが見つかりませんでした。設定を変更してみてください。",
-  "noSuggestionsFound": "提案が見つかりません",
-  "viewPhotos": "写真を見る",
-  "random": "ランダム",
-  "tag": "{count, plural, one{タグ} other{タグ}}",
-  "@tag": {
-    "description": "タグ",
+  "type": "{count, plural, other{タイプ} one{タイプ}}",
+  "@type": {
+    "description": "タイプ",
     "placeholders": {
       "count": {
         "type": "int",
@@ -659,11 +627,43 @@
       }
     }
   },
-  "saved": "保存済み",
-  "discovered": "発見済み",
-  "noServersFound": "新しいサーバーが見つかりません",
-  "about": "情報",
-  "openParent": "親フォルダを開く",
-  "mouseDragSupport": "マウスでドラッグ",
-  "controls": "コントロール"
+  "unPlayed": "未再生",
+  "unableToConnectHost": "ホストに接続できません",
+  "unableToReverseAction": "この操作は元に戻せません。すべての設定が削除されます。",
+  "unknown": "不明",
+  "useDefaults": "デフォルトを使用",
+  "userName": "ユーザー名",
+  "video": "ビデオ",
+  "videoScaling": "ビデオスケーリング",
+  "videoScalingContain": "含む",
+  "videoScalingCover": "カバー",
+  "videoScalingFill": "全体に表示",
+  "videoScalingFillScreenDesc": "ナビゲーションバーとステータスバーを埋める",
+  "videoScalingFillScreenNotif": "画面全体はビデオフィットを上書きし、水平回転で",
+  "videoScalingFillScreenTitle": "画面全体に表示",
+  "videoScalingFitHeight": "高さに合わせる",
+  "videoScalingFitWidth": "幅に合わせる",
+  "videoScalingScaleDown": "スケールダウン",
+  "viewPhotos": "写真を見る",
+  "watchOn": "で見る",
+  "writer": "{count, plural, other{作家} one{作家}}",
+  "@writer": {
+    "description": "作家",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "year": "{count, plural, other{年} one{年}}",
+  "@year": {
+    "description": "年",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  }
 }

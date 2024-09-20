@@ -1,42 +1,340 @@
 {
   "@@locale": "fr",
-  "switchUser": "Changer d'utilisateur",
-  "userName": "Nom d'utilisateur",
-  "password": "Mot de passe",
-  "login": "Connexion",
-  "logout": "Déconnexion",
-  "cancel": "Annuler",
+  "about": "À propos",
   "accept": "Accepter",
-  "code": "Code",
-  "error": "Erreur",
-  "clear": "Effacer",
-  "days": "Jours",
-  "search": "Recherche",
-  "loggedIn": "Connecté",
-  "change": "Changer",
-  "other": "Autre",
-  "dynamicText": "Dynamique",
-  "enabled": "Activé",
-  "disabled": "Désactivé",
-  "dashboard": "Tableau de bord",
+  "active": "Actif",
+  "actor": "{count, plural, other{Acteurs} one{Acteur}}",
+  "@actor": {
+    "description": "acteur",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "addAsFavorite": "Ajouter aux favoris",
+  "addToCollection": "Ajouter à la collection",
+  "addToPlaylist": "Ajouter à la playlist",
   "advanced": "Avancé",
-  "refresh": "Rafraîchir",
-  "delete": "Supprimer",
-  "goTo": "Aller à",
-  "loop": "Boucle",
-  "empty": "Vide",
-  "noRating": "Pas de note",
-  "backgroundBlur": "Flou de fond",
+  "all": "Tout",
+  "amoledBlack": "Noir Amoled",
+  "appLockAutoLogin": "Connexion automatique",
+  "appLockBiometrics": "Biométrie",
+  "appLockPasscode": "Code d'accès",
+  "appLockTitle": "Définir la méthode de connexion pour {userName}",
+  "@appLockTitle": {
+    "description": "Pop-up pour choisir une méthode de connexion",
+    "placeholders": {
+      "userName": {
+        "type": "String"
+      }
+    }
+  },
+  "ascending": "Ascendant",
+  "audio": "Audio",
   "autoPlay": "Lecture automatique",
-  "resume": "Reprendre {item}",
-  "@resume": {
-    "description": "reprendre",
+  "backgroundBlur": "Flou de fond",
+  "backgroundOpacity": "Opacité de l'arrière-plan",
+  "biometricsFailedCheckAgain": "Échec de la biométrie, vérifiez les paramètres et réessayez",
+  "bold": "Gras",
+  "cancel": "Annuler",
+  "change": "Changer",
+  "chapter": "{count, plural, other{Chapitres} one{Chapitre}}",
+  "@chapter": {
+    "description": "chapitre",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "clear": "Effacer",
+  "clearAllSettings": "Effacer tous les paramètres",
+  "clearAllSettingsQuestion": "Effacer tous les paramètres?",
+  "clearChanges": "Effacer les modifications",
+  "clearSelection": "Effacer la sélection",
+  "close": "Fermer",
+  "code": "Code",
+  "collectionFolder": "Dossier de collection",
+  "color": "Couleur",
+  "combined": "Combiné",
+  "communityRating": "Évaluation de la communauté",
+  "continuePage": "Continuer - page {page}",
+  "@continuePage": {
+    "description": "Continuer - page 1",
+    "placeholders": {
+      "page": {
+        "type": "int"
+      }
+    }
+  },
+  "controls": "Commandes",
+  "dashboard": "Tableau de bord",
+  "dashboardContinue": "Continuer",
+  "dashboardContinueListening": "Continuer à écouter",
+  "dashboardContinueReading": "Continuer à lire",
+  "dashboardContinueWatching": "Continuer à regarder",
+  "dashboardNextUp": "Suivant",
+  "dashboardRecentlyAdded": "Récemment ajouté dans {name}",
+  "@dashboardRecentlyAdded": {
+    "description": "Récemment ajouté sur l'écran d'accueil",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "dateAdded": "Date d'ajout",
+  "dateLastContentAdded": "Date du dernier contenu ajouté",
+  "datePlayed": "Date de lecture",
+  "days": "Jours",
+  "delete": "Supprimer",
+  "deleteFileFromSystem": "Supprimer cet élément {item} le supprimera à la fois du système de fichiers et de votre bibliothèque multimédia.\nÊtes-vous sûr de vouloir continuer?",
+  "@deleteFileFromSystem": {
+    "description": "Supprimer le fichier du système",
     "placeholders": {
       "item": {
         "type": "String"
       }
     }
   },
+  "deleteItem": "Supprimer {item}?",
+  "@deleteItem": {
+    "description": "deleteItem",
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "descending": "Descendant",
+  "director": "{count, plural, other{Réalisateurs} one{Réalisateur}}",
+  "@director": {
+    "description": "réalisateur",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "disableFilters": "Désactiver les filtres",
+  "disabled": "Désactivé",
+  "discovered": "Découvert",
+  "displayLanguage": "Langue d'affichage",
+  "downloadsClearDesc": "Êtes-vous sûr de vouloir supprimer toutes les données synchronisées?\nCela effacera toutes les données pour chaque utilisateur synchronisé!",
+  "downloadsClearTitle": "Effacer les données synchronisées",
+  "downloadsPath": "Chemin",
+  "downloadsSyncedData": "Données synchronisées",
+  "downloadsTitle": "Téléchargements",
+  "dynamicText": "Dynamique",
+  "editMetadata": "Modifier les métadonnées",
+  "empty": "Vide",
+  "enabled": "Activé",
+  "episode": "{count, plural, other{Épisodes} one{Épisode}}",
+  "@episode": {
+    "description": "épisode",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "error": "Erreur",
+  "failedToLoadImage": "Échec du chargement de l'image",
+  "favorite": "Favori",
+  "favorites": "Favoris",
+  "fetchingLibrary": "Chargement des éléments de la bibliothèque",
+  "filter": "{count, plural, other{Filtres} one{Filtre}}",
+  "@filter": {
+    "description": "filtre",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "folders": "Dossiers",
+  "fontColor": "Couleur de la police",
+  "fontSize": "Taille de la police",
+  "forceRefresh": "Forcer le rafraîchissement",
+  "genre": "{count, plural, other{Genres} one{Genre}}",
+  "@genre": {
+    "description": "genre",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "goTo": "Aller à",
+  "grid": "Grille",
+  "group": "Groupe",
+  "groupBy": "Grouper par",
+  "heightOffset": "Décalage de hauteur",
+  "hide": "Cacher",
+  "hideEmpty": "Cacher vide",
+  "home": "Accueil",
+  "identify": "Identifier",
+  "immediately": "Immédiatement",
+  "incorrectPinTryAgain": "PIN incorrect, réessayez",
+  "info": "Infos",
+  "invalidUrl": "URL invalide",
+  "invalidUrlDesc": "L'URL doit commencer par http(s)://",
+  "itemCount": "Nombre d'éléments: {count}",
+  "@itemCount": {
+    "description": "Nombre d'éléments",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "label": "{count, plural, other{Étiquettes} one{Étiquette}}",
+  "@label": {
+    "description": "étiquette",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "library": "{count, plural, other{Bibliothèques} one{Bibliothèque}}",
+  "@library": {
+    "description": "pluriel",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "libraryFetchNoItemsFound": "Aucun élément trouvé, essayez avec des paramètres différents.",
+  "libraryPageSizeDesc": "Définir la quantité à charger à la fois. 0 désactive la pagination.",
+  "libraryPageSizeTitle": "Taille de la page de la bibliothèque",
+  "light": "Léger",
+  "list": "Liste",
+  "lockscreen": "Écran de verrouillage",
+  "loggedIn": "Connecté",
+  "login": "Connexion",
+  "logout": "Déconnexion",
+  "logoutUserPopupContent": "Cela déconnectera {userName} et supprimera l'utilisateur de l'application.\nVous devrez vous reconnecter à {serverName}.",
+  "@logoutUserPopupContent": {
+    "description": "Pop-up pour déconnecter l'utilisateur description",
+    "placeholders": {
+      "userName": {
+        "type": "String"
+      },
+      "serverName": {
+        "type": "String"
+      }
+    }
+  },
+  "logoutUserPopupTitle": "Déconnecter l'utilisateur {userName}?",
+  "@logoutUserPopupTitle": {
+    "description": "Pop-up pour déconnecter l'utilisateur",
+    "placeholders": {
+      "userName": {
+        "type": "String"
+      }
+    }
+  },
+  "loop": "Boucle",
+  "markAsUnwatched": "Marquer comme non regardé",
+  "markAsWatched": "Marquer comme regardé",
+  "masonry": "Maçonnerie",
+  "mediaTypeBase": "Type de base",
+  "mediaTypeBook": "Livre",
+  "mediaTypeBoxset": "Coffret",
+  "mediaTypeEpisode": "Épisode",
+  "mediaTypeFolder": "Dossier",
+  "mediaTypeMovie": "Film",
+  "mediaTypePerson": "Personne",
+  "mediaTypePhoto": "Photo",
+  "mediaTypePhotoAlbum": "Album photo",
+  "mediaTypePlaylist": "Liste de lecture",
+  "mediaTypeSeason": "Saison",
+  "mediaTypeSeries": "Série",
+  "metaDataSavedFor": "Métadonnées enregistrées pour {item}",
+  "@metaDataSavedFor": {
+    "description": "métadonnéesEnregistréesPour",
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "metadataRefreshDefault": "Rechercher des fichiers nouveaux et mis à jour",
+  "metadataRefreshFull": "Remplacer toutes les métadonnées",
+  "metadataRefreshValidation": "Rechercher des métadonnées manquantes",
+  "minutes": "{count, plural, other{Minutes} one{Minute}}",
+  "@minutes": {
+    "description": "minute",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "mode": "Mode",
+  "moreFrom": "Plus de {info}",
+  "@moreFrom": {
+    "description": "Plus de",
+    "placeholders": {
+      "info": {
+        "type": "String"
+      }
+    }
+  },
+  "moreOptions": "Plus d'options",
+  "mouseDragSupport": "Faire glisser avec la souris",
+  "musicAlbum": "Album",
+  "name": "Nom",
+  "navigation": "Navigation",
+  "navigationDashboard": "Tableau de bord",
+  "navigationFavorites": "Favoris",
+  "navigationSync": "Synchronisé",
+  "never": "Jamais",
+  "nextUp": "Suivant",
+  "noItemsSynced": "Aucun élément synchronisé",
+  "noItemsToShow": "Aucun élément à afficher",
+  "noRating": "Pas de note",
+  "noResults": "Aucun résultat",
+  "noServersFound": "Aucun nouveau serveur trouvé",
+  "noSuggestionsFound": "Aucune suggestion trouvée",
+  "none": "Aucun",
+  "normal": "Normal",
+  "notPartOfAlbum": "Ne fait pas partie d'un album",
+  "openParent": "Ouvrir le dossier parent",
+  "openShow": "Ouvrir le spectacle",
+  "openWebLink": "Ouvrir le lien web",
+  "options": "Options",
+  "other": "Autre",
+  "outlineColor": "Couleur du contour",
+  "outlineSize": "Taille du contour",
+  "overview": "Aperçu",
+  "page": "Page {index}",
+  "@page": {
+    "description": "page",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "parentalRating": "Évaluation parentale",
+  "password": "Mot de passe",
+  "pathClearTitle": "Effacer le chemin de téléchargement",
+  "pathEditDesc": "Cet emplacement est défini pour tous les utilisateurs, toutes les données synchronisées ne seront plus accessibles.\nElles resteront sur votre stockage.",
+  "pathEditSelect": "Sélectionner la destination des téléchargements",
+  "pathEditTitle": "Changer l'emplacement",
   "play": "Lire {item}",
   "@play": {
     "description": "Lire avec",
@@ -46,6 +344,44 @@
       }
     }
   },
+  "playCount": "Nombre de lectures",
+  "playFrom": "Lire depuis {name}",
+  "@playFrom": {
+    "description": "jouer de",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "playFromStart": "Lire {name} depuis le début",
+  "@playFromStart": {
+    "description": "jouer depuis le début",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "playLabel": "Lire",
+  "playVideos": "Lire les vidéos",
+  "played": "Joué",
+  "quickConnectAction": "Entrer le code de connexion rapide pour",
+  "quickConnectInputACode": "Entrer un code",
+  "quickConnectTitle": "Connexion rapide",
+  "quickConnectWrongCode": "Code incorrect",
+  "random": "Aléatoire",
+  "rating": "{count, plural, other{Notes} one{Note}}",
+  "@rating": {
+    "description": "note",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "reWatch": "Revoir",
   "read": "Lire {item}",
   "@read": {
     "description": "lire",
@@ -64,243 +400,48 @@
       }
     }
   },
-  "playFrom": "Lire depuis {name}",
-  "@playFrom": {
-    "description": "jouer de",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "moreFrom": "Plus de {info}",
-  "@moreFrom": {
-    "description": "Plus de",
-    "placeholders": {
-      "info": {
-        "type": "String"
-      }
-    }
-  },
-  "selectedWith": "Sélectionné {info}",
-  "@selectedWith": {
-    "description": "sélectionné",
-    "placeholders": {
-      "info": {
-        "type": "String"
-      }
-    }
-  },
-  "selected": "Sélectionné",
-  "restart": "Redémarrer",
-  "reWatch": "Revoir",
-  "watchOn": "Regarder sur",
-  "options": "Options",
-  "list": "Liste",
-  "grid": "Grille",
-  "masonry": "Maçonnerie",
-  "start": "Commencer",
-  "none": "Aucun",
-  "chapter": "{count, plural, other{Chapitres} one{Chapitre}}",
-  "@chapter": {
-    "description": "chapitre",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "sync": "Synchroniser",
-  "moreOptions": "Plus d'options",
-  "continuePage": "Continuer - page {page}",
-  "@continuePage": {
-    "description": "Continuer - page 1",
-    "placeholders": {
-      "page": {
-        "type": "int"
-      }
-    }
-  },
-  "openShow": "Ouvrir le spectacle",
-  "showDetails": "Afficher les détails",
-  "showAlbum": "Afficher l'album",
-  "season": "{count, plural, other{Saisons} one{Saison}}",
-  "@season": {
-    "description": "saison",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "episode": "{count, plural, other{Épisodes} one{Épisode}}",
-  "@episode": {
-    "description": "épisode",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "addToCollection": "Ajouter à la collection",
-  "addToPlaylist": "Ajouter à la playlist",
-  "removeFromCollection": "Retirer de la collection",
-  "removeFromPlaylist": "Retirer de la playlist",
-  "markAsWatched": "Marquer comme regardé",
-  "markAsUnwatched": "Marquer comme non regardé",
-  "removeAsFavorite": "Retirer des favoris",
-  "addAsFavorite": "Ajouter aux favoris",
-  "editMetadata": "Modifier les métadonnées",
+  "recursive": "Récursif",
+  "refresh": "Rafraîchir",
   "refreshMetadata": "Rafraîchir les métadonnées",
-  "syncDetails": "Synchroniser les détails",
-  "identify": "Identifier",
-  "info": "Infos",
-  "clearAllSettings": "Effacer tous les paramètres",
-  "clearAllSettingsQuestion": "Effacer tous les paramètres?",
-  "unableToReverseAction": "Cette action ne peut pas être annulée, elle supprimera tous les paramètres.",
-  "navigationDashboard": "Tableau de bord",
-  "navigationFavorites": "Favoris",
-  "navigationSync": "Synchronisé",
-  "navigation": "Navigation",
-  "library": "{count, plural, other{Bibliothèques} one{Bibliothèque}}",
-  "@library": {
-    "description": "pluriel",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "scanLibrary": "Scanner la bibliothèque",
-  "dashboardContinue": "Continuer",
-  "dashboardContinueWatching": "Continuer à regarder",
-  "dashboardContinueReading": "Continuer à lire",
-  "dashboardContinueListening": "Continuer à écouter",
-  "dashboardNextUp": "Suivant",
-  "dashboardRecentlyAdded": "Récemment ajouté dans {name}",
-  "@dashboardRecentlyAdded": {
-    "description": "Récemment ajouté sur l'écran d'accueil",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "settings": "Paramètres",
-  "settingsClientTitle": "Fladder",
-  "settingsClientDesc": "Général, Timeout, Disposition, Thème",
-  "settingsQuickConnectTitle": "Connexion rapide",
-  "settingsProfileTitle": "Profil",
-  "settingsProfileDesc": "Écran de verrouillage",
-  "settingsPlayerTitle": "Lecteur",
-  "settingsPlayerDesc": "Ratio, Avancé",
-  "logoutUserPopupTitle": "Déconnecter l'utilisateur {userName}?",
-  "@logoutUserPopupTitle": {
-    "description": "Pop-up pour déconnecter l'utilisateur",
-    "placeholders": {
-      "userName": {
-        "type": "String"
-      }
-    }
-  },
-  "logoutUserPopupContent": "Cela déconnectera {userName} et supprimera l'utilisateur de l'application.\nVous devrez vous reconnecter à {serverName}.",
-  "@logoutUserPopupContent": {
-    "description": "Pop-up pour déconnecter l'utilisateur description",
-    "placeholders": {
-      "userName": {
-        "type": "String"
-      },
-      "serverName": {
-        "type": "String"
-      }
-    }
-  },
-  "quickConnectTitle": "Connexion rapide",
-  "quickConnectAction": "Entrer le code de connexion rapide pour",
-  "quickConnectInputACode": "Entrer un code",
-  "quickConnectWrongCode": "Code incorrect",
-  "downloadsTitle": "Téléchargements",
-  "downloadsPath": "Chemin",
-  "pathEditTitle": "Changer l'emplacement",
-  "pathEditSelect": "Sélectionner la destination des téléchargements",
-  "pathClearTitle": "Effacer le chemin de téléchargement",
-  "pathEditDesc": "Cet emplacement est défini pour tous les utilisateurs, toutes les données synchronisées ne seront plus accessibles.\nElles resteront sur votre stockage.",
-  "downloadsSyncedData": "Données synchronisées",
-  "downloadsClearTitle": "Effacer les données synchronisées",
-  "downloadsClearDesc": "Êtes-vous sûr de vouloir supprimer toutes les données synchronisées?\nCela effacera toutes les données pour chaque utilisateur synchronisé!",
-  "lockscreen": "Écran de verrouillage",
-  "timeOut": "Timeout",
-  "home": "Accueil",
-  "settingsHomeCarouselTitle": "Carrousel du tableau de bord",
-  "settingsHomeCarouselDesc": "Affiche un carrousel sur l'écran du tableau de bord",
-  "settingsHomeNextUpTitle": "Affiches à venir",
-  "settingsHomeNextUpDesc": "Type d'affiches affichées sur l'écran du tableau de bord",
-  "settingsVisual": "Visuel",
-  "settingsBlurredPlaceholderTitle": "Placeholder flou",
-  "settingsBlurredPlaceholderDesc": "Afficher un arrière-plan flou lors du chargement des affiches",
-  "settingsBlurEpisodesTitle": "Flouter les prochains épisodes",
-  "settingsBlurEpisodesDesc": "Flouter tous les épisodes à venir",
-  "settingsEnableOsMediaControls": "Activer les contrôles multimédia de l'OS",
-  "settingsNextUpCutoffDays": "Jours de coupure suivants",
-  "settingsShowScaleSlider": "Afficher le curseur de taille des affiches",
-  "settingsPosterSize": "Taille de l'affiche",
-  "settingsPosterSlider": "Afficher le curseur de mise à l'échelle",
-  "settingsPosterPinch": "Pincer pour zoomer pour mettre à l'échelle les affiches",
-  "theme": "Thème",
-  "mode": "Mode",
-  "themeModeSystem": "Système",
-  "themeModeLight": "Clair",
-  "themeModeDark": "Sombre",
-  "themeColor": "Couleur du thème",
-  "color": "Couleur",
-  "amoledBlack": "Noir Amoled",
-  "hide": "Cacher",
-  "nextUp": "Suivant",
-  "settingsContinue": "Continuer",
-  "separate": "Séparer",
-  "combined": "Combiné",
-  "settingsSecurity": "Sécurité",
-  "settingSecurityApplockTitle": "Verrouillage de l'application",
-  "appLockTitle": "Définir la méthode de connexion pour {userName}",
-  "@appLockTitle": {
-    "description": "Pop-up pour choisir une méthode de connexion",
-    "placeholders": {
-      "userName": {
-        "type": "String"
-      }
-    }
-  },
-  "biometricsFailedCheckAgain": "Échec de la biométrie, vérifiez les paramètres et réessayez",
-  "appLockAutoLogin": "Connexion automatique",
-  "appLockPasscode": "Code d'accès",
-  "appLockBiometrics": "Biométrie",
-  "settingsPlayerVideoHWAccelTitle": "Accélération matérielle",
-  "settingsPlayerVideoHWAccelDesc": "Utiliser le GPU pour rendre la vidéo (recommandé)",
-  "settingsPlayerNativeLibassAccelTitle": "Sous-titres natifs libass",
-  "settingsPlayerNativeLibassAccelDesc": "Utiliser le rendu des sous-titres libass du lecteur vidéo",
-  "settingsPlayerMobileWarning": "L'activation de l'accélération matérielle et des sous-titres natifs libass sur Android peut empêcher certains sous-titres de s'afficher.",
-  "settingsPlayerCustomSubtitlesTitle": "Personnaliser les sous-titres",
-  "settingsPlayerCustomSubtitlesDesc": "Personnaliser la taille, la couleur, la position, le contour",
-  "videoScalingFillScreenTitle": "Remplir l'écran",
-  "videoScalingFillScreenDesc": "Remplir la barre de navigation et la barre d'état",
-  "videoScalingFillScreenNotif": "Le remplissage de l'écran écrase l'ajustement de la vidéo, en rotation horizontale",
-  "videoScaling": "Mise à l'échelle de la vidéo",
-  "videoScalingFill": "Remplir",
-  "videoScalingContain": "Contenir",
-  "videoScalingCover": "Couverture",
-  "videoScalingFitWidth": "Ajuster la largeur",
-  "videoScalingFitHeight": "Ajuster la hauteur",
-  "videoScalingScaleDown": "Réduire l'échelle",
-  "subtitleConfiguratorPlaceHolder": "Ceci est un texte de placeholder,\nrien à voir ici.",
-  "subtitleConfigurator": "Configurateur de sous-titres",
   "refreshPopup": "Rafraîchir - {name}",
   "@refreshPopup": {
     "placeholders": {
       "name": {
+        "type": "String"
+      }
+    }
+  },
+  "refreshPopupContentMetadata": "Les métadonnées sont mises à jour en fonction des paramètres et des services Internet activés dans le tableau de bord.",
+  "related": "Lié",
+  "releaseDate": "Date de sortie",
+  "removeAsFavorite": "Retirer des favoris",
+  "removeFromCollection": "Retirer de la collection",
+  "removeFromPlaylist": "Retirer de la playlist",
+  "replaceAllImages": "Remplacer toutes les images",
+  "replaceExistingImages": "Remplacer les images existantes",
+  "restart": "Redémarrer",
+  "result": "Résultat",
+  "resumable": "Reprenable",
+  "resume": "Reprendre {item}",
+  "@resume": {
+    "description": "reprendre",
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "retrievePublicListOfUsers": "Récupérer la liste publique des utilisateurs",
+  "retry": "Réessayer",
+  "runTime": "Durée",
+  "save": "Enregistrer",
+  "saved": "Enregistré",
+  "scanBiometricHint": "Vérifier identité",
+  "scanLibrary": "Scanner la bibliothèque",
+  "scanYourFingerprintToAuthenticate": "Scannez votre empreinte digitale pour authentifier {user}",
+  "@scanYourFingerprintToAuthenticate": {
+    "placeholders": {
+      "user": {
         "type": "String"
       }
     }
@@ -313,258 +454,11 @@
       }
     }
   },
-  "refreshPopupContentMetadata": "Les métadonnées sont mises à jour en fonction des paramètres et des services Internet activés dans le tableau de bord.",
-  "replaceExistingImages": "Remplacer les images existantes",
-  "metadataRefreshDefault": "Rechercher des fichiers nouveaux et mis à jour",
-  "metadataRefreshValidation": "Rechercher des métadonnées manquantes",
-  "metadataRefreshFull": "Remplacer toutes les métadonnées",
-  "syncedItems": "Éléments synchronisés",
-  "noItemsSynced": "Aucun élément synchronisé",
-  "syncDeletePopupPermanent": "Cette action est permanente et supprimera tous les fichiers synchronisés localement",
-  "totalSize": "Taille totale : {size}",
-  "@totalSize": {
-    "placeholders": {
-      "size": {
-        "type": "String"
-      }
-    }
-  },
-  "mediaTypeBase": "Type de base",
-  "mediaTypeMovie": "Film",
-  "mediaTypeSeries": "Série",
-  "mediaTypeSeason": "Saison",
-  "mediaTypeEpisode": "Épisode",
-  "mediaTypePhoto": "Photo",
-  "mediaTypePerson": "Personne",
-  "mediaTypePhotoAlbum": "Album photo",
-  "mediaTypeFolder": "Dossier",
-  "mediaTypeBoxset": "Coffret",
-  "mediaTypePlaylist": "Liste de lecture",
-  "mediaTypeBook": "Livre",
-  "actor": "{count, plural, other{Acteurs} one{Acteur}}",
-  "@actor": {
-    "description": "acteur",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "writer": "{count, plural, other{Écrivains} one{Écrivain}}",
-  "@writer": {
-    "description": "écrivain",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "director": "{count, plural, other{Réalisateurs} one{Réalisateur}}",
-  "@director": {
-    "description": "réalisateur",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "video": "Vidéo",
-  "audio": "Audio",
-  "subtitles": "Sous-titres",
-  "related": "Lié",
-  "all": "Tout",
-  "overview": "Aperçu",
-  "selectViewType": "Sélectionner le type de vue",
-  "noItemsToShow": "Aucun élément à afficher",
-  "sortBy": "Trier par",
-  "groupBy": "Grouper par",
   "scrollToTop": "Défiler vers le haut",
-  "disableFilters": "Désactiver les filtres",
-  "selectAll": "Tout sélectionner",
-  "clearSelection": "Effacer la sélection",
-  "shuffleVideos": "Mélanger les vidéos",
-  "shuffleGallery": "Mélanger la galerie",
-  "unknown": "Inconnu",
-  "favorites": "Favoris",
-  "recursive": "Récursif",
-  "genre": "{count, plural, other{Genres} one{Genre}}",
-  "@genre": {
-    "description": "genre",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "studio": "{count, plural, other{Studios} one{Studio}}",
-  "@studio": {
-    "description": "studio",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "label": "{count, plural, other{Étiquettes} one{Étiquette}}",
-  "@label": {
-    "description": "étiquette",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "group": "Groupe",
-  "type": "{count, plural, other{Types} one{Type}}",
-  "@type": {
-    "description": "type",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "filter": "{count, plural, other{Filtres} one{Filtre}}",
-  "@filter": {
-    "description": "filtre",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "showEmpty": "Afficher vide",
-  "hideEmpty": "Cacher vide",
-  "rating": "{count, plural, other{Notes} one{Note}}",
-  "@rating": {
-    "description": "note",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "year": "{count, plural, other{Années} one{Année}}",
-  "@year": {
-    "description": "année",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "playVideos": "Lire les vidéos",
-  "playLabel": "Lire",
-  "forceRefresh": "Forcer le rafraîchissement",
-  "itemCount": "Nombre d'éléments: {count}",
-  "@itemCount": {
-    "description": "Nombre d'éléments",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "invalidUrl": "URL invalide",
-  "invalidUrlDesc": "L'URL doit commencer par http(s)://",
-  "incorrectPinTryAgain": "PIN incorrect, réessayez",
-  "somethingWentWrongPasswordCheck": "Quelque chose s'est mal passé, vérifiez votre mot de passe",
-  "unableToConnectHost": "Impossible de se connecter à l'hôte",
-  "server": "Serveur",
-  "retrievePublicListOfUsers": "Récupérer la liste publique des utilisateurs",
-  "displayLanguage": "Langue d'affichage",
-  "deleteItem": "Supprimer {item}?",
-  "@deleteItem": {
-    "description": "deleteItem",
-    "placeholders": {
-      "item": {
-        "type": "String"
-      }
-    }
-  },
-  "syncDeleteItemTitle": "Supprimer l'élément synchronisé",
-  "syncDeleteItemDesc": "Supprimer toutes les données synchronisées pour?\n{item}",
-  "@syncDeleteItemDesc": {
-    "description": "Fenêtre contextuelle de suppression d'élément synchronisé",
-    "placeholders": {
-      "item": {
-        "type": "String"
-      }
-    }
-  },
-  "syncOpenParent": "Ouvrir le parent",
-  "syncRemoveDataTitle": "Supprimer les données synchronisées?",
-  "syncRemoveDataDesc": "Supprimer les données vidéo synchronisées? Ceci est permanent et vous devrez resynchroniser les fichiers",
-  "collectionFolder": "Dossier de collection",
-  "musicAlbum": "Album",
-  "active": "Actif",
-  "name": "Nom",
-  "result": "Résultat",
-  "close": "Fermer",
-  "replaceAllImages": "Remplacer toutes les images",
-  "noResults": "Aucun résultat",
-  "openWebLink": "Ouvrir le lien web",
-  "setIdentityTo": "Définir l'identité sur {name}",
-  "@setIdentityTo": {
-    "description": "setIdentityTo",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "somethingWentWrong": "Quelque chose a mal tourné",
-  "clearChanges": "Effacer les modifications",
-  "useDefaults": "Utiliser les paramètres par défaut",
-  "light": "Léger",
-  "normal": "Normal",
-  "bold": "Gras",
-  "fontSize": "Taille de la police",
-  "heightOffset": "Décalage de hauteur",
-  "fontColor": "Couleur de la police",
-  "outlineColor": "Couleur du contour",
-  "outlineSize": "Taille du contour",
-  "backgroundOpacity": "Opacité de l'arrière-plan",
-  "shadow": "Ombre",
-  "played": "Joué",
-  "unPlayed": "Non joué",
-  "resumable": "Reprenable",
-  "sortOrder": "Ordre de tri",
-  "sortName": "Nom",
-  "communityRating": "Évaluation de la communauté",
-  "parentalRating": "Évaluation parentale",
-  "dateAdded": "Date d'ajout",
-  "dateLastContentAdded": "Date du dernier contenu ajouté",
-  "favorite": "Favori",
-  "datePlayed": "Date de lecture",
-  "folders": "Dossiers",
-  "playCount": "Nombre de lectures",
-  "releaseDate": "Date de sortie",
-  "runTime": "Durée",
-  "ascending": "Ascendant",
-  "descending": "Descendant",
-  "playFromStart": "Lire {name} depuis le début",
-  "@playFromStart": {
-    "description": "jouer depuis le début",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "minutes": "{count, plural, other{Minutes} one{Minute}}",
-  "@minutes": {
-    "description": "minute",
+  "search": "Recherche",
+  "season": "{count, plural, other{Saisons} one{Saison}}",
+  "@season": {
+    "description": "saison",
     "placeholders": {
       "count": {
         "type": "int",
@@ -582,23 +476,126 @@
       }
     }
   },
-  "page": "Page {index}",
-  "@page": {
-    "description": "page",
+  "selectAll": "Tout sélectionner",
+  "selectTime": "Sélectionner l'heure",
+  "selectViewType": "Sélectionner le type de vue",
+  "selected": "Sélectionné",
+  "selectedWith": "Sélectionné {info}",
+  "@selectedWith": {
+    "description": "sélectionné",
     "placeholders": {
-      "index": {
-        "type": "int"
+      "info": {
+        "type": "String"
       }
     }
   },
+  "separate": "Séparer",
+  "server": "Serveur",
   "set": "Régler",
   "@set": {
     "description": "Utiliser pour définir une certaine valeur",
     "context": "Régler 'heure'"
   },
-  "never": "Jamais",
-  "selectTime": "Sélectionner l'heure",
-  "immediately": "Immédiatement",
+  "setIdentityTo": "Définir l'identité sur {name}",
+  "@setIdentityTo": {
+    "description": "setIdentityTo",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "settingSecurityApplockTitle": "Verrouillage de l'application",
+  "settings": "Paramètres",
+  "settingsBlurEpisodesDesc": "Flouter tous les épisodes à venir",
+  "settingsBlurEpisodesTitle": "Flouter les prochains épisodes",
+  "settingsBlurredPlaceholderDesc": "Afficher un arrière-plan flou lors du chargement des affiches",
+  "settingsBlurredPlaceholderTitle": "Placeholder flou",
+  "settingsClientDesc": "Général, Timeout, Disposition, Thème",
+  "settingsClientTitle": "Fladder",
+  "settingsContinue": "Continuer",
+  "settingsEnableOsMediaControls": "Activer les contrôles multimédia de l'OS",
+  "settingsHomeCarouselDesc": "Affiche un carrousel sur l'écran du tableau de bord",
+  "settingsHomeCarouselTitle": "Carrousel du tableau de bord",
+  "settingsHomeNextUpDesc": "Type d'affiches affichées sur l'écran du tableau de bord",
+  "settingsHomeNextUpTitle": "Affiches à venir",
+  "settingsNextUpCutoffDays": "Jours de coupure suivants",
+  "settingsPlayerCustomSubtitlesDesc": "Personnaliser la taille, la couleur, la position, le contour",
+  "settingsPlayerCustomSubtitlesTitle": "Personnaliser les sous-titres",
+  "settingsPlayerDesc": "Ratio, Avancé",
+  "settingsPlayerMobileWarning": "L'activation de l'accélération matérielle et des sous-titres natifs libass sur Android peut empêcher certains sous-titres de s'afficher.",
+  "settingsPlayerNativeLibassAccelDesc": "Utiliser le rendu des sous-titres libass du lecteur vidéo",
+  "settingsPlayerNativeLibassAccelTitle": "Sous-titres natifs libass",
+  "settingsPlayerTitle": "Lecteur",
+  "settingsPlayerVideoHWAccelDesc": "Utiliser le GPU pour rendre la vidéo (recommandé)",
+  "settingsPlayerVideoHWAccelTitle": "Accélération matérielle",
+  "settingsPosterPinch": "Pincer pour zoomer pour mettre à l'échelle les affiches",
+  "settingsPosterSize": "Taille de l'affiche",
+  "settingsPosterSlider": "Afficher le curseur de mise à l'échelle",
+  "settingsProfileDesc": "Écran de verrouillage",
+  "settingsProfileTitle": "Profil",
+  "settingsQuickConnectTitle": "Connexion rapide",
+  "settingsSecurity": "Sécurité",
+  "settingsShowScaleSlider": "Afficher le curseur de taille des affiches",
+  "settingsVisual": "Visuel",
+  "shadow": "Ombre",
+  "showAlbum": "Afficher l'album",
+  "showDetails": "Afficher les détails",
+  "showEmpty": "Afficher vide",
+  "shuffleGallery": "Mélanger la galerie",
+  "shuffleVideos": "Mélanger les vidéos",
+  "somethingWentWrong": "Quelque chose a mal tourné",
+  "somethingWentWrongPasswordCheck": "Quelque chose s'est mal passé, vérifiez votre mot de passe",
+  "sortBy": "Trier par",
+  "sortName": "Nom",
+  "sortOrder": "Ordre de tri",
+  "start": "Commencer",
+  "studio": "{count, plural, other{Studios} one{Studio}}",
+  "@studio": {
+    "description": "studio",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "subtitleConfigurator": "Configurateur de sous-titres",
+  "subtitleConfiguratorPlaceHolder": "Ceci est un texte de placeholder,\nrien à voir ici.",
+  "subtitles": "Sous-titres",
+  "switchUser": "Changer d'utilisateur",
+  "sync": "Synchroniser",
+  "syncDeleteItemDesc": "Supprimer toutes les données synchronisées pour?\n{item}",
+  "@syncDeleteItemDesc": {
+    "description": "Fenêtre contextuelle de suppression d'élément synchronisé",
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "syncDeleteItemTitle": "Supprimer l'élément synchronisé",
+  "syncDeletePopupPermanent": "Cette action est permanente et supprimera tous les fichiers synchronisés localement",
+  "syncDetails": "Synchroniser les détails",
+  "syncOpenParent": "Ouvrir le parent",
+  "syncRemoveDataDesc": "Supprimer les données vidéo synchronisées? Ceci est permanent et vous devrez resynchroniser les fichiers",
+  "syncRemoveDataTitle": "Supprimer les données synchronisées?",
+  "syncedItems": "Éléments synchronisés",
+  "tag": "{count, plural, one{Étiquette} other{Étiquettes}}",
+  "@tag": {
+    "description": "étiquette",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "theme": "Thème",
+  "themeColor": "Couleur du thème",
+  "themeModeDark": "Sombre",
+  "themeModeLight": "Clair",
+  "themeModeSystem": "Système",
   "timeAndAnnotation": "{minutes} et {seconds}",
   "@timeAndAnnotation": {
     "description": "timeAndAnnotation",
@@ -611,47 +608,18 @@
       }
     }
   },
-  "scanYourFingerprintToAuthenticate": "Scannez votre empreinte digitale pour authentifier {user}",
-  "@scanYourFingerprintToAuthenticate": {
+  "timeOut": "Timeout",
+  "totalSize": "Taille totale : {size}",
+  "@totalSize": {
     "placeholders": {
-      "user": {
+      "size": {
         "type": "String"
       }
     }
   },
-  "scanBiometricHint": "Vérifier identité",
-  "deleteFileFromSystem": "Supprimer cet élément {item} le supprimera à la fois du système de fichiers et de votre bibliothèque multimédia.\nÊtes-vous sûr de vouloir continuer?",
-  "@deleteFileFromSystem": {
-    "description": "Supprimer le fichier du système",
-    "placeholders": {
-      "item": {
-        "type": "String"
-      }
-    }
-  },
-  "notPartOfAlbum": "Ne fait pas partie d'un album",
-  "retry": "Réessayer",
-  "failedToLoadImage": "Échec du chargement de l'image",
-  "save": "Enregistrer",
-  "metaDataSavedFor": "Métadonnées enregistrées pour {item}",
-  "@metaDataSavedFor": {
-    "description": "métadonnéesEnregistréesPour",
-    "placeholders": {
-      "item": {
-        "type": "String"
-      }
-    }
-  },
-  "libraryPageSizeTitle": "Taille de la page de la bibliothèque",
-  "libraryPageSizeDesc": "Définir la quantité à charger à la fois. 0 désactive la pagination.",
-  "fetchingLibrary": "Chargement des éléments de la bibliothèque",
-  "libraryFetchNoItemsFound": "Aucun élément trouvé, essayez avec des paramètres différents.",
-  "noSuggestionsFound": "Aucune suggestion trouvée",
-  "viewPhotos": "Voir les photos",
-  "random": "Aléatoire",
-  "tag": "{count, plural, one{Étiquette} other{Étiquettes}}",
-  "@tag": {
-    "description": "étiquette",
+  "type": "{count, plural, other{Types} one{Type}}",
+  "@type": {
+    "description": "type",
     "placeholders": {
       "count": {
         "type": "int",
@@ -659,11 +627,43 @@
       }
     }
   },
-  "saved": "Enregistré",
-  "discovered": "Découvert",
-  "noServersFound": "Aucun nouveau serveur trouvé",
-  "about": "À propos",
-  "openParent": "Ouvrir le dossier parent",
-  "mouseDragSupport": "Faire glisser avec la souris",
-  "controls": "Commandes"
+  "unPlayed": "Non joué",
+  "unableToConnectHost": "Impossible de se connecter à l'hôte",
+  "unableToReverseAction": "Cette action ne peut pas être annulée, elle supprimera tous les paramètres.",
+  "unknown": "Inconnu",
+  "useDefaults": "Utiliser les paramètres par défaut",
+  "userName": "Nom d'utilisateur",
+  "video": "Vidéo",
+  "videoScaling": "Mise à l'échelle de la vidéo",
+  "videoScalingContain": "Contenir",
+  "videoScalingCover": "Couverture",
+  "videoScalingFill": "Remplir",
+  "videoScalingFillScreenDesc": "Remplir la barre de navigation et la barre d'état",
+  "videoScalingFillScreenNotif": "Le remplissage de l'écran écrase l'ajustement de la vidéo, en rotation horizontale",
+  "videoScalingFillScreenTitle": "Remplir l'écran",
+  "videoScalingFitHeight": "Ajuster la hauteur",
+  "videoScalingFitWidth": "Ajuster la largeur",
+  "videoScalingScaleDown": "Réduire l'échelle",
+  "viewPhotos": "Voir les photos",
+  "watchOn": "Regarder sur",
+  "writer": "{count, plural, other{Écrivains} one{Écrivain}}",
+  "@writer": {
+    "description": "écrivain",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "year": "{count, plural, other{Années} one{Année}}",
+  "@year": {
+    "description": "année",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  }
 }

@@ -1,42 +1,340 @@
 {
   "@@locale": "zh",
-  "switchUser": "切换用户",
-  "userName": "用户名",
-  "password": "密码",
-  "login": "登录",
-  "logout": "登出",
-  "cancel": "取消",
+  "about": "关于",
   "accept": "接受",
-  "code": "代码",
-  "error": "错误",
-  "clear": "清除",
-  "days": "天",
-  "search": "搜索",
-  "loggedIn": "已登录",
-  "change": "更改",
-  "other": "其他",
-  "dynamicText": "动态",
-  "enabled": "启用",
-  "disabled": "禁用",
-  "dashboard": "仪表板",
+  "active": "活跃",
+  "actor": "{count, plural, other{演员} one{演员}}",
+  "@actor": {
+    "description": "演员",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "addAsFavorite": "添加为收藏",
+  "addToCollection": "添加到收藏",
+  "addToPlaylist": "添加到播放列表",
   "advanced": "高级",
-  "refresh": "刷新",
-  "delete": "删除",
-  "goTo": "去往",
-  "loop": "循环",
-  "empty": "空",
-  "noRating": "无评分",
-  "backgroundBlur": "背景模糊",
+  "all": "全部",
+  "amoledBlack": "Amoled 黑色",
+  "appLockAutoLogin": "自动登录",
+  "appLockBiometrics": "生物识别",
+  "appLockPasscode": "密码",
+  "appLockTitle": "设置 {userName} 的登录方式",
+  "@appLockTitle": {
+    "description": "选择登录方式的弹窗",
+    "placeholders": {
+      "userName": {
+        "type": "String"
+      }
+    }
+  },
+  "ascending": "升序",
+  "audio": "音频",
   "autoPlay": "自动播放",
-  "resume": "继续 {item}",
-  "@resume": {
-    "description": "继续",
+  "backgroundBlur": "背景模糊",
+  "backgroundOpacity": "背景不透明度",
+  "biometricsFailedCheckAgain": "生物识别失败，请检查设置并重试",
+  "bold": "粗体",
+  "cancel": "取消",
+  "change": "更改",
+  "chapter": "{count, plural, other{章节} one{章节}}",
+  "@chapter": {
+    "description": "章节",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "clear": "清除",
+  "clearAllSettings": "清除所有设置",
+  "clearAllSettingsQuestion": "清除所有设置？",
+  "clearChanges": "清除更改",
+  "clearSelection": "清除选择",
+  "close": "关闭",
+  "code": "代码",
+  "collectionFolder": "收藏夹",
+  "color": "颜色",
+  "combined": "组合",
+  "communityRating": "社区评分",
+  "continuePage": "继续 - 第 {page} 页",
+  "@continuePage": {
+    "description": "继续 - 第 1 页",
+    "placeholders": {
+      "page": {
+        "type": "int"
+      }
+    }
+  },
+  "controls": "控制",
+  "dashboard": "仪表板",
+  "dashboardContinue": "继续",
+  "dashboardContinueListening": "继续听",
+  "dashboardContinueReading": "继续阅读",
+  "dashboardContinueWatching": "继续观看",
+  "dashboardNextUp": "下一个",
+  "dashboardRecentlyAdded": "最近添加于 {name}",
+  "@dashboardRecentlyAdded": {
+    "description": "最近添加到首页",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "dateAdded": "添加日期",
+  "dateLastContentAdded": "最后添加内容的日期",
+  "datePlayed": "播放日期",
+  "days": "天",
+  "delete": "删除",
+  "deleteFileFromSystem": "删除此项目 {item} 将从文件系统和您的媒体库中删除它。\n您确定要继续吗？",
+  "@deleteFileFromSystem": {
+    "description": "从系统中删除文件",
     "placeholders": {
       "item": {
         "type": "String"
       }
     }
   },
+  "deleteItem": "删除 {item}?",
+  "@deleteItem": {
+    "description": "deleteItem",
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "descending": "降序",
+  "director": "{count, plural, other{导演} one{导演}}",
+  "@director": {
+    "description": "导演",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "disableFilters": "禁用过滤器",
+  "disabled": "禁用",
+  "discovered": "已发现",
+  "displayLanguage": "显示语言 (显示语言)",
+  "downloadsClearDesc": "你确定要删除所有同步数据吗？\n这将清除每个同步用户的所有数据！",
+  "downloadsClearTitle": "清除同步数据",
+  "downloadsPath": "路径",
+  "downloadsSyncedData": "同步数据",
+  "downloadsTitle": "下载",
+  "dynamicText": "动态",
+  "editMetadata": "编辑元数据",
+  "empty": "空",
+  "enabled": "启用",
+  "episode": "{count, plural, other{集} one{集}}",
+  "@episode": {
+    "description": "集",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "error": "错误",
+  "failedToLoadImage": "加载图像失败",
+  "favorite": "收藏",
+  "favorites": "收藏",
+  "fetchingLibrary": "正在获取库项目",
+  "filter": "{count, plural, other{过滤器} one{过滤器}}",
+  "@filter": {
+    "description": "过滤器",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "folders": "文件夹",
+  "fontColor": "字体颜色",
+  "fontSize": "字体大小",
+  "forceRefresh": "强制刷新",
+  "genre": "{count, plural, other{类型} one{类型}}",
+  "@genre": {
+    "description": "类型",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "goTo": "去往",
+  "grid": "网格",
+  "group": "组",
+  "groupBy": "分组依据",
+  "heightOffset": "高度偏移",
+  "hide": "隐藏",
+  "hideEmpty": "隐藏空",
+  "home": "主页",
+  "identify": "识别",
+  "immediately": "立即",
+  "incorrectPinTryAgain": "错误的 PIN，请重试",
+  "info": "信息",
+  "invalidUrl": "无效的 URL",
+  "invalidUrlDesc": "URL 必须以 http(s):// 开头",
+  "itemCount": "项目数：{count}",
+  "@itemCount": {
+    "description": "项目数",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "label": "{count, plural, other{标签} one{标签}}",
+  "@label": {
+    "description": "标签",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "library": "{count, plural, other{库} one{库}}",
+  "@library": {
+    "description": "复数",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "libraryFetchNoItemsFound": "未找到项目，请尝试不同的设置。",
+  "libraryPageSizeDesc": "设置每次加载的数量。0 禁用分页。",
+  "libraryPageSizeTitle": "库页面大小",
+  "light": "浅色",
+  "list": "列表",
+  "lockscreen": "锁屏",
+  "loggedIn": "已登录",
+  "login": "登录",
+  "logout": "登出",
+  "logoutUserPopupContent": "这将登出 {userName} 并从应用程序中删除用户。\n你需要重新登录到 {serverName}。",
+  "@logoutUserPopupContent": {
+    "description": "登出用户的弹窗描述",
+    "placeholders": {
+      "userName": {
+        "type": "String"
+      },
+      "serverName": {
+        "type": "String"
+      }
+    }
+  },
+  "logoutUserPopupTitle": "登出用户 {userName}？",
+  "@logoutUserPopupTitle": {
+    "description": "登出用户的弹窗",
+    "placeholders": {
+      "userName": {
+        "type": "String"
+      }
+    }
+  },
+  "loop": "循环",
+  "markAsUnwatched": "标记为未观看",
+  "markAsWatched": "标记为已观看",
+  "masonry": "砖石",
+  "mediaTypeBase": "基础类型",
+  "mediaTypeBook": "书籍",
+  "mediaTypeBoxset": "套装",
+  "mediaTypeEpisode": "集",
+  "mediaTypeFolder": "文件夹",
+  "mediaTypeMovie": "电影",
+  "mediaTypePerson": "人物",
+  "mediaTypePhoto": "照片",
+  "mediaTypePhotoAlbum": "相册",
+  "mediaTypePlaylist": "播放列表",
+  "mediaTypeSeason": "季",
+  "mediaTypeSeries": "系列",
+  "metaDataSavedFor": "{item} 的元数据已保存",
+  "@metaDataSavedFor": {
+    "description": "元数据已保存",
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "metadataRefreshDefault": "扫描新文件和更新的文件",
+  "metadataRefreshFull": "替换所有元数据",
+  "metadataRefreshValidation": "搜索缺失的元数据",
+  "minutes": "分钟",
+  "@minutes": {
+    "description": "分钟",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "mode": "模式",
+  "moreFrom": "更多来自 {info}",
+  "@moreFrom": {
+    "description": "更多来自",
+    "placeholders": {
+      "info": {
+        "type": "String"
+      }
+    }
+  },
+  "moreOptions": "更多选项",
+  "mouseDragSupport": "使用鼠标拖动",
+  "musicAlbum": "专辑",
+  "name": "名称",
+  "navigation": "导航",
+  "navigationDashboard": "仪表板",
+  "navigationFavorites": "收藏夹",
+  "navigationSync": "已同步",
+  "never": "从不",
+  "nextUp": "下一个",
+  "noItemsSynced": "没有同步项目",
+  "noItemsToShow": "没有可显示的项目",
+  "noRating": "无评分",
+  "noResults": "没有结果",
+  "noServersFound": "未找到新服务器",
+  "noSuggestionsFound": "未找到建议",
+  "none": "无",
+  "normal": "正常",
+  "notPartOfAlbum": "不属于专辑的一部分",
+  "openParent": "打开上级文件夹",
+  "openShow": "打开节目",
+  "openWebLink": "打开网页链接",
+  "options": "选项",
+  "other": "其他",
+  "outlineColor": "轮廓颜色",
+  "outlineSize": "轮廓大小",
+  "overview": "概述",
+  "page": "第 {index} 页",
+  "@page": {
+    "description": "页数",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "parentalRating": "家长评级",
+  "password": "密码",
+  "pathClearTitle": "清除下载路径",
+  "pathEditDesc": "此位置设置适用于所有用户，任何同步的数据将不再可访问。\n它将保留在你的存储中。",
+  "pathEditSelect": "选择下载目标",
+  "pathEditTitle": "更改位置",
   "play": "播放 {item}",
   "@play": {
     "description": "播放",
@@ -46,6 +344,44 @@
       }
     }
   },
+  "playCount": "播放次数",
+  "playFrom": "从 {name} 开始播放",
+  "@playFrom": {
+    "description": "从...开始播放",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "playFromStart": "从头播放 {name}",
+  "@playFromStart": {
+    "description": "从头播放",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "playLabel": "播放",
+  "playVideos": "播放视频",
+  "played": "已播放",
+  "quickConnectAction": "输入快速连接代码",
+  "quickConnectInputACode": "输入代码",
+  "quickConnectTitle": "快速连接",
+  "quickConnectWrongCode": "错误的代码",
+  "random": "随机",
+  "rating": "{count, plural, other{评分} one{评分}}",
+  "@rating": {
+    "description": "评分",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "reWatch": "重新观看",
   "read": "阅读 {item}",
   "@read": {
     "description": "阅读",
@@ -64,243 +400,48 @@
       }
     }
   },
-  "playFrom": "从 {name} 开始播放",
-  "@playFrom": {
-    "description": "从...开始播放",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "moreFrom": "更多来自 {info}",
-  "@moreFrom": {
-    "description": "更多来自",
-    "placeholders": {
-      "info": {
-        "type": "String"
-      }
-    }
-  },
-  "selectedWith": "选择了 {info}",
-  "@selectedWith": {
-    "description": "选择",
-    "placeholders": {
-      "info": {
-        "type": "String"
-      }
-    }
-  },
-  "selected": "已选择",
-  "restart": "重新开始",
-  "reWatch": "重新观看",
-  "watchOn": "观看于",
-  "options": "选项",
-  "list": "列表",
-  "grid": "网格",
-  "masonry": "砖石",
-  "start": "开始",
-  "none": "无",
-  "chapter": "{count, plural, other{章节} one{章节}}",
-  "@chapter": {
-    "description": "章节",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "sync": "同步",
-  "moreOptions": "更多选项",
-  "continuePage": "继续 - 第 {page} 页",
-  "@continuePage": {
-    "description": "继续 - 第 1 页",
-    "placeholders": {
-      "page": {
-        "type": "int"
-      }
-    }
-  },
-  "openShow": "打开节目",
-  "showDetails": "显示详情",
-  "showAlbum": "显示相册",
-  "season": "{count, plural, other{季} one{季}}",
-  "@season": {
-    "description": "季",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "episode": "{count, plural, other{集} one{集}}",
-  "@episode": {
-    "description": "集",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "addToCollection": "添加到收藏",
-  "addToPlaylist": "添加到播放列表",
-  "removeFromCollection": "从收藏中删除",
-  "removeFromPlaylist": "从播放列表中删除",
-  "markAsWatched": "标记为已观看",
-  "markAsUnwatched": "标记为未观看",
-  "removeAsFavorite": "取消收藏",
-  "addAsFavorite": "添加为收藏",
-  "editMetadata": "编辑元数据",
+  "recursive": "递归",
+  "refresh": "刷新",
   "refreshMetadata": "刷新元数据",
-  "syncDetails": "同步详情",
-  "identify": "识别",
-  "info": "信息",
-  "clearAllSettings": "清除所有设置",
-  "clearAllSettingsQuestion": "清除所有设置？",
-  "unableToReverseAction": "此操作无法撤销，它将删除所有设置。",
-  "navigationDashboard": "仪表板",
-  "navigationFavorites": "收藏夹",
-  "navigationSync": "已同步",
-  "navigation": "导航",
-  "library": "{count, plural, other{库} one{库}}",
-  "@library": {
-    "description": "复数",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "scanLibrary": "扫描库",
-  "dashboardContinue": "继续",
-  "dashboardContinueWatching": "继续观看",
-  "dashboardContinueReading": "继续阅读",
-  "dashboardContinueListening": "继续听",
-  "dashboardNextUp": "下一个",
-  "dashboardRecentlyAdded": "最近添加于 {name}",
-  "@dashboardRecentlyAdded": {
-    "description": "最近添加到首页",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "settings": "设置",
-  "settingsClientTitle": "Fladder",
-  "settingsClientDesc": "常规，超时，布局，主题",
-  "settingsQuickConnectTitle": "快速连接",
-  "settingsProfileTitle": "个人资料",
-  "settingsProfileDesc": "锁屏",
-  "settingsPlayerTitle": "播放器",
-  "settingsPlayerDesc": "纵横比，高级",
-  "logoutUserPopupTitle": "登出用户 {userName}？",
-  "@logoutUserPopupTitle": {
-    "description": "登出用户的弹窗",
-    "placeholders": {
-      "userName": {
-        "type": "String"
-      }
-    }
-  },
-  "logoutUserPopupContent": "这将登出 {userName} 并从应用程序中删除用户。\n你需要重新登录到 {serverName}。",
-  "@logoutUserPopupContent": {
-    "description": "登出用户的弹窗描述",
-    "placeholders": {
-      "userName": {
-        "type": "String"
-      },
-      "serverName": {
-        "type": "String"
-      }
-    }
-  },
-  "quickConnectTitle": "快速连接",
-  "quickConnectAction": "输入快速连接代码",
-  "quickConnectInputACode": "输入代码",
-  "quickConnectWrongCode": "错误的代码",
-  "downloadsTitle": "下载",
-  "downloadsPath": "路径",
-  "pathEditTitle": "更改位置",
-  "pathEditSelect": "选择下载目标",
-  "pathClearTitle": "清除下载路径",
-  "pathEditDesc": "此位置设置适用于所有用户，任何同步的数据将不再可访问。\n它将保留在你的存储中。",
-  "downloadsSyncedData": "同步数据",
-  "downloadsClearTitle": "清除同步数据",
-  "downloadsClearDesc": "你确定要删除所有同步数据吗？\n这将清除每个同步用户的所有数据！",
-  "lockscreen": "锁屏",
-  "timeOut": "超时",
-  "home": "主页",
-  "settingsHomeCarouselTitle": "仪表板轮播",
-  "settingsHomeCarouselDesc": "在仪表板屏幕上显示轮播",
-  "settingsHomeNextUpTitle": "下一个海报",
-  "settingsHomeNextUpDesc": "仪表板屏幕上显示的海报类型",
-  "settingsVisual": "视觉",
-  "settingsBlurredPlaceholderTitle": "模糊的占位符",
-  "settingsBlurredPlaceholderDesc": "加载海报时显示模糊的背景",
-  "settingsBlurEpisodesTitle": "模糊下一个集数",
-  "settingsBlurEpisodesDesc": "模糊所有即将播放的集数",
-  "settingsEnableOsMediaControls": "启用操作系统媒体控制",
-  "settingsNextUpCutoffDays": "下一个截止天数",
-  "settingsShowScaleSlider": "显示海报大小滑块",
-  "settingsPosterSize": "海报大小",
-  "settingsPosterSlider": "显示比例滑块",
-  "settingsPosterPinch": "捏合缩放以调整海报大小",
-  "theme": "主题",
-  "mode": "模式",
-  "themeModeSystem": "系统",
-  "themeModeLight": "浅色",
-  "themeModeDark": "深色",
-  "themeColor": "主题颜色",
-  "color": "颜色",
-  "amoledBlack": "Amoled 黑色",
-  "hide": "隐藏",
-  "nextUp": "下一个",
-  "settingsContinue": "继续",
-  "separate": "分开",
-  "combined": "组合",
-  "settingsSecurity": "安全",
-  "settingSecurityApplockTitle": "应用锁",
-  "appLockTitle": "设置 {userName} 的登录方式",
-  "@appLockTitle": {
-    "description": "选择登录方式的弹窗",
-    "placeholders": {
-      "userName": {
-        "type": "String"
-      }
-    }
-  },
-  "biometricsFailedCheckAgain": "生物识别失败，请检查设置并重试",
-  "appLockAutoLogin": "自动登录",
-  "appLockPasscode": "密码",
-  "appLockBiometrics": "生物识别",
-  "settingsPlayerVideoHWAccelTitle": "硬件加速",
-  "settingsPlayerVideoHWAccelDesc": "使用 GPU 渲染视频（推荐）",
-  "settingsPlayerNativeLibassAccelTitle": "本地 libass 字幕",
-  "settingsPlayerNativeLibassAccelDesc": "使用视频播放器 libass 字幕渲染器",
-  "settingsPlayerMobileWarning": "在 Android 上启用硬件加速和本地 libass 字幕可能会导致某些字幕无法渲染。",
-  "settingsPlayerCustomSubtitlesTitle": "自定义字幕",
-  "settingsPlayerCustomSubtitlesDesc": "自定义大小、颜色、位置、轮廓",
-  "videoScalingFillScreenTitle": "填满屏幕",
-  "videoScalingFillScreenDesc": "填充导航栏和状态栏",
-  "videoScalingFillScreenNotif": "全屏覆盖视频适应，在水平旋转中",
-  "videoScaling": "视频缩放",
-  "videoScalingFill": "填充",
-  "videoScalingContain": "包含",
-  "videoScalingCover": "覆盖",
-  "videoScalingFitWidth": "适应宽度",
-  "videoScalingFitHeight": "适应高度",
-  "videoScalingScaleDown": "缩小",
-  "subtitleConfiguratorPlaceHolder": "这是占位符文本，\n这里没有什么可看的。",
-  "subtitleConfigurator": "字幕配置器",
   "refreshPopup": "刷新 - {name}",
   "@refreshPopup": {
     "placeholders": {
       "name": {
+        "type": "String"
+      }
+    }
+  },
+  "refreshPopupContentMetadata": "根据仪表板中启用的设置和互联网服务刷新元数据。",
+  "related": "相关",
+  "releaseDate": "发布日期",
+  "removeAsFavorite": "取消收藏",
+  "removeFromCollection": "从收藏中删除",
+  "removeFromPlaylist": "从播放列表中删除",
+  "replaceAllImages": "替换所有图像",
+  "replaceExistingImages": "替换现有图像",
+  "restart": "重新开始",
+  "result": "结果",
+  "resumable": "可恢复",
+  "resume": "继续 {item}",
+  "@resume": {
+    "description": "继续",
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "retrievePublicListOfUsers": "检索公共用户列表",
+  "retry": "重试",
+  "runTime": "运行时间",
+  "save": "保存",
+  "saved": "已保存",
+  "scanBiometricHint": "验证身份",
+  "scanLibrary": "扫描库",
+  "scanYourFingerprintToAuthenticate": "扫描您的指纹以验证 {user}",
+  "@scanYourFingerprintToAuthenticate": {
+    "placeholders": {
+      "user": {
         "type": "String"
       }
     }
@@ -313,258 +454,11 @@
       }
     }
   },
-  "refreshPopupContentMetadata": "根据仪表板中启用的设置和互联网服务刷新元数据。",
-  "replaceExistingImages": "替换现有图像",
-  "metadataRefreshDefault": "扫描新文件和更新的文件",
-  "metadataRefreshValidation": "搜索缺失的元数据",
-  "metadataRefreshFull": "替换所有元数据",
-  "syncedItems": "同步项目",
-  "noItemsSynced": "没有同步项目",
-  "syncDeletePopupPermanent": "此操作是永久性的，将删除所有本地同步的文件",
-  "totalSize": "总大小：{size}",
-  "@totalSize": {
-    "placeholders": {
-      "size": {
-        "type": "String"
-      }
-    }
-  },
-  "mediaTypeBase": "基础类型",
-  "mediaTypeMovie": "电影",
-  "mediaTypeSeries": "系列",
-  "mediaTypeSeason": "季",
-  "mediaTypeEpisode": "集",
-  "mediaTypePhoto": "照片",
-  "mediaTypePerson": "人物",
-  "mediaTypePhotoAlbum": "相册",
-  "mediaTypeFolder": "文件夹",
-  "mediaTypeBoxset": "套装",
-  "mediaTypePlaylist": "播放列表",
-  "mediaTypeBook": "书籍",
-  "actor": "{count, plural, other{演员} one{演员}}",
-  "@actor": {
-    "description": "演员",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "writer": "{count, plural, other{作家} one{作家}}",
-  "@writer": {
-    "description": "作家",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "director": "{count, plural, other{导演} one{导演}}",
-  "@director": {
-    "description": "导演",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "video": "视频",
-  "audio": "音频",
-  "subtitles": "字幕",
-  "related": "相关",
-  "all": "全部",
-  "overview": "概述",
-  "selectViewType": "选择查看类型",
-  "noItemsToShow": "没有可显示的项目",
-  "sortBy": "排序方式",
-  "groupBy": "分组依据",
   "scrollToTop": "滚动到顶部",
-  "disableFilters": "禁用过滤器",
-  "selectAll": "全选",
-  "clearSelection": "清除选择",
-  "shuffleVideos": "随机播放视频",
-  "shuffleGallery": "随机播放图库",
-  "unknown": "未知",
-  "favorites": "收藏",
-  "recursive": "递归",
-  "genre": "{count, plural, other{类型} one{类型}}",
-  "@genre": {
-    "description": "类型",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "studio": "{count, plural, other{工作室} one{工作室}}",
-  "@studio": {
-    "description": "工作室",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "label": "{count, plural, other{标签} one{标签}}",
-  "@label": {
-    "description": "标签",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "group": "组",
-  "type": "{count, plural, other{类型} one{类型}}",
-  "@type": {
-    "description": "类型",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "filter": "{count, plural, other{过滤器} one{过滤器}}",
-  "@filter": {
-    "description": "过滤器",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "showEmpty": "显示空",
-  "hideEmpty": "隐藏空",
-  "rating": "{count, plural, other{评分} one{评分}}",
-  "@rating": {
-    "description": "评分",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "year": "{count, plural, other{年} one{年}}",
-  "@year": {
-    "description": "年",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "playVideos": "播放视频",
-  "playLabel": "播放",
-  "forceRefresh": "强制刷新",
-  "itemCount": "项目数：{count}",
-  "@itemCount": {
-    "description": "项目数",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "invalidUrl": "无效的 URL",
-  "invalidUrlDesc": "URL 必须以 http(s):// 开头",
-  "incorrectPinTryAgain": "错误的 PIN，请重试",
-  "somethingWentWrongPasswordCheck": "出了点问题，请检查您的密码",
-  "unableToConnectHost": "无法连接到主机",
-  "server": "服务器",
-  "retrievePublicListOfUsers": "检索公共用户列表",
-  "displayLanguage": "显示语言 (显示语言)",
-  "deleteItem": "删除 {item}?",
-  "@deleteItem": {
-    "description": "deleteItem",
-    "placeholders": {
-      "item": {
-        "type": "String"
-      }
-    }
-  },
-  "syncDeleteItemTitle": "删除同步的项目",
-  "syncDeleteItemDesc": "删除所有同步数据？\n{item}",
-  "@syncDeleteItemDesc": {
-    "description": "同步删除项目弹出窗口",
-    "placeholders": {
-      "item": {
-        "type": "String"
-      }
-    }
-  },
-  "syncOpenParent": "打开父级",
-  "syncRemoveDataTitle": "删除同步的数据？",
-  "syncRemoveDataDesc": "删除同步的视频数据？这是永久性的，您需要重新同步文件",
-  "collectionFolder": "收藏夹",
-  "musicAlbum": "专辑",
-  "active": "活跃",
-  "name": "名称",
-  "result": "结果",
-  "close": "关闭",
-  "replaceAllImages": "替换所有图像",
-  "noResults": "没有结果",
-  "openWebLink": "打开网页链接",
-  "setIdentityTo": "设置身份为 {name}",
-  "@setIdentityTo": {
-    "description": "setIdentityTo",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "somethingWentWrong": "出了些问题",
-  "clearChanges": "清除更改",
-  "useDefaults": "使用默认值",
-  "light": "浅色",
-  "normal": "正常",
-  "bold": "粗体",
-  "fontSize": "字体大小",
-  "heightOffset": "高度偏移",
-  "fontColor": "字体颜色",
-  "outlineColor": "轮廓颜色",
-  "outlineSize": "轮廓大小",
-  "backgroundOpacity": "背景不透明度",
-  "shadow": "阴影",
-  "played": "已播放",
-  "unPlayed": "未播放",
-  "resumable": "可恢复",
-  "sortOrder": "排序顺序",
-  "sortName": "名称",
-  "communityRating": "社区评分",
-  "parentalRating": "家长评级",
-  "dateAdded": "添加日期",
-  "dateLastContentAdded": "最后添加内容的日期",
-  "favorite": "收藏",
-  "datePlayed": "播放日期",
-  "folders": "文件夹",
-  "playCount": "播放次数",
-  "releaseDate": "发布日期",
-  "runTime": "运行时间",
-  "ascending": "升序",
-  "descending": "降序",
-  "playFromStart": "从头播放 {name}",
-  "@playFromStart": {
-    "description": "从头播放",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "minutes": "分钟",
-  "@minutes": {
-    "description": "分钟",
+  "search": "搜索",
+  "season": "{count, plural, other{季} one{季}}",
+  "@season": {
+    "description": "季",
     "placeholders": {
       "count": {
         "type": "int",
@@ -582,23 +476,126 @@
       }
     }
   },
-  "page": "第 {index} 页",
-  "@page": {
-    "description": "页数",
+  "selectAll": "全选",
+  "selectTime": "选择时间",
+  "selectViewType": "选择查看类型",
+  "selected": "已选择",
+  "selectedWith": "选择了 {info}",
+  "@selectedWith": {
+    "description": "选择",
     "placeholders": {
-      "index": {
-        "type": "int"
+      "info": {
+        "type": "String"
       }
     }
   },
+  "separate": "分开",
+  "server": "服务器",
   "set": "设置",
   "@set": {
     "description": "用于设置某个值",
     "context": "设置时间"
   },
-  "never": "从不",
-  "selectTime": "选择时间",
-  "immediately": "立即",
+  "setIdentityTo": "设置身份为 {name}",
+  "@setIdentityTo": {
+    "description": "setIdentityTo",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "settingSecurityApplockTitle": "应用锁",
+  "settings": "设置",
+  "settingsBlurEpisodesDesc": "模糊所有即将播放的集数",
+  "settingsBlurEpisodesTitle": "模糊下一个集数",
+  "settingsBlurredPlaceholderDesc": "加载海报时显示模糊的背景",
+  "settingsBlurredPlaceholderTitle": "模糊的占位符",
+  "settingsClientDesc": "常规，超时，布局，主题",
+  "settingsClientTitle": "Fladder",
+  "settingsContinue": "继续",
+  "settingsEnableOsMediaControls": "启用操作系统媒体控制",
+  "settingsHomeCarouselDesc": "在仪表板屏幕上显示轮播",
+  "settingsHomeCarouselTitle": "仪表板轮播",
+  "settingsHomeNextUpDesc": "仪表板屏幕上显示的海报类型",
+  "settingsHomeNextUpTitle": "下一个海报",
+  "settingsNextUpCutoffDays": "下一个截止天数",
+  "settingsPlayerCustomSubtitlesDesc": "自定义大小、颜色、位置、轮廓",
+  "settingsPlayerCustomSubtitlesTitle": "自定义字幕",
+  "settingsPlayerDesc": "纵横比，高级",
+  "settingsPlayerMobileWarning": "在 Android 上启用硬件加速和本地 libass 字幕可能会导致某些字幕无法渲染。",
+  "settingsPlayerNativeLibassAccelDesc": "使用视频播放器 libass 字幕渲染器",
+  "settingsPlayerNativeLibassAccelTitle": "本地 libass 字幕",
+  "settingsPlayerTitle": "播放器",
+  "settingsPlayerVideoHWAccelDesc": "使用 GPU 渲染视频（推荐）",
+  "settingsPlayerVideoHWAccelTitle": "硬件加速",
+  "settingsPosterPinch": "捏合缩放以调整海报大小",
+  "settingsPosterSize": "海报大小",
+  "settingsPosterSlider": "显示比例滑块",
+  "settingsProfileDesc": "锁屏",
+  "settingsProfileTitle": "个人资料",
+  "settingsQuickConnectTitle": "快速连接",
+  "settingsSecurity": "安全",
+  "settingsShowScaleSlider": "显示海报大小滑块",
+  "settingsVisual": "视觉",
+  "shadow": "阴影",
+  "showAlbum": "显示相册",
+  "showDetails": "显示详情",
+  "showEmpty": "显示空",
+  "shuffleGallery": "随机播放图库",
+  "shuffleVideos": "随机播放视频",
+  "somethingWentWrong": "出了些问题",
+  "somethingWentWrongPasswordCheck": "出了点问题，请检查您的密码",
+  "sortBy": "排序方式",
+  "sortName": "名称",
+  "sortOrder": "排序顺序",
+  "start": "开始",
+  "studio": "{count, plural, other{工作室} one{工作室}}",
+  "@studio": {
+    "description": "工作室",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "subtitleConfigurator": "字幕配置器",
+  "subtitleConfiguratorPlaceHolder": "这是占位符文本，\n这里没有什么可看的。",
+  "subtitles": "字幕",
+  "switchUser": "切换用户",
+  "sync": "同步",
+  "syncDeleteItemDesc": "删除所有同步数据？\n{item}",
+  "@syncDeleteItemDesc": {
+    "description": "同步删除项目弹出窗口",
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "syncDeleteItemTitle": "删除同步的项目",
+  "syncDeletePopupPermanent": "此操作是永久性的，将删除所有本地同步的文件",
+  "syncDetails": "同步详情",
+  "syncOpenParent": "打开父级",
+  "syncRemoveDataDesc": "删除同步的视频数据？这是永久性的，您需要重新同步文件",
+  "syncRemoveDataTitle": "删除同步的数据？",
+  "syncedItems": "同步项目",
+  "tag": "{count, plural, one{标签} other{标签}}",
+  "@tag": {
+    "description": "标签",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "theme": "主题",
+  "themeColor": "主题颜色",
+  "themeModeDark": "深色",
+  "themeModeLight": "浅色",
+  "themeModeSystem": "系统",
   "timeAndAnnotation": "{minutes} 分 {seconds} 秒",
   "@timeAndAnnotation": {
     "description": "时间和注释",
@@ -611,47 +608,18 @@
       }
     }
   },
-  "scanYourFingerprintToAuthenticate": "扫描您的指纹以验证 {user}",
-  "@scanYourFingerprintToAuthenticate": {
+  "timeOut": "超时",
+  "totalSize": "总大小：{size}",
+  "@totalSize": {
     "placeholders": {
-      "user": {
+      "size": {
         "type": "String"
       }
     }
   },
-  "scanBiometricHint": "验证身份",
-  "deleteFileFromSystem": "删除此项目 {item} 将从文件系统和您的媒体库中删除它。\n您确定要继续吗？",
-  "@deleteFileFromSystem": {
-    "description": "从系统中删除文件",
-    "placeholders": {
-      "item": {
-        "type": "String"
-      }
-    }
-  },
-  "notPartOfAlbum": "不属于专辑的一部分",
-  "retry": "重试",
-  "failedToLoadImage": "加载图像失败",
-  "save": "保存",
-  "metaDataSavedFor": "{item} 的元数据已保存",
-  "@metaDataSavedFor": {
-    "description": "元数据已保存",
-    "placeholders": {
-      "item": {
-        "type": "String"
-      }
-    }
-  },
-  "libraryPageSizeTitle": "库页面大小",
-  "libraryPageSizeDesc": "设置每次加载的数量。0 禁用分页。",
-  "fetchingLibrary": "正在获取库项目",
-  "libraryFetchNoItemsFound": "未找到项目，请尝试不同的设置。",
-  "noSuggestionsFound": "未找到建议",
-  "viewPhotos": "查看照片",
-  "random": "随机",
-  "tag": "{count, plural, one{标签} other{标签}}",
-  "@tag": {
-    "description": "标签",
+  "type": "{count, plural, other{类型} one{类型}}",
+  "@type": {
+    "description": "类型",
     "placeholders": {
       "count": {
         "type": "int",
@@ -659,11 +627,43 @@
       }
     }
   },
-  "saved": "已保存",
-  "discovered": "已发现",
-  "noServersFound": "未找到新服务器",
-  "about": "关于",
-  "openParent": "打开上级文件夹",
-  "mouseDragSupport": "使用鼠标拖动",
-  "controls": "控制"
+  "unPlayed": "未播放",
+  "unableToConnectHost": "无法连接到主机",
+  "unableToReverseAction": "此操作无法撤销，它将删除所有设置。",
+  "unknown": "未知",
+  "useDefaults": "使用默认值",
+  "userName": "用户名",
+  "video": "视频",
+  "videoScaling": "视频缩放",
+  "videoScalingContain": "包含",
+  "videoScalingCover": "覆盖",
+  "videoScalingFill": "填充",
+  "videoScalingFillScreenDesc": "填充导航栏和状态栏",
+  "videoScalingFillScreenNotif": "全屏覆盖视频适应，在水平旋转中",
+  "videoScalingFillScreenTitle": "填满屏幕",
+  "videoScalingFitHeight": "适应高度",
+  "videoScalingFitWidth": "适应宽度",
+  "videoScalingScaleDown": "缩小",
+  "viewPhotos": "查看照片",
+  "watchOn": "观看于",
+  "writer": "{count, plural, other{作家} one{作家}}",
+  "@writer": {
+    "description": "作家",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "year": "{count, plural, other{年} one{年}}",
+  "@year": {
+    "description": "年",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  }
 }

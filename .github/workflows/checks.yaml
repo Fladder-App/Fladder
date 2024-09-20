@@ -1,0 +1,49 @@
+name: Flutter checks
+
+on:
+  pull_request:
+    branches:
+      - develop
+  workflow_dispatch:
+
+jobs:
+  linting:
+    name: Linting & Formatting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.1.1
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2.16.0
+        with:
+          channel: ${{ vars.FLUTTER_CHANNEL }}
+          flutter-version: ${{ vars.FLUTTER_VERSION }}
+          cache: true
+          cache-key: "flutter-:os:-:channel:-:version:-:arch:-:hash:"
+          cache-path: "${{ runner.tool_cache }}/flutter/:channel:-:version:-:arch:"
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Install arb_utils to check sorting of translations
+        run: dart pub global activate arb_utils
+
+      - name: Copy translation file
+        run: cp ./lib/l10n/app_en.arb ./lib/l10n/app_en_sorted.arb
+
+      - name: Sort translation file alphabetically
+        run: arb_utils sort ./lib/l10n/app_en.arb
+
+      - name: Check sorted translations against english base
+        run: |
+          # Check if the contents of the destination file match the reference file
+          if cmp -s "./lib/l10n/app_en.arb" "./lib/l10n/app_en_sorted.arb"; then
+            echo "Translation entries are in alphabetical order."
+          else
+            echo "Translation entries are not in alphabetical order."
+            exit 1  # Fail the workflow if files are not the same
+          fi
+
+      - name: Linting
+        run: flutter analyze --no-fatal-infos --no-fatal-warnings
