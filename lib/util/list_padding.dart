@@ -2,7 +2,7 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 
 extension ListExtensions on List<Widget> {
-  addInBetween(Widget widget) {
+  List<Widget> addInBetween(Widget widget) {
     return mapIndexed(
       (index, element) {
         if (element != last) {
@@ -14,7 +14,7 @@ extension ListExtensions on List<Widget> {
     ).expand((element) => element).toList();
   }
 
-  addPadding(EdgeInsets padding) {
+  List<Widget> addPadding(EdgeInsets padding) {
     return map((e) {
       if (e is Expanded || e is Spacer || e is Flexible) return e;
       return Padding(
@@ -29,7 +29,7 @@ extension ListExtensions on List<Widget> {
     }).toList();
   }
 
-  addSize({double? width, double? height}) {
+  List<Widget> addSize({double? width, double? height}) {
     return map((e) {
       if (e is Expanded || e is Spacer || e is Flexible) return e;
       return SizedBox(

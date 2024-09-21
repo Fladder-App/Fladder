@@ -89,7 +89,7 @@ class SeasonModel extends ItemBaseModel with SeasonModelMappable {
         images: images,
         childCount: childCount,
         primaryRatio: primaryRatio,
-        userData: UserData(),
+        userData: const UserData(),
       );
 
   static List<SeasonModel> seasonsFromDto(List<dto.BaseItemDto>? dto, Ref ref) {

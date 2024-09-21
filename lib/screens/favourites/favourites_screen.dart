@@ -41,7 +41,7 @@ class FavouritesScreen extends ConsumerWidget {
               else
                 const DefaultSliverTopBadding(),
               if (AdaptiveLayout.of(context).isDesktop)
-                SliverToBoxAdapter(
+                const SliverToBoxAdapter(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [

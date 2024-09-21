@@ -76,12 +76,12 @@ class _SyncItemDetailsState extends ConsumerState<SyncItemDetails> {
                 ),
                 IconButton(
                   onPressed: () => Navigator.pop(context),
-                  icon: Icon(IconsaxBold.close_circle),
+                  icon: const Icon(IconsaxBold.close_circle),
                 )
               ],
             ),
             if (baseItem != null) ...{
-              Divider(),
+              const Divider(),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8),
                 child: Row(
@@ -128,24 +128,24 @@ class _SyncItemDetailsState extends ConsumerState<SyncItemDetails> {
                                   IconButton(
                                     onPressed: () =>
                                         ref.read(backgroundDownloaderProvider).pause(combinedStream!.task!),
-                                    icon: Icon(IconsaxBold.pause),
+                                    icon: const Icon(IconsaxBold.pause),
                                   ),
                                 if (combinedStream?.status == TaskStatus.paused) ...[
                                   IconButton(
                                     onPressed: () =>
                                         ref.read(backgroundDownloaderProvider).resume(combinedStream!.task!),
-                                    icon: Icon(IconsaxBold.play),
+                                    icon: const Icon(IconsaxBold.play),
                                   ),
                                   IconButton(
                                     onPressed: () => ref.read(syncProvider.notifier).deleteFullSyncFiles(syncedItem),
-                                    icon: Icon(IconsaxBold.stop),
+                                    icon: const Icon(IconsaxBold.stop),
                                   ),
                                 ],
                                 const SizedBox(width: 16)
                               },
                               if (combinedStream != null && combinedStream.hasDownload)
                                 SizedBox.fromSize(
-                                    size: Size.fromRadius(35),
+                                    size: const Size.fromRadius(35),
                                     child: Stack(
                                       fit: StackFit.expand,
                                       alignment: Alignment.center,
@@ -168,7 +168,7 @@ class _SyncItemDetailsState extends ConsumerState<SyncItemDetails> {
                     if (!hasFile && !downloadTask.hasDownload && syncedItem.hasVideoFile)
                       IconButtonAwait(
                         onPressed: () async => await ref.read(syncProvider.notifier).syncVideoFile(syncedItem, false),
-                        icon: Icon(IconsaxOutline.cloud_change),
+                        icon: const Icon(IconsaxOutline.cloud_change),
                       )
                     else if (hasFile)
                       IconButtonAwait(
@@ -187,13 +187,13 @@ class _SyncItemDetailsState extends ConsumerState<SyncItemDetails> {
                             context.localized.cancel,
                           );
                         },
-                        icon: Icon(IconsaxOutline.trash),
+                        icon: const Icon(IconsaxOutline.trash),
                       ),
                   ].addInBetween(const SizedBox(width: 16)),
                 ),
               ),
             },
-            Divider(),
+            const Divider(),
             if (syncChildren.isNotEmpty == true)
               Flexible(
                 child: ListView(

@@ -39,7 +39,7 @@ class EpisodeDetailsList extends ConsumerWidget {
             ref.watch(clientSettingsProvider.select((value) => value.posterSize)));
     final decimals = size - size.toInt();
     return AnimatedSwitcher(
-      duration: Duration(milliseconds: 250),
+      duration: const Duration(milliseconds: 250),
       child: switch (viewType) {
         EpisodeDetailsViewType.list => ListView.builder(
             shrinkWrap: true,

@@ -116,7 +116,7 @@ class _LockScreenState extends ConsumerState<LockScreen> with WidgetsBindingObse
                 size: 38,
               ),
               ConstrainedBox(
-                constraints: BoxConstraints(
+                constraints: const BoxConstraints(
                   maxHeight: 400,
                   maxWidth: 400,
                 ),

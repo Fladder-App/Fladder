@@ -60,7 +60,7 @@ class _VideoVolumeSliderState extends ConsumerState<VideoVolumeSlider> {
             textAlign: TextAlign.center,
           ),
         ),
-      ].addInBetween(SizedBox(width: 6)),
+      ].addInBetween(const SizedBox(width: 6)),
     );
   }
 }

@@ -56,7 +56,7 @@ class _SyncButtonState extends ConsumerState<SyncButton> {
         if ((progress?.progress ?? 0) > 0)
           IgnorePointer(
             child: SizedBox.fromSize(
-              size: Size.fromRadius(10),
+              size: const Size.fromRadius(10),
               child: CircularProgressIndicator(
                 strokeCap: StrokeCap.round,
                 strokeWidth: 2,

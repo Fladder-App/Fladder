@@ -84,7 +84,7 @@ class _OutlinedTextFieldState extends ConsumerState<OutlinedTextField> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 6),
                 child: AnimatedContainer(
-                  duration: Duration(milliseconds: 250),
+                  duration: const Duration(milliseconds: 250),
                   decoration: BoxDecoration(
                     color: widget.fillColor ?? getColor(),
                     borderRadius: FladderTheme.defaultShape.borderRadius,

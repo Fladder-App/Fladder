@@ -5,7 +5,7 @@ import 'package:fladder/widgets/navigation_scaffold/components/fladder_appbar.da
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-showFullScreenItemQueue(
+void showFullScreenItemQueue(
   BuildContext context, {
   required List<ItemBaseModel> items,
   ValueChanged<List<ItemBaseModel>>? onListChanged,

@@ -214,13 +214,13 @@ class _PhotoViewerControllsState extends ConsumerState<PhotoViewerControls> with
                                             ?.copyWith(fontWeight: FontWeight.bold),
                                       ),
                                       if (widget.loadingMoreItems)
-                                        SizedBox.square(
+                                        const SizedBox.square(
                                           dimension: 16,
                                           child: CircularProgressIndicator.adaptive(
                                             strokeCap: StrokeCap.round,
                                           ),
                                         ),
-                                    ].addInBetween(SizedBox(width: 6)),
+                                    ].addInBetween(const SizedBox(width: 6)),
                                   ),
                                 ),
                                 Positioned.fill(
@@ -301,7 +301,7 @@ class _PhotoViewerControllsState extends ConsumerState<PhotoViewerControls> with
                               onPressed: widget.openOptions,
                               icon: IconsaxOutline.more_2,
                             ),
-                            Spacer(),
+                            const Spacer(),
                             ElevatedIconButton(
                               onPressed: markAsFavourite,
                               color: widget.photo.userData.isFavourite ? Colors.red : null,

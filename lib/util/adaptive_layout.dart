@@ -183,9 +183,9 @@ class _AdaptiveLayoutBuilderState extends ConsumerState<AdaptiveLayoutBuilder> {
       isDesktop: isDesktop,
       router: router,
       posterDefaults: switch (layout) {
-        LayoutState.phone => PosterDefaults(size: 300, ratio: 0.55),
-        LayoutState.tablet => PosterDefaults(size: 350, ratio: 0.55),
-        LayoutState.desktop => PosterDefaults(size: 400, ratio: 0.55),
+        LayoutState.phone => const PosterDefaults(size: 300, ratio: 0.55),
+        LayoutState.tablet => const PosterDefaults(size: 350, ratio: 0.55),
+        LayoutState.desktop => const PosterDefaults(size: 400, ratio: 0.55),
       },
       child: widget.child,
     );

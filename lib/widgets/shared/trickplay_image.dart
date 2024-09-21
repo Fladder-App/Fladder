@@ -23,7 +23,7 @@ class _TrickplayImageState extends ConsumerState<TrickplayImage> {
   ui.Image? image;
   late TrickPlayModel model = widget.trickplay;
   late Duration time = widget.position ?? Duration.zero;
-  late Offset currentOffset = Offset(0, 0);
+  late Offset currentOffset = const Offset(0, 0);
   String? currentUrl;
 
   @override

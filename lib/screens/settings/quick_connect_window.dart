@@ -10,7 +10,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 Future<void> openQuickConnectDialog(
   BuildContext context,
 ) async {
-  return showDialog(context: context, builder: (context) => QuickConnectDialog());
+  return showDialog(context: context, builder: (context) => const QuickConnectDialog());
 }
 
 class QuickConnectDialog extends ConsumerStatefulWidget {
@@ -90,7 +90,7 @@ class _QuickConnectDialogState extends ConsumerState<QuickConnectDialog> {
                           success = context.localized.loggedIn;
                         },
                       );
-                      await Future.delayed(Duration(seconds: 2));
+                      await Future.delayed(const Duration(seconds: 2));
                       Navigator.of(context).pop();
                     } else {
                       if (controller.text.isEmpty) {
@@ -106,7 +106,7 @@ class _QuickConnectDialogState extends ConsumerState<QuickConnectDialog> {
                     controller.text = "";
                   },
             child: loading
-                ? SizedBox.square(
+                ? const SizedBox.square(
                     child: CircularProgressIndicator(),
                     dimension: 16.0,
                   )

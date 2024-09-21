@@ -79,13 +79,13 @@ class _LoginPageState extends ConsumerState<LoginScreen> {
               children: [
                 if (!AdaptiveLayout.of(context).isDesktop)
                   FloatingActionButton(
-                    key: Key("edit_button"),
-                    child: Icon(IconsaxOutline.edit_2),
+                    key: const Key("edit_button"),
+                    child: const Icon(IconsaxOutline.edit_2),
                     onPressed: () => setState(() => editingUsers = !editingUsers),
                   ),
                 FloatingActionButton(
-                  key: Key("new_button"),
-                  child: Icon(IconsaxOutline.add_square),
+                  key: const Key("new_button"),
+                  child: const Icon(IconsaxOutline.add_square),
                   onPressed: startAddingNewUser,
                 ),
               ].addInBetween(const SizedBox(width: 16)),
@@ -98,7 +98,7 @@ class _LoginPageState extends ConsumerState<LoginScreen> {
             shrinkWrap: true,
             padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 32),
             children: [
-              Center(
+              const Center(
                 child: FladderLogo(),
               ),
               AnimatedFadeSize(
@@ -369,7 +369,7 @@ class _LoginPageState extends ConsumerState<LoginScreen> {
                                     children: [
                                       Text(context.localized.login),
                                       const SizedBox(width: 8),
-                                      Icon(IconsaxBold.send_1),
+                                      const Icon(IconsaxBold.send_1),
                                     ],
                                   ),
                           ),

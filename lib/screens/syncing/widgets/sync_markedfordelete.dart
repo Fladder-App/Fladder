@@ -29,9 +29,9 @@ class SyncMarkedForDelete extends ConsumerWidget {
                     strokeCap: StrokeCap.round,
                     valueColor: AlwaysStoppedAnimation(Theme.of(context).colorScheme.error),
                   ),
-                  Text("Deleting"),
-                  Icon(IconsaxOutline.trash)
-                ].addPadding(EdgeInsets.symmetric(horizontal: 16)),
+                  const Text("Deleting"),
+                  const Icon(IconsaxOutline.trash)
+                ].addPadding(const EdgeInsets.symmetric(horizontal: 16)),
               ),
             ),
           )

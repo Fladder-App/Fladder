@@ -7,7 +7,7 @@ import 'package:fladder/util/list_padding.dart';
 import 'package:fladder/util/localization_helper.dart';
 import 'package:flutter/material.dart';
 
-showAuthOptionsDialogue(
+void showAuthOptionsDialogue(
   BuildContext context,
   AccountModel currentUser,
   Function(AccountModel) setMethod,

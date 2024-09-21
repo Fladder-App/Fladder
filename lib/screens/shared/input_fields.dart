@@ -32,7 +32,7 @@ class IntInputField extends ConsumerWidget {
           onSubmitted: (value) => onSubmitted?.call(int.tryParse(value)),
           textAlign: TextAlign.center,
           decoration: InputDecoration(
-            contentPadding: EdgeInsets.all(0),
+            contentPadding: const EdgeInsets.all(0),
             hintText: placeHolder,
             suffixText: suffix,
             border: InputBorder.none,

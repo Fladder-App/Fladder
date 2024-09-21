@@ -33,7 +33,7 @@ final librarySearchProvider =
 });
 
 class LibrarySearchNotifier extends StateNotifier<LibrarySearchModel> {
-  LibrarySearchNotifier(this.ref) : super(LibrarySearchModel());
+  LibrarySearchNotifier(this.ref) : super(const LibrarySearchModel());
 
   final Ref ref;
 
@@ -379,7 +379,7 @@ class LibrarySearchNotifier extends StateNotifier<LibrarySearchModel> {
     }
   }
 
-  selectAll(bool select) => state = state.copyWith(selectedPosters: select ? state.posters : []);
+  LibrarySearchModel selectAll(bool select) => state = state.copyWith(selectedPosters: select ? state.posters : []);
 
   Future<void> setSelectedAsFavorite(bool bool) async {
     final Map<String, UserData> updateInfo = {};

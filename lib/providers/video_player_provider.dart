@@ -74,7 +74,7 @@ class VideoPlayerNotifier extends StateNotifier<MediaControlsWrapper> {
     final lastPosition = ref.read(mediaPlaybackProvider.select((value) => value.lastPosition));
     final diff = (position.inMilliseconds - lastPosition.inMilliseconds).abs();
 
-    if (diff > Duration(seconds: 1, milliseconds: 500).inMilliseconds) {
+    if (diff > const Duration(seconds: 1, milliseconds: 500).inMilliseconds) {
       mediaState.update((value) => value.copyWith(
             position: event,
             playing: player.state.playing,

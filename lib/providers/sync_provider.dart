@@ -375,7 +375,7 @@ class SyncNotifier extends StateNotifier<SyncSettingsModel> {
   Future<DownloadStream?> syncVideoFile(SyncedItem syncItem, bool skipDownload) async {
     final playbackResponse = await api.itemsItemIdPlaybackInfoPost(
       itemId: syncItem.id,
-      body: PlaybackInfoDto(
+      body: const PlaybackInfoDto(
         enableDirectPlay: true,
         enableDirectStream: true,
         enableTranscoding: false,

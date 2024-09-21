@@ -72,7 +72,7 @@ class _DetailScreenState extends ConsumerState<DetailScreen> {
             ),
             //Small offset to match detailscaffold
             child: Transform.translate(
-                offset: Offset(0, -5), child: FladderImage(image: widget.item?.getPosters?.primary)),
+                offset: const Offset(0, -5), child: FladderImage(image: widget.item?.getPosters?.primary)),
           ),
         ),
         AnimatedFadeSize(
@@ -140,8 +140,8 @@ class _DetailScaffoldState extends ConsumerState<DetailScaffold> {
       child: Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: switch (playerState) {
-          VideoPlayerState.minimized => Padding(
-              padding: const EdgeInsets.all(8.0),
+          VideoPlayerState.minimized => const Padding(
+              padding: EdgeInsets.all(8.0),
               child: FloatingPlayerBar(),
             ),
           _ => null,
@@ -204,11 +204,11 @@ class _DetailScaffoldState extends ConsumerState<DetailScaffold> {
             IconTheme(
               data: IconThemeData(color: Theme.of(context).colorScheme.onSurface),
               child: Transform.translate(
-                offset: Offset(0, kToolbarHeight),
+                offset: const Offset(0, kToolbarHeight),
                 child: Row(
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(left: 16),
+                      padding: const EdgeInsets.only(left: 16),
                       child: IconButton.filledTonal(
                         style: IconButton.styleFrom(
                           backgroundColor: backGroundColor,
@@ -223,7 +223,7 @@ class _DetailScaffoldState extends ConsumerState<DetailScaffold> {
                         icon: Padding(
                           padding:
                               EdgeInsets.all(AdaptiveLayout.of(context).inputDevice == InputDevice.pointer ? 0 : 4),
-                          child: Icon(IconsaxOutline.arrow_left_2),
+                          child: const Icon(IconsaxOutline.arrow_left_2),
                         ),
                       ),
                     ),
@@ -273,17 +273,17 @@ class _DetailScaffoldState extends ConsumerState<DetailScaffold> {
                                     message: context.localized.refresh,
                                     child: IconButton(
                                       onPressed: () => context.refreshData(),
-                                      icon: Icon(IconsaxOutline.refresh),
+                                      icon: const Icon(IconsaxOutline.refresh),
                                     ),
                                   ),
                                 )
                               else
-                                SizedBox(height: 30, width: 30, child: SettingsUserIcon()),
+                                const SizedBox(height: 30, width: 30, child: SettingsUserIcon()),
                               Tooltip(
                                 message: context.localized.home,
                                 child: IconButton(
                                   onPressed: () => context.routeGo(DashboardRoute()),
-                                  icon: Icon(IconsaxOutline.home),
+                                  icon: const Icon(IconsaxOutline.home),
                                 ),
                               ),
                             ],

@@ -36,7 +36,7 @@ class _CarouselBannerState extends ConsumerState<CarouselBanner> {
   double dragIntensity = 1;
   double slidePosition = 1;
 
-  late final RestartableTimer timer = RestartableTimer(Duration(seconds: 8), () => nextSlide());
+  late final RestartableTimer timer = RestartableTimer(const Duration(seconds: 8), () => nextSlide());
 
   @override
   void initState() {
@@ -121,7 +121,7 @@ class _CarouselBannerState extends ConsumerState<CarouselBanner> {
                   fit: StackFit.expand,
                   children: [
                     Dismissible(
-                      key: Key("Dismissable"),
+                      key: const Key("Dismissable"),
                       direction: DismissDirection.horizontal,
                       onUpdate: (details) {
                         setState(() {
@@ -137,10 +137,10 @@ class _CarouselBannerState extends ConsumerState<CarouselBanner> {
                         return false;
                       },
                       child: AnimatedOpacity(
-                        duration: Duration(milliseconds: 125),
+                        duration: const Duration(milliseconds: 125),
                         opacity: dragOpacity.abs(),
                         child: AnimatedSwitcher(
-                          duration: Duration(milliseconds: 125),
+                          duration: const Duration(milliseconds: 125),
                           child: Container(
                             key: Key(currentItem.id),
                             clipBehavior: Clip.hardEdge,
@@ -228,7 +228,7 @@ class _CarouselBannerState extends ConsumerState<CarouselBanner> {
                                                   ),
                                             ),
                                           ),
-                                      ].addInBetween(SizedBox(height: 6)),
+                                      ].addInBetween(const SizedBox(height: 6)),
                                     ),
                                   ),
                                 ),
@@ -248,7 +248,7 @@ class _CarouselBannerState extends ConsumerState<CarouselBanner> {
                                       ),
                                   ],
                                 ),
-                              ].addInBetween(SizedBox(height: 16)),
+                              ].addInBetween(const SizedBox(height: 16)),
                             ),
                           ),
                         ),
@@ -256,13 +256,13 @@ class _CarouselBannerState extends ConsumerState<CarouselBanner> {
                           padding: const EdgeInsets.symmetric(horizontal: 12),
                           child: AnimatedOpacity(
                             opacity: showControls ? 1 : 0,
-                            duration: Duration(milliseconds: 250),
+                            duration: const Duration(milliseconds: 250),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 IconButton.filledTonal(
                                   onPressed: () => nextSlide(),
-                                  icon: Icon(IconsaxOutline.arrow_right_3),
+                                  icon: const Icon(IconsaxOutline.arrow_right_3),
                                 )
                               ],
                             ),
@@ -335,7 +335,7 @@ class _CarouselBannerState extends ConsumerState<CarouselBanner> {
                           width: 28,
                           height: 28,
                           child: AnimatedContainer(
-                            duration: Duration(milliseconds: 125),
+                            duration: const Duration(milliseconds: 125),
                             width: currentItem == e ? 22 : 6,
                             height: currentItem == e ? 10 : 6,
                             decoration: BoxDecoration(

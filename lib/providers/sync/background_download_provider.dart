@@ -8,9 +8,9 @@ FileDownloader backgroundDownloader(BackgroundDownloaderRef ref) {
   return FileDownloader()
     ..trackTasks()
     ..configureNotification(
-      running: TaskNotification('Downloading', 'file: {filename}'),
-      complete: TaskNotification('Download finished', 'file: {filename}'),
-      paused: TaskNotification('Download paused', 'file: {filename}'),
+      running: const TaskNotification('Downloading', 'file: {filename}'),
+      complete: const TaskNotification('Download finished', 'file: {filename}'),
+      paused: const TaskNotification('Download paused', 'file: {filename}'),
       progressBar: true,
     );
 }

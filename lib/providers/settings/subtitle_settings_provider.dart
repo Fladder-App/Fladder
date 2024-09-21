@@ -27,14 +27,14 @@ class SubtitleSettingsNotifier extends StateNotifier<SubtitleSettingsModel> {
 
   void setOutlineColor(Color e) => state = state.copyWith(outlineColor: e);
 
-  setOutlineThickness(double value) => state = state.copyWith(outlineSize: value);
+  SubtitleSettingsModel setOutlineThickness(double value) => state = state.copyWith(outlineSize: value);
 
   void resetSettings({SubtitleSettingsModel? value}) => state = value ?? const SubtitleSettingsModel();
 
   void setFontWeight(FontWeight? value) => state = state.copyWith(fontWeight: value);
 
-  setBackGroundOpacity(double value) =>
+  SubtitleSettingsModel setBackGroundOpacity(double value) =>
       state = state.copyWith(backGroundColor: state.backGroundColor.withOpacity(value));
 
-  setShadowIntensity(double value) => state = state.copyWith(shadow: value);
+  SubtitleSettingsModel setShadowIntensity(double value) => state = state.copyWith(shadow: value);
 }

@@ -142,7 +142,7 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
         floatingActionButtonLocation:
             playerState == VideoPlayerState.minimized ? FloatingActionButtonLocation.centerFloat : null,
         floatingActionButton: switch (playerState) {
-          VideoPlayerState.minimized => Padding(
+          VideoPlayerState.minimized => const Padding(
               padding: EdgeInsets.symmetric(horizontal: 8),
               child: FloatingPlayerBar(),
             ),
@@ -171,7 +171,7 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
                       label: Text(context.localized.viewPhotos),
                       icon: const Icon(IconsaxBold.gallery),
                     )
-                ].addInBetween(SizedBox(height: 10)),
+                ].addInBetween(const SizedBox(height: 10)),
               ),
             ),
         },
@@ -251,12 +251,12 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
                                         [];
                                     final itemCountWidget = ItemActionButton(
                                       label: Text(context.localized.itemCount(librarySearchResults.totalItemCount)),
-                                      icon: Icon(IconsaxBold.document_1),
+                                      icon: const Icon(IconsaxBold.document_1),
                                     );
                                     final refreshAction = ItemActionButton(
                                       label: Text(context.localized.forceRefresh),
                                       action: () => refreshKey.currentState?.show(),
-                                      icon: Icon(IconsaxOutline.refresh),
+                                      icon: const Icon(IconsaxOutline.refresh),
                                     );
                                     final itemViewAction = ItemActionButton(
                                         label: Text(context.localized.selectViewType),
@@ -279,7 +279,7 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
                                                           .map(
                                                             (e) => FilledButton.tonal(
                                                               style: FilledButtonTheme.of(context).style?.copyWith(
-                                                                    padding: WidgetStatePropertyAll(
+                                                                    padding: const WidgetStatePropertyAll(
                                                                         EdgeInsets.symmetric(
                                                                             horizontal: 12, vertical: 24)),
                                                                     backgroundColor: WidgetStateProperty.resolveWith(
@@ -373,7 +373,7 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
                                   }),
                                   if (AdaptiveLayout.of(context).layout == LayoutState.phone) ...[
                                     const SizedBox(width: 6),
-                                    SizedBox.square(dimension: 46, child: SettingsUserIcon()),
+                                    const SizedBox.square(dimension: 46, child: SettingsUserIcon()),
                                   ],
                                   const SizedBox(width: 12)
                                 ],
@@ -421,7 +421,7 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
                                               ),
                                             ),
                                           ),
-                                          Row(),
+                                          const Row(),
                                         ],
                                       ),
                                     ),
@@ -429,7 +429,7 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
                                 ),
                               ),
                               if (AdaptiveLayout.of(context).isDesktop)
-                                SliverToBoxAdapter(
+                                const SliverToBoxAdapter(
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
@@ -476,15 +476,15 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(16),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        CircularProgressIndicator.adaptive(),
+                        const CircularProgressIndicator.adaptive(),
                         Text(context.localized.fetchingLibrary, style: Theme.of(context).textTheme.titleMedium),
                         IconButton(
                           onPressed: () => libraryProvider.cancelFetch(),
-                          icon: Icon(IconsaxOutline.close_square),
+                          icon: const Icon(IconsaxOutline.close_square),
                         )
                       ].addInBetween(const SizedBox(width: 16)),
                     ),
@@ -598,7 +598,7 @@ class _LibrarySearchBottomBar extends ConsumerWidget {
           if (context.mounted) context.refreshData();
         },
         label: Text(context.localized.addToCollection),
-        icon: Icon(
+        icon: const Icon(
           IconsaxOutline.save_add,
           size: 20,
         ),
@@ -726,7 +726,7 @@ class _LibrarySearchBottomBar extends ConsumerWidget {
                                         ),
                                       );
                                     },
-                                    icon: Icon(IconsaxOutline.more))
+                                    icon: const Icon(IconsaxOutline.more))
                             },
                           ],
                         ),
@@ -775,7 +775,7 @@ class _LibrarySearchBottomBar extends ConsumerWidget {
                 ),
             ],
           ),
-          if (AdaptiveLayout.of(context).isDesktop) SizedBox(height: 8),
+          if (AdaptiveLayout.of(context).isDesktop) const SizedBox(height: 8),
         ],
       ),
     );

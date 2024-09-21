@@ -72,7 +72,7 @@ class ItemBaseModel with ItemBaseModelMappable {
         SortingOptions.parentalRating => overview.parentalRating != null
             ? Row(
                 children: [
-                  Icon(
+                  const Icon(
                     IconsaxBold.star_1,
                     size: 14,
                     color: Colors.yellowAccent,
@@ -85,7 +85,7 @@ class ItemBaseModel with ItemBaseModelMappable {
         SortingOptions.communityRating => overview.communityRating != null
             ? Row(
                 children: [
-                  Icon(
+                  const Icon(
                     IconsaxBold.star_1,
                     size: 14,
                     color: Colors.yellowAccent,

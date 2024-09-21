@@ -98,8 +98,8 @@ class _SearchBarState extends ConsumerState<SuggestionSearchBar> {
           },
           decoration: InputDecoration(
             hintText: widget.title ?? "${context.localized.search}...",
-            prefixIcon: Icon(IconsaxOutline.search_normal),
-            contentPadding: EdgeInsets.only(top: 13),
+            prefixIcon: const Icon(IconsaxOutline.search_normal),
+            contentPadding: const EdgeInsets.only(top: 13),
             suffixIcon: controller.text.isNotEmpty
                 ? IconButton(
                     onPressed: () {

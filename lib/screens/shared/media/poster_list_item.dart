@@ -54,7 +54,7 @@ class PosterListItem extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 2),
+      padding: const EdgeInsets.symmetric(vertical: 2),
       child: Card(
         color: Theme.of(context).colorScheme.surface,
         child: SizedBox(
@@ -151,7 +151,7 @@ class PosterListItem extends ConsumerWidget {
                             children: [
                               if (subTitle != null) ...[
                                 subTitle!,
-                                Spacer(),
+                                const Spacer(),
                               ],
                               if (poster.subText != null && poster.subText != poster.name)
                                 ClickableText(
@@ -180,7 +180,7 @@ class PosterListItem extends ConsumerWidget {
                           ),
                         ),
                     if (poster.userData.isFavourite)
-                      Icon(
+                      const Icon(
                         IconsaxBold.heart,
                         color: Colors.red,
                       ),
@@ -206,7 +206,7 @@ class PosterListItem extends ConsumerWidget {
                               .popupMenuItems(useIcons: true),
                         ),
                       )
-                  ].addInBetween(SizedBox(width: 8)),
+                  ].addInBetween(const SizedBox(width: 8)),
                 ),
               ),
             ),

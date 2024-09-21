@@ -55,9 +55,9 @@ class _NavigationButtonState extends ConsumerState<NavigationButton> {
       Flexible(
         child: ElevatedButton(
           style: ButtonStyle(
-              elevation: WidgetStatePropertyAll(0),
-              padding: WidgetStatePropertyAll(EdgeInsets.zero),
-              backgroundColor: WidgetStatePropertyAll(Colors.transparent),
+              elevation: const WidgetStatePropertyAll(0),
+              padding: const WidgetStatePropertyAll(EdgeInsets.zero),
+              backgroundColor: const WidgetStatePropertyAll(Colors.transparent),
               foregroundColor: WidgetStateProperty.resolveWith((states) {
                 return widget.selected
                     ? Theme.of(context).colorScheme.primary
@@ -88,7 +88,7 @@ class _NavigationButtonState extends ConsumerState<NavigationButton> {
                     ],
                   ),
                   AnimatedContainer(
-                    duration: Duration(milliseconds: 250),
+                    duration: const Duration(milliseconds: 250),
                     margin: EdgeInsets.only(top: widget.selected ? 8 : 0),
                     height: widget.selected ? 6 : 0,
                     width: widget.selected ? 14 : 0,

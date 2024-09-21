@@ -1,7 +1,7 @@
 import 'package:audio_service/audio_service.dart';
 import 'package:media_kit/media_kit.dart';
 
-get audioServiceConfig => AudioServiceConfig(
+AudioServiceConfig get audioServiceConfig => const AudioServiceConfig(
       androidNotificationChannelId: 'nl.jknaapen.fladder.channel.playback',
       androidNotificationChannelName: 'Video playback',
       androidNotificationOngoing: true,

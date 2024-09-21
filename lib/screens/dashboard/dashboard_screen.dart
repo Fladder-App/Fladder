@@ -120,9 +120,9 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                     ),
                   ),
                 } else if (AdaptiveLayout.of(context).isDesktop)
-                  DefaultSliverTopBadding(),
+                  const DefaultSliverTopBadding(),
                 if (AdaptiveLayout.of(context).isDesktop)
-                  SliverToBoxAdapter(
+                  const SliverToBoxAdapter(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
@@ -191,7 +191,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                               posters: view.recentlyAdded,
                             ),
                           )),
-                ].whereNotNull().toList().addInBetween(SliverToBoxAdapter(child: SizedBox(height: 16))),
+                ].whereNotNull().toList().addInBetween(const SliverToBoxAdapter(child: SizedBox(height: 16))),
                 const DefautlSliverBottomPadding(),
               ],
             ),

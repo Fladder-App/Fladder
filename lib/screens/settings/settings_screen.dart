@@ -92,7 +92,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 },
                 icon: Padding(
                   padding: EdgeInsets.all(AdaptiveLayout.of(context).inputDevice == InputDevice.pointer ? 0 : 4),
-                  child: Icon(IconsaxOutline.arrow_left_2),
+                  child: const Icon(IconsaxOutline.arrow_left_2),
                 ),
               ),
             ),
@@ -126,7 +126,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
         ),
         SettingsListTile(
           label: Text(context.localized.about),
-          subLabel: Text("Fladder"),
+          subLabel: const Text("Fladder"),
           suffix: Opacity(
               opacity: 1,
               child: FladderIconOutlined(
@@ -135,7 +135,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               )),
           onTap: () => showAboutDialog(
             context: context,
-            applicationIcon: FladderIcon(size: 85),
+            applicationIcon: const FladderIcon(size: 85),
             applicationVersion: ref.watch(applicationInfoProvider).versionAndPlatform,
             applicationLegalese: "Donut Factory",
           ),

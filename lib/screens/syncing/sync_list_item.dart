@@ -38,8 +38,8 @@ class SyncListItemState extends ConsumerState<SyncListItem> {
           child: Dismissible(
             background: Container(
               color: Theme.of(context).colorScheme.errorContainer,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
+              child: const Padding(
+                padding: EdgeInsets.all(8.0),
                 child: Row(
                   children: [Icon(IconsaxBold.trash)],
                 ),
@@ -130,11 +130,11 @@ class SyncListItemState extends ConsumerState<SyncListItem> {
                                 )),
                             IconButton(
                               onPressed: () => showSyncItemDetails(context, syncedItem, ref),
-                              icon: Icon(IconsaxOutline.more_square),
+                              icon: const Icon(IconsaxOutline.more_square),
                             ),
                           ],
                         ),
-                      ].addInBetween(SizedBox(width: 16)),
+                      ].addInBetween(const SizedBox(width: 16)),
                     ),
                   ),
                 ),

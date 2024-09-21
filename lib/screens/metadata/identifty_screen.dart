@@ -72,7 +72,7 @@ class _IdentifyScreenState extends ConsumerState<IdentifyScreen> with TickerProv
                         const Spacer(),
                         IconButton(
                             onPressed: () async => await ref.read(provider.notifier).fetchInformation(),
-                            icon: Icon(IconsaxOutline.refresh)),
+                            icon: const Icon(IconsaxOutline.refresh)),
                       ],
                     ),
                   ),
@@ -106,7 +106,7 @@ class _IdentifyScreenState extends ConsumerState<IdentifyScreen> with TickerProv
                     if (posters.isEmpty)
                       Center(
                         child: processing
-                            ? CircularProgressIndicator.adaptive(strokeCap: StrokeCap.round)
+                            ? const CircularProgressIndicator.adaptive(strokeCap: StrokeCap.round)
                             : Text(context.localized.noResults),
                       )
                     else
@@ -181,7 +181,7 @@ class _IdentifyScreenState extends ConsumerState<IdentifyScreen> with TickerProv
 
                                                     launchUrl(context, url ?? "");
                                                   },
-                                                  icon: Icon(Icons.launch_rounded)),
+                                                  icon: const Icon(Icons.launch_rounded)),
                                             ),
                                             Tooltip(
                                               message: "Select result",
@@ -202,7 +202,7 @@ class _IdentifyScreenState extends ConsumerState<IdentifyScreen> with TickerProv
                                                         Navigator.of(context).pop();
                                                       }
                                                     : null,
-                                                icon: Icon(Icons.save_alt_rounded),
+                                                icon: const Icon(Icons.save_alt_rounded),
                                               ),
                                             )
                                           ],

@@ -109,7 +109,7 @@ class _ClientSettingsPageState extends ConsumerState<ClientSettingsPage> {
                             ],
                           ),
                         ),
-                        icon: Icon(IconsaxOutline.folder_minus),
+                        icon: const Icon(IconsaxOutline.folder_minus),
                       )
                     : null,
               ),

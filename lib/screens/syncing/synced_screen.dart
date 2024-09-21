@@ -48,7 +48,7 @@ class _SyncedScreenState extends ConsumerState<SyncedScreen> {
                       const DefaultSliverTopBadding(),
                     SliverToBoxAdapter(
                       child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: Text(
                           context.localized.syncedItems,
                           style: Theme.of(context).textTheme.titleLarge,
@@ -56,7 +56,7 @@ class _SyncedScreenState extends ConsumerState<SyncedScreen> {
                       ),
                     ),
                     SliverPadding(
-                      padding: EdgeInsets.symmetric(horizontal: 16),
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
                       sliver: SliverList.builder(
                         itemBuilder: (context, index) {
                           final item = items[index];
@@ -78,7 +78,7 @@ class _SyncedScreenState extends ConsumerState<SyncedScreen> {
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                       const SizedBox(width: 16),
-                      Icon(
+                      const Icon(
                         IconsaxOutline.cloud_cross,
                       )
                     ],

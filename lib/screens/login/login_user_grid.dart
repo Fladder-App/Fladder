@@ -88,16 +88,16 @@ class LoginUserGrid extends ConsumerWidget {
                         ],
                       ),
                     )
-                ].addInBetween(SizedBox(width: 4, height: 4)),
+                ].addInBetween(const SizedBox(width: 4, height: 4)),
               ),
               if (editMode)
                 Align(
                   alignment: Alignment.topRight,
                   child: Card(
                     color: Theme.of(context).colorScheme.errorContainer,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: const Icon(
+                    child: const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Icon(
                         IconsaxBold.edit_2,
                         size: 14,
                       ),

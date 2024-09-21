@@ -28,7 +28,7 @@ Future<ItemBaseModel?> showEditItemPopup(
           );
       return AdaptiveLayout.of(context).inputDevice == InputDevice.pointer
           ? Dialog(
-              insetPadding: EdgeInsets.all(64),
+              insetPadding: const EdgeInsets.all(64),
               child: editWidget(),
             )
           : Dialog.fullscreen(
@@ -75,11 +75,11 @@ class _EditDialogSwitcherState extends ConsumerState<EditDialogSwitcher> with Ti
     final advancedFields = ref.watch(editItemProvider.notifier).advancedFields ?? {};
 
     Map<Tab, Widget> widgets = {
-      Tab(text: "General"): EditFields(fields: generalFields, json: state),
-      Tab(text: "Primary"): EditImageContent(type: ImageType.primary),
-      Tab(text: "Logo"): EditImageContent(type: ImageType.logo),
-      Tab(text: "Backdrops"): EditImageContent(type: ImageType.backdrop),
-      Tab(text: "Advanced"): EditFields(fields: advancedFields, json: state),
+      const Tab(text: "General"): EditFields(fields: generalFields, json: state),
+      const Tab(text: "Primary"): const EditImageContent(type: ImageType.primary),
+      const Tab(text: "Logo"): const EditImageContent(type: ImageType.logo),
+      const Tab(text: "Backdrops"): const EditImageContent(type: ImageType.backdrop),
+      const Tab(text: "Advanced"): EditFields(fields: advancedFields, json: state),
     };
 
     return Card(
@@ -103,7 +103,7 @@ class _EditDialogSwitcherState extends ConsumerState<EditDialogSwitcher> with Ti
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                   ),
-                  IconButton(onPressed: () => refreshEditor(), icon: Icon(IconsaxOutline.refresh))
+                  IconButton(onPressed: () => refreshEditor(), icon: const Icon(IconsaxOutline.refresh))
                 ],
               ),
             ),

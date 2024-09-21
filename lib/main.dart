@@ -302,7 +302,7 @@ class _MainState extends ConsumerState<Main> with WindowListener, WidgetsBinding
               context: context,
               locale: AppLocalizations.supportedLocales.firstWhere(
                 (element) => element.languageCode == language.languageCode,
-                orElse: () => Locale('en', "GB"),
+                orElse: () => const Locale('en', "GB"),
               ),
               child: ScaffoldMessenger(child: child ?? Container()),
             ),

@@ -44,11 +44,11 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: FractionallySizedBox(
           heightFactor: 0.4,
-          child: const FladderLogo(),
+          child: FladderLogo(),
         ),
       ),
     );

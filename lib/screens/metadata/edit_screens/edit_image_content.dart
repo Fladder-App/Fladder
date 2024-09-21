@@ -105,7 +105,7 @@ class _EditImageContentState extends ConsumerState<EditImageContent> {
               Align(
                 alignment: Alignment.bottomRight,
                 child: Transform.translate(
-                  offset: Offset(2, 2),
+                  offset: const Offset(2, 2),
                   child: IconButton.filledTonal(
                     style: FilledButton.styleFrom(
                       backgroundColor: Theme.of(context).colorScheme.error,
@@ -115,10 +115,10 @@ class _EditImageContentState extends ConsumerState<EditImageContent> {
                       await showDialog(
                         context: context,
                         builder: (context) => AlertDialog.adaptive(
-                          title: Text("Delete image"),
-                          content: Text("Deleting is permanent are you sure?"),
+                          title: const Text("Delete image"),
+                          content: const Text("Deleting is permanent are you sure?"),
                           actions: [
-                            ElevatedButton(onPressed: () => Navigator.of(context).pop(), child: Text("Cancel")),
+                            ElevatedButton(onPressed: () => Navigator.of(context).pop(), child: const Text("Cancel")),
                             FilledButton(
                               style: FilledButton.styleFrom(
                                 backgroundColor: Theme.of(context).colorScheme.error,
@@ -128,7 +128,7 @@ class _EditImageContentState extends ConsumerState<EditImageContent> {
                                 await ref.read(editItemProvider.notifier).deleteImage(widget.type, image);
                                 Navigator.of(context).pop();
                               },
-                              child: Text(
+                              child: const Text(
                                 "Delete",
                               ),
                             )
@@ -136,7 +136,7 @@ class _EditImageContentState extends ConsumerState<EditImageContent> {
                         ),
                       );
                     },
-                    icon: Icon(Icons.delete_rounded),
+                    icon: const Icon(Icons.delete_rounded),
                   ),
                 ),
               )
@@ -208,7 +208,7 @@ class _EditImageContentState extends ConsumerState<EditImageContent> {
           ),
         ),
         SettingsListTile(
-          label: Text("Include all languages"),
+          label: const Text("Include all languages"),
           trailing: Switch.adaptive(
             value: includeAllImages,
             onChanged: (value) {
@@ -231,7 +231,7 @@ class _EditImageContentState extends ConsumerState<EditImageContent> {
                 ),
                 children: [...serverImageCards, ...imageCards],
               ),
-              if (loading) Center(child: CircularProgressIndicator.adaptive(strokeCap: StrokeCap.round)),
+              if (loading) const Center(child: CircularProgressIndicator.adaptive(strokeCap: StrokeCap.round)),
               if (!loading && [...serverImageCards, ...imageCards].isEmpty)
                 Center(child: Text("No ${widget.type.value}s found"))
             ],

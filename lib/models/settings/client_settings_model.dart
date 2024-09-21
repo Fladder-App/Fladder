@@ -113,5 +113,5 @@ class Vector2 {
   @override
   int get hashCode => x.hashCode ^ y.hashCode;
 
-  static fromPosition(Offset windowPosition) => Vector2(x: windowPosition.dx, y: windowPosition.dy);
+  static Vector2 fromPosition(Offset windowPosition) => Vector2(x: windowPosition.dx, y: windowPosition.dy);
 }

@@ -54,7 +54,7 @@ class _SyncedSeasonPosterState extends ConsumerState<SyncedSeasonPoster> {
                 )
               ],
             ),
-            Spacer(),
+            const Spacer(),
             IconButton(
               onPressed: () {
                 setState(() {
@@ -63,16 +63,16 @@ class _SyncedSeasonPosterState extends ConsumerState<SyncedSeasonPoster> {
               },
               icon: Icon(!expanded ? Icons.keyboard_arrow_down_rounded : Icons.keyboard_arrow_up_rounded),
             )
-          ].addPadding(EdgeInsets.symmetric(horizontal: 6)),
+          ].addPadding(const EdgeInsets.symmetric(horizontal: 6)),
         ),
         AnimatedFadeSize(
           duration: const Duration(milliseconds: 250),
           child: expanded && children.isNotEmpty
               ? ListView(
                   shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   children: <Widget>[
-                    Divider(),
+                    const Divider(),
                     ...children.map(
                       (item) {
                         final baseItem = ref.read(syncProvider.notifier).getItem(item);
@@ -85,7 +85,7 @@ class _SyncedSeasonPosterState extends ConsumerState<SyncedSeasonPoster> {
                         );
                       },
                     )
-                  ].addPadding(EdgeInsets.symmetric(vertical: 10)),
+                  ].addPadding(const EdgeInsets.symmetric(vertical: 10)),
                 )
               : Container(),
         )

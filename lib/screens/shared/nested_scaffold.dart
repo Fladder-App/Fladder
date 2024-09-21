@@ -20,8 +20,8 @@ class NestedScaffold extends ConsumerWidget {
         floatingActionButton: switch (AdaptiveLayout.layoutOf(context)) {
           LayoutState.phone => null,
           _ => switch (playerState) {
-              VideoPlayerState.minimized => Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
+              VideoPlayerState.minimized => const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8),
                   child: FloatingPlayerBar(),
                 ),
               _ => null,

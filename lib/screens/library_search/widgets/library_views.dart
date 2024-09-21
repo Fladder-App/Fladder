@@ -81,7 +81,7 @@ class LibraryViews extends ConsumerWidget {
         if (ref.watch(librarySearchProvider(key!).select((value) => value.nestedCurrentItem is BoxSetModel))) ...{
           ItemActionButton(
             label: Text(context.localized.removeFromCollection),
-            icon: Icon(IconsaxOutline.archive_slash),
+            icon: const Icon(IconsaxOutline.archive_slash),
             action: () async {
               await libraryProvider.removeFromCollection(items: [item]);
               if (context.mounted) {
@@ -93,7 +93,7 @@ class LibraryViews extends ConsumerWidget {
         if (ref.watch(librarySearchProvider(key!).select((value) => value.nestedCurrentItem is PlaylistModel))) ...{
           ItemActionButton(
             label: Text(context.localized.removeFromPlaylist),
-            icon: Icon(IconsaxOutline.archive_minus),
+            icon: const Icon(IconsaxOutline.archive_minus),
             action: () async {
               await libraryProvider.removeFromPlaylist(items: [item]);
               if (context.mounted) {

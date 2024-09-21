@@ -74,7 +74,7 @@ class EpisodeModel extends ItemStreamModel with EpisodeModelMappable {
         images: images,
         childCount: childCount,
         primaryRatio: primaryRatio,
-        userData: UserData(),
+        userData: const UserData(),
       );
 
   @override

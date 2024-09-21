@@ -320,7 +320,7 @@ class PlaybackDialogue extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16).add(EdgeInsets.only(top: 16, bottom: 8)),
+          padding: const EdgeInsets.symmetric(horizontal: 16).add(const EdgeInsets.only(top: 16, bottom: 8)),
           child: Text(
             "Playback type",
             style: Theme.of(context).textTheme.titleLarge,
