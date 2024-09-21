@@ -26,7 +26,7 @@ class FloatingActionButtonAnimated extends ConsumerWidget {
       onPressed: onPressed,
       foregroundColor: alternate ? Theme.of(context).colorScheme.onSecondary : null,
       backgroundColor: alternate ? Theme.of(context).colorScheme.secondary : null,
-      extendedPadding: EdgeInsets.all(14),
+      extendedPadding: const EdgeInsets.all(14),
       label: AnimatedSize(
         duration: const Duration(milliseconds: 250),
         child: isExtended

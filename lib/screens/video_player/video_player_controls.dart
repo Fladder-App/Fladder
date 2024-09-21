@@ -242,7 +242,7 @@ class _DesktopControlsState extends ConsumerState<DesktopControls> {
                         .update((state) => state.copyWith(state: VideoPlayerState.minimized));
                     Navigator.of(context).pop();
                   },
-                  icon: Icon(
+                  icon: const Icon(
                     IconsaxOutline.arrow_down_1,
                     size: 24,
                   ),
@@ -256,7 +256,7 @@ class _DesktopControlsState extends ConsumerState<DesktopControls> {
                     ),
                   )
                 else
-                  Flexible(child: Align(alignment: Alignment.topRight, child: DefaultTitleBar()))
+                  const Flexible(child: Align(alignment: Alignment.topRight, child: DefaultTitleBar()))
               ],
             ),
           ),
@@ -279,7 +279,7 @@ class _DesktopControlsState extends ConsumerState<DesktopControls> {
       child: Padding(
         padding: EdgeInsets.only(bottom: bottomPadding)
             .copyWith(bottom: 21)
-            .add(EdgeInsets.symmetric(vertical: 16))
+            .add(const EdgeInsets.symmetric(vertical: 16))
             .add(EdgeInsets.symmetric(horizontal: AdaptiveLayout.of(context).isDesktop ? 32 : 0)),
         child: Column(
           children: [
@@ -362,7 +362,7 @@ class _DesktopControlsState extends ConsumerState<DesktopControls> {
                     children: [
                       Tooltip(
                           message: "Stop",
-                          child: IconButton(onPressed: () => closePlayer(), icon: Icon(IconsaxOutline.stop))),
+                          child: IconButton(onPressed: () => closePlayer(), icon: const Icon(IconsaxOutline.stop))),
                       const Spacer(),
                       if (AdaptiveLayout.of(context).isDesktop && ref.read(videoPlayerProvider).player != null) ...{
                         // OpenQueueButton(x),
@@ -457,7 +457,7 @@ class _DesktopControlsState extends ConsumerState<DesktopControls> {
                     ),
                   ),
                 }
-              ].addPadding(EdgeInsets.symmetric(horizontal: 4)),
+              ].addPadding(const EdgeInsets.symmetric(horizontal: 4)),
             ),
             const SizedBox(height: 4),
             SizedBox(
@@ -558,9 +558,9 @@ class _DesktopControlsState extends ConsumerState<DesktopControls> {
       onPressed: () => seekForward(mediaPlaybackModel),
       tooltip: "15",
       iconSize: 40,
-      icon: Stack(
+      icon: const Stack(
         children: [
-          const Icon(IconsaxOutline.forward_15_seconds),
+          Icon(IconsaxOutline.forward_15_seconds),
         ],
       ),
     );

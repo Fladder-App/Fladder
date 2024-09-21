@@ -57,7 +57,7 @@ class LoginEditUser extends ConsumerWidget {
           ),
           Row(
             children: [
-              Icon(IconsaxBold.clock),
+              const Icon(IconsaxBold.clock),
               const SizedBox(width: 8),
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,

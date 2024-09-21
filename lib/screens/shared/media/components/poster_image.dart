@@ -89,7 +89,7 @@ class _PosterImageState extends ConsumerState<PosterImage> {
   @override
   Widget build(BuildContext context) {
     final poster = widget.poster;
-    final padding = EdgeInsets.all(5);
+    final padding = const EdgeInsets.all(5);
     return Hero(
       tag: currentTag,
       child: MouseRegion(
@@ -169,7 +169,7 @@ class _PosterImageState extends ConsumerState<PosterImage> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     if (widget.poster.userData.isFavourite)
-                      Row(
+                      const Row(
                         children: [
                           StatusCard(
                             color: Colors.red,
@@ -327,7 +327,7 @@ class _PosterImageState extends ConsumerState<PosterImage> {
                     child: Padding(
                       padding: const EdgeInsets.all(10),
                       child: Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           color: Colors.amber,
                         ),
@@ -347,8 +347,8 @@ class _PosterImageState extends ConsumerState<PosterImage> {
                             .textTheme
                             .labelLarge
                             ?.copyWith(fontSize: 20, fontWeight: FontWeight.bold, shadows: [
-                          BoxShadow(blurRadius: 8, spreadRadius: 16),
-                          BoxShadow(blurRadius: 2, spreadRadius: 16),
+                          const BoxShadow(blurRadius: 8, spreadRadius: 16),
+                          const BoxShadow(blurRadius: 2, spreadRadius: 16),
                         ]),
                       ),
                     ),

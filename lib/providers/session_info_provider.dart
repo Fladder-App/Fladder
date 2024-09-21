@@ -23,7 +23,7 @@ class SessionInfo extends _$SessionInfo {
 
   void _startTimer() {
     _fetchData();
-    _timer = Timer.periodic(Duration(seconds: 2), (timer) async {
+    _timer = Timer.periodic(const Duration(seconds: 2), (timer) async {
       await _fetchData();
     });
   }

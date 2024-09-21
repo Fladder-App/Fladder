@@ -65,7 +65,7 @@ class ElevatedIconButtonLabel extends StatelessWidget {
     return Tooltip(
       message: label,
       child: ConstrainedBox(
-        constraints: BoxConstraints(maxWidth: 65),
+        constraints: const BoxConstraints(maxWidth: 65),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [

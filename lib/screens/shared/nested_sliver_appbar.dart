@@ -35,7 +35,7 @@ class NestedSliverAppBar extends ConsumerWidget {
                   backgroundColor: WidgetStatePropertyAll(Theme.of(context).colorScheme.surface),
                 ),
                 onPressed: () => Scaffold.of(parent).openDrawer(),
-                icon: Icon(
+                icon: const Icon(
                   IconsaxBold.menu,
                   size: 28,
                 ),
@@ -59,10 +59,10 @@ class NestedSliverAppBar extends ConsumerWidget {
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Icon(IconsaxOutline.search_normal),
+                              const Icon(IconsaxOutline.search_normal),
                               const SizedBox(width: 16),
                               Transform.translate(
-                                  offset: Offset(0, 2.5), child: Text(searchTitle ?? "${context.localized.search}...")),
+                                  offset: const Offset(0, 2.5), child: Text(searchTitle ?? "${context.localized.search}...")),
                             ],
                           ),
                         ),
@@ -71,7 +71,7 @@ class NestedSliverAppBar extends ConsumerWidget {
                   ),
                 ),
               ),
-              SettingsUserIcon()
+              const SettingsUserIcon()
             ].addInBetween(const SizedBox(width: 16)),
           ),
         ),

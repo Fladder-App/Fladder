@@ -108,15 +108,15 @@ class _VideoSubtitleControlsState extends ConsumerState<VideoSubtitleControls> {
                             multiSelectionEnabled: false,
                             segments: [
                               ButtonSegment(
-                                label: Text(context.localized.light, style: TextStyle(fontWeight: FontWeight.w100)),
+                                label: Text(context.localized.light, style: const TextStyle(fontWeight: FontWeight.w100)),
                                 value: FontWeight.w100,
                               ),
                               ButtonSegment(
-                                label: Text(context.localized.normal, style: TextStyle(fontWeight: FontWeight.w500)),
+                                label: Text(context.localized.normal, style: const TextStyle(fontWeight: FontWeight.w500)),
                                 value: FontWeight.normal,
                               ),
                               ButtonSegment(
-                                label: Text(context.localized.bold, style: TextStyle(fontWeight: FontWeight.w900)),
+                                label: Text(context.localized.bold, style: const TextStyle(fontWeight: FontWeight.w900)),
                                 value: FontWeight.bold,
                               ),
                             ],

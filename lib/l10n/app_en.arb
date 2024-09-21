@@ -1,42 +1,340 @@
 {
   "@@locale": "en",
-  "switchUser": "Switch user",
-  "userName": "Username",
-  "password": "Password",
-  "login": "Login",
-  "logout": "Logout",
-  "cancel": "Cancel",
+  "about": "About",
   "accept": "Accept",
-  "code": "Code",
-  "error": "Error",
-  "clear": "Clear",
-  "days": "Days",
-  "search": "Search",
-  "loggedIn": "Logged-in",
-  "change": "Change",
-  "other": "Other",
-  "dynamicText": "Dynamic",
-  "enabled": "Enabled",
-  "disabled": "Disabled",
-  "dashboard": "Dashboard",
+  "active": "Active",
+  "actor": "{count, plural, other{Actors} one{Actor}}",
+  "@actor": {
+    "description": "actor",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "addAsFavorite": "Add as favorite",
+  "addToCollection": "Add to collection",
+  "addToPlaylist": "Add to playlist",
   "advanced": "Advanced",
-  "refresh": "Refresh",
-  "delete": "Delete",
-  "goTo": "Go To",
-  "loop": "Loop",
-  "empty": "Empty",
-  "noRating": "No rating",
-  "backgroundBlur": "Background blur",
+  "all": "All",
+  "amoledBlack": "Amoled black",
+  "appLockAutoLogin": "Auto login",
+  "appLockBiometrics": "Biometrics",
+  "appLockPasscode": "Passcode",
+  "appLockTitle": "Set the log-in method for {userName}",
+  "@appLockTitle": {
+    "description": "Pop-up to pick a login method",
+    "placeholders": {
+      "userName": {
+        "type": "String"
+      }
+    }
+  },
+  "ascending": "Ascending",
+  "audio": "Audio",
   "autoPlay": "Auto-play",
-  "resume": "Resume {item}",
-  "@resume": {
-    "description": "resume",
+  "backgroundBlur": "Background blur",
+  "backgroundOpacity": "Background opacity",
+  "biometricsFailedCheckAgain": "Biometrics failed check settings and try again",
+  "bold": "Bold",
+  "cancel": "Cancel",
+  "change": "Change",
+  "chapter": "{count, plural, other{Chapters}  one{Chapter}}",
+  "@chapter": {
+    "description": "chapter",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "clear": "Clear",
+  "clearAllSettings": "Clear all settings",
+  "clearAllSettingsQuestion": "Clear all settings?",
+  "clearChanges": "Clear changes",
+  "clearSelection": "Clear selection",
+  "close": "Close",
+  "code": "Code",
+  "collectionFolder": "Collection folder",
+  "color": "Color",
+  "combined": "Combined",
+  "communityRating": "Community Rating",
+  "continuePage": "Continue - page {page}",
+  "@continuePage": {
+    "description": "Continue - page 1",
+    "placeholders": {
+      "page": {
+        "type": "int"
+      }
+    }
+  },
+  "controls": "Controls",
+  "dashboard": "Dashboard",
+  "dashboardContinue": "Continue",
+  "dashboardContinueListening": "Continue Listening",
+  "dashboardContinueReading": "Continue Reading",
+  "dashboardContinueWatching": "Continue Watching",
+  "dashboardNextUp": "Next-up",
+  "dashboardRecentlyAdded": "Recently added in {name}",
+  "@dashboardRecentlyAdded": {
+    "description": "Recently added on home screen",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "dateAdded": "Date added",
+  "dateLastContentAdded": "Date last content added",
+  "datePlayed": "Date played",
+  "days": "Days",
+  "delete": "Delete",
+  "deleteFileFromSystem": "Deleting this item {item} will delete it from both the file system and your media library.\nAre you sure you wish to continue?",
+  "@deleteFileFromSystem": {
+    "description": "Delete file from system",
     "placeholders": {
       "item": {
         "type": "String"
       }
     }
   },
+  "deleteItem": "Delete {item}?",
+  "@deleteItem": {
+    "description": "deleteItem",
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "descending": "Descending",
+  "director": "{count, plural, other{Director}  two{Directors}}",
+  "@director": {
+    "description": "director",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "disableFilters": "Disable filters",
+  "disabled": "Disabled",
+  "discovered": "Discovered",
+  "displayLanguage": "Display language",
+  "downloadsClearDesc": "Are you sure you want to remove all synced data?\nThis will clear all data for every synced user!",
+  "downloadsClearTitle": "Clear synced data",
+  "downloadsPath": "Path",
+  "downloadsSyncedData": "Synced data",
+  "downloadsTitle": "Downloads",
+  "dynamicText": "Dynamic",
+  "editMetadata": "Edit metadata",
+  "empty": "Empty",
+  "enabled": "Enabled",
+  "episode": "{count, plural, other{Episodes} one{Episode} }",
+  "@episode": {
+    "description": "episode",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "error": "Error",
+  "failedToLoadImage": "Failed to load image",
+  "favorite": "Favorite",
+  "favorites": "Favorites",
+  "fetchingLibrary": "Fetching library items",
+  "filter": "{count, plural, other{Filters} one{Filter}}",
+  "@filter": {
+    "description": "filter",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "folders": "Folders",
+  "fontColor": "Font color",
+  "fontSize": "Font size",
+  "forceRefresh": "Force refresh",
+  "genre": "{count, plural, other{Genres} one{Genre}}",
+  "@genre": {
+    "description": "genre",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "goTo": "Go To",
+  "grid": "Grid",
+  "group": "Group",
+  "groupBy": "Group by",
+  "heightOffset": "Height offset",
+  "hide": "Hide",
+  "hideEmpty": "Hide empty",
+  "home": "Home",
+  "identify": "Identify",
+  "immediately": "Immediately",
+  "incorrectPinTryAgain": "Incorrect pin try again",
+  "info": "Info",
+  "invalidUrl": "Invalid url",
+  "invalidUrlDesc": "Url needs to start with http(s)://",
+  "itemCount": "Item count: {count}",
+  "@itemCount": {
+    "description": "Item count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "label": "{count, plural, other{Labels}  one{Label}}",
+  "@label": {
+    "description": "label",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "library": "{count, plural, other{Libraries} one{Library}}",
+  "@library": {
+    "description": "Plural",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "libraryFetchNoItemsFound": "No items found, try different settings.",
+  "libraryPageSizeDesc": "Set the amount to load at a time. 0 disables paging",
+  "libraryPageSizeTitle": "Library page size",
+  "light": "Light",
+  "list": "List",
+  "lockscreen": "Lockscreen",
+  "loggedIn": "Logged-in",
+  "login": "Login",
+  "logout": "Logout",
+  "logoutUserPopupContent": "This will log-out {userName} and delete te user from the app.\nYou will have to log back in to {serverName}.",
+  "@logoutUserPopupContent": {
+    "description": "Pop-up for loging out the user description",
+    "placeholders": {
+      "userName": {
+        "type": "String"
+      },
+      "serverName": {
+        "type": "String"
+      }
+    }
+  },
+  "logoutUserPopupTitle": "Log-out user {userName}?",
+  "@logoutUserPopupTitle": {
+    "description": "Pop-up for loging out the user",
+    "placeholders": {
+      "userName": {
+        "type": "String"
+      }
+    }
+  },
+  "loop": "Loop",
+  "markAsUnwatched": "Mark as unwatched",
+  "markAsWatched": "Mark as watched",
+  "masonry": "Masonry",
+  "mediaTypeBase": "Base Type",
+  "mediaTypeBook": "Book",
+  "mediaTypeBoxset": "Boxset",
+  "mediaTypeEpisode": "Episode",
+  "mediaTypeFolder": "Folder",
+  "mediaTypeMovie": "Movie",
+  "mediaTypePerson": "Person",
+  "mediaTypePhoto": "Photo",
+  "mediaTypePhotoAlbum": "Photo Album",
+  "mediaTypePlaylist": "Playlist",
+  "mediaTypeSeason": "Season",
+  "mediaTypeSeries": "Series",
+  "metaDataSavedFor": "Metadata saved for {item}",
+  "@metaDataSavedFor": {
+    "description": "metaDataSavedFor",
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "metadataRefreshDefault": "Scan for new and updated files",
+  "metadataRefreshFull": "Replace all metadata",
+  "metadataRefreshValidation": "Search for missing metadata",
+  "minutes": "{count, plural, other{Minutes} one{Minute} }",
+  "@minutes": {
+    "description": "minute",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "mode": "Mode",
+  "moreFrom": "More from {info}",
+  "@moreFrom": {
+    "description": "More from",
+    "placeholders": {
+      "info": {
+        "type": "String"
+      }
+    }
+  },
+  "moreOptions": "More options",
+  "mouseDragSupport": "Drag using mouse",
+  "musicAlbum": "Album",
+  "name": "Name",
+  "navigation": "Navigation",
+  "navigationDashboard": "Dashboard",
+  "navigationFavorites": "Favorites",
+  "navigationSync": "Synced",
+  "never": "Never",
+  "nextUp": "Next Up",
+  "noItemsSynced": "No items synced",
+  "noItemsToShow": "No items to show",
+  "noRating": "No rating",
+  "noResults": "No results",
+  "noServersFound": "No new servers found",
+  "noSuggestionsFound": "No suggestions found",
+  "none": "None",
+  "normal": "Normal",
+  "notPartOfAlbum": "Not part of a album",
+  "openParent": "Open parent",
+  "openShow": "Open show",
+  "openWebLink": "Open web link",
+  "options": "Options",
+  "other": "Other",
+  "outlineColor": "Outline color",
+  "outlineSize": "Outline size",
+  "overview": "Overview",
+  "page": "Page {index}",
+  "@page": {
+    "description": "page",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "parentalRating": "Parental Rating",
+  "password": "Password",
+  "pathClearTitle": "Clear downloads path",
+  "pathEditDesc": "This location is set for all users, any synced data will no longer be accessible.\nIt will remain on your storage.",
+  "pathEditSelect": "Select downloads destination",
+  "pathEditTitle": "Change location",
   "play": "Play {item}",
   "@play": {
     "description": "Play with",
@@ -46,24 +344,7 @@
       }
     }
   },
-  "read": "Read {item}",
-  "@read": {
-    "description": "read",
-    "placeholders": {
-      "item": {
-        "type": "String"
-      }
-    }
-  },
-  "readFromStart": "Read {item} from start",
-  "@readFromStart": {
-    "description": "Read book from start",
-    "placeholders": {
-      "item": {
-        "type": "String"
-      }
-    }
-  },
+  "playCount": "Play count",
   "playFrom": "Play from {name}",
   "@playFrom": {
     "description": "playFrom",
@@ -82,234 +363,85 @@
       }
     }
   },
-  "moreFrom": "More from {info}",
-  "@moreFrom": {
-    "description": "More from",
-    "placeholders": {
-      "info": {
-        "type": "String"
-      }
-    }
-  },
-  "selectedWith": "Selected {info}",
-  "@selectedWith": {
-    "description": "selected",
-    "placeholders": {
-      "info": {
-        "type": "String"
-      }
-    }
-  },
-  "selected": "Selected",
-  "restart": "Restart",
-  "reWatch": "Rewatch",
-  "options": "Options",
-  "list": "List",
-  "grid": "Grid",
-  "masonry": "Masonry",
-  "start": "Start",
-  "none": "None",
-  "chapter": "{count, plural, other{Chapters}  one{Chapter}}",
-  "@chapter": {
-    "description": "chapter",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "watchOn": "Watch on",
-  "sync": "Sync",
-  "moreOptions": "More options",
-  "continuePage": "Continue - page {page}",
-  "@continuePage": {
-    "description": "Continue - page 1",
-    "placeholders": {
-      "page": {
-        "type": "int"
-      }
-    }
-  },
-  "openShow": "Open show",
-  "showDetails": "Show details",
-  "showAlbum": "Show album",
-  "season": "{count, plural, other{Seasons} one{Season} }",
-  "@season": {
-    "description": "season",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "episode": "{count, plural, other{Episodes} one{Episode} }",
-  "@episode": {
-    "description": "episode",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "addToCollection": "Add to collection",
-  "addToPlaylist": "Add to playlist",
-  "removeFromCollection": "Remove to collection",
-  "removeFromPlaylist": "Remove to playlist",
-  "markAsWatched": "Mark as watched",
-  "markAsUnwatched": "Mark as unwatched",
-  "removeAsFavorite": "Remove as favorite",
-  "addAsFavorite": "Add as favorite",
-  "editMetadata": "Edit metadata",
-  "refreshMetadata": "Refresh metadata",
-  "syncDetails": "Sync details",
-  "identify": "Identify",
-  "info": "Info",
-  "clearAllSettings": "Clear all settings",
-  "clearAllSettingsQuestion": "Clear all settings?",
-  "unableToReverseAction": "This action can not be reversed, it will remove all settings.",
-  "navigationDashboard": "Dashboard",
-  "navigationFavorites": "Favorites",
-  "navigationSync": "Synced",
-  "navigation": "Navigation",
-  "library": "{count, plural, other{Libraries} one{Library}}",
-  "@library": {
-    "description": "Plural",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "scanLibrary": "Scan library",
-  "dashboardContinue": "Continue",
-  "dashboardContinueWatching": "Continue Watching",
-  "dashboardContinueReading": "Continue Reading",
-  "dashboardContinueListening": "Continue Listening",
-  "dashboardNextUp": "Next-up",
-  "dashboardRecentlyAdded": "Recently added in {name}",
-  "@dashboardRecentlyAdded": {
-    "description": "Recently added on home screen",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "settings": "Settings",
-  "settingsClientTitle": "Fladder",
-  "settingsClientDesc": "General, Time-out, Layout, Theme",
-  "settingsQuickConnectTitle": "Quick connect",
-  "settingsProfileTitle": "Profile",
-  "settingsProfileDesc": "Lockscreen",
-  "settingsPlayerTitle": "Player",
-  "settingsPlayerDesc": "Aspect-ratio, Advanced",
-  "logoutUserPopupTitle": "Log-out user {userName}?",
-  "@logoutUserPopupTitle": {
-    "description": "Pop-up for loging out the user",
-    "placeholders": {
-      "userName": {
-        "type": "String"
-      }
-    }
-  },
-  "logoutUserPopupContent": "This will log-out {userName} and delete te user from the app.\nYou will have to log back in to {serverName}.",
-  "@logoutUserPopupContent": {
-    "description": "Pop-up for loging out the user description",
-    "placeholders": {
-      "userName": {
-        "type": "String"
-      },
-      "serverName": {
-        "type": "String"
-      }
-    }
-  },
-  "quickConnectTitle": "Quick-connect",
+  "playLabel": "Play",
+  "playVideos": "Play videos",
+  "played": "Played",
   "quickConnectAction": "Enter quick connect code for",
   "quickConnectInputACode": "Input a code",
+  "quickConnectTitle": "Quick-connect",
   "quickConnectWrongCode": "Wrong code",
-  "downloadsTitle": "Downloads",
-  "downloadsPath": "Path",
-  "pathEditTitle": "Change location",
-  "pathEditSelect": "Select downloads destination",
-  "pathClearTitle": "Clear downloads path",
-  "pathEditDesc": "This location is set for all users, any synced data will no longer be accessible.\nIt will remain on your storage.",
-  "downloadsSyncedData": "Synced data",
-  "downloadsClearTitle": "Clear synced data",
-  "downloadsClearDesc": "Are you sure you want to remove all synced data?\nThis will clear all data for every synced user!",
-  "lockscreen": "Lockscreen",
-  "timeOut": "Time-out",
-  "home": "Home",
-  "settingsHomeCarouselTitle": "Dashboard carousel",
-  "settingsHomeCarouselDesc": "Shows a carousel on the dashboard screen",
-  "settingsHomeNextUpTitle": "Next-up posters",
-  "settingsHomeNextUpDesc": "Type of posters shown in the dashboard screen",
-  "settingsVisual": "Visual",
-  "settingsBlurredPlaceholderTitle": "Blurred placeholder",
-  "settingsBlurredPlaceholderDesc": "Show blurred background when loading posters",
-  "settingsBlurEpisodesTitle": "Blur next-up episodes",
-  "settingsBlurEpisodesDesc": "Blur all upcoming episodes",
-  "settingsEnableOsMediaControls": "Enable OS media controls",
-  "settingsNextUpCutoffDays": "Next-up cutoff days",
-  "settingsShowScaleSlider": "Show poster size slide",
-  "settingsPosterSize": "Poster size",
-  "settingsPosterSlider": "Show scale slider",
-  "settingsPosterPinch": "Pinch-zoom to scale posters",
-  "theme": "Theme",
-  "mode": "Mode",
-  "themeModeSystem": "System",
-  "themeModeLight": "Light",
-  "themeModeDark": "Dark",
-  "themeColor": "Theme color",
-  "color": "Color",
-  "amoledBlack": "Amoled black",
-  "hide": "Hide",
-  "nextUp": "Next Up",
-  "settingsContinue": "Continue",
-  "separate": "Separate",
-  "combined": "Combined",
-  "settingsSecurity": "Security",
-  "settingSecurityApplockTitle": "App lock",
-  "appLockTitle": "Set the log-in method for {userName}",
-  "@appLockTitle": {
-    "description": "Pop-up to pick a login method",
+  "random": "Random",
+  "rating": "{count, plural, other{Ratings} one{Rating}}",
+  "@rating": {
+    "description": "rating",
     "placeholders": {
-      "userName": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "reWatch": "Rewatch",
+  "read": "Read {item}",
+  "@read": {
+    "description": "read",
+    "placeholders": {
+      "item": {
         "type": "String"
       }
     }
   },
-  "biometricsFailedCheckAgain": "Biometrics failed check settings and try again",
-  "appLockAutoLogin": "Auto login",
-  "appLockPasscode": "Passcode",
-  "appLockBiometrics": "Biometrics",
-  "settingsPlayerVideoHWAccelTitle": "Hardware acceleration",
-  "settingsPlayerVideoHWAccelDesc": "Use the gpu to render video (recommended)",
-  "settingsPlayerNativeLibassAccelTitle": "Native libass subtitles",
-  "settingsPlayerNativeLibassAccelDesc": "Use video player libass subtitle renderer",
-  "settingsPlayerMobileWarning": "Enabling Hardware acceleration and native libass subtitles on Android might cause some subtitles to not render.",
-  "settingsPlayerCustomSubtitlesTitle": "Customize subtitles",
-  "settingsPlayerCustomSubtitlesDesc": "Customize Size, Color, Position, Outline",
-  "videoScalingFillScreenTitle": "Fill screen",
-  "videoScalingFillScreenDesc": "Fill the navigation and statusbar",
-  "videoScalingFillScreenNotif": "Fill-screen overwrites video fit, in horizontal rotation",
-  "videoScaling": "Video scaling",
-  "videoScalingFill": "Fill",
-  "videoScalingContain": "Contain",
-  "videoScalingCover": "Cover",
-  "videoScalingFitWidth": "Fit Width",
-  "videoScalingFitHeight": "Fit Height",
-  "videoScalingScaleDown": "ScaleDown",
-  "subtitleConfiguratorPlaceHolder": "This is placeholder text, \n nothing to see here.",
-  "subtitleConfigurator": "Subtitle configurator",
+  "readFromStart": "Read {item} from start",
+  "@readFromStart": {
+    "description": "Read book from start",
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "recursive": "Recursive",
+  "refresh": "Refresh",
+  "refreshMetadata": "Refresh metadata",
   "refreshPopup": "Refresh - {name}",
   "@refreshPopup": {
     "placeholders": {
       "name": {
+        "type": "String"
+      }
+    }
+  },
+  "refreshPopupContentMetadata": "Metadata is refreshed based on settings and internet services that are enabled in the Dashboard.",
+  "related": "Related",
+  "releaseDate": "Release date",
+  "removeAsFavorite": "Remove as favorite",
+  "removeFromCollection": "Remove to collection",
+  "removeFromPlaylist": "Remove to playlist",
+  "replaceAllImages": "Replace all images",
+  "replaceExistingImages": "Replace existing images",
+  "restart": "Restart",
+  "result": "Result",
+  "resumable": "Resumable",
+  "resume": "Resume {item}",
+  "@resume": {
+    "description": "resume",
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "retrievePublicListOfUsers": "Retrieve public list of users",
+  "retry": "Retry",
+  "runTime": "Run time",
+  "save": "Save",
+  "saved": "Saved",
+  "scanBiometricHint": "Verify identity",
+  "scanLibrary": "Scan library",
+  "scanYourFingerprintToAuthenticate": "Scan your fingerprint to authenticate {user}",
+  "@scanYourFingerprintToAuthenticate": {
+    "placeholders": {
+      "user": {
         "type": "String"
       }
     }
@@ -322,249 +454,11 @@
       }
     }
   },
-  "refreshPopupContentMetadata": "Metadata is refreshed based on settings and internet services that are enabled in the Dashboard.",
-  "replaceExistingImages": "Replace existing images",
-  "metadataRefreshDefault": "Scan for new and updated files",
-  "metadataRefreshValidation": "Search for missing metadata",
-  "metadataRefreshFull": "Replace all metadata",
-  "syncedItems": "Synced items",
-  "noItemsSynced": "No items synced",
-  "syncDeletePopupPermanent": "This action is permanent and will remove all localy synced files",
-  "totalSize": "Total size: {size}",
-  "@totalSize": {
-    "placeholders": {
-      "size": {
-        "type": "String"
-      }
-    }
-  },
-  "mediaTypeBase": "Base Type",
-  "mediaTypeMovie": "Movie",
-  "mediaTypeSeries": "Series",
-  "mediaTypeSeason": "Season",
-  "mediaTypeEpisode": "Episode",
-  "mediaTypePhoto": "Photo",
-  "mediaTypePerson": "Person",
-  "mediaTypePhotoAlbum": "Photo Album",
-  "mediaTypeFolder": "Folder",
-  "mediaTypeBoxset": "Boxset",
-  "mediaTypePlaylist": "Playlist",
-  "mediaTypeBook": "Book",
-  "actor": "{count, plural, other{Actors} one{Actor}}",
-  "@actor": {
-    "description": "actor",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "writer": "{count, plural, other{Writer} two{Writers}}",
-  "@writer": {
-    "description": "writer",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "director": "{count, plural, other{Director}  two{Directors}}",
-  "@director": {
-    "description": "director",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "video": "Video",
-  "audio": "Audio",
-  "subtitles": "Subtitles",
-  "related": "Related",
-  "all": "All",
-  "overview": "Overview",
-  "selectViewType": "Select view type",
-  "noItemsToShow": "No items to show",
-  "sortBy": "Sort by",
-  "groupBy": "Group by",
   "scrollToTop": "Scroll to top",
-  "disableFilters": "Disable filters",
-  "selectAll": "Select all",
-  "clearSelection": "Clear selection",
-  "shuffleVideos": "Shuffle videos",
-  "shuffleGallery": "Shuffle gallery",
-  "unknown": "Unknown",
-  "favorites": "Favorites",
-  "recursive": "Recursive",
-  "genre": "{count, plural, other{Genres} one{Genre}}",
-  "@genre": {
-    "description": "genre",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "studio": "{count, plural, other{Studios} one{Studio}}",
-  "@studio": {
-    "description": "studio",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "label": "{count, plural, other{Labels}  one{Label}}",
-  "@label": {
-    "description": "label",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "group": "Group",
-  "type": "{count, plural, other{Types} one{Type}}",
-  "@type": {
-    "description": "type",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "filter": "{count, plural, other{Filters} one{Filter}}",
-  "@filter": {
-    "description": "filter",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "showEmpty": "Show empty",
-  "hideEmpty": "Hide empty",
-  "rating": "{count, plural, other{Ratings} one{Rating}}",
-  "@rating": {
-    "description": "rating",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "year": "{count, plural, other{Years} one{Year}}",
-  "@year": {
-    "description": "year",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "playVideos": "Play videos",
-  "playLabel": "Play",
-  "forceRefresh": "Force refresh",
-  "itemCount": "Item count: {count}",
-  "@itemCount": {
-    "description": "Item count",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "invalidUrl": "Invalid url",
-  "invalidUrlDesc": "Url needs to start with http(s)://",
-  "incorrectPinTryAgain": "Incorrect pin try again",
-  "somethingWentWrongPasswordCheck": "Something went wrong, check your password",
-  "unableToConnectHost": "Unable to connect to host",
-  "server": "Server",
-  "retrievePublicListOfUsers": "Retrieve public list of users",
-  "displayLanguage": "Display language",
-  "deleteItem": "Delete {item}?",
-  "@deleteItem": {
-    "description": "deleteItem",
-    "placeholders": {
-      "item": {
-        "type": "String"
-      }
-    }
-  },
-  "syncDeleteItemTitle": "Delete synced item",
-  "syncDeleteItemDesc": "Delete all synced data for?\n{item}",
-  "@syncDeleteItemDesc": {
-    "description": "Sync delete item pop-up window",
-    "placeholders": {
-      "item": {
-        "type": "String"
-      }
-    }
-  },
-  "syncOpenParent": "Open parent",
-  "syncRemoveDataTitle": "Remove synced data?",
-  "syncRemoveDataDesc": "Delete synced video data? This is permanent and you will need to re-sync the files",
-  "collectionFolder": "Collection folder",
-  "musicAlbum": "Album",
-  "active": "Active",
-  "name": "Name",
-  "result": "Result",
-  "close": "Close",
-  "replaceAllImages": "Replace all images",
-  "noResults": "No results",
-  "openWebLink": "Open web link",
-  "setIdentityTo": "Set identity to {name}",
-  "@setIdentityTo": {
-    "description": "setIdentityTo",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "somethingWentWrong": "Something went wrong",
-  "clearChanges": "Clear changes",
-  "useDefaults": "Use defaults",
-  "light": "Light",
-  "normal": "Normal",
-  "bold": "Bold",
-  "fontSize": "Font size",
-  "heightOffset": "Height offset",
-  "fontColor": "Font color",
-  "outlineColor": "Outline color",
-  "outlineSize": "Outline size",
-  "backgroundOpacity": "Background opacity",
-  "shadow": "Shadow",
-  "played": "Played",
-  "unPlayed": "Unplayed",
-  "resumable": "Resumable",
-  "sortOrder": "Sort order",
-  "sortName": "Name",
-  "communityRating": "Community Rating",
-  "parentalRating": "Parental Rating",
-  "dateAdded": "Date added",
-  "dateLastContentAdded": "Date last content added",
-  "favorite": "Favorite",
-  "datePlayed": "Date played",
-  "folders": "Folders",
-  "playCount": "Play count",
-  "releaseDate": "Release date",
-  "runTime": "Run time",
-  "ascending": "Ascending",
-  "descending": "Descending",
-  "minutes": "{count, plural, other{Minutes} one{Minute} }",
-  "@minutes": {
-    "description": "minute",
+  "search": "Search",
+  "season": "{count, plural, other{Seasons} one{Season} }",
+  "@season": {
+    "description": "season",
     "placeholders": {
       "count": {
         "type": "int",
@@ -582,23 +476,126 @@
       }
     }
   },
-  "page": "Page {index}",
-  "@page": {
-    "description": "page",
+  "selectAll": "Select all",
+  "selectTime": "Select time",
+  "selectViewType": "Select view type",
+  "selected": "Selected",
+  "selectedWith": "Selected {info}",
+  "@selectedWith": {
+    "description": "selected",
     "placeholders": {
-      "index": {
-        "type": "int"
+      "info": {
+        "type": "String"
       }
     }
   },
+  "separate": "Separate",
+  "server": "Server",
   "set": "Set",
   "@set": {
     "description": "Use for setting a certain value",
     "context": "Set 'time'"
   },
-  "never": "Never",
-  "selectTime": "Select time",
-  "immediately": "Immediately",
+  "setIdentityTo": "Set identity to {name}",
+  "@setIdentityTo": {
+    "description": "setIdentityTo",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "settingSecurityApplockTitle": "App lock",
+  "settings": "Settings",
+  "settingsBlurEpisodesDesc": "Blur all upcoming episodes",
+  "settingsBlurEpisodesTitle": "Blur next-up episodes",
+  "settingsBlurredPlaceholderDesc": "Show blurred background when loading posters",
+  "settingsBlurredPlaceholderTitle": "Blurred placeholder",
+  "settingsClientDesc": "General, Time-out, Layout, Theme",
+  "settingsClientTitle": "Fladder",
+  "settingsContinue": "Continue",
+  "settingsEnableOsMediaControls": "Enable OS media controls",
+  "settingsHomeCarouselDesc": "Shows a carousel on the dashboard screen",
+  "settingsHomeCarouselTitle": "Dashboard carousel",
+  "settingsHomeNextUpDesc": "Type of posters shown in the dashboard screen",
+  "settingsHomeNextUpTitle": "Next-up posters",
+  "settingsNextUpCutoffDays": "Next-up cutoff days",
+  "settingsPlayerCustomSubtitlesDesc": "Customize Size, Color, Position, Outline",
+  "settingsPlayerCustomSubtitlesTitle": "Customize subtitles",
+  "settingsPlayerDesc": "Aspect-ratio, Advanced",
+  "settingsPlayerMobileWarning": "Enabling Hardware acceleration and native libass subtitles on Android might cause some subtitles to not render.",
+  "settingsPlayerNativeLibassAccelDesc": "Use video player libass subtitle renderer",
+  "settingsPlayerNativeLibassAccelTitle": "Native libass subtitles",
+  "settingsPlayerTitle": "Player",
+  "settingsPlayerVideoHWAccelDesc": "Use the gpu to render video (recommended)",
+  "settingsPlayerVideoHWAccelTitle": "Hardware acceleration",
+  "settingsPosterPinch": "Pinch-zoom to scale posters",
+  "settingsPosterSize": "Poster size",
+  "settingsPosterSlider": "Show scale slider",
+  "settingsProfileDesc": "Lockscreen",
+  "settingsProfileTitle": "Profile",
+  "settingsQuickConnectTitle": "Quick connect",
+  "settingsSecurity": "Security",
+  "settingsShowScaleSlider": "Show poster size slide",
+  "settingsVisual": "Visual",
+  "shadow": "Shadow",
+  "showAlbum": "Show album",
+  "showDetails": "Show details",
+  "showEmpty": "Show empty",
+  "shuffleGallery": "Shuffle gallery",
+  "shuffleVideos": "Shuffle videos",
+  "somethingWentWrong": "Something went wrong",
+  "somethingWentWrongPasswordCheck": "Something went wrong, check your password",
+  "sortBy": "Sort by",
+  "sortName": "Name",
+  "sortOrder": "Sort order",
+  "start": "Start",
+  "studio": "{count, plural, other{Studios} one{Studio}}",
+  "@studio": {
+    "description": "studio",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "subtitleConfigurator": "Subtitle configurator",
+  "subtitleConfiguratorPlaceHolder": "This is placeholder text, \n nothing to see here.",
+  "subtitles": "Subtitles",
+  "switchUser": "Switch user",
+  "sync": "Sync",
+  "syncDeleteItemDesc": "Delete all synced data for?\n{item}",
+  "@syncDeleteItemDesc": {
+    "description": "Sync delete item pop-up window",
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "syncDeleteItemTitle": "Delete synced item",
+  "syncDeletePopupPermanent": "This action is permanent and will remove all localy synced files",
+  "syncDetails": "Sync details",
+  "syncOpenParent": "Open parent",
+  "syncRemoveDataDesc": "Delete synced video data? This is permanent and you will need to re-sync the files",
+  "syncRemoveDataTitle": "Remove synced data?",
+  "syncedItems": "Synced items",
+  "tag": "{count, plural, one{Tag} other{Tags}}",
+  "@tag": {
+    "description": "tag",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "theme": "Theme",
+  "themeColor": "Theme color",
+  "themeModeDark": "Dark",
+  "themeModeLight": "Light",
+  "themeModeSystem": "System",
   "timeAndAnnotation": "{minutes} and {seconds}",
   "@timeAndAnnotation": {
     "description": "timeAndAnnotation",
@@ -611,47 +608,18 @@
       }
     }
   },
-  "scanYourFingerprintToAuthenticate": "Scan your fingerprint to authenticate {user}",
-  "@scanYourFingerprintToAuthenticate": {
+  "timeOut": "Time-out",
+  "totalSize": "Total size: {size}",
+  "@totalSize": {
     "placeholders": {
-      "user": {
+      "size": {
         "type": "String"
       }
     }
   },
-  "scanBiometricHint": "Verify identity",
-  "deleteFileFromSystem": "Deleting this item {item} will delete it from both the file system and your media library.\nAre you sure you wish to continue?",
-  "@deleteFileFromSystem": {
-    "description": "Delete file from system",
-    "placeholders": {
-      "item": {
-        "type": "String"
-      }
-    }
-  },
-  "notPartOfAlbum": "Not part of a album",
-  "retry": "Retry",
-  "failedToLoadImage": "Failed to load image",
-  "save": "Save",
-  "metaDataSavedFor": "Metadata saved for {item}",
-  "@metaDataSavedFor": {
-    "description": "metaDataSavedFor",
-    "placeholders": {
-      "item": {
-        "type": "String"
-      }
-    }
-  },
-  "libraryPageSizeTitle": "Library page size",
-  "libraryPageSizeDesc": "Set the amount to load at a time. 0 disables paging",
-  "fetchingLibrary": "Fetching library items",
-  "libraryFetchNoItemsFound": "No items found, try different settings.",
-  "noSuggestionsFound": "No suggestions found",
-  "viewPhotos": "View photos",
-  "random": "Random",
-  "tag": "{count, plural, one{Tag} other{Tags}}",
-  "@tag": {
-    "description": "tag",
+  "type": "{count, plural, other{Types} one{Type}}",
+  "@type": {
+    "description": "type",
     "placeholders": {
       "count": {
         "type": "int",
@@ -659,11 +627,43 @@
       }
     }
   },
-  "saved": "Saved",
-  "discovered": "Discovered",
-  "noServersFound": "No new servers found",
-  "about": "About",
-  "openParent": "Open parent",
-  "mouseDragSupport": "Drag using mouse",
-  "controls": "Controls"
+  "unPlayed": "Unplayed",
+  "unableToConnectHost": "Unable to connect to host",
+  "unableToReverseAction": "This action can not be reversed, it will remove all settings.",
+  "unknown": "Unknown",
+  "useDefaults": "Use defaults",
+  "userName": "Username",
+  "video": "Video",
+  "videoScaling": "Video scaling",
+  "videoScalingContain": "Contain",
+  "videoScalingCover": "Cover",
+  "videoScalingFill": "Fill",
+  "videoScalingFillScreenDesc": "Fill the navigation and statusbar",
+  "videoScalingFillScreenNotif": "Fill-screen overwrites video fit, in horizontal rotation",
+  "videoScalingFillScreenTitle": "Fill screen",
+  "videoScalingFitHeight": "Fit Height",
+  "videoScalingFitWidth": "Fit Width",
+  "videoScalingScaleDown": "ScaleDown",
+  "viewPhotos": "View photos",
+  "watchOn": "Watch on",
+  "writer": "{count, plural, other{Writer} two{Writers}}",
+  "@writer": {
+    "description": "writer",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "year": "{count, plural, other{Years} one{Year}}",
+  "@year": {
+    "description": "year",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  }
 }

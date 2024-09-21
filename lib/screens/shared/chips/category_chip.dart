@@ -225,7 +225,7 @@ class _CategoryChipEditorState<T> extends State<CategoryChipEditor<T>> {
               onChanged: (value) => updateKey(MapEntry(element.key, value == null ? null : element.value)),
             );
           }),
-          Divider(),
+          const Divider(),
         },
         ...otherItems.mapIndexed((index, element) {
           return CheckboxListTile.adaptive(

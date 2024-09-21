@@ -66,8 +66,8 @@ class _NavigationScaffoldState extends ConsumerState<NavigationScaffold> {
             playerState == VideoPlayerState.minimized ? FloatingActionButtonLocation.centerFloat : null,
         floatingActionButton: AdaptiveLayout.of(context).layout == LayoutState.phone
             ? switch (playerState) {
-                VideoPlayerState.minimized => Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                VideoPlayerState.minimized => const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 8),
                     child: FloatingPlayerBar(),
                   ),
                 _ => widget.destinations.elementAtOrNull(currentIndex)?.floatingActionButton?.normal,
@@ -87,7 +87,7 @@ class _NavigationScaffoldState extends ConsumerState<NavigationScaffold> {
                 controller: AppRoutes.scrollController,
                 child: NestedBottomAppBar(
                   child: Transform.translate(
-                    offset: Offset(0, 8),
+                    offset: const Offset(0, 8),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.stretch,

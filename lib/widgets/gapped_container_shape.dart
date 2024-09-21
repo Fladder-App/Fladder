@@ -61,7 +61,7 @@ class _GappedContainerPainter extends CustomPainter {
         thumbCenterDxFraction.isFinite ? thumbCenterDxFraction * size.width : 0.0; // Default to 0 if invalid fraction
 
     final Radius trackCornerRadius = Radius.circular(trackRect.shortestSide / 2);
-    final Radius trackInsideCornerRadius = Radius.circular(2.0);
+    final Radius trackInsideCornerRadius = const Radius.circular(2.0);
 
     final RRect trackRRect = RRect.fromRectAndCorners(
       trackRect,

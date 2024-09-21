@@ -17,5 +17,5 @@ class HomeSettingsNotifier extends StateNotifier<HomeSettingsModel> {
     ref.read(sharedUtilityProvider).homeSettings = value;
   }
 
-  update(HomeSettingsModel Function(HomeSettingsModel currentState) value) => state = value(state);
+  HomeSettingsModel update(HomeSettingsModel Function(HomeSettingsModel currentState) value) => state = value(state);
 }

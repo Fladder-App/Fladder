@@ -94,7 +94,7 @@ class _FilePickerBarState extends ConsumerState<FilePickerBar> {
       },
       onDragExited: (details) => setState(() => dragStart = false),
       child: Container(
-        constraints: BoxConstraints(minHeight: 50, minWidth: 50),
+        constraints: const BoxConstraints(minHeight: 50, minWidth: 50),
         decoration: BoxDecoration(
           color: Colors.grey,
           gradient: LinearGradient(
@@ -106,7 +106,7 @@ class _FilePickerBarState extends ConsumerState<FilePickerBar> {
           ),
         ),
         child: AnimatedSwitcher(
-          duration: Duration(milliseconds: 250),
+          duration: const Duration(milliseconds: 250),
           child: inputField
               ? OutlinedTextField(
                   controller: controller,

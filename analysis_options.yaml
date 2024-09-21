@@ -1,7 +1,17 @@
 include: package:lints/recommended.yaml
 
 analyzer:
-  exclude: [build/**, lib/jellyfin/**]
+  exclude:
+    - build/**
+    - lib/jellyfin/**
+    - lib/**/**.g.dart
+    - lib/**/**.freezed.dart
+    - lib/**/**.mapped.dart
+    - packages/**
+    - pubspec.yaml
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: false
   language:
     # strict-casts: false
     # strict-raw-types: true
@@ -17,3 +27,10 @@ linter:
     prefer_relative_imports: false
     avoid_relative_lib_imports: true
     eol_at_end_of_file: true
+    prefer_final_fields: true
+    prefer_const_constructors: true
+    always_declare_return_types: true
+    type_init_formals: true
+    unnecessary_this: true
+    sort_pub_dependencies: true
+    use_key_in_widget_constructors: true

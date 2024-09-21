@@ -137,7 +137,7 @@ class _NavigationBodyState extends ConsumerState<NavigationBody> {
           ],
           const Spacer(),
           IconTheme(
-            data: IconThemeData(size: 28),
+            data: const IconThemeData(size: 28),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -155,8 +155,8 @@ class _NavigationBodyState extends ConsumerState<NavigationBody> {
                 child: widget.currentLocation.contains(SettingsRoute().route)
                     ? Card(
                         color: Theme.of(context).colorScheme.primaryContainer,
-                        child: Padding(
-                          padding: const EdgeInsets.all(10),
+                        child: const Padding(
+                          padding: EdgeInsets.all(10),
                           child: Icon(IconsaxBold.setting_3),
                         ),
                       )

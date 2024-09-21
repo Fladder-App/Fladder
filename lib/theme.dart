@@ -28,8 +28,8 @@ class FladderTheme {
   static RoundedRectangleBorder get defaultShape => RoundedRectangleBorder(borderRadius: BorderRadius.circular(8));
   static RoundedRectangleBorder get largeShape => RoundedRectangleBorder(borderRadius: BorderRadius.circular(16));
 
-  static Color get darkBackgroundColor => Color.fromARGB(255, 10, 10, 10);
-  static Color get lightBackgroundColor => Color.fromARGB(237, 255, 255, 255);
+  static Color get darkBackgroundColor => const Color.fromARGB(255, 10, 10, 10);
+  static Color get lightBackgroundColor => const Color.fromARGB(237, 255, 255, 255);
 
   static ThemeData theme(ColorScheme? colorScheme) {
     final ColorScheme? scheme = generateDynamicColourSchemes(colorScheme);
@@ -50,7 +50,7 @@ class FladderTheme {
         margin: EdgeInsets.zero,
         shape: defaultShape,
       ),
-      progressIndicatorTheme: ProgressIndicatorThemeData(),
+      progressIndicatorTheme: const ProgressIndicatorThemeData(),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: scheme?.secondaryContainer,
         foregroundColor: scheme?.onSecondaryContainer,
@@ -65,7 +65,7 @@ class FladderTheme {
       ),
       tooltipTheme: TooltipThemeData(
         textAlign: TextAlign.center,
-        waitDuration: Duration(milliseconds: 500),
+        waitDuration: const Duration(milliseconds: 500),
         textStyle: TextStyle(
           color: scheme?.onSurface,
         ),
@@ -77,21 +77,21 @@ class FladderTheme {
       switchTheme: SwitchThemeData(
         thumbIcon: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.selected)) {
-            return Icon(Icons.check_rounded);
+            return const Icon(Icons.check_rounded);
           }
           return null;
         }),
-        trackOutlineWidth: WidgetStatePropertyAll(1),
+        trackOutlineWidth: const WidgetStatePropertyAll(1),
       ),
       iconButtonTheme: IconButtonThemeData(
         style: ButtonStyle(
           shape: WidgetStatePropertyAll(defaultShape),
         ),
       ),
-      navigationBarTheme: NavigationBarThemeData(),
+      navigationBarTheme: const NavigationBarThemeData(),
       dialogTheme: DialogTheme(shape: defaultShape),
       scrollbarTheme: ScrollbarThemeData(
-          radius: Radius.circular(16),
+          radius: const Radius.circular(16),
           thumbColor: WidgetStateProperty.resolveWith((states) {
             if (states.contains(WidgetState.hovered)) {
               return colorScheme?.primary;

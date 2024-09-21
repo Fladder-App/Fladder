@@ -87,7 +87,7 @@ class _DefaultTitleBarState extends ConsumerState<DefaultTitleBar> with WindowLi
                             }
                           },
                           icon: Transform.translate(
-                            offset: Offset(0, -2),
+                            offset: const Offset(0, -2),
                             child: Icon(
                               Icons.minimize_rounded,
                               color: iconColor,
@@ -126,7 +126,7 @@ class _DefaultTitleBarState extends ConsumerState<DefaultTitleBar> with WindowLi
                           }
                         },
                         icon: Transform.translate(
-                          offset: Offset(0, 0),
+                          offset: const Offset(0, 0),
                           child: Icon(
                             maximized ? Icons.maximize_rounded : Icons.crop_square_rounded,
                             color: iconColor,
@@ -148,7 +148,7 @@ class _DefaultTitleBarState extends ConsumerState<DefaultTitleBar> with WindowLi
                       windowManager.close();
                     },
                     icon: Transform.translate(
-                      offset: Offset(0, -2),
+                      offset: const Offset(0, -2),
                       child: Icon(
                         Icons.close_rounded,
                         color: iconColor,

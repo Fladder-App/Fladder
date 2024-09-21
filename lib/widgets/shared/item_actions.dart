@@ -12,19 +12,19 @@ abstract class ItemAction {
 }
 
 class ItemActionDivider extends ItemAction {
-  Widget toWidget() => Divider();
+  Widget toWidget() => const Divider();
 
   @override
-  Divider toMenuItemButton() => Divider();
+  Divider toMenuItemButton() => const Divider();
 
   @override
-  PopupMenuEntry toPopupMenuItem({bool useIcons = false}) => PopupMenuDivider(height: 3);
+  PopupMenuEntry toPopupMenuItem({bool useIcons = false}) => const PopupMenuDivider(height: 3);
 
   @override
   Widget toLabel() => Container();
 
   @override
-  Widget toListItem(BuildContext context, {bool useIcons = false, bool shouldPop = true}) => Divider();
+  Widget toListItem(BuildContext context, {bool useIcons = false, bool shouldPop = true}) => const Divider();
 }
 
 class ItemActionButton extends ItemAction {
@@ -67,7 +67,7 @@ class ItemActionButton extends ItemAction {
                     iconTheme: IconThemeData(color: Theme.of(context).colorScheme.onSurface),
                   ),
                   child: Row(
-                    children: [if (icon != null) icon!, SizedBox(width: 8), if (label != null) Flexible(child: label!)],
+                    children: [if (icon != null) icon!, const SizedBox(width: 8), if (label != null) Flexible(child: label!)],
                   ),
                 ),
               );
@@ -97,7 +97,7 @@ class ItemActionButton extends ItemAction {
                   iconTheme: IconThemeData(color: Theme.of(context).colorScheme.onSurface),
                 ),
                 child: Row(
-                  children: [if (icon != null) icon!, SizedBox(width: 8), if (label != null) Flexible(child: label!)],
+                  children: [if (icon != null) icon!, const SizedBox(width: 8), if (label != null) Flexible(child: label!)],
                 ),
               );
             })

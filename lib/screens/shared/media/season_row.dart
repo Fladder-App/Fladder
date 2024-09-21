@@ -55,7 +55,7 @@ class SeasonPoster extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    placeHolder(String title) {
+    Padding placeHolder(String title) {
       return Padding(
         padding: const EdgeInsets.all(4),
         child: Container(
@@ -104,7 +104,7 @@ class SeasonPoster extends ConsumerWidget {
                         child: Center(
                           child: Text(
                             season.userData.unPlayedItemCount.toString(),
-                            style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14),
+                            style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14),
                           ),
                         ),
                       ),
@@ -114,7 +114,7 @@ class SeasonPoster extends ConsumerWidget {
                       alignment: Alignment.topRight,
                       child: StatusCard(
                         color: Theme.of(context).colorScheme.primary,
-                        child: Icon(
+                        child: const Icon(
                           Icons.check_rounded,
                         ),
                       ),

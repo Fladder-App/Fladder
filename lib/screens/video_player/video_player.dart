@@ -114,7 +114,7 @@ class _VideoPlayerState extends ConsumerState<VideoPlayer> with WidgetsBindingOb
                         );
                       }),
                     ),
-                  DesktopControls(),
+                  const DesktopControls(),
                   if (errorPlaying) const _VideoErrorWidget(),
                 ],
               ),

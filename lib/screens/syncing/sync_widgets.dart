@@ -50,7 +50,7 @@ class SyncProgressBar extends ConsumerWidget {
     final downloadProgress = task.progress;
     final downloadTask = task.task;
     if (!task.hasDownload) {
-      return SizedBox.shrink();
+      return const SizedBox.shrink();
     }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,20 +73,20 @@ class SyncProgressBar extends ConsumerWidget {
               if (downloadStatus != TaskStatus.paused)
                 IconButton(
                   onPressed: () => ref.read(backgroundDownloaderProvider).pause(downloadTask),
-                  icon: Icon(IconsaxBold.pause),
+                  icon: const Icon(IconsaxBold.pause),
                 )
             },
             if (downloadStatus == TaskStatus.paused && downloadTask != null) ...[
               IconButton(
                 onPressed: () => ref.read(backgroundDownloaderProvider).resume(downloadTask),
-                icon: Icon(IconsaxBold.play),
+                icon: const Icon(IconsaxBold.play),
               ),
               IconButton(
                 onPressed: () => ref.read(syncProvider.notifier).deleteFullSyncFiles(item),
-                icon: Icon(IconsaxBold.stop),
+                icon: const Icon(IconsaxBold.stop),
               )
             ],
-          ].addInBetween(SizedBox(width: 8)),
+          ].addInBetween(const SizedBox(width: 8)),
         ),
         const SizedBox(width: 6),
       ],

@@ -159,14 +159,14 @@ class _BookViewerScreenState extends ConsumerState<BookViewerScreen> {
                                   ),
                                 } else ...{
                                   const SizedBox(height: 32),
-                                  Card(
+                                  const Card(
                                     child: Padding(
-                                      padding: const EdgeInsets.all(16),
+                                      padding: EdgeInsets.all(16),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
                                           Icon(Icons.info_rounded),
-                                          const SizedBox(width: 16),
+                                          SizedBox(width: 16),
                                           Text("No next chapter"),
                                         ],
                                       ),
@@ -211,14 +211,14 @@ class _BookViewerScreenState extends ConsumerState<BookViewerScreen> {
                                   ),
                                 } else ...{
                                   const SizedBox(height: 32),
-                                  Card(
+                                  const Card(
                                     child: Padding(
-                                      padding: const EdgeInsets.all(16),
+                                      padding: EdgeInsets.all(16),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
                                           Icon(Icons.info_rounded),
-                                          const SizedBox(width: 16),
+                                          SizedBox(width: 16),
                                           Text("First chapter"),
                                         ],
                                       ),

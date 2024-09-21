@@ -83,7 +83,7 @@ class OverviewHeader extends ConsumerWidget {
                     if (onTitleClicked != null)
                       IconButton(
                           onPressed: onTitleClicked,
-                          icon: Transform.translate(offset: Offset(0, 1.5), child: Icon(Icons.read_more_rounded)))
+                          icon: Transform.translate(offset: const Offset(0, 1.5), child: const Icon(Icons.read_more_rounded)))
                   ],
                 ),
               ),

@@ -41,7 +41,7 @@ class DiscoverServersWidget extends ConsumerWidget {
                 style: context.textTheme.bodyLarge,
               ),
               const Spacer(),
-              Opacity(opacity: 0.65, child: Icon(IconsaxOutline.bookmark, size: 16)),
+              const Opacity(opacity: 0.65, child: Icon(IconsaxOutline.bookmark, size: 16)),
             ],
           ),
           const SizedBox(height: 4),
@@ -63,7 +63,7 @@ class DiscoverServersWidget extends ConsumerWidget {
               style: context.textTheme.bodyLarge,
             ),
             const Spacer(),
-            Opacity(opacity: 0.65, child: Icon(IconsaxBold.airdrop, size: 16)),
+            const Opacity(opacity: 0.65, child: Icon(IconsaxBold.airdrop, size: 16)),
           ],
         ),
         const SizedBox(height: 4),
@@ -92,7 +92,7 @@ class DiscoverServersWidget extends ConsumerWidget {
                   ));
           },
           error: (error, stackTrace) => Text(context.localized.error),
-          loading: () => Center(
+          loading: () => const Center(
             child: SizedBox.square(
               dimension: 24.0,
               child: CircularProgressIndicator.adaptive(strokeCap: StrokeCap.round),
@@ -151,7 +151,7 @@ class _ServerInfoCard extends StatelessWidget {
                   ],
                 ),
               ),
-              Icon(IconsaxOutline.edit_2, size: 16)
+              const Icon(IconsaxOutline.edit_2, size: 16)
             ].addInBetween(const SizedBox(width: 12)),
           ),
         ),

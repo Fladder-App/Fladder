@@ -8,7 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 Future<void> showVideoPlaybackInformation(BuildContext context) {
   return showDialog(
     context: context,
-    builder: (context) => _VideoPlaybackInformation(),
+    builder: (context) => const _VideoPlaybackInformation(),
   );
 }
 
@@ -28,11 +28,11 @@ class _VideoPlaybackInformation extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text("Playback information", style: Theme.of(context).textTheme.titleMedium),
-              Divider(),
+              const Divider(),
               ...[
                 Row(
                   mainAxisSize: MainAxisSize.min,
-                  children: [Text('type: '), Text(playbackModel.label ?? "")],
+                  children: [const Text('type: '), Text(playbackModel.label ?? "")],
                 ),
                 if (sessionInfo.transCodeInfo != null) ...[
                   const SizedBox(height: 6),
@@ -40,34 +40,34 @@ class _VideoPlaybackInformation extends ConsumerWidget {
                   if (sessionInfo.transCodeInfo?.transcodeReasons?.isNotEmpty == true)
                     Row(
                       mainAxisSize: MainAxisSize.min,
-                      children: [Text('reason: '), Text(sessionInfo.transCodeInfo?.transcodeReasons.toString() ?? "")],
+                      children: [const Text('reason: '), Text(sessionInfo.transCodeInfo?.transcodeReasons.toString() ?? "")],
                     ),
                   if (sessionInfo.transCodeInfo?.completionPercentage != null)
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text('transcode progress: '),
+                        const Text('transcode progress: '),
                         Text("${sessionInfo.transCodeInfo?.completionPercentage?.toStringAsFixed(2)} %")
                       ],
                     ),
                   if (sessionInfo.transCodeInfo?.container != null)
                     Row(
                       mainAxisSize: MainAxisSize.min,
-                      children: [Text('container: '), Text(sessionInfo.transCodeInfo!.container.toString())],
+                      children: [const Text('container: '), Text(sessionInfo.transCodeInfo!.container.toString())],
                     ),
                 ],
                 Row(
                   mainAxisSize: MainAxisSize.min,
-                  children: [Text('resolution: '), Text(playbackModel?.item.streamModel?.resolutionText ?? "")],
+                  children: [const Text('resolution: '), Text(playbackModel?.item.streamModel?.resolutionText ?? "")],
                 ),
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text('container: '),
+                    const Text('container: '),
                     Text(playbackModel?.playbackInfo?.mediaSources?.firstOrNull?.container ?? "")
                   ],
                 ),
-              ].addPadding(EdgeInsets.symmetric(vertical: 3))
+              ].addPadding(const EdgeInsets.symmetric(vertical: 3))
             ],
           ),
         ),

@@ -82,7 +82,7 @@ class LoginIcon extends ConsumerWidget {
                         ],
                       ),
                     )
-                ].addInBetween(SizedBox(width: 8, height: 8)),
+                ].addInBetween(const SizedBox(width: 8, height: 8)),
               ),
             ),
             FlatButton(

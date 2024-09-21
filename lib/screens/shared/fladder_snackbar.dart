@@ -20,7 +20,7 @@ void fladderSnackbar(
     clipBehavior: Clip.none,
     showCloseIcon: showCloseButton,
     duration: duration,
-    padding: EdgeInsets.all(18),
+    padding: const EdgeInsets.all(18),
     action: action,
   ));
 }

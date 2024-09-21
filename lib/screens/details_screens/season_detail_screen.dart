@@ -58,7 +58,7 @@ class _SeasonDetailScreenState extends ConsumerState<SeasonDetailScreen> {
                     crossAxisAlignment: WrapCrossAlignment.center,
                     children: [
                       ConstrainedBox(
-                        constraints: BoxConstraints(
+                        constraints: const BoxConstraints(
                           maxWidth: 600,
                         ),
                         child: Column(
@@ -86,7 +86,7 @@ class _SeasonDetailScreenState extends ConsumerState<SeasonDetailScreen> {
                         ),
                       ),
                       ConstrainedBox(
-                          constraints: BoxConstraints(maxWidth: 300),
+                          constraints: const BoxConstraints(maxWidth: 300),
                           child: Card(child: FladderImage(image: details.getPosters?.primary))),
                     ],
                   ).padding(padding),
@@ -122,7 +122,7 @@ class _SeasonDetailScreenState extends ConsumerState<SeasonDetailScreen> {
                           Card(
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(200)),
                             child: SegmentedButton(
-                              style: ButtonStyle(
+                              style: const ButtonStyle(
                                 elevation: WidgetStatePropertyAll(5),
                                 side: WidgetStatePropertyAll(BorderSide.none),
                               ),

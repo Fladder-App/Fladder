@@ -95,7 +95,7 @@ class NestedNavigationDrawer extends ConsumerWidget {
               actions: [
                 ItemActionButton(
                   label: Text(context.localized.scanLibrary),
-                  icon: Icon(IconsaxOutline.refresh),
+                  icon: const Icon(IconsaxOutline.refresh),
                   action: () => showRefreshPopup(context, library.id, library.name),
                 ),
               ],
@@ -109,7 +109,7 @@ class NestedNavigationDrawer extends ConsumerWidget {
         const Divider(indent: 28, endIndent: 28),
         if (isExpanded)
           Transform.translate(
-            offset: Offset(-8, 0),
+            offset: const Offset(-8, 0),
             child: DrawerListButton(
               label: context.localized.settings,
               selectedIcon: const Icon(IconsaxBold.setting_3),
@@ -131,8 +131,8 @@ class NestedNavigationDrawer extends ConsumerWidget {
         else
           DrawerListButton(
             label: context.localized.settings,
-            selectedIcon: Icon(IconsaxBold.setting_2),
-            icon: Icon(IconsaxOutline.setting_2),
+            selectedIcon: const Icon(IconsaxBold.setting_2),
+            icon: const Icon(IconsaxOutline.setting_2),
             selected: currentLocation.contains(SettingsRoute().basePath),
             onPressed: () {
               switch (AdaptiveLayout.of(context).size) {

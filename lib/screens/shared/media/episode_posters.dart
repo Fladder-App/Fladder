@@ -59,7 +59,7 @@ class _EpisodePosterState extends ConsumerState<EpisodePosters> {
       label: widget.label,
       titleActions: [
         if (episodesBySeason.isNotEmpty && episodesBySeason.length > 1) ...{
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
           EnumBox(
             current: selectedSeason != null ? "${context.localized.season(1)} $selectedSeason" : context.localized.all,
             itemBuilder: (context) => [
@@ -210,7 +210,7 @@ class EpisodePoster extends ConsumerWidget {
                             );
                           }),
                         if (episode.userData.isFavourite)
-                          StatusCard(
+                          const StatusCard(
                             color: Colors.red,
                             child: Icon(
                               Icons.favorite_rounded,
@@ -219,7 +219,7 @@ class EpisodePoster extends ConsumerWidget {
                         if (episode.userData.played)
                           StatusCard(
                             color: Theme.of(context).colorScheme.primary,
-                            child: Icon(
+                            child: const Icon(
                               Icons.check_rounded,
                             ),
                           ),

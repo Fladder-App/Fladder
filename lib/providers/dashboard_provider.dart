@@ -85,7 +85,7 @@ class DashboardNotifier extends StateNotifier<HomeModel> {
     final nextResponse = await api.showsNextUpGet(
       limit: 16,
       nextUpDateCutoff: DateTime.now()
-          .subtract(ref.read(clientSettingsProvider.select((value) => value.nextUpDateCutoff ?? Duration(days: 28)))),
+          .subtract(ref.read(clientSettingsProvider.select((value) => value.nextUpDateCutoff ?? const Duration(days: 28)))),
       fields: [
         ItemFields.parentid,
         ItemFields.mediastreams,

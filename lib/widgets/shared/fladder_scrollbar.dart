@@ -30,7 +30,7 @@ class FladderScrollbar extends ConsumerWidget {
                       ? Theme.of(context).colorScheme.secondary
                       : Theme.of(context).colorScheme.secondaryContainer.withOpacity(0.75),
                 ),
-                duration: Duration(milliseconds: 250),
+                duration: const Duration(milliseconds: 250),
               );
             },
           )

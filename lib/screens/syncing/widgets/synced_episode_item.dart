@@ -95,7 +95,7 @@ class _SyncedEpisodeItemState extends ConsumerState<SyncedEpisodeItem> {
         if (!hasFile && !downloadTask.hasDownload)
           IconButtonAwait(
             onPressed: () async => await ref.read(syncProvider.notifier).syncVideoFile(syncedItem, false),
-            icon: Icon(IconsaxOutline.cloud_change),
+            icon: const Icon(IconsaxOutline.cloud_change),
           )
         else if (hasFile)
           IconButtonAwait(
@@ -114,7 +114,7 @@ class _SyncedEpisodeItemState extends ConsumerState<SyncedEpisodeItem> {
                 context.localized.cancel,
               );
             },
-            icon: Icon(IconsaxOutline.trash),
+            icon: const Icon(IconsaxOutline.trash),
           )
       ].addInBetween(const SizedBox(width: 16)),
     );

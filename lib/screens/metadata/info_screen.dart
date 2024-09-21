@@ -125,7 +125,7 @@ class ItemInfoScreenState extends ConsumerState<ItemInfoScreen> {
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                   ),
-                  Opacity(opacity: 0.3, child: const Divider()),
+                  const Opacity(opacity: 0.3, child: Divider()),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(

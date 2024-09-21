@@ -58,7 +58,7 @@ class EnumSelection<T> extends StatelessWidget {
   final Text label;
   final String current;
   final List<PopupMenuEntry<T>> Function(BuildContext context) itemBuilder;
-  const EnumSelection({
+  const EnumSelection({super.key, 
     required this.label,
     required this.current,
     required this.itemBuilder,

@@ -35,7 +35,7 @@ class UserData with UserDataMappable {
 
   factory UserData.fromDto(dto.UserItemDataDto? dto) {
     if (dto == null) {
-      return UserData();
+      return const UserData();
     }
     return UserData(
       isFavourite: dto.isFavorite ?? false,

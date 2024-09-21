@@ -46,7 +46,7 @@ class _EditGeneralState extends ConsumerState<EditFields> {
       children: [
         Flexible(
           child: ListView(
-            padding: EdgeInsets.symmetric(horizontal: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             shrinkWrap: true,
             children: [
               if (widget.json != null)
@@ -64,7 +64,7 @@ class _EditGeneralState extends ConsumerState<EditFields> {
                                 current: map.entries.firstWhereOrNull((element) => element.value == true)?.key ?? "",
                                 itemBuilder: (context) => [
                                   PopupMenuItem(
-                                    child: Text(""),
+                                    child: const Text(""),
                                     onTap: () => ref.read(editItemProvider.notifier).updateField(MapEntry(e.key, "")),
                                   ),
                                   ...map.entries.map(
@@ -119,7 +119,7 @@ class _EditGeneralState extends ConsumerState<EditFields> {
                                                     onPressed: () => ref.read(editItemProvider.notifier).updateField(
                                                           MapEntry(e.key, list..remove(genre)),
                                                         ),
-                                                    icon: Icon(Icons.remove_rounded))
+                                                    icon: const Icon(Icons.remove_rounded))
                                               ],
                                             ),
                                           ),
@@ -217,7 +217,7 @@ class _EditGeneralState extends ConsumerState<EditFields> {
                                                         ref.read(editItemProvider.notifier).updateField(
                                                             MapEntry(e.key, listToMap(list..remove(person))));
                                                       },
-                                                      icon: Icon(Icons.remove_rounded))
+                                                      icon: const Icon(Icons.remove_rounded))
                                                 ],
                                               ),
                                             ),
@@ -272,7 +272,7 @@ class _EditGeneralState extends ConsumerState<EditFields> {
                                                     personRole.text = "";
                                                   });
                                                 },
-                                                icon: Icon(Icons.add_rounded),
+                                                icon: const Icon(Icons.add_rounded),
                                               )
                                             ],
                                           ),
@@ -326,7 +326,7 @@ class _EditGeneralState extends ConsumerState<EditFields> {
                                                   message: "Open in browser",
                                                   child: IconButton(
                                                       onPressed: () => launchUrl(context, externalUrl.url),
-                                                      icon: Icon(Icons.open_in_browser_rounded)),
+                                                      icon: const Icon(Icons.open_in_browser_rounded)),
                                                 ),
                                                 IconButton(
                                                     onPressed: () {
@@ -338,7 +338,7 @@ class _EditGeneralState extends ConsumerState<EditFields> {
                                                                     .toList()),
                                                           );
                                                     },
-                                                    icon: Icon(Icons.remove_rounded))
+                                                    icon: const Icon(Icons.remove_rounded))
                                               ],
                                             ),
                                           ),
@@ -371,7 +371,7 @@ class _EditGeneralState extends ConsumerState<EditFields> {
                                                                 .toList()),
                                                       );
                                                 },
-                                                icon: Icon(Icons.add_rounded),
+                                                icon: const Icon(Icons.add_rounded),
                                               )
                                             ],
                                           ),
@@ -429,7 +429,7 @@ class _EditGeneralState extends ConsumerState<EditFields> {
                                                 const Spacer(),
                                                 IconButton(
                                                     onPressed: () => setMapping(list..remove(studio)),
-                                                    icon: Icon(Icons.remove_rounded))
+                                                    icon: const Icon(Icons.remove_rounded))
                                               ],
                                             ),
                                           ),
@@ -557,7 +557,7 @@ class _EditGeneralState extends ConsumerState<EditFields> {
                                         .read(editItemProvider.notifier)
                                         .updateField(MapEntry(e.key, newDate.toIso8601String()));
                                   },
-                                  icon: Icon(IconsaxOutline.calendar_2))
+                                  icon: const Icon(IconsaxOutline.calendar_2))
                             ],
                           ),
                         DisplayOrder _ => Builder(builder: (context) {
@@ -580,8 +580,8 @@ class _EditGeneralState extends ConsumerState<EditFields> {
                                         .toList(),
                                   ),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                                const Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: 12),
                                   child: Text("Order episodes by air date, DVD order, or absolute numbering."),
                                 )
                               ],
@@ -656,7 +656,7 @@ class _EditGeneralState extends ConsumerState<EditFields> {
                                     children: [
                                       Text(keyLabel, style: Theme.of(context).textTheme.titleLarge),
                                       const SizedBox(height: 6),
-                                      Text(
+                                      const Text(
                                         "Uncheck a field to lock it and prevent its data from being changed.",
                                       ),
                                       const SizedBox(height: 6),
@@ -722,8 +722,8 @@ class _EditGeneralState extends ConsumerState<EditFields> {
                   },
                 )
               else
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
                   child: Center(
                     child: CircularProgressIndicator.adaptive(strokeCap: StrokeCap.round),
                   ),

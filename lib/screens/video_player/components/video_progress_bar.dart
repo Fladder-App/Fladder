@@ -304,7 +304,7 @@ class _ChapterProgressSliderState extends ConsumerState<ChapterProgressSlider> {
                         AnimatedContainer(
                           duration: const Duration(milliseconds: 250),
                           child: ConstrainedBox(
-                            constraints: BoxConstraints(maxHeight: 250),
+                            constraints: const BoxConstraints(maxHeight: 250),
                             child: ClipRRect(
                               borderRadius: const BorderRadius.all(Radius.circular(8)),
                               child: trickPlay == null || trickPlay.images.isEmpty
@@ -313,7 +313,7 @@ class _ChapterProgressSliderState extends ConsumerState<ChapterProgressSlider> {
                                           image: chapter.imageProvider,
                                           fit: BoxFit.contain,
                                         )
-                                      : SizedBox.shrink()
+                                      : const SizedBox.shrink()
                                   : AspectRatio(
                                       aspectRatio: trickPlay.width.toDouble() / trickPlay.height.toDouble(),
                                       child: TrickplayImage(

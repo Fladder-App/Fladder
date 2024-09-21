@@ -19,7 +19,7 @@ class PosterSizeWidget extends ConsumerWidget {
             child: IconButton(
               onPressed: () =>
                   ref.read(clientSettingsProvider.notifier).update((current) => current.copyWith(posterSize: 1)),
-              icon: Icon(Icons.photo_size_select_large_rounded),
+              icon: const Icon(Icons.photo_size_select_large_rounded),
               color: iconColor ?? Theme.of(context).colorScheme.onSurface,
             ),
           ),

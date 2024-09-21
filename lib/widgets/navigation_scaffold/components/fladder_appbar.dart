@@ -29,7 +29,7 @@ class FladderAppbar extends StatelessWidget implements PreferredSize {
             height: height,
             child: Row(
               children: [
-                if (automaticallyImplyLeading && context.canPop()) BackButton(),
+                if (automaticallyImplyLeading && context.canPop()) const BackButton(),
                 Expanded(
                   child: DefaultTitleBar(
                     label: label,
@@ -44,7 +44,7 @@ class FladderAppbar extends StatelessWidget implements PreferredSize {
         backgroundColor: Theme.of(context).colorScheme.surface.withOpacity(0),
         scrolledUnderElevation: 0,
         elevation: 0,
-        systemOverlayStyle: SystemUiOverlayStyle(),
+        systemOverlayStyle: const SystemUiOverlayStyle(),
         title: const Text(""),
         automaticallyImplyLeading: automaticallyImplyLeading,
       );

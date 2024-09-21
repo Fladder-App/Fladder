@@ -80,7 +80,7 @@ class _VideoOptionsMobileState extends ConsumerState<VideoOptions> {
                     ],
                   ),
                   const Spacer(),
-                  Opacity(opacity: 0.1, child: Icon(Icons.info_outline_rounded))
+                  const Opacity(opacity: 0.1, child: Icon(Icons.info_outline_rounded))
                 ],
               ),
             ),
@@ -93,7 +93,7 @@ class _VideoOptionsMobileState extends ConsumerState<VideoOptions> {
               title: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Flexible(flex: 1, child: const Text("Screen Brightness")),
+                  const Flexible(flex: 1, child: Text("Screen Brightness")),
                   Flexible(
                     child: Row(
                       children: [
@@ -250,7 +250,7 @@ class _VideoOptionsMobileState extends ConsumerState<VideoOptions> {
                 Navigator.of(context).pop();
                 showInfoScreen(context, currentItem);
               },
-              title: Text('Media info'),
+              title: const Text('Media info'),
             ),
           }
         ],
@@ -337,7 +337,7 @@ Future<void> showSubSelection(BuildContext context) {
           final playbackModel = ref.watch(playBackModel);
           final player = ref.watch(videoPlayerProvider);
           return SimpleDialog(
-            contentPadding: EdgeInsets.only(top: 8, bottom: 24),
+            contentPadding: const EdgeInsets.only(top: 8, bottom: 24),
             title: Row(
               children: [
                 const Text("Subtitle"),
@@ -388,7 +388,7 @@ Future<void> showAudioSelection(BuildContext context) {
           final playbackModel = ref.watch(playBackModel);
           final player = ref.watch(videoPlayerProvider);
           return SimpleDialog(
-            contentPadding: EdgeInsets.only(top: 8, bottom: 24),
+            contentPadding: const EdgeInsets.only(top: 8, bottom: 24),
             title: Row(
               children: [
                 const Text("Subtitle"),

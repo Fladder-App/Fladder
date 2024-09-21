@@ -27,7 +27,7 @@ class BookViewerReader extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
-      child: Text("Web not supported."),
+      child: const Text("Web not supported."),
     );
   }
 }

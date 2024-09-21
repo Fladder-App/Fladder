@@ -56,7 +56,7 @@ class _CurrentlyPlayingBarState extends ConsumerState<FloatingPlayerBar> {
     final playbackModel = ref.watch(playBackModel.select((value) => value?.item));
     final progress = playbackInfo.position.inMilliseconds / playbackInfo.duration.inMilliseconds;
     return Dismissible(
-      key: Key("CurrentlyPlayingBar"),
+      key: const Key("CurrentlyPlayingBar"),
       confirmDismiss: (direction) async {
         if (direction == DismissDirection.up) {
           await openFullScreenPlayer();
@@ -73,7 +73,7 @@ class _CurrentlyPlayingBarState extends ConsumerState<FloatingPlayerBar> {
         child: Card(
           elevation: 3,
           child: ConstrainedBox(
-            constraints: BoxConstraints(minHeight: 50, maxHeight: 85),
+            constraints: const BoxConstraints(minHeight: 50, maxHeight: 85),
             child: LayoutBuilder(builder: (context, constraints) {
               return Row(
                 children: [
@@ -108,7 +108,7 @@ class _CurrentlyPlayingBarState extends ConsumerState<FloatingPlayerBar> {
                                               Positioned.fill(
                                                 child: Tooltip(
                                                   message: "Expand player",
-                                                  waitDuration: Duration(milliseconds: 500),
+                                                  waitDuration: const Duration(milliseconds: 500),
                                                   child: AnimatedOpacity(
                                                     opacity: showExpandButton ? 1 : 0,
                                                     duration: const Duration(milliseconds: 125),
@@ -116,7 +116,7 @@ class _CurrentlyPlayingBarState extends ConsumerState<FloatingPlayerBar> {
                                                       color: Colors.black.withOpacity(0.6),
                                                       child: FlatButton(
                                                         onTap: () async => openFullScreenPlayer(),
-                                                        child: Icon(Icons.keyboard_arrow_up_rounded),
+                                                        child: const Icon(Icons.keyboard_arrow_up_rounded),
                                                       ),
                                                     ),
                                                   ),
@@ -157,8 +157,8 @@ class _CurrentlyPlayingBarState extends ConsumerState<FloatingPlayerBar> {
                                   child: IconButton.filledTonal(
                                     onPressed: () => ref.read(videoPlayerProvider).playOrPause(),
                                     icon: playbackInfo.playing
-                                        ? Icon(Icons.pause_rounded)
-                                        : Icon(Icons.play_arrow_rounded),
+                                        ? const Icon(Icons.pause_rounded)
+                                        : const Icon(Icons.play_arrow_rounded),
                                   ),
                                 ),
                                 if (constraints.maxWidth > 500) ...{
@@ -176,14 +176,14 @@ class _CurrentlyPlayingBarState extends ConsumerState<FloatingPlayerBar> {
                                   ),
                                   Tooltip(
                                     message: "Stop playback",
-                                    waitDuration: Duration(milliseconds: 500),
+                                    waitDuration: const Duration(milliseconds: 500),
                                     child: IconButton(
                                       onPressed: () async => stopPlayer(),
-                                      icon: Icon(IconsaxBold.stop),
+                                      icon: const Icon(IconsaxBold.stop),
                                     ),
                                   ),
                                 },
-                              ].addInBetween(SizedBox(width: 8)),
+                              ].addInBetween(const SizedBox(width: 8)),
                             ),
                           ),
                         ),

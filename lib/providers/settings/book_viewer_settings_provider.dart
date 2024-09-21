@@ -130,7 +130,7 @@ class BookViewerSettingsNotifier extends StateNotifier<BookViewerSettingsModel> 
     }
   }
 
-  setSavedBrightness() {
+  void setSavedBrightness() {
     if (state.screenBrightness != null) {
       ScreenBrightness().setScreenBrightness(state.screenBrightness!);
     }

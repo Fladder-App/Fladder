@@ -150,7 +150,7 @@ class _PhotoViewerScreenState extends ConsumerState<PhotoViewerScreen> with Widg
           onExit: (event) => setState(() => _showOverlay(show: false)),
           child: Scaffold(
             appBar: photos.isEmpty
-                ? FladderAppbar(
+                ? const FladderAppbar(
                     automaticallyImplyLeading: true,
                   )
                 : null,
@@ -242,7 +242,7 @@ class _PhotoViewerScreenState extends ConsumerState<PhotoViewerScreen> with Widg
                           ),
                         ),
                       switch (state.extendedImageLoadState) {
-                        LoadState.loading => Center(
+                        LoadState.loading => const Center(
                             child: CircularProgressIndicator.adaptive(strokeCap: StrokeCap.round),
                           ),
                         LoadState.completed => switch (photo.internalType) {
@@ -256,7 +256,7 @@ class _PhotoViewerScreenState extends ConsumerState<PhotoViewerScreen> with Widg
                         LoadState.failed || _ => Align(
                             alignment: Alignment.topRight,
                             child: Padding(
-                              padding: EdgeInsets.all(24).copyWith(top: topPadding + 85),
+                              padding: const EdgeInsets.all(24).copyWith(top: topPadding + 85),
                               child: Card(
                                 child: Padding(
                                   padding: const EdgeInsets.all(24),
@@ -426,7 +426,7 @@ class _PhotoViewerScreenState extends ConsumerState<PhotoViewerScreen> with Widg
             controller: scrollController,
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 12),
+                padding: const EdgeInsets.symmetric(horizontal: 12),
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Consumer(builder: (context, ref, child) {
@@ -474,7 +474,7 @@ class _PhotoViewerScreenState extends ConsumerState<PhotoViewerScreen> with Widg
                   }),
                 ),
               ),
-              Divider(),
+              const Divider(),
               ...currentPhoto
                   .generateActions(
                     context,

@@ -5,7 +5,7 @@ import 'package:fladder/widgets/shared/horizontal_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-showPlayerChapterDialogue(
+void showPlayerChapterDialogue(
   BuildContext context, {
   required List<Chapter> chapters,
   required Function(Chapter chapter) onChapterTapped,
