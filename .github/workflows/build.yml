@@ -73,16 +73,16 @@ jobs:
 
       - name: Rename APK and AAB
         run: |
-          mv build/app/outputs/flutter-apk/app-release.apk "build/app/outputs/flutter-apk/${{ env.APP_NAME }}-${{ env.VERSION_NAME }}-release.apk"
-          mv build/app/outputs/bundle/release/app-release.aab "build/app/outputs/bundle/release/${{ env.APP_NAME }}-${{ env.VERSION_NAME }}-release.aab"
+          mv build/app/outputs/flutter-apk/app-release.apk "build/app/outputs/flutter-apk/${{ env.APP_NAME }}-${{ env.VERSION_NAME }}-signed.apk"
+          mv build/app/outputs/bundle/release/app-release.aab "build/app/outputs/bundle/release/${{ env.APP_NAME }}-${{ env.VERSION_NAME }}-signed.aab"
 
       - name: Archive Android artifacts
         uses: actions/upload-artifact@v4.0.0
         with:
-          name: Android-${{ env.VERSION_NAME }}
+          name: ${{ env.APP_NAME }}-Android-${{ env.VERSION_NAME }}
           path: |
-            build/app/outputs/flutter-apk/${{ env.APP_NAME }}-${{ env.VERSION_NAME }}-release.apk
-            build/app/outputs/bundle/release/${{ env.APP_NAME }}-${{ env.VERSION_NAME }}-release.aab
+            build/app/outputs/flutter-apk/${{ env.APP_NAME }}-${{ env.VERSION_NAME }}-signed.apk
+            build/app/outputs/bundle/release/${{ env.APP_NAME }}-${{ env.VERSION_NAME }}-signed.aab
 
   build-windows:
     runs-on: windows-latest
@@ -117,7 +117,7 @@ jobs:
       - name: Archive Windows artifact
         uses: actions/upload-artifact@v4.0.0
         with:
-          name: Windows-${{ env.VERSION_NAME }}
+          name: ${{ env.APP_NAME }}-Windows-${{ env.VERSION_NAME }}
           path: build\windows\x64\runner\Release\
 
   # build-ios:
@@ -192,7 +192,7 @@ jobs:
       - name: Archive macOS artifact
         uses: actions/upload-artifact@v4.0.0
         with:
-          name: macOS-${{ env.VERSION_NAME }}
+          name: ${{ env.APP_NAME }}-macOS-${{ env.VERSION_NAME }}
           path: build/macos/Build/Products/Release/fladder.app
 
   # build-linux:
@@ -259,5 +259,5 @@ jobs:
       - name: Archive web artifact
         uses: actions/upload-artifact@v4.0.0
         with:
-          name: Web-${{ env.VERSION_NAME }}
+          name: ${{ env.APP_NAME }}-Web-${{ env.VERSION_NAME }}
           path: build/web
