@@ -115,7 +115,7 @@ class _PhotoViewerControllsState extends ConsumerState<PhotoViewerControls> with
 
     final padding = MediaQuery.of(context).padding;
     return PopScope(
-      onPopInvoked: (popped) async {
+      onPopInvokedWithResult: (didPop, result) async {
         await WakelockPlus.disable();
       },
       child: KeyboardListener(

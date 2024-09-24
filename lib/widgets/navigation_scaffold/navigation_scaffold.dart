@@ -52,7 +52,7 @@ class _NavigationScaffoldState extends ConsumerState<NavigationScaffold> {
     final views = ref.watch(viewsProvider.select((value) => value.views));
     return PopScope(
       canPop: currentIndex == 0,
-      onPopInvoked: (didPop) {
+      onPopInvokedWithResult: (didPop, result) {
         if (currentIndex != 0) {
           widget.destinations.first.action!();
         }
