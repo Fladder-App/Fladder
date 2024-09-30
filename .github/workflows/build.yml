@@ -189,11 +189,15 @@ jobs:
 
           flutter build macos
 
+      - name: Create DMG file
+        run: |
+          hdiutil create -format UDZO -srcfolder build/macos/Build/Products/Release/fladder.app build/macos/Build/Products/Release/fladder.dmg
+
       - name: Archive macOS artifact
         uses: actions/upload-artifact@v4.0.0
         with:
           name: ${{ env.APP_NAME }}-macOS-${{ env.VERSION_NAME }}
-          path: build/macos/Build/Products/Release/fladder.app
+          path: build/macos/Build/Products/Release/fladder.dmg
 
   # build-linux:
   #     runs-on: ubuntu-latest
