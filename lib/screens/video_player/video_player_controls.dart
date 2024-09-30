@@ -81,7 +81,7 @@ class _DesktopControlsState extends ConsumerState<DesktopControls> {
       },
       child: PopScope(
         canPop: false,
-        onPopInvoked: (didPop) {
+        onPopInvokedWithResult: (didPop, result) {
           if (!didPop) {
             closePlayer();
           }

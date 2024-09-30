@@ -78,7 +78,7 @@ class _BookViewerScreenState extends ConsumerState<BookViewerScreen> {
       data: ThemesData.of(context).dark,
       child: PopScope(
         canPop: true,
-        onPopInvoked: (didPop) async {
+        onPopInvokedWithResult: (didPop, result) async {
           await ref.read(bookViewerProvider.notifier).stopPlayback();
         },
         child: Scaffold(

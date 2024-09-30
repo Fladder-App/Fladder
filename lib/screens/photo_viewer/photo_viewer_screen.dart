@@ -143,7 +143,8 @@ class _PhotoViewerScreenState extends ConsumerState<PhotoViewerScreen> with Widg
     return Theme(
       data: ThemesData.of(context).dark,
       child: PopScope(
-        onPopInvoked: (popped) async => SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge, overlays: []),
+        onPopInvokedWithResult: (didPop, result) =>
+            SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge, overlays: []),
         child: MouseRegion(
           opaque: AdaptiveLayout.of(context).isDesktop,
           onEnter: (event) => setState(() => _showOverlay(show: true)),

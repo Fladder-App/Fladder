@@ -131,7 +131,7 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
 
     return PopScope(
       canPop: !librarySearchResults.selecteMode,
-      onPopInvoked: (popped) async {
+      onPopInvokedWithResult: (didPop, result) {
         if (librarySearchResults.selecteMode) {
           libraryProvider.toggleSelectMode();
         }

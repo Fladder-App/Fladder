@@ -1,5 +1,4 @@
 import 'package:ficonsax/ficonsax.dart';
-import 'package:fladder/screens/shared/animated_fade_size.dart';
 import 'package:fladder/util/localization_helper.dart';
 import 'package:fladder/widgets/navigation_scaffold/components/settings_user_icon.dart';
 import 'package:flutter/material.dart';
@@ -75,7 +74,7 @@ class _DetailScreenState extends ConsumerState<DetailScreen> {
                 offset: const Offset(0, -5), child: FladderImage(image: widget.item?.getPosters?.primary)),
           ),
         ),
-        AnimatedFadeSize(
+        AnimatedSwitcher(
           duration: const Duration(seconds: 1),
           child: currentWidget,
         )

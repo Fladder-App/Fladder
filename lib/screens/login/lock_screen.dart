@@ -99,7 +99,7 @@ class _LockScreenState extends ConsumerState<LockScreen> with WidgetsBindingObse
     final user = ref.watch(userProvider);
     return PopScope(
       canPop: false,
-      onPopInvoked: (didPop) {
+      onPopInvokedWithResult: (didPop, result) {
         if (!poppingLockScreen) {
           SystemNavigator.pop();
         }
