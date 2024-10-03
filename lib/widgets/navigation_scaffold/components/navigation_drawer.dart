@@ -1,4 +1,9 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+
 import 'package:ficonsax/ficonsax.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:fladder/models/collection_types.dart';
 import 'package:fladder/models/view_model.dart';
 import 'package:fladder/routes/build_routes/home_routes.dart';
@@ -13,9 +18,6 @@ import 'package:fladder/widgets/navigation_scaffold/components/destination_model
 import 'package:fladder/widgets/navigation_scaffold/components/drawer_list_button.dart';
 import 'package:fladder/widgets/navigation_scaffold/components/settings_user_icon.dart';
 import 'package:fladder/widgets/shared/item_actions.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class NestedNavigationDrawer extends ConsumerWidget {
   final bool isExpanded;
@@ -42,7 +44,7 @@ class NestedNavigationDrawer extends ConsumerWidget {
       children: [
         if (AdaptiveLayout.of(context).isDesktop || kIsWeb) const SizedBox(height: 16),
         Padding(
-          padding: const EdgeInsets.fromLTRB(28, 0, 16, 0),
+          padding: const EdgeInsets.fromLTRB(28, 16, 16, 0),
           child: Row(
             children: [
               Expanded(
