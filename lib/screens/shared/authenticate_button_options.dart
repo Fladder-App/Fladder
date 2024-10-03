@@ -14,7 +14,7 @@ void showAuthOptionsDialogue(
 ) {
   showDialog(
     context: context,
-    builder: (context) => AlertDialog.adaptive(
+    builder: (context) => AlertDialog(
       scrollable: true,
       icon: const Icon(IconsaxBold.lock_1),
       title: Text(context.localized.appLockTitle(currentUser.name)),

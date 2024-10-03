@@ -39,8 +39,7 @@ class _EditImageContentState extends ConsumerState<EditImageContent> {
   @override
   Widget build(BuildContext context) {
     final posterSize = MediaQuery.sizeOf(context).width /
-        (AdaptiveLayout.poster(context).gridRatio *
-            ref.watch(clientSettingsProvider.select((value) => value.posterSize)));
+        (AdaptiveLayout.poster(context).gridRatio * ref.watch(clientSettingsProvider.select((value) => value.posterSize)));
     final decimal = posterSize - posterSize.toInt();
     final includeAllImages = ref.watch(editItemProvider.select((value) => value.includeAllImages));
     final images = ref.watch(editItemProvider.select((value) => switch (widget.type) {
@@ -86,8 +85,7 @@ class _EditImageContentState extends ConsumerState<EditImageContent> {
                     decoration: BoxDecoration(
                       color: selected ? Theme.of(context).colorScheme.primary : Colors.transparent,
                       borderRadius: BorderRadius.circular(10),
-                      border:
-                          Border.all(color: Colors.transparent, width: 4, strokeAlign: BorderSide.strokeAlignInside),
+                      border: Border.all(color: Colors.transparent, width: 4, strokeAlign: BorderSide.strokeAlignInside),
                     ),
                     child: Card(
                       color: selected ? Theme.of(context).colorScheme.onPrimary : null,
@@ -114,7 +112,7 @@ class _EditImageContentState extends ConsumerState<EditImageContent> {
                     onPressed: () async {
                       await showDialog(
                         context: context,
-                        builder: (context) => AlertDialog.adaptive(
+                        builder: (context) => AlertDialog(
                           title: const Text("Delete image"),
                           content: const Text("Deleting is permanent are you sure?"),
                           actions: [
@@ -232,8 +230,7 @@ class _EditImageContentState extends ConsumerState<EditImageContent> {
                 children: [...serverImageCards, ...imageCards],
               ),
               if (loading) const Center(child: CircularProgressIndicator.adaptive(strokeCap: StrokeCap.round)),
-              if (!loading && [...serverImageCards, ...imageCards].isEmpty)
-                Center(child: Text("No ${widget.type.value}s found"))
+              if (!loading && [...serverImageCards, ...imageCards].isEmpty) Center(child: Text("No ${widget.type.value}s found"))
             ],
           ),
         ),

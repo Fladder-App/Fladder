@@ -13,7 +13,7 @@ Future<void> showDefaultAlertDialog(
 ) {
   return showDialog(
     context: context,
-    builder: (context) => AlertDialog.adaptive(
+    builder: (context) => AlertDialog(
       title: Text(title),
       content: content != null ? Text(content) : null,
       actions: [
@@ -47,7 +47,7 @@ Future<void> showDefaultActionDialog(
 ) {
   return showDialog(
     context: context,
-    builder: (context) => AlertDialog.adaptive(
+    builder: (context) => AlertDialog(
       title: Text(title),
       content: content != null ? Text(content) : null,
       actions: [

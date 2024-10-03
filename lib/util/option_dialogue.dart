@@ -10,7 +10,7 @@ Future<void> openOptionDialogue<T>(
   return showDialog(
     context: context,
     builder: (context) {
-      return AlertDialog.adaptive(
+      return AlertDialog(
         title: Text(label),
         content: SizedBox(
           width: MediaQuery.of(context).size.width * 0.65,

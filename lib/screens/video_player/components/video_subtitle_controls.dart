@@ -14,12 +14,11 @@ Future<void> showSubtitleControls({
   await showDialog(
     context: context,
     barrierColor: Colors.black.withOpacity(0.1),
-    builder: (context) => AlertDialog.adaptive(
+    builder: (context) => AlertDialog(
       backgroundColor: Colors.transparent,
       elevation: 0,
       content: ConstrainedBox(
-          constraints: BoxConstraints(minWidth: MediaQuery.sizeOf(context).width * 0.75),
-          child: VideoSubtitleControls(label: label)),
+          constraints: BoxConstraints(minWidth: MediaQuery.sizeOf(context).width * 0.75), child: VideoSubtitleControls(label: label)),
     ),
   );
   return;
@@ -91,9 +90,7 @@ class _VideoSubtitleControlsState extends ConsumerState<VideoSubtitleControls> {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               ElevatedButton(
-                                onPressed: subSettings != lastSettings
-                                    ? () => provider.resetSettings(value: lastSettings)
-                                    : null,
+                                onPressed: subSettings != lastSettings ? () => provider.resetSettings(value: lastSettings) : null,
                                 child: Text(context.localized.clearChanges),
                               ),
                               const SizedBox(width: 32),
@@ -213,8 +210,7 @@ class _VideoSubtitleControlsState extends ConsumerState<VideoSubtitleControls> {
                                   const Icon(Icons.border_color_rounded),
                                   ...[Colors.white, Colors.yellow, Colors.black, Colors.grey, Colors.transparent].map(
                                     (e) => FlatButton(
-                                      onTap: () =>
-                                          provider.setOutlineColor(e == Colors.transparent ? e : e.withOpacity(0.85)),
+                                      onTap: () => provider.setOutlineColor(e == Colors.transparent ? e : e.withOpacity(0.85)),
                                       borderRadiusGeometry: BorderRadius.circular(5),
                                       clipBehavior: Clip.antiAlias,
                                       child: Container(
@@ -294,8 +290,7 @@ class _VideoSubtitleControlsState extends ConsumerState<VideoSubtitleControls> {
                               ),
                               Text(context.localized.backgroundOpacity),
                             ],
-                          ).addVisiblity(
-                              activeKey == null ? controlsHidden : activeKey == const Key('backGroundOpacity')),
+                          ).addVisiblity(activeKey == null ? controlsHidden : activeKey == const Key('backGroundOpacity')),
                           Column(
                             children: [
                               Row(

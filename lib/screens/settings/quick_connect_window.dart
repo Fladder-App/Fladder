@@ -29,7 +29,7 @@ class _QuickConnectDialogState extends ConsumerState<QuickConnectDialog> {
   @override
   Widget build(BuildContext context) {
     final user = ref.watch(userProvider);
-    return AlertDialog.adaptive(
+    return AlertDialog(
       title: Text(context.localized.quickConnectTitle),
       scrollable: true,
       content: Column(
@@ -58,17 +58,14 @@ class _QuickConnectDialogState extends ConsumerState<QuickConnectDialog> {
             child: error != null || success != null
                 ? Card(
                     key: Key(context.localized.error),
-                    color: success == null
-                        ? Theme.of(context).colorScheme.errorContainer
-                        : Theme.of(context).colorScheme.surfaceContainer,
+                    color: success == null ? Theme.of(context).colorScheme.errorContainer : Theme.of(context).colorScheme.surfaceContainer,
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         success ?? error ?? "",
                         style: TextStyle(
-                            color: success == null
-                                ? Theme.of(context).colorScheme.onErrorContainer
-                                : Theme.of(context).colorScheme.onSurface),
+                            color:
+                                success == null ? Theme.of(context).colorScheme.onErrorContainer : Theme.of(context).colorScheme.onSurface),
                       ),
                     ),
                   )

@@ -71,7 +71,7 @@ List<Widget> libraryFilterChips(
       builder: (context) {
         return Consumer(
           builder: (context, ref, child) {
-            return AlertDialog.adaptive(
+            return AlertDialog(
               content: SizedBox(
                 width: MediaQuery.of(context).size.width * 0.65,
                 child: ListView(

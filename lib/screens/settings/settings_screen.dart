@@ -71,8 +71,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   bool containsRoute(CustomRoute route) => widget.location == route.route;
 
   Widget _leftPane(BuildContext context) {
-    final quickConnectAvailable =
-        ref.watch(userProvider.select((value) => value?.serverConfiguration?.quickConnectAvailable ?? false));
+    final quickConnectAvailable = ref.watch(userProvider.select((value) => value?.serverConfiguration?.quickConnectAvailable ?? false));
     return SettingsScaffold(
       label: context.localized.settings,
       scrollController: scrollController,
@@ -174,7 +173,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                               final user = ref.read(userProvider);
                               showDialog(
                                 context: context,
-                                builder: (context) => AlertDialog.adaptive(
+                                builder: (context) => AlertDialog(
                                   title: Text(context.localized.logoutUserPopupTitle(user?.name ?? "")),
                                   scrollable: true,
                                   content: Text(
@@ -187,10 +186,8 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                                     ),
                                     ElevatedButton(
                                       style: ElevatedButton.styleFrom().copyWith(
-                                        foregroundColor:
-                                            WidgetStatePropertyAll(Theme.of(context).colorScheme.onErrorContainer),
-                                        backgroundColor:
-                                            WidgetStatePropertyAll(Theme.of(context).colorScheme.errorContainer),
+                                        foregroundColor: WidgetStatePropertyAll(Theme.of(context).colorScheme.onErrorContainer),
+                                        backgroundColor: WidgetStatePropertyAll(Theme.of(context).colorScheme.errorContainer),
                                       ),
                                       onPressed: () async {
                                         await ref.read(authProvider.notifier).logOutUser();

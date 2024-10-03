@@ -1,5 +1,12 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+
 import 'package:ficonsax/ficonsax.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+
 import 'package:fladder/models/settings/home_settings_model.dart';
 import 'package:fladder/providers/settings/client_settings_provider.dart';
 import 'package:fladder/providers/settings/home_settings_provider.dart';
@@ -22,11 +29,6 @@ import 'package:fladder/util/size_formatting.dart';
 import 'package:fladder/util/theme_mode_extension.dart';
 import 'package:fladder/widgets/shared/enum_selection.dart';
 import 'package:fladder/widgets/shared/fladder_slider.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ClientSettingsPage extends ConsumerStatefulWidget {
   const ClientSettingsPage({super.key});
@@ -36,17 +38,16 @@ class ClientSettingsPage extends ConsumerStatefulWidget {
 }
 
 class _ClientSettingsPageState extends ConsumerState<ClientSettingsPage> {
-  late final nextUpDaysEditor = TextEditingController(
-      text: ref.read(clientSettingsProvider.select((value) => value.nextUpDateCutoff?.inDays ?? 14)).toString());
+  late final nextUpDaysEditor =
+      TextEditingController(text: ref.read(clientSettingsProvider.select((value) => value.nextUpDateCutoff?.inDays ?? 14)).toString());
 
-  late final libraryPageSizeController = TextEditingController(
-      text: ref.read(clientSettingsProvider.select((value) => value.libraryPageSize))?.toString() ?? "");
+  late final libraryPageSizeController =
+      TextEditingController(text: ref.read(clientSettingsProvider.select((value) => value.libraryPageSize))?.toString() ?? "");
 
   @override
   Widget build(BuildContext context) {
     final clientSettings = ref.watch(clientSettingsProvider);
-    final showBackground = AdaptiveLayout.of(context).layout != LayoutState.phone &&
-        AdaptiveLayout.of(context).size != ScreenLayout.single;
+    final showBackground = AdaptiveLayout.of(context).layout != LayoutState.phone && AdaptiveLayout.of(context).size != ScreenLayout.single;
     final currentFolder = ref.watch(syncProvider.notifier).savePath;
     Locale currentLocale = WidgetsBinding.instance.platformDispatcher.locale;
 
@@ -65,14 +66,14 @@ class _ClientSettingsPageState extends ConsumerState<ClientSettingsPage> {
                 onTap: currentFolder != null
                     ? () async => await showDialog(
                           context: context,
-                          builder: (context) => AlertDialog.adaptive(
+                          builder: (context) => AlertDialog(
                             title: Text(context.localized.pathEditTitle),
                             content: Text(context.localized.pathEditDesc),
                             actions: [
                               ElevatedButton(
                                 onPressed: () async {
-                                  String? selectedDirectory = await FilePicker.platform.getDirectoryPath(
-                                      dialogTitle: context.localized.pathEditSelect, initialDirectory: currentFolder);
+                                  String? selectedDirectory = await FilePicker.platform
+                                      .getDirectoryPath(dialogTitle: context.localized.pathEditSelect, initialDirectory: currentFolder);
                                   if (selectedDirectory != null) {
                                     ref.read(clientSettingsProvider.notifier).setSyncPath(selectedDirectory);
                                   }
@@ -84,8 +85,8 @@ class _ClientSettingsPageState extends ConsumerState<ClientSettingsPage> {
                           ),
                         )
                     : () async {
-                        String? selectedDirectory = await FilePicker.platform.getDirectoryPath(
-                            dialogTitle: context.localized.pathEditSelect, initialDirectory: currentFolder);
+                        String? selectedDirectory = await FilePicker.platform
+                            .getDirectoryPath(dialogTitle: context.localized.pathEditSelect, initialDirectory: currentFolder);
                         if (selectedDirectory != null) {
                           ref.read(clientSettingsProvider.notifier).setSyncPath(selectedDirectory);
                         }
@@ -95,7 +96,7 @@ class _ClientSettingsPageState extends ConsumerState<ClientSettingsPage> {
                         color: Theme.of(context).colorScheme.error,
                         onPressed: () async => await showDialog(
                           context: context,
-                          builder: (context) => AlertDialog.adaptive(
+                          builder: (context) => AlertDialog(
                             title: Text(context.localized.pathClearTitle),
                             content: Text(context.localized.pathEditDesc),
                             actions: [
@@ -154,9 +155,9 @@ class _ClientSettingsPageState extends ConsumerState<ClientSettingsPage> {
                 initialValue: clientSettings.timeOut ?? const Duration(),
               );
 
-              ref.read(clientSettingsProvider.notifier).setTimeOut(timePicker != null
-                  ? Duration(minutes: timePicker.inMinutes, seconds: timePicker.inSeconds % 60)
-                  : null);
+              ref
+                  .read(clientSettingsProvider.notifier)
+                  .setTimeOut(timePicker != null ? Duration(minutes: timePicker.inMinutes, seconds: timePicker.inSeconds % 60) : null);
             },
           ),
           const Divider(),
@@ -175,9 +176,7 @@ class _ClientSettingsPageState extends ConsumerState<ClientSettingsPage> {
                     (entry) => PopupMenuItem(
                       value: entry,
                       child: Text(entry.label(context)),
-                      onTap: () => ref
-                          .read(homeSettingsProvider.notifier)
-                          .update((context) => context.copyWith(carouselSettings: entry)),
+                      onTap: () => ref.read(homeSettingsProvider.notifier).update((context) => context.copyWith(carouselSettings: entry)),
                     ),
                   )
                   .toList(),
@@ -197,8 +196,7 @@ class _ClientSettingsPageState extends ConsumerState<ClientSettingsPage> {
                     (entry) => PopupMenuItem(
                       value: entry,
                       child: Text(entry.label(context)),
-                      onTap: () =>
-                          ref.read(homeSettingsProvider.notifier).update((context) => context.copyWith(nextUp: entry)),
+                      onTap: () => ref.read(homeSettingsProvider.notifier).update((context) => context.copyWith(nextUp: entry)),
                     ),
                   )
                   .toList(),
@@ -225,9 +223,7 @@ class _ClientSettingsPageState extends ConsumerState<ClientSettingsPage> {
                           fontWeight: currentLocale.languageCode == entry.languageCode ? FontWeight.bold : null,
                         ),
                       ),
-                      onTap: () => ref
-                          .read(clientSettingsProvider.notifier)
-                          .update((state) => state.copyWith(selectedLocale: entry)),
+                      onTap: () => ref.read(clientSettingsProvider.notifier).update((state) => state.copyWith(selectedLocale: entry)),
                     ),
                   )
                 ];
@@ -237,8 +233,7 @@ class _ClientSettingsPageState extends ConsumerState<ClientSettingsPage> {
           SettingsListTile(
             label: Text(context.localized.settingsBlurredPlaceholderTitle),
             subLabel: Text(context.localized.settingsBlurredPlaceholderDesc),
-            onTap: () =>
-                ref.read(clientSettingsProvider.notifier).setBlurPlaceholders(!clientSettings.blurPlaceHolders),
+            onTap: () => ref.read(clientSettingsProvider.notifier).setBlurPlaceholders(!clientSettings.blurPlaceHolders),
             trailing: Switch(
               value: clientSettings.blurPlaceHolders,
               onChanged: (value) => ref.read(clientSettingsProvider.notifier).setBlurPlaceholders(value),
@@ -247,8 +242,7 @@ class _ClientSettingsPageState extends ConsumerState<ClientSettingsPage> {
           SettingsListTile(
             label: Text(context.localized.settingsBlurEpisodesTitle),
             subLabel: Text(context.localized.settingsBlurEpisodesDesc),
-            onTap: () =>
-                ref.read(clientSettingsProvider.notifier).setBlurEpisodes(!clientSettings.blurUpcomingEpisodes),
+            onTap: () => ref.read(clientSettingsProvider.notifier).setBlurEpisodes(!clientSettings.blurUpcomingEpisodes),
             trailing: Switch(
               value: clientSettings.blurUpcomingEpisodes,
               onChanged: (value) => ref.read(clientSettingsProvider.notifier).setBlurEpisodes(value),
@@ -292,9 +286,8 @@ class _ClientSettingsPageState extends ConsumerState<ClientSettingsPage> {
                 )),
           ),
           SettingsListTile(
-            label: Text(AdaptiveLayout.of(context).isDesktop
-                ? context.localized.settingsShowScaleSlider
-                : context.localized.settingsPosterPinch),
+            label: Text(
+                AdaptiveLayout.of(context).isDesktop ? context.localized.settingsShowScaleSlider : context.localized.settingsPosterPinch),
             onTap: () => ref.read(clientSettingsProvider.notifier).update(
                   (current) => current.copyWith(pinchPosterZoom: !current.pinchPosterZoom),
                 ),
@@ -321,9 +314,7 @@ class _ClientSettingsPageState extends ConsumerState<ClientSettingsPage> {
                   max: 1.5,
                   value: clientSettings.posterSize,
                   divisions: 20,
-                  onChanged: (value) => ref
-                      .read(clientSettingsProvider.notifier)
-                      .update((current) => current.copyWith(posterSize: value)),
+                  onChanged: (value) => ref.read(clientSettingsProvider.notifier).update((current) => current.copyWith(posterSize: value)),
                 ),
               ),
               const Divider(),
@@ -337,7 +328,7 @@ class _ClientSettingsPageState extends ConsumerState<ClientSettingsPage> {
               context,
               label: "${context.localized.theme} ${context.localized.mode}",
               items: ThemeMode.values,
-              itemBuilder: (type) => RadioListTile(
+              itemBuilder: (type) => RadioListTile.adaptive(
                 value: type,
                 title: Text(type?.label(context) ?? context.localized.other),
                 contentPadding: EdgeInsets.zero,
@@ -359,7 +350,7 @@ class _ClientSettingsPageState extends ConsumerState<ClientSettingsPage> {
                 builder: (context, ref, child) => ListTile(
                   title: Row(
                     children: [
-                      Checkbox(
+                      Checkbox.adaptive(
                         value: type == ref.watch(clientSettingsProvider.select((value) => value.themeColor)),
                         onChanged: (value) => ref.read(clientSettingsProvider.notifier).setThemeColor(type),
                       ),

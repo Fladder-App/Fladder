@@ -16,7 +16,7 @@ Future<(SortingOptions? sortOptions, SortingOrder? sortingOrder)?> openSortByDia
     builder: (context) {
       return StatefulBuilder(
         builder: (context, state) {
-          return AlertDialog.adaptive(
+          return AlertDialog(
             content: SizedBox(
               width: MediaQuery.of(context).size.width * 0.65,
               child: ListView(

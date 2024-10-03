@@ -14,7 +14,7 @@ class LoginEditUser extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return AlertDialog.adaptive(
+    return AlertDialog(
       title: Center(child: Text(user.name)),
       content: Column(
         mainAxisSize: MainAxisSize.min,
