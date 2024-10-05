@@ -83,9 +83,9 @@ void main() async {
   }
 
   final applicationInfo = ApplicationInfo(
-    name: kIsWeb ? "${packageInfo.appName.capitalize()} Web" : packageInfo.appName.capitalize(),
+    name: packageInfo.appName.capitalize(),
     version: "${packageInfo.version}(${packageInfo.buildNumber})",
-    os: defaultTargetPlatform.name.capitalize(),
+    os: !kIsWeb ? defaultTargetPlatform.name.capitalize() : "${defaultTargetPlatform.name.capitalize()} Web",
   );
 
   runApp(
