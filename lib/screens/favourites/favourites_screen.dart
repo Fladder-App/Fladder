@@ -1,5 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:fladder/providers/settings/client_settings_provider.dart';
-import 'package:fladder/routes/build_routes/home_routes.dart';
+import 'package:fladder/routes/auto_router.gr.dart';
 import 'package:fladder/screens/shared/nested_scaffold.dart';
 import 'package:fladder/screens/shared/nested_sliver_appbar.dart';
 import 'package:fladder/util/adaptive_layout.dart';
@@ -14,10 +15,9 @@ import 'package:fladder/screens/shared/media/poster_grid.dart';
 import 'package:fladder/util/sliver_list_padding.dart';
 import 'package:fladder/widgets/shared/pull_to_refresh.dart';
 
+@RoutePage()
 class FavouritesScreen extends ConsumerWidget {
-  final ScrollController navigationScrollController;
-
-  const FavouritesScreen({required this.navigationScrollController, super.key});
+  const FavouritesScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -30,13 +30,13 @@ class FavouritesScreen extends ConsumerWidget {
           scaleDifference: (difference) => ref.read(clientSettingsProvider.notifier).addPosterSize(difference / 2),
           child: CustomScrollView(
             physics: const AlwaysScrollableScrollPhysics(),
-            controller: navigationScrollController,
+            controller: AdaptiveLayout.scrollOf(context),
             slivers: [
               if (AdaptiveLayout.of(context).layout == LayoutState.phone)
                 NestedSliverAppBar(
                   searchTitle: "${context.localized.search} ${context.localized.favorites.toLowerCase()}...",
                   parent: context,
-                  route: LibrarySearchRoute(favorites: true),
+                  route: LibrarySearchRoute(favourites: true),
                 )
               else
                 const DefaultSliverTopBadding(),

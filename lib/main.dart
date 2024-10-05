@@ -1,21 +1,15 @@
 import 'dart:io';
 import 'dart:ui';
 
-import 'package:collection/collection.dart';
-import 'package:fladder/models/syncing/i_synced_item.dart';
-import 'package:fladder/providers/settings/client_settings_provider.dart';
-import 'package:fladder/providers/sync_provider.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import 'package:collection/collection.dart';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-// ignore: depend_on_referenced_packages
-import 'package:flutter_web_plugins/url_strategy.dart';
-import 'package:go_router/go_router.dart';
 import 'package:isar/isar.dart';
 import 'package:logging/logging.dart';
 import 'package:media_kit/media_kit.dart';
@@ -23,21 +17,23 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:universal_html/html.dart' as html;
 import 'package:window_manager/window_manager.dart';
 
 import 'package:fladder/models/account_model.dart';
+import 'package:fladder/models/syncing/i_synced_item.dart';
+import 'package:fladder/providers/settings/client_settings_provider.dart';
 import 'package:fladder/providers/shared_provider.dart';
+import 'package:fladder/providers/sync_provider.dart';
 import 'package:fladder/providers/user_provider.dart';
 import 'package:fladder/providers/video_player_provider.dart';
-import 'package:fladder/routes/app_routes.dart';
-import 'package:fladder/routes/build_routes/route_builder.dart';
+import 'package:fladder/routes/auto_router.gr.dart';
 import 'package:fladder/screens/login/lock_screen.dart';
 import 'package:fladder/theme.dart';
 import 'package:fladder/util/adaptive_layout.dart';
 import 'package:fladder/util/application_info.dart';
 import 'package:fladder/util/string_extensions.dart';
 import 'package:fladder/util/themes_data.dart';
-import 'package:universal_html/html.dart' as html;
 
 bool get _isDesktop {
   if (kIsWeb) return false;
@@ -63,9 +59,7 @@ class CustomCacheManager {
 
 void main() async {
   if (kIsWeb) {
-    usePathUrlStrategy();
     html.document.onContextMenu.listen((event) => event.preventDefault());
-    GoRouter.optionURLReflectsImperativeAPIs = true;
   }
   _setupLogging();
   WidgetsFlutterBinding.ensureInitialized();
@@ -111,7 +105,7 @@ void main() async {
             ))
       ],
       child: AdaptiveLayoutBuilder(
-        fallBack: LayoutState.phone,
+        fallBack: LayoutState.tablet,
         layoutPoints: [
           LayoutPoints(start: 0, end: 599, type: LayoutState.phone),
           LayoutPoints(start: 600, end: 1919, type: LayoutState.tablet),
@@ -179,7 +173,7 @@ class _MainState extends ConsumerState<Main> with WindowListener, WidgetsBinding
       await ref.read(videoPlayerProvider).pause();
 
       if (context.mounted) {
-        AdaptiveLayout.of(context).router.push(LockScreenRoute().route);
+        AdaptiveLayout.of(context).router.push(const LockRoute());
       }
     }
   }
@@ -316,21 +310,11 @@ class _MainState extends ConsumerState<Main> with WindowListener, WidgetsBinding
               ),
             ),
             themeMode: themeMode,
-            routerConfig: AdaptiveLayout.of(context).router,
+            routerConfig: AdaptiveLayout.routerOf(context).config(),
           ),
         );
       }),
     );
-  }
-
-  List<RouteBase> getRoutes(LayoutState state) {
-    switch (state) {
-      case LayoutState.phone:
-        return AppRoutes.linearRoutes;
-      case LayoutState.tablet:
-      case LayoutState.desktop:
-        return AppRoutes.nestedRoutes;
-    }
   }
 }
 

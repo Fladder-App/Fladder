@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-
+import 'package:auto_route/auto_route.dart';
 import 'package:ficonsax/ficonsax.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -43,6 +41,10 @@ import 'package:fladder/widgets/shared/pull_to_refresh.dart';
 import 'package:fladder/widgets/shared/scroll_position.dart';
 import 'package:fladder/widgets/shared/shapes.dart';
 
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+@RoutePage()
 class LibrarySearchScreen extends ConsumerStatefulWidget {
   final String? viewModelId;
   final bool? favourites;
@@ -51,11 +53,11 @@ class LibrarySearchScreen extends ConsumerStatefulWidget {
   final SortingOptions? sortingOptions;
   final PhotoModel? photoToView;
   const LibrarySearchScreen({
-    this.viewModelId,
-    this.folderId,
-    this.favourites,
-    this.sortOrder,
-    this.sortingOptions,
+    @QueryParam("parentId") this.viewModelId,
+    @QueryParam("folderId") this.folderId,
+    @QueryParam("favourites") this.favourites,
+    @QueryParam("sortOrder") this.sortOrder,
+    @QueryParam("sortOptions") this.sortingOptions,
     this.photoToView,
     super.key,
   });
@@ -139,7 +141,8 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
       child: Scaffold(
         extendBody: true,
         extendBodyBehindAppBar: true,
-        floatingActionButtonLocation: playerState == VideoPlayerState.minimized ? FloatingActionButtonLocation.centerFloat : null,
+        floatingActionButtonLocation:
+            playerState == VideoPlayerState.minimized ? FloatingActionButtonLocation.centerFloat : null,
         floatingActionButton: switch (playerState) {
           VideoPlayerState.minimized => const Padding(
               padding: EdgeInsets.symmetric(horizontal: 8),
@@ -197,8 +200,9 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
                   child: MediaQuery.removeViewInsets(
                     context: context,
                     child: ClipRRect(
-                      borderRadius:
-                          AdaptiveLayout.of(context).layout == LayoutState.desktop ? BorderRadius.circular(15) : BorderRadius.circular(0),
+                      borderRadius: AdaptiveLayout.of(context).layout == LayoutState.desktop
+                          ? BorderRadius.circular(15)
+                          : BorderRadius.circular(0),
                       child: FladderScrollbar(
                         visible: AdaptiveLayout.of(context).inputDevice != InputDevice.pointer,
                         controller: scrollController,
@@ -206,7 +210,8 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
                           refreshKey: refreshKey,
                           autoFocus: false,
                           contextRefresh: false,
-                          onRefresh: () async => libraryProvider.initRefresh(widget.folderId, widget.viewModelId, widget.favourites),
+                          onRefresh: () async =>
+                              libraryProvider.initRefresh(widget.folderId, widget.viewModelId, widget.favourites),
                           refreshOnStart: false,
                           child: CustomScrollView(
                             physics: const AlwaysScrollableNoImplicitScrollPhysics(),
@@ -228,7 +233,8 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
                                 actions: [
                                   const SizedBox(width: 4),
                                   Builder(builder: (context) {
-                                    final isFavorite = librarySearchResults.nestedCurrentItem?.userData.isFavourite == true;
+                                    final isFavorite =
+                                        librarySearchResults.nestedCurrentItem?.userData.isFavourite == true;
                                     final itemActions = librarySearchResults.nestedCurrentItem?.generateActions(
                                           context,
                                           ref,
@@ -276,7 +282,8 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
                                                             (e) => FilledButton.tonal(
                                                               style: FilledButtonTheme.of(context).style?.copyWith(
                                                                     padding: const WidgetStatePropertyAll(
-                                                                        EdgeInsets.symmetric(horizontal: 12, vertical: 24)),
+                                                                        EdgeInsets.symmetric(
+                                                                            horizontal: 12, vertical: 24)),
                                                                     backgroundColor: WidgetStateProperty.resolveWith(
                                                                       (states) {
                                                                         if (e != currentType) {
@@ -312,8 +319,8 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
                                     return Card(
                                       elevation: 0,
                                       child: Tooltip(
-                                        message:
-                                            librarySearchResults.nestedCurrentItem?.type.label(context) ?? context.localized.library(1),
+                                        message: librarySearchResults.nestedCurrentItem?.type.label(context) ??
+                                            context.localized.library(1),
                                         child: InkWell(
                                           onTapUp: (details) async {
                                             if (AdaptiveLayout.of(context).inputDevice == InputDevice.pointer) {
@@ -324,8 +331,9 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
                                                 position: RelativeRect.fromLTRB(left, top, 40, 100),
                                                 items: <PopupMenuEntry>[
                                                   PopupMenuItem(
-                                                      child: Text(librarySearchResults.nestedCurrentItem?.type.label(context) ??
-                                                          context.localized.library(0))),
+                                                      child: Text(
+                                                          librarySearchResults.nestedCurrentItem?.type.label(context) ??
+                                                              context.localized.library(0))),
                                                   itemCountWidget.toPopupMenuItem(useIcons: true),
                                                   refreshAction.toPopupMenuItem(useIcons: true),
                                                   itemViewAction.toPopupMenuItem(useIcons: true),
@@ -356,7 +364,8 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
                                             child: Icon(
                                               isFavorite
                                                   ? librarySearchResults.nestedCurrentItem?.type.selectedicon
-                                                  : librarySearchResults.nestedCurrentItem?.type.icon ?? IconsaxOutline.document,
+                                                  : librarySearchResults.nestedCurrentItem?.type.icon ??
+                                                      IconsaxOutline.document,
                                               color: isFavorite ? Theme.of(context).colorScheme.primary : null,
                                             ),
                                           ),
@@ -433,7 +442,8 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
                               if (postersList.isNotEmpty)
                                 SliverPadding(
                                   padding: EdgeInsets.only(
-                                      left: MediaQuery.of(context).padding.left, right: MediaQuery.of(context).padding.right),
+                                      left: MediaQuery.of(context).padding.left,
+                                      right: MediaQuery.of(context).padding.right),
                                   sliver: LibraryViews(
                                     key: uniqueKey,
                                     items: postersList,
@@ -568,7 +578,8 @@ class _LibrarySearchBottomBar extends ConsumerWidget {
             },
             label: Text(context.localized.removeFromCollection),
             icon: Container(
-              decoration: BoxDecoration(color: Theme.of(context).colorScheme.onPrimary, borderRadius: BorderRadius.circular(6)),
+              decoration:
+                  BoxDecoration(color: Theme.of(context).colorScheme.onPrimary, borderRadius: BorderRadius.circular(6)),
               child: const Padding(
                 padding: EdgeInsets.all(3.0),
                 child: Icon(IconsaxOutline.save_remove, size: 20),
@@ -620,8 +631,8 @@ class _LibrarySearchBottomBar extends ConsumerWidget {
                             clipBehavior: Clip.antiAlias,
                             elevation: 0,
                             borderRadiusGeometry: BorderRadius.circular(6),
-                            onTap: () =>
-                                scrollController.animateTo(0, duration: const Duration(milliseconds: 500), curve: Curves.easeInOutCubic),
+                            onTap: () => scrollController.animateTo(0,
+                                duration: const Duration(milliseconds: 500), curve: Curves.easeInOutCubic),
                             child: Container(
                               decoration: BoxDecoration(
                                 color: Theme.of(context).colorScheme.primaryContainer,
@@ -679,8 +690,9 @@ class _LibrarySearchBottomBar extends ConsumerWidget {
               AnimatedFadeSize(
                 child: librarySearchResults.selecteMode
                     ? Container(
-                        decoration:
-                            BoxDecoration(color: Theme.of(context).colorScheme.primaryContainer, borderRadius: BorderRadius.circular(16)),
+                        decoration: BoxDecoration(
+                            color: Theme.of(context).colorScheme.primaryContainer,
+                            borderRadius: BorderRadius.circular(16)),
                         child: Row(
                           children: [
                             Tooltip(

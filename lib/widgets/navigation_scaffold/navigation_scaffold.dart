@@ -1,12 +1,11 @@
 import 'package:fladder/models/media_playback_model.dart';
 import 'package:fladder/providers/video_player_provider.dart';
 import 'package:fladder/providers/views_provider.dart';
-import 'package:fladder/routes/app_routes.dart';
 import 'package:fladder/screens/shared/nested_bottom_appbar.dart';
 import 'package:fladder/util/adaptive_layout.dart';
-import 'package:fladder/widgets/navigation_scaffold/components/floating_player_bar.dart';
 import 'package:fladder/widgets/navigation_scaffold/components/destination_model.dart';
 import 'package:fladder/widgets/navigation_scaffold/components/fladder_appbar.dart';
+import 'package:fladder/widgets/navigation_scaffold/components/floating_player_bar.dart';
 import 'package:fladder/widgets/navigation_scaffold/components/navigation_body.dart';
 import 'package:fladder/widgets/navigation_scaffold/components/navigation_drawer.dart';
 import 'package:fladder/widgets/shared/hide_on_scroll.dart';
@@ -14,14 +13,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class NavigationScaffold extends ConsumerStatefulWidget {
-  final int? currentIndex;
-  final String? location;
+  final String? currentRouteName;
   final Widget? nestedChild;
   final List<DestinationModel> destinations;
   final GlobalKey<NavigatorState>? nestedNavigatorKey;
   const NavigationScaffold({
-    this.currentIndex,
-    this.location,
+    this.currentRouteName,
     this.nestedChild,
     required this.destinations,
     this.nestedNavigatorKey,
@@ -35,8 +32,9 @@ class NavigationScaffold extends ConsumerStatefulWidget {
 class _NavigationScaffoldState extends ConsumerState<NavigationScaffold> {
   final GlobalKey<ScaffoldState> _key = GlobalKey();
 
-  int get currentIndex => widget.destinations.indexWhere((element) => element.route?.route == widget.location);
-  String get currentLocation => widget.location ?? "Nothing";
+  int get currentIndex =>
+      widget.destinations.indexWhere((element) => element.route?.routeName == widget.currentRouteName);
+  String get currentLocation => widget.currentRouteName ?? "Nothing";
 
   @override
   void initState() {
@@ -50,6 +48,7 @@ class _NavigationScaffoldState extends ConsumerState<NavigationScaffold> {
   Widget build(BuildContext context) {
     final playerState = ref.watch(mediaPlaybackProvider.select((value) => value.state));
     final views = ref.watch(viewsProvider.select((value) => value.views));
+
     return PopScope(
       canPop: currentIndex == 0,
       onPopInvokedWithResult: (didPop, result) {
@@ -70,21 +69,21 @@ class _NavigationScaffoldState extends ConsumerState<NavigationScaffold> {
                     padding: EdgeInsets.symmetric(horizontal: 8),
                     child: FloatingPlayerBar(),
                   ),
-                _ => widget.destinations.elementAtOrNull(currentIndex)?.floatingActionButton?.normal,
+                _ => currentIndex != -1
+                    ? widget.destinations.elementAtOrNull(currentIndex)?.floatingActionButton?.normal
+                    : null,
               }
             : null,
         drawer: NestedNavigationDrawer(
           actionButton: null,
-          toggleExpanded: (value) {
-            _key.currentState?.closeDrawer();
-          },
+          toggleExpanded: (value) => _key.currentState?.closeDrawer(),
           views: views,
           destinations: widget.destinations,
           currentLocation: currentLocation,
         ),
         bottomNavigationBar: AdaptiveLayout.of(context).layout == LayoutState.phone
             ? HideOnScroll(
-                controller: AppRoutes.scrollController,
+                controller: AdaptiveLayout.scrollOf(context),
                 child: NestedBottomAppBar(
                   child: Transform.translate(
                     offset: const Offset(0, 8),
@@ -93,8 +92,8 @@ class _NavigationScaffoldState extends ConsumerState<NavigationScaffold> {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: widget.destinations
                           .map(
-                            (destination) =>
-                                destination.toNavigationButton(widget.location == destination.route?.route, false),
+                            (destination) => destination.toNavigationButton(
+                                widget.currentRouteName == destination.route?.routeName, false),
                           )
                           .toList(),
                     ),

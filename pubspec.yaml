@@ -91,7 +91,7 @@ dependencies:
   flutter_widget_from_html: ^0.14.11
 
   # Navigation
-  go_router: ^14.2.0
+  auto_route: ^9.2.2
   url_launcher: ^6.1.10
   flutter_custom_tabs: ^1.0.4
 
@@ -147,6 +147,7 @@ dev_dependencies:
   swagger_dart_code_generator: ^2.15.2
   riverpod_generator: ^2.4.0
   dart_mappable_builder: ^4.2.3
+  auto_route_generator: ^9.0.0
 
 flutter:
   # The following line ensures that the Material Icons font is

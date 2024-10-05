@@ -1,7 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:ficonsax/ficonsax.dart';
 import 'package:fladder/providers/sync_provider.dart';
 import 'package:fladder/providers/settings/client_settings_provider.dart';
-import 'package:fladder/routes/build_routes/home_routes.dart';
+import 'package:fladder/routes/auto_router.gr.dart';
 import 'package:fladder/screens/shared/nested_scaffold.dart';
 import 'package:fladder/screens/shared/nested_sliver_appbar.dart';
 import 'package:fladder/screens/syncing/sync_list_item.dart';
@@ -14,10 +15,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:fladder/util/sliver_list_padding.dart';
 
+@RoutePage()
 class SyncedScreen extends ConsumerStatefulWidget {
-  final ScrollController navigationScrollController;
+  final ScrollController? navigationScrollController;
 
-  const SyncedScreen({required this.navigationScrollController, super.key});
+  const SyncedScreen({this.navigationScrollController, super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _SyncedScreenState();

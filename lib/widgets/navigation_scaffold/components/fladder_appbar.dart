@@ -1,9 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:fladder/screens/shared/default_titlebar.dart';
 import 'package:fladder/util/adaptive_layout.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:go_router/go_router.dart';
 
 bool get _isDesktop {
   if (kIsWeb) return false;
@@ -29,7 +29,7 @@ class FladderAppbar extends StatelessWidget implements PreferredSize {
             height: height,
             child: Row(
               children: [
-                if (automaticallyImplyLeading && context.canPop()) const BackButton(),
+                if (automaticallyImplyLeading && context.router.canPop()) const BackButton(),
                 Expanded(
                   child: DefaultTitleBar(
                     label: label,

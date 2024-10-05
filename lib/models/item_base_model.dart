@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:ficonsax/ficonsax.dart';
 import 'package:fladder/models/book_model.dart';
@@ -5,8 +6,7 @@ import 'package:fladder/models/boxset_model.dart';
 import 'package:fladder/models/items/media_streams_model.dart';
 import 'package:fladder/models/library_search/library_search_options.dart';
 import 'package:fladder/models/playlist_model.dart';
-import 'package:fladder/routes/build_routes/home_routes.dart';
-import 'package:fladder/routes/build_routes/route_builder.dart';
+import 'package:fladder/routes/auto_router.gr.dart';
 import 'package:fladder/screens/details_screens/book_detail_screen.dart';
 import 'package:fladder/util/localization_helper.dart';
 import 'package:fladder/util/string_extensions.dart';
@@ -166,7 +166,7 @@ class ItemBaseModel with ItemBaseModelMappable {
     }
   }
 
-  Future<void> navigateTo(BuildContext context) async => context.routePush(DetailsRoute(id: id), extra: this);
+  Future<void> navigateTo(BuildContext context) async => context.router.push(DetailsRoute(id: id, item: this));
 
   factory ItemBaseModel.fromBaseDto(dto.BaseItemDto item, Ref ref) {
     return switch (item.type) {

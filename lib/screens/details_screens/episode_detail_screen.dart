@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:ficonsax/ficonsax.dart';
 import 'package:fladder/screens/details_screens/components/overview_header.dart';
 import 'package:fladder/screens/shared/media/components/media_play_button.dart';
@@ -21,7 +22,6 @@ import 'package:fladder/screens/shared/media/expanding_overview.dart';
 import 'package:fladder/util/list_padding.dart';
 import 'package:fladder/util/widget_extensions.dart';
 import 'package:fladder/widgets/shared/selectable_icon_button.dart';
-import 'package:go_router/go_router.dart';
 
 class EpisodeDetailScreen extends ConsumerStatefulWidget {
   final ItemBaseModel item;
@@ -52,7 +52,7 @@ class _ItemDetailScreenState extends ConsumerState<EpisodeDetailScreen> {
         },
         onDeleteSuccesFully: (item) {
           if (context.mounted) {
-            context.pop();
+            context.router.maybePop();
           }
         },
       ),

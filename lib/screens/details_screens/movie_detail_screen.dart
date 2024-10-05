@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:ficonsax/ficonsax.dart';
 import 'package:fladder/models/item_base_model.dart';
 import 'package:fladder/providers/items/movies_details_provider.dart';
@@ -19,7 +20,6 @@ import 'package:fladder/util/widget_extensions.dart';
 import 'package:fladder/widgets/shared/selectable_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 class MovieDetailScreen extends ConsumerStatefulWidget {
   final ItemBaseModel item;
@@ -49,7 +49,7 @@ class _ItemDetailScreenState extends ConsumerState<MovieDetailScreen> {
         },
         onDeleteSuccesFully: (item) {
           if (context.mounted) {
-            context.pop();
+            context.router.maybePop();
           }
         },
       ),

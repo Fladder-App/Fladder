@@ -5,7 +5,7 @@ import 'package:ficonsax/ficonsax.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:fladder/providers/views_provider.dart';
-import 'package:fladder/routes/build_routes/settings_routes.dart';
+import 'package:fladder/routes/auto_router.gr.dart';
 import 'package:fladder/screens/shared/animated_fade_size.dart';
 import 'package:fladder/util/adaptive_layout.dart';
 import 'package:fladder/widgets/navigation_scaffold/components/adaptive_fab.dart';
@@ -110,7 +110,10 @@ class _NavigationBodyState extends ConsumerState<NavigationBody> {
               style: Theme.of(context).textTheme.titleSmall,
             ),
           },
-          if (AdaptiveLayout.of(context).platform == TargetPlatform.macOS) const SizedBox(height: 32) else const SizedBox(height: 16),
+          if (AdaptiveLayout.of(context).platform == TargetPlatform.macOS)
+            const SizedBox(height: 32)
+          else
+            const SizedBox(height: 16),
           IconButton(
             onPressed: () {
               if (AdaptiveLayout.layoutOf(context) != LayoutState.desktop) {
@@ -152,7 +155,7 @@ class _NavigationBodyState extends ConsumerState<NavigationBody> {
             height: 48,
             child: AnimatedSwitcher(
                 duration: const Duration(milliseconds: 250),
-                child: widget.currentLocation.contains(SettingsRoute().route)
+                child: widget.currentLocation.contains(const SettingsRoute().routeName)
                     ? Card(
                         color: Theme.of(context).colorScheme.primaryContainer,
                         child: const Padding(

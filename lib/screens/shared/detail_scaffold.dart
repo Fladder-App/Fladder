@@ -1,22 +1,22 @@
-import 'package:ficonsax/ficonsax.dart';
-import 'package:fladder/util/localization_helper.dart';
-import 'package:fladder/widgets/navigation_scaffold/components/settings_user_icon.dart';
 import 'package:flutter/material.dart';
+
+import 'package:auto_route/auto_route.dart';
+import 'package:ficonsax/ficonsax.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 import 'package:fladder/models/item_base_model.dart';
 import 'package:fladder/models/items/images_models.dart';
 import 'package:fladder/models/media_playback_model.dart';
 import 'package:fladder/providers/items/item_details_provider.dart';
 import 'package:fladder/providers/video_player_provider.dart';
-import 'package:fladder/routes/build_routes/home_routes.dart';
-import 'package:fladder/routes/build_routes/route_builder.dart';
+import 'package:fladder/routes/auto_router.gr.dart';
 import 'package:fladder/theme.dart';
 import 'package:fladder/util/adaptive_layout.dart';
 import 'package:fladder/util/fladder_image.dart';
+import 'package:fladder/util/localization_helper.dart';
 import 'package:fladder/util/refresh_state.dart';
 import 'package:fladder/widgets/navigation_scaffold/components/floating_player_bar.dart';
+import 'package:fladder/widgets/navigation_scaffold/components/settings_user_icon.dart';
 import 'package:fladder/widgets/shared/item_actions.dart';
 import 'package:fladder/widgets/shared/modal_bottom_sheet.dart';
 import 'package:fladder/widgets/shared/pull_to_refresh.dart';
@@ -52,7 +52,7 @@ class _DetailScreenState extends ConsumerState<DetailScreen> {
               currentWidget = response.detailScreenWidget;
             });
           } else {
-            context.routeGo(DashboardRoute());
+            context.router.navigate(const DashboardRoute());
           }
         }
       }
@@ -212,13 +212,7 @@ class _DetailScaffoldState extends ConsumerState<DetailScaffold> {
                         style: IconButton.styleFrom(
                           backgroundColor: backGroundColor,
                         ),
-                        onPressed: () {
-                          if (context.canPop()) {
-                            context.pop();
-                          } else {
-                            context.replace(DashboardRoute().route);
-                          }
-                        },
+                        onPressed: () => context.router.maybePop(),
                         icon: Padding(
                           padding:
                               EdgeInsets.all(AdaptiveLayout.of(context).inputDevice == InputDevice.pointer ? 0 : 4),
@@ -281,7 +275,7 @@ class _DetailScaffoldState extends ConsumerState<DetailScaffold> {
                               Tooltip(
                                 message: context.localized.home,
                                 child: IconButton(
-                                  onPressed: () => context.routeGo(DashboardRoute()),
+                                  onPressed: () => context.router.navigate(const DashboardRoute()),
                                   icon: const Icon(IconsaxOutline.home),
                                 ),
                               ),

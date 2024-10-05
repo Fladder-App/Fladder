@@ -1,24 +1,24 @@
-import 'package:ficonsax/ficonsax.dart';
-import 'package:fladder/util/localization_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'package:auto_route/auto_route.dart';
+import 'package:ficonsax/ficonsax.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 import 'package:fladder/models/account_model.dart';
 import 'package:fladder/providers/user_provider.dart';
-import 'package:fladder/routes/build_routes/route_builder.dart';
+import 'package:fladder/routes/auto_router.gr.dart';
 import 'package:fladder/screens/login/widgets/login_icon.dart';
 import 'package:fladder/screens/shared/fladder_snackbar.dart';
 import 'package:fladder/screens/shared/passcode_input.dart';
 import 'package:fladder/util/auth_service.dart';
+import 'package:fladder/util/localization_helper.dart';
 
 final lockScreenActiveProvider = StateProvider<bool>((ref) => false);
 
+@RoutePage()
 class LockScreen extends ConsumerStatefulWidget {
-  final bool selfLock;
-  const LockScreen({this.selfLock = false, super.key});
+  const LockScreen({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _LockScreenState();
@@ -52,10 +52,6 @@ class _LockScreenState extends ConsumerState<LockScreen> with WidgetsBindingObse
     WidgetsBinding.instance.addObserver(this);
     Future.microtask(() {
       ref.read(lockScreenActiveProvider.notifier).update((state) => true);
-      final user = ref.read(userProvider);
-      if (user != null && !widget.selfLock) {
-        tapLoggedInAccount(user);
-      }
     });
     hackyFixForBlackNavbar();
   }
@@ -63,7 +59,7 @@ class _LockScreenState extends ConsumerState<LockScreen> with WidgetsBindingObse
   void handleLogin(AccountModel user) {
     ref.read(lockScreenActiveProvider.notifier).update((state) => false);
     poppingLockScreen = true;
-    context.pop();
+    context.router.popForced();
   }
 
   void tapLoggedInAccount(AccountModel user) async {
@@ -131,7 +127,7 @@ class _LockScreenState extends ConsumerState<LockScreen> with WidgetsBindingObse
               ElevatedButton.icon(
                 onPressed: () {
                   ref.read(lockScreenActiveProvider.notifier).update((state) => false);
-                  context.routeGo(LoginRoute());
+                  context.router.push(const LoginRoute());
                 },
                 icon: const Icon(Icons.login_rounded),
                 label: Text(context.localized.login),

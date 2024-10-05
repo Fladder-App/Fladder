@@ -1,6 +1,11 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
+
+import 'package:auto_route/auto_route.dart';
 import 'package:collection/collection.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:fladder/jellyfin/jellyfin_open_api.enums.swagger.dart';
 import 'package:fladder/jellyfin/jellyfin_open_api.swagger.dart';
 import 'package:fladder/models/library_search/library_search_options.dart';
@@ -10,8 +15,7 @@ import 'package:fladder/providers/settings/client_settings_provider.dart';
 import 'package:fladder/providers/settings/home_settings_provider.dart';
 import 'package:fladder/providers/user_provider.dart';
 import 'package:fladder/providers/views_provider.dart';
-import 'package:fladder/routes/build_routes/home_routes.dart';
-import 'package:fladder/routes/build_routes/route_builder.dart';
+import 'package:fladder/routes/auto_router.gr.dart';
 import 'package:fladder/screens/shared/media/carousel_banner.dart';
 import 'package:fladder/screens/shared/media/poster_row.dart';
 import 'package:fladder/screens/shared/nested_scaffold.dart';
@@ -23,13 +27,10 @@ import 'package:fladder/util/sliver_list_padding.dart';
 import 'package:fladder/widgets/shared/pinch_poster_zoom.dart';
 import 'package:fladder/widgets/shared/poster_size_slider.dart';
 import 'package:fladder/widgets/shared/pull_to_refresh.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+@RoutePage()
 class DashboardScreen extends ConsumerStatefulWidget {
-  final ScrollController navigationScrollController;
   const DashboardScreen({
-    required this.navigationScrollController,
     super.key,
   });
 
@@ -91,8 +92,8 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
           child: PinchPosterZoom(
             scaleDifference: (difference) => ref.read(clientSettingsProvider.notifier).addPosterSize(difference),
             child: CustomScrollView(
+              controller: AdaptiveLayout.scrollOf(context),
               physics: const AlwaysScrollableScrollPhysics(),
-              controller: widget.navigationScrollController,
               slivers: [
                 if (AdaptiveLayout.of(context).layout == LayoutState.phone)
                   NestedSliverAppBar(
@@ -175,9 +176,9 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                       .map((view) => SliverToBoxAdapter(
                             child: PosterRow(
                               label: context.localized.dashboardRecentlyAdded(view.name),
-                              onLabelClick: () => context.routePushOrGo(LibrarySearchRoute(
-                                id: view.id,
-                                sortOptions: switch (view.collectionType) {
+                              onLabelClick: () => context.router.push(LibrarySearchRoute(
+                                viewModelId: view.id,
+                                sortingOptions: switch (view.collectionType) {
                                   CollectionType.tvshows ||
                                   CollectionType.books ||
                                   CollectionType.boxsets ||
@@ -186,7 +187,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                     SortingOptions.dateLastContentAdded,
                                   _ => SortingOptions.dateAdded,
                                 },
-                                sortOrder: SortOrder.descending,
+                                sortOrder: SortingOrder.descending,
                               )),
                               posters: view.recentlyAdded,
                             ),

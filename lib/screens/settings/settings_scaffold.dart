@@ -1,8 +1,10 @@
+import 'package:flutter/material.dart';
+
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:fladder/providers/user_provider.dart';
 import 'package:fladder/screens/shared/user_icon.dart';
 import 'package:fladder/util/adaptive_layout.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SettingsScaffold extends ConsumerWidget {
   final String label;
@@ -36,7 +38,6 @@ class SettingsScaffold extends ConsumerWidget {
               slivers: [
                 if (AdaptiveLayout.of(context).size == ScreenLayout.single)
                   SliverAppBar.large(
-                    titleSpacing: 20,
                     backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                     flexibleSpace: FlexibleSpaceBar(
                       titlePadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16)
@@ -54,10 +55,10 @@ class SettingsScaffold extends ConsumerWidget {
                                 ))
                         ],
                       ),
-                      expandedTitleScale: 2,
+                      expandedTitleScale: 1.2,
                     ),
-                    expandedHeight: 175,
-                    collapsedHeight: 100,
+                    expandedHeight: 100,
+                    collapsedHeight: 80,
                     pinned: false,
                     floating: true,
                   )
