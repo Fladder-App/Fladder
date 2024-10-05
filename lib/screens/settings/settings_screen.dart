@@ -90,7 +90,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
         scrollController: scrollController,
         showUserIcon: true,
         items: [
-          if (context.router.canPop() && AdaptiveLayout.of(context).size == ScreenLayout.single)
+          if (context.router.canPop() && AdaptiveLayout.of(context).size == ScreenLayout.dual)
             Align(
               alignment: Alignment.centerLeft,
               child: Padding(
@@ -205,7 +205,9 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                                         ),
                                         onPressed: () async {
                                           await ref.read(authProvider.notifier).logOutUser();
-                                          if (context.mounted) context.router.navigate(const LoginRoute());
+                                          if (context.mounted) {
+                                            context.router.navigate(const LoginRoute());
+                                          }
                                         },
                                         child: Text(context.localized.logout),
                                       ),

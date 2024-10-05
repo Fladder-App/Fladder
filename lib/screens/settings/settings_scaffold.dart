@@ -27,7 +27,7 @@ class SettingsScaffold extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final padding = MediaQuery.of(context).padding;
     return Scaffold(
-      backgroundColor: AdaptiveLayout.of(context).isDesktop ? Colors.transparent : null,
+      backgroundColor: AdaptiveLayout.of(context).size == ScreenLayout.dual ? Colors.transparent : null,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: floatingActionButton,
       body: Column(
