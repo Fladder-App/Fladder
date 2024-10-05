@@ -92,8 +92,7 @@ class NestedNavigationDrawer extends ConsumerWidget {
           ),
           ...views.map((library) => DrawerListButton(
               label: library.name,
-              selected: context.router.current.name == LibrarySearchRoute().routeName &&
-                  context.routeData.queryParams.getString('parentId') == library.id,
+              selected: checkLibrary(context, library.id),
               actions: [
                 ItemActionButton(
                   label: Text(context.localized.scanLibrary),
@@ -151,5 +150,13 @@ class NestedNavigationDrawer extends ConsumerWidget {
         if (AdaptiveLayout.of(context).isDesktop || kIsWeb) const SizedBox(height: 8),
       ],
     );
+  }
+
+  bool checkLibrary(BuildContext context, String id) {
+    try {
+      return context.routeData.queryParams.isNotEmpty && context.routeData.queryParams.getString('parentId') == id;
+    } catch (e) {
+      return false;
+    }
   }
 }
