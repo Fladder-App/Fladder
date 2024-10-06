@@ -1,31 +1,32 @@
 import 'dart:developer';
 
+import 'package:flutter/material.dart';
+
 import 'package:chopper/chopper.dart';
 import 'package:collection/collection.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:page_transition/page_transition.dart';
+
+import 'package:fladder/jellyfin/jellyfin_open_api.swagger.dart';
 import 'package:fladder/models/collection_types.dart';
+import 'package:fladder/models/item_base_model.dart';
 import 'package:fladder/models/items/folder_model.dart';
 import 'package:fladder/models/items/item_shared_models.dart';
 import 'package:fladder/models/items/photos_model.dart';
+import 'package:fladder/models/library_search/library_search_model.dart';
 import 'package:fladder/models/library_search/library_search_options.dart';
 import 'package:fladder/models/playlist_model.dart';
+import 'package:fladder/models/view_model.dart';
+import 'package:fladder/providers/api_provider.dart';
 import 'package:fladder/providers/service_provider.dart';
 import 'package:fladder/providers/settings/client_settings_provider.dart';
+import 'package:fladder/providers/user_provider.dart';
 import 'package:fladder/screens/photo_viewer/photo_viewer_screen.dart';
 import 'package:fladder/screens/shared/fladder_snackbar.dart';
 import 'package:fladder/util/item_base_model/play_item_helpers.dart';
 import 'package:fladder/util/list_extensions.dart';
 import 'package:fladder/util/localization_helper.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import 'package:fladder/jellyfin/jellyfin_open_api.swagger.dart';
-import 'package:fladder/models/item_base_model.dart';
-import 'package:fladder/models/library_search/library_search_model.dart';
-import 'package:fladder/models/view_model.dart';
-import 'package:fladder/providers/api_provider.dart';
-import 'package:fladder/providers/user_provider.dart';
 import 'package:fladder/util/map_bool_helper.dart';
-import 'package:page_transition/page_transition.dart';
 
 final librarySearchProvider =
     StateNotifierProvider.family.autoDispose<LibrarySearchNotifier, LibrarySearchModel, Key>((ref, id) {
@@ -651,6 +652,10 @@ class LibrarySearchNotifier extends StateNotifier<LibrarySearchModel> {
     if (items.isNotEmpty) {
       items.firstOrNull?.navigateTo(context);
     }
+  }
+
+  void updateEverything() {
+    state = state.copyWith();
   }
 }
 

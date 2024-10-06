@@ -133,10 +133,10 @@ class _ClientSettingsPageState extends ConsumerState<ClientSettingsPage> {
                         (context) async {
                           await ref.read(syncProvider.notifier).clear();
                           setState(() {});
-                          context.router.maybePop();
+                          Navigator.of(context).pop();
                         },
                         context.localized.clear,
-                        (context) => context.router.maybePop(),
+                        (context) => Navigator.of(context).pop(),
                         context.localized.cancel,
                       );
                     },
@@ -451,7 +451,7 @@ class _ClientSettingsPageState extends ConsumerState<ClientSettingsPage> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             FilledButton(
-                              onPressed: () => context.router.maybePop(),
+                              onPressed: () => Navigator.of(context).pop(),
                               child: Text(context.localized.cancel),
                             ),
                             const SizedBox(width: 8),

@@ -10,7 +10,10 @@ import 'package:fladder/util/adaptive_layout.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Screen|Page,Route')
 class AutoRouter extends RootStackRouter {
-  AutoRouter({required this.layout, required this.ref});
+  AutoRouter({
+    required this.layout,
+    required this.ref,
+  });
 
   final WidgetRef ref;
   final ScreenLayout layout;
@@ -35,8 +38,8 @@ class AutoRouter extends RootStackRouter {
         _syncedRoute,
       ],
     ),
-    AutoRoute(page: DetailsRoute.page, path: '/details'),
-    AutoRoute(page: LibrarySearchRoute.page, path: '/library'),
+    AutoRoute(page: DetailsRoute.page, path: '/details', usesPathAsKey: true),
+    AutoRoute(page: LibrarySearchRoute.page, path: '/library', usesPathAsKey: true),
     AutoRoute(page: SettingsRoute.page, path: '/settings'),
     ..._settingsChildren.map(
       (e) => e.copyWith(path: "/$e", initial: false),
@@ -49,8 +52,8 @@ class AutoRouter extends RootStackRouter {
         _dashboardRoute,
         _favouritesRoute,
         _syncedRoute,
-        AutoRoute(page: DetailsRoute.page, path: 'details'),
-        AutoRoute(page: LibrarySearchRoute.page, path: 'library'),
+        AutoRoute(page: DetailsRoute.page, path: 'details', usesPathAsKey: true),
+        AutoRoute(page: LibrarySearchRoute.page, path: 'library', usesPathAsKey: true),
         AutoRoute(
           page: SettingsRoute.page,
           path: 'settings',

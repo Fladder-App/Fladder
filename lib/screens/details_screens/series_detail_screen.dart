@@ -1,26 +1,28 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:ficonsax/ficonsax.dart';
-import 'package:fladder/screens/details_screens/components/overview_header.dart';
-import 'package:fladder/screens/shared/media/components/media_play_button.dart';
-import 'package:fladder/screens/shared/media/components/next_up_episode.dart';
-import 'package:fladder/util/item_base_model/item_base_model_extensions.dart';
-import 'package:fladder/util/item_base_model/play_item_helpers.dart';
-import 'package:fladder/util/localization_helper.dart';
 import 'package:flutter/material.dart';
 
+import 'package:auto_route/auto_route.dart';
+import 'package:ficonsax/ficonsax.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:fladder/models/item_base_model.dart';
+import 'package:fladder/models/items/series_model.dart';
 import 'package:fladder/providers/items/series_details_provider.dart';
 import 'package:fladder/providers/user_provider.dart';
+import 'package:fladder/screens/details_screens/components/overview_header.dart';
 import 'package:fladder/screens/shared/detail_scaffold.dart';
 import 'package:fladder/screens/shared/media/components/media_header.dart';
+import 'package:fladder/screens/shared/media/components/media_play_button.dart';
+import 'package:fladder/screens/shared/media/components/next_up_episode.dart';
 import 'package:fladder/screens/shared/media/episode_posters.dart';
 import 'package:fladder/screens/shared/media/expanding_overview.dart';
 import 'package:fladder/screens/shared/media/people_row.dart';
 import 'package:fladder/screens/shared/media/poster_row.dart';
 import 'package:fladder/screens/shared/media/season_row.dart';
+import 'package:fladder/util/item_base_model/item_base_model_extensions.dart';
+import 'package:fladder/util/item_base_model/play_item_helpers.dart';
 import 'package:fladder/util/list_padding.dart';
+import 'package:fladder/util/localization_helper.dart';
+import 'package:fladder/util/router_extension.dart';
 import 'package:fladder/util/widget_extensions.dart';
 import 'package:fladder/widgets/shared/selectable_icon_button.dart';
 
@@ -33,7 +35,8 @@ class SeriesDetailScreen extends ConsumerStatefulWidget {
 }
 
 class _SeriesDetailScreenState extends ConsumerState<SeriesDetailScreen> {
-  late final providerId = seriesDetailsProvider(widget.item.id);
+  AutoDisposeStateNotifierProvider<SeriesDetailViewNotifier, SeriesModel?> get providerId =>
+      seriesDetailsProvider(widget.item.id);
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +54,7 @@ class _SeriesDetailScreenState extends ConsumerState<SeriesDetailScreen> {
         },
         onDeleteSuccesFully: (item) {
           if (context.mounted) {
-            context.router.maybePop();
+            context.router.popBack();
           }
         },
       ),

@@ -154,7 +154,8 @@ class NestedNavigationDrawer extends ConsumerWidget {
 
   bool checkLibrary(BuildContext context, String id) {
     try {
-      return context.routeData.queryParams.isNotEmpty && context.routeData.queryParams.getString('parentId') == id;
+      return context.router.current.name == LibrarySearchRoute().routeName &&
+          (context.routeData.queryParams.isNotEmpty && context.routeData.queryParams.getString('parentId') == id);
     } catch (e) {
       return false;
     }

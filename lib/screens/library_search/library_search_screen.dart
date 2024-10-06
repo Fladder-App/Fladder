@@ -1,3 +1,7 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:ficonsax/ficonsax.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -28,6 +32,7 @@ import 'package:fladder/util/item_base_model/item_base_model_extensions.dart';
 import 'package:fladder/util/list_padding.dart';
 import 'package:fladder/util/localization_helper.dart';
 import 'package:fladder/util/refresh_state.dart';
+import 'package:fladder/util/router_extension.dart';
 import 'package:fladder/util/sliver_list_padding.dart';
 import 'package:fladder/widgets/navigation_scaffold/components/floating_player_bar.dart';
 import 'package:fladder/widgets/navigation_scaffold/components/settings_user_icon.dart';
@@ -40,9 +45,6 @@ import 'package:fladder/widgets/shared/poster_size_slider.dart';
 import 'package:fladder/widgets/shared/pull_to_refresh.dart';
 import 'package:fladder/widgets/shared/scroll_position.dart';
 import 'package:fladder/widgets/shared/shapes.dart';
-
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 @RoutePage()
 class LibrarySearchScreen extends ConsumerStatefulWidget {
@@ -67,9 +69,6 @@ class LibrarySearchScreen extends ConsumerStatefulWidget {
 }
 
 class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
-  late final Key uniqueKey = Key(widget.folderId?.join(',').toString() ?? widget.viewModelId ?? UniqueKey().toString());
-  late final providerKey = librarySearchProvider(uniqueKey);
-  late final libraryProvider = ref.read(providerKey.notifier);
   final SearchController searchController = SearchController();
   final Debouncer debouncer = Debouncer(const Duration(seconds: 1));
   final GlobalKey<RefreshIndicatorState> refreshKey = GlobalKey<RefreshIndicatorState>();
@@ -78,9 +77,26 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
 
   bool loadOnStart = false;
 
+  Key get uniqueKey => Key(widget.folderId?.join(',').toString() ?? widget.viewModelId ?? "EmptySearch");
+  AutoDisposeStateNotifierProvider<LibrarySearchNotifier, LibrarySearchModel> get providerKey =>
+      librarySearchProvider(uniqueKey);
+  LibrarySearchNotifier get libraryProvider => ref.read(librarySearchProvider(uniqueKey).notifier);
+
+  @override
+  void didUpdateWidget(covariant LibrarySearchScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (kIsWeb && ref.read(librarySearchProvider(uniqueKey)).posters.isEmpty) {
+      initLibrary();
+    }
+  }
+
   @override
   void initState() {
     super.initState();
+    initLibrary();
+  }
+
+  void initLibrary() {
     searchController.addListener(() {
       debouncer.run(() {
         ref.read(providerKey.notifier).setSearch(searchController.text);
@@ -89,7 +105,9 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
 
     Future.microtask(
       () async {
-        libraryProvider.setDefaultOptions(widget.sortOrder, widget.sortingOptions);
+        if (libraryProvider.mounted) {
+          libraryProvider.setDefaultOptions(widget.sortOrder, widget.sortingOptions);
+        }
         await refreshKey.currentState?.show();
         SystemChrome.setEnabledSystemUIMode(
           SystemUiMode.edgeToEdge,
@@ -115,10 +133,8 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
   Widget build(BuildContext context) {
     final isEmptySearchScreen = widget.viewModelId == null && widget.favourites == null && widget.folderId == null;
     final librarySearchResults = ref.watch(providerKey);
-    final libraryProvider = ref.read(providerKey.notifier);
     final postersList = librarySearchResults.posters.hideEmptyChildren(librarySearchResults.hideEmtpyShows);
     final playerState = ref.watch(mediaPlaybackProvider.select((value) => value.state));
-
     final libraryViewType = ref.watch(libraryViewTypeProvider);
 
     ref.listen(
@@ -132,6 +148,7 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
     );
 
     return PopScope(
+      key: uniqueKey,
       canPop: !librarySearchResults.selecteMode,
       onPopInvokedWithResult: (didPop, result) {
         if (librarySearchResults.selecteMode) {
@@ -210,8 +227,12 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
                           refreshKey: refreshKey,
                           autoFocus: false,
                           contextRefresh: false,
-                          onRefresh: () async =>
-                              libraryProvider.initRefresh(widget.folderId, widget.viewModelId, widget.favourites),
+                          onRefresh: () async {
+                            if (libraryProvider.mounted) {
+                              return libraryProvider.initRefresh(
+                                  widget.folderId, widget.viewModelId, widget.favourites);
+                            }
+                          },
                           refreshOnStart: false,
                           child: CustomScrollView(
                             physics: const AlwaysScrollableNoImplicitScrollPhysics(),
@@ -220,10 +241,11 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
                               SliverAppBar(
                                 floating: !AdaptiveLayout.of(context).isDesktop,
                                 collapsedHeight: 80,
-                                automaticallyImplyLeading: true,
+                                automaticallyImplyLeading: false,
                                 pinned: AdaptiveLayout.of(context).isDesktop,
                                 primary: true,
                                 elevation: 5,
+                                leading: context.router.backButton(),
                                 surfaceTintColor: Colors.transparent,
                                 shadowColor: Colors.transparent,
                                 backgroundColor: Theme.of(context).colorScheme.surface,

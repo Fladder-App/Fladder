@@ -1,5 +1,10 @@
+import 'package:flutter/material.dart';
+
 import 'package:ficonsax/ficonsax.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:fladder/models/item_base_model.dart';
+import 'package:fladder/models/items/season_model.dart';
 import 'package:fladder/providers/items/season_details_provider.dart';
 import 'package:fladder/providers/user_provider.dart';
 import 'package:fladder/screens/details_screens/components/overview_header.dart';
@@ -16,8 +21,6 @@ import 'package:fladder/util/localization_helper.dart';
 import 'package:fladder/util/string_extensions.dart';
 import 'package:fladder/util/widget_extensions.dart';
 import 'package:fladder/widgets/shared/selectable_icon_button.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SeasonDetailScreen extends ConsumerStatefulWidget {
   final ItemBaseModel item;
@@ -29,7 +32,8 @@ class SeasonDetailScreen extends ConsumerStatefulWidget {
 
 class _SeasonDetailScreenState extends ConsumerState<SeasonDetailScreen> {
   Set<EpisodeDetailsViewType> viewOptions = {EpisodeDetailsViewType.grid};
-  late final providerId = seasonDetailsProvider(widget.item.id);
+  AutoDisposeStateNotifierProvider<SeasonDetailsNotifier, SeasonModel?> get providerId =>
+      seasonDetailsProvider(widget.item.id);
 
   @override
   Widget build(BuildContext context) {

@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fladder/models/account_model.dart';
 import 'package:fladder/providers/shared_provider.dart';
 import 'package:fladder/providers/user_provider.dart';
+import 'package:fladder/routes/auto_router.gr.dart';
 import 'package:fladder/screens/shared/fladder_logo.dart';
 
 @RoutePage()
@@ -28,24 +29,34 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
 
       if (context.mounted) {
         if (lastUsedAccount == null) {
-          widget.loggedIn?.call(false);
-          context.router.maybePop(false);
+          callBackOrNavigate(false);
         } else {
           switch (lastUsedAccount.authMethod) {
             case Authentication.autoLogin:
-              widget.loggedIn?.call(true);
-              context.router.maybePop(true);
+              callBackOrNavigate(true);
               break;
             case Authentication.biometrics:
             case Authentication.none:
             case Authentication.passcode:
-              widget.loggedIn?.call(false);
-              context.router.maybePop(false);
+              callBackOrNavigate(false);
               break;
           }
         }
       }
     });
+  }
+
+  void callBackOrNavigate(bool loggedIn) {
+    if (widget.loggedIn == null) {
+      if (loggedIn) {
+        context.router.replace(const DashboardRoute());
+      } else {
+        context.router.replace(const LoginRoute());
+      }
+    } else {
+      widget.loggedIn?.call(loggedIn);
+      context.router.maybePop(loggedIn);
+    }
   }
 
   @override

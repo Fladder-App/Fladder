@@ -164,7 +164,7 @@ class _LoginPageState extends ConsumerState<LoginScreen> {
             serverTextController.text = value;
             startAddingNewUser();
           });
-          context.router.maybePop();
+          Navigator.of(context).pop();
         },
       ),
     );

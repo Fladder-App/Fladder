@@ -1,5 +1,9 @@
+import 'package:flutter/material.dart';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:ficonsax/ficonsax.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:fladder/models/book_model.dart';
 import 'package:fladder/providers/items/book_details_provider.dart';
 import 'package:fladder/providers/user_provider.dart';
@@ -13,12 +17,11 @@ import 'package:fladder/util/item_base_model/item_base_model_extensions.dart';
 import 'package:fladder/util/item_base_model/play_item_helpers.dart';
 import 'package:fladder/util/list_padding.dart';
 import 'package:fladder/util/localization_helper.dart';
+import 'package:fladder/util/router_extension.dart';
 import 'package:fladder/util/widget_extensions.dart';
 import 'package:fladder/widgets/shared/item_actions.dart';
 import 'package:fladder/widgets/shared/modal_bottom_sheet.dart';
 import 'package:fladder/widgets/shared/selectable_icon_button.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class BookDetailScreen extends ConsumerStatefulWidget {
   final BookModel item;
@@ -29,7 +32,8 @@ class BookDetailScreen extends ConsumerStatefulWidget {
 }
 
 class _BookDetailScreenState extends ConsumerState<BookDetailScreen> {
-  late final provider = bookDetailsProvider(widget.item.id);
+  AutoDisposeStateNotifierProvider<BookDetailsProviderNotifier, BookProviderModel> get provider =>
+      bookDetailsProvider(widget.item.id);
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +51,7 @@ class _BookDetailScreenState extends ConsumerState<BookDetailScreen> {
         },
         onDeleteSuccesFully: (item) {
           if (context.mounted) {
-            context.router.maybePop();
+            context.router.popBack();
           }
         },
       ),

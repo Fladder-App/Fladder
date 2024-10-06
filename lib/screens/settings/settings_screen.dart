@@ -15,6 +15,7 @@ import 'package:fladder/screens/shared/fladder_icon.dart';
 import 'package:fladder/util/adaptive_layout.dart';
 import 'package:fladder/util/application_info.dart';
 import 'package:fladder/util/localization_helper.dart';
+import 'package:fladder/util/router_extension.dart';
 import 'package:fladder/util/theme_extensions.dart';
 import 'package:fladder/widgets/shared/hide_on_scroll.dart';
 
@@ -90,7 +91,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
         scrollController: scrollController,
         showUserIcon: true,
         items: [
-          if (context.router.canPop() && AdaptiveLayout.of(context).size == ScreenLayout.dual)
+          if (context.router.canNavigateBack && AdaptiveLayout.of(context).size == ScreenLayout.dual)
             Align(
               alignment: Alignment.centerLeft,
               child: Padding(
@@ -99,7 +100,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                   style: IconButton.styleFrom(
                     backgroundColor: Theme.of(context).colorScheme.surface.withOpacity(0.8),
                   ),
-                  onPressed: () => context.router.maybePop(),
+                  onPressed: () => context.router.popBack(),
                   icon: Padding(
                     padding: EdgeInsets.all(AdaptiveLayout.of(context).inputDevice == InputDevice.pointer ? 0 : 4),
                     child: const Icon(IconsaxOutline.arrow_left_2),

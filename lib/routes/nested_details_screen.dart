@@ -1,10 +1,13 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:fladder/models/item_base_model.dart';
 import 'package:fladder/providers/items/item_details_provider.dart';
 import 'package:fladder/routes/auto_router.gr.dart';
 import 'package:fladder/util/fladder_image.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 @RoutePage()
 class DetailsScreen extends ConsumerStatefulWidget {
@@ -23,8 +26,20 @@ class _DetailsScreenState extends ConsumerState<DetailsScreen> {
   );
 
   @override
+  void didUpdateWidget(covariant DetailsScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (kIsWeb) {
+      updateWidget();
+    }
+  }
+
+  @override
   void initState() {
     super.initState();
+    updateWidget();
+  }
+
+  Future<void> updateWidget() async {
     Future.microtask(() async {
       if (widget.item != null) {
         setState(() {
@@ -38,7 +53,7 @@ class _DetailsScreenState extends ConsumerState<DetailsScreen> {
               currentWidget = response.detailScreenWidget;
             });
           } else {
-           const DashboardRoute().navigate(context);
+            const DashboardRoute().navigate(context);
           }
         }
       }
@@ -48,6 +63,7 @@ class _DetailsScreenState extends ConsumerState<DetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Stack(
+      key: Key(widget.id),
       children: [
         Hero(
           tag: widget.id,
