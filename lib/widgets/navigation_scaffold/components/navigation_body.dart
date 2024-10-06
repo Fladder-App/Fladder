@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:collection/collection.dart';
 import 'package:ficonsax/ficonsax.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'package:fladder/providers/settings/client_settings_provider.dart';
 import 'package:fladder/providers/views_provider.dart';
 import 'package:fladder/routes/auto_router.gr.dart';
 import 'package:fladder/screens/shared/animated_fade_size.dart';
@@ -48,6 +50,17 @@ class _NavigationBodyState extends ConsumerState<NavigationBody> {
   @override
   Widget build(BuildContext context) {
     final views = ref.watch(viewsProvider.select((value) => value.views));
+    ref.listen(
+      clientSettingsProvider,
+      (previous, next) {
+        if (previous != next) {
+          SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+            statusBarIconBrightness: next.statusBarBrightness(context),
+          ));
+        }
+      },
+    );
+
     return switch (AdaptiveLayout.layoutOf(context)) {
       LayoutState.phone => MediaQuery.removePadding(
           context: widget.parentContext,

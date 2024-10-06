@@ -7,6 +7,7 @@ import 'package:ficonsax/ficonsax.dart';
 import 'package:fladder/models/items/intro_skip_model.dart';
 import 'package:fladder/models/media_playback_model.dart';
 import 'package:fladder/models/playback/playback_model.dart';
+import 'package:fladder/providers/settings/client_settings_provider.dart';
 import 'package:fladder/providers/settings/video_player_settings_provider.dart';
 import 'package:fladder/providers/video_player_provider.dart';
 import 'package:fladder/screens/shared/default_titlebar.dart';
@@ -52,6 +53,11 @@ class _DesktopControlsState extends ConsumerState<DesktopControls> {
     } else {
       disableFullscreen();
     }
+
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarIconBrightness: ref.read(clientSettingsProvider.select((value) => value.statusBarBrightness(context))),
+    ));
+
     timer.cancel();
   }
 
@@ -606,6 +612,7 @@ class _DesktopControlsState extends ConsumerState<DesktopControls> {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
       systemNavigationBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.light,
       systemNavigationBarDividerColor: Colors.transparent,
     ));
   }
