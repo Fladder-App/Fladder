@@ -1,5 +1,5 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:ficonsax/ficonsax.dart';
-import 'package:fladder/routes/build_routes/route_builder.dart';
 import 'package:fladder/util/list_padding.dart';
 import 'package:fladder/util/localization_helper.dart';
 import 'package:fladder/widgets/navigation_scaffold/components/settings_user_icon.dart';
@@ -10,7 +10,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class NestedSliverAppBar extends ConsumerWidget {
   final BuildContext parent;
   final String? searchTitle;
-  final CustomRoute? route;
+  final PageRouteInfo? route;
   const NestedSliverAppBar({required this.parent, this.route, this.searchTitle, super.key});
 
   @override
@@ -49,7 +49,7 @@ class NestedSliverAppBar extends ConsumerWidget {
                     child: InkWell(
                       onTap: route != null
                           ? () {
-                              context.routePushOrGo(route!);
+                              route?.push(context);
                             }
                           : null,
                       child: Padding(
@@ -62,7 +62,8 @@ class NestedSliverAppBar extends ConsumerWidget {
                               const Icon(IconsaxOutline.search_normal),
                               const SizedBox(width: 16),
                               Transform.translate(
-                                  offset: const Offset(0, 2.5), child: Text(searchTitle ?? "${context.localized.search}...")),
+                                  offset: const Offset(0, 2.5),
+                                  child: Text(searchTitle ?? "${context.localized.search}...")),
                             ],
                           ),
                         ),

@@ -1,11 +1,10 @@
-import 'package:fladder/util/poster_defaults.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
-import 'package:fladder/routes/app_routes.dart';
+import 'package:fladder/routes/auto_router.dart';
+import 'package:fladder/util/poster_defaults.dart';
 
 enum LayoutState {
   phone,
@@ -65,8 +64,9 @@ class AdaptiveLayout extends InheritedWidget {
   final InputDevice inputDevice;
   final TargetPlatform platform;
   final bool isDesktop;
-  final GoRouter router;
+  final AutoRouter router;
   final PosterDefaults posterDefaults;
+  final ScrollController controller;
 
   const AdaptiveLayout({
     super.key,
@@ -77,6 +77,7 @@ class AdaptiveLayout extends InheritedWidget {
     required this.isDesktop,
     required this.router,
     required this.posterDefaults,
+    required this.controller,
     required super.child,
   });
 
@@ -94,7 +95,7 @@ class AdaptiveLayout extends InheritedWidget {
     return result!.posterDefaults;
   }
 
-  static GoRouter routerOf(BuildContext context) {
+  static AutoRouter routerOf(BuildContext context) {
     final AdaptiveLayout? result = maybeOf(context);
     return result!.router;
   }
@@ -102,6 +103,11 @@ class AdaptiveLayout extends InheritedWidget {
   static AdaptiveLayout of(BuildContext context) {
     final AdaptiveLayout? result = maybeOf(context);
     return result!;
+  }
+
+  static ScrollController scrollOf(BuildContext context) {
+    final AdaptiveLayout? result = maybeOf(context);
+    return result!.controller;
   }
 
   @override
@@ -128,8 +134,9 @@ class AdaptiveLayoutBuilder extends ConsumerStatefulWidget {
 class _AdaptiveLayoutBuilderState extends ConsumerState<AdaptiveLayoutBuilder> {
   late LayoutState layout = widget.fallBack;
   late ScreenLayout size = ScreenLayout.single;
-  late GoRouter router = AppRoutes.routes(ref: ref, screenLayout: size);
+  late AutoRouter router = AutoRouter(layout: size, ref: ref);
   late TargetPlatform currentPlatform = defaultTargetPlatform;
+  late ScrollController controller = ScrollController();
 
   @override
   void didChangeDependencies() {
@@ -169,7 +176,7 @@ class _AdaptiveLayoutBuilderState extends ConsumerState<AdaptiveLayoutBuilder> {
     }
     if (size != newSize) {
       size = newSize;
-      router = AppRoutes.routes(ref: ref, screenLayout: size);
+      router = AutoRouter(layout: size, ref: ref);
     }
   }
 
@@ -177,6 +184,7 @@ class _AdaptiveLayoutBuilderState extends ConsumerState<AdaptiveLayoutBuilder> {
   Widget build(BuildContext context) {
     return AdaptiveLayout(
       layout: layout,
+      controller: controller,
       size: size,
       inputDevice: (isDesktop || kIsWeb) ? InputDevice.pointer : InputDevice.touch,
       platform: currentPlatform,
@@ -190,4 +198,11 @@ class _AdaptiveLayoutBuilderState extends ConsumerState<AdaptiveLayoutBuilder> {
       child: widget.child,
     );
   }
+}
+
+double? get topPadding {
+  return switch (defaultTargetPlatform) {
+    TargetPlatform.linux || TargetPlatform.windows || TargetPlatform.macOS => 35,
+    _ => null
+  };
 }

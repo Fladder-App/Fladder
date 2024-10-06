@@ -1,20 +1,22 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
+
 import 'package:audio_service/audio_service.dart';
 import 'package:collection/collection.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:media_kit/media_kit.dart';
+import 'package:media_kit_video/media_kit_video.dart';
+import 'package:smtc_windows/smtc_windows.dart';
+import 'package:wakelock_plus/wakelock_plus.dart';
+
 import 'package:fladder/models/item_base_model.dart';
 import 'package:fladder/providers/settings/client_settings_provider.dart';
 import 'package:fladder/providers/settings/video_player_settings_provider.dart';
 import 'package:fladder/providers/video_player_provider.dart';
 import 'package:fladder/wrappers/media_control_base.dart';
 import 'package:fladder/wrappers/media_wrapper_interface.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:media_kit/media_kit.dart';
-import 'package:media_kit_video/media_kit_video.dart';
-import 'package:smtc_windows/smtc_windows.dart';
-import 'package:wakelock_plus/wakelock_plus.dart';
 
 class MediaControlsWrapper extends MediaPlayback implements MediaControlBase {
   MediaControlsWrapper({required this.ref});

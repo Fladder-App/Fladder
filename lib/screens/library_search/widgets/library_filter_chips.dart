@@ -1,4 +1,8 @@
+import 'package:flutter/material.dart';
+
 import 'package:ficonsax/ficonsax.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:fladder/jellyfin/jellyfin_open_api.enums.swagger.dart';
 import 'package:fladder/models/item_base_model.dart';
 import 'package:fladder/models/items/item_shared_models.dart';
@@ -12,8 +16,6 @@ import 'package:fladder/util/localization_helper.dart';
 import 'package:fladder/util/map_bool_helper.dart';
 import 'package:fladder/util/refresh_state.dart';
 import 'package:fladder/widgets/shared/scroll_position.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class LibraryFilterChips extends ConsumerWidget {
   final Key uniqueKey;
@@ -188,12 +190,12 @@ List<Widget> libraryFilterChips(
     if (librarySearchResults.types[FladderItemType.series] == true)
       FilterChip(
         avatar: Icon(
-          librarySearchResults.hideEmtpyShows ? Icons.visibility_rounded : Icons.visibility_off_rounded,
+          librarySearchResults.hideEmtpyShows ? Icons.visibility_off_rounded : Icons.visibility_rounded,
           color: Theme.of(context).colorScheme.onSurface,
         ),
         selected: librarySearchResults.hideEmtpyShows,
         showCheckmark: false,
-        label: Text(librarySearchResults.hideEmtpyShows ? context.localized.showEmpty : context.localized.hideEmpty),
+        label: Text(context.localized.hideEmpty),
         onSelected: libraryProvider.setHideEmpty,
       ),
     if (librarySearchResults.officialRatings.isNotEmpty)

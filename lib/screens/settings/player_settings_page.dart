@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:fladder/providers/settings/video_player_settings_provider.dart';
 import 'package:fladder/screens/settings/settings_list_tile.dart';
 import 'package:fladder/screens/settings/settings_scaffold.dart';
@@ -14,6 +15,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'dart:io' show Platform;
 
+@RoutePage()
 class PlayerSettingsPage extends ConsumerStatefulWidget {
   const PlayerSettingsPage({super.key});
 

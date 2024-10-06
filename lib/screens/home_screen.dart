@@ -1,13 +1,13 @@
-import 'package:ficonsax/ficonsax.dart';
-import 'package:fladder/providers/user_provider.dart';
-import 'package:fladder/util/localization_helper.dart';
 import 'package:flutter/material.dart';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:collection/collection.dart';
+import 'package:ficonsax/ficonsax.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:fladder/routes/build_routes/home_routes.dart';
-import 'package:fladder/routes/build_routes/route_builder.dart';
+import 'package:fladder/providers/user_provider.dart';
+import 'package:fladder/routes/auto_router.gr.dart';
+import 'package:fladder/util/localization_helper.dart';
 import 'package:fladder/util/string_extensions.dart';
 import 'package:fladder/widgets/navigation_scaffold/components/adaptive_fab.dart';
 import 'package:fladder/widgets/navigation_scaffold/components/destination_model.dart';
@@ -19,11 +19,9 @@ enum HomeTabs {
   sync;
 }
 
-class Home extends ConsumerWidget {
-  final HomeTabs? currentTab;
-  final Widget? nestedChild;
-  final String? location;
-  const Home({this.currentTab, this.nestedChild, this.location, super.key});
+@RoutePage()
+class HomeScreen extends ConsumerWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -35,13 +33,13 @@ class Home extends ConsumerWidget {
             label: context.localized.navigationDashboard,
             icon: const Icon(IconsaxOutline.home),
             selectedIcon: const Icon(IconsaxBold.home),
-            route: DashboardRoute(),
-            action: () => context.routeGo(DashboardRoute()),
+            route: const DashboardRoute(),
+            action: () => context.router.navigate(const DashboardRoute()),
             floatingActionButton: AdaptiveFab(
               context: context,
               title: context.localized.search,
               key: Key(e.name.capitalize()),
-              onPressed: () => context.routePushOrGo(LibrarySearchRoute()),
+              onPressed: () => context.router.navigate(LibrarySearchRoute()),
               child: const Icon(IconsaxOutline.search_normal_1),
             ),
           );
@@ -50,15 +48,15 @@ class Home extends ConsumerWidget {
             label: context.localized.navigationFavorites,
             icon: const Icon(IconsaxOutline.heart),
             selectedIcon: const Icon(IconsaxBold.heart),
-            route: FavouritesRoute(),
+            route: const FavouritesRoute(),
             floatingActionButton: AdaptiveFab(
               context: context,
               title: context.localized.filter(0),
               key: Key(e.name.capitalize()),
-              onPressed: () => context.routePushOrGo(LibrarySearchRoute(favorites: true)),
+              onPressed: () => context.router.navigate(LibrarySearchRoute(favourites: true)),
               child: const Icon(IconsaxOutline.heart_search),
             ),
-            action: () => context.routeGo(FavouritesRoute()),
+            action: () => context.router.navigate(const FavouritesRoute()),
           );
         case HomeTabs.sync:
           if (canDownload) {
@@ -66,8 +64,8 @@ class Home extends ConsumerWidget {
               label: context.localized.navigationSync,
               icon: const Icon(IconsaxOutline.cloud),
               selectedIcon: const Icon(IconsaxBold.cloud),
-              route: SyncRoute(),
-              action: () => context.routeGo(SyncRoute()),
+              route: SyncedRoute(),
+              action: () => context.router.navigate(SyncedRoute()),
             );
           }
           return null;
@@ -75,12 +73,17 @@ class Home extends ConsumerWidget {
           return null;
       }
     });
-
-    return NavigationScaffold(
-      currentIndex: currentTab?.index ?? 0,
-      location: location,
-      nestedChild: nestedChild,
-      destinations: destinations.whereNotNull().toList(),
+    return HeroControllerScope(
+      controller: HeroController(),
+      child: AutoRouter(
+        builder: (context, child) {
+          return NavigationScaffold(
+            destinations: destinations.whereNotNull().toList(),
+            currentRouteName: context.router.current.name,
+            nestedChild: child,
+          );
+        },
+      ),
     );
   }
 }

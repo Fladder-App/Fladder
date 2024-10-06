@@ -4,6 +4,7 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 
@@ -34,12 +35,12 @@ class _TrickplayImageState extends ConsumerState<TrickplayImage> {
 
   @override
   void didUpdateWidget(covariant TrickplayImage oldWidget) {
+    super.didUpdateWidget(oldWidget);
     if (oldWidget.position?.inMilliseconds != widget.position?.inMilliseconds) {
       time = widget.position ?? Duration.zero;
       model = widget.trickplay;
       loadImage();
     }
-    super.didUpdateWidget(oldWidget);
   }
 
   @override

@@ -1,8 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:fladder/providers/user_provider.dart';
-import 'package:fladder/routes/build_routes/route_builder.dart';
-import 'package:fladder/routes/build_routes/settings_routes.dart';
+import 'package:fladder/routes/auto_router.gr.dart';
 import 'package:fladder/screens/shared/user_icon.dart';
-import 'package:fladder/util/adaptive_layout.dart';
 import 'package:fladder/util/localization_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -19,11 +18,8 @@ class SettingsUserIcon extends ConsumerWidget {
       child: UserIcon(
         user: users,
         cornerRadius: 200,
-        onLongPress: () => context.routePush(LockScreenRoute()),
-        onTap: () => switch (AdaptiveLayout.of(context).size) {
-          ScreenLayout.single => context.routePush(SettingsRoute()),
-          ScreenLayout.dual => context.routePush(ClientSettingsRoute()),
-        },
+        onLongPress: () => context.router.push(const LockRoute()),
+        onTap: () => context.router.navigate(const SettingsRoute()),
       ),
     );
   }
