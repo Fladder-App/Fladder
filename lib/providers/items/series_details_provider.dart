@@ -27,16 +27,12 @@ class SeriesDetailViewNotifier extends StateNotifier<SeriesModel?> {
   Future<Response?> fetchDetails(ItemBaseModel seriesModel) async {
     try {
       if (seriesModel is SeriesModel) {
-        state = seriesModel;
+        state = state ?? seriesModel;
       }
       SeriesModel? newState;
       final response = await api.usersUserIdItemsItemIdGet(itemId: seriesModel.id);
-      if (response.body == null) {
-        state = seriesModel as SeriesModel;
-        return null;
-      }
+      if (response.body == null) return null;
       newState = response.bodyOrThrow as SeriesModel;
-
       final seasons = await api.showsSeriesIdSeasonsGet(seriesId: seriesModel.id);
       newState = newState.copyWith(seasons: SeasonModel.seasonsFromDto(seasons.body?.items, ref));
 
