@@ -139,7 +139,7 @@ class _NavigationBodyState extends ConsumerState<NavigationBody> {
             },
             icon: const Icon(IconsaxBold.menu),
           ),
-          if (AdaptiveLayout.of(context).isDesktop) ...[
+          if (AdaptiveLayout.of(context).size == ScreenLayout.dual) ...[
             const SizedBox(height: 8),
             AnimatedFadeSize(
               child: AnimatedSwitcher(
