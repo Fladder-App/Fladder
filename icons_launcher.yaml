@@ -19,5 +19,5 @@ icons_launcher:
       image_path: "icons/fladder_icon_desktop.png"
       enable: true
     web:
-      favicon_path: "icons/fladder_icon.png"
+      favicon_path: "icons/fladder_icon_desktop.png"
       enable: true
