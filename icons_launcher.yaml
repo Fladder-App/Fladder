@@ -7,13 +7,13 @@ icons_launcher:
       adaptive_monochrome_image: "icons/fladder_adaptive_icon.png"
       enable: true
     ios:
-      image_path: "icons/fladder_icon.png"
+      image_path: "icons/fladder_store_icon.jpg"
       enable: true
     windows:
       image_path: "icons/fladder_icon_desktop.png"
       enable: true
     macos:
-      image_path: "icons/fladder_icon_desktop.png"
+      image_path: "icons/fladder_macos_icon.png"
       enable: true
     linux:
       image_path: "icons/fladder_icon_desktop.png"
