@@ -665,5 +665,15 @@
         "example": "1"
       }
     }
-  }
+  },
+  "endsAt": "ends at {date}",
+  "@endsAt": {
+	"description": "endsAt",
+	"placeholders": {
+		"date": {
+			"type": "DateTime",
+			"format": "jm"
+		}
+	}
+  }  
 }

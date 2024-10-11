@@ -1,34 +1,35 @@
+import 'package:flutter/material.dart';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:ficonsax/ficonsax.dart';
-import 'package:fladder/models/book_model.dart';
-import 'package:fladder/models/boxset_model.dart';
-import 'package:fladder/models/items/media_streams_model.dart';
-import 'package:fladder/models/library_search/library_search_options.dart';
-import 'package:fladder/models/playlist_model.dart';
-import 'package:fladder/routes/auto_router.gr.dart';
-import 'package:fladder/screens/details_screens/book_detail_screen.dart';
-import 'package:fladder/util/localization_helper.dart';
-import 'package:fladder/util/string_extensions.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:fladder/jellyfin/jellyfin_open_api.enums.swagger.dart';
 import 'package:fladder/jellyfin/jellyfin_open_api.swagger.dart' as dto;
+import 'package:fladder/models/book_model.dart';
+import 'package:fladder/models/boxset_model.dart';
 import 'package:fladder/models/items/episode_model.dart';
 import 'package:fladder/models/items/folder_model.dart';
 import 'package:fladder/models/items/images_models.dart';
 import 'package:fladder/models/items/item_shared_models.dart';
+import 'package:fladder/models/items/media_streams_model.dart';
 import 'package:fladder/models/items/movie_model.dart';
 import 'package:fladder/models/items/overview_model.dart';
 import 'package:fladder/models/items/person_model.dart';
 import 'package:fladder/models/items/photos_model.dart';
 import 'package:fladder/models/items/season_model.dart';
 import 'package:fladder/models/items/series_model.dart';
+import 'package:fladder/models/library_search/library_search_options.dart';
+import 'package:fladder/models/playlist_model.dart';
+import 'package:fladder/routes/auto_router.gr.dart';
+import 'package:fladder/screens/details_screens/book_detail_screen.dart';
 import 'package:fladder/screens/details_screens/details_screens.dart';
 import 'package:fladder/screens/details_screens/episode_detail_screen.dart';
 import 'package:fladder/screens/details_screens/season_detail_screen.dart';
 import 'package:fladder/screens/library_search/library_search_screen.dart';
+import 'package:fladder/util/localization_helper.dart';
+import 'package:fladder/util/string_extensions.dart';
 
 part 'item_base_model.mapper.dart';
 
@@ -61,8 +62,6 @@ class ItemBaseModel with ItemBaseModelMappable {
     required this.canDelete,
     required this.jellyType,
   });
-
-  String get title => name;
 
   ItemBaseModel? setProgress(double progress) {
     return copyWith(userData: userData.copyWith(progress: progress));
@@ -98,6 +97,8 @@ class ItemBaseModel with ItemBaseModelMappable {
         _ => null,
       };
 
+  String get title => name;
+
   ///Used for retrieving the correct id when fetching queue
   String get streamId => id;
 
@@ -111,7 +112,7 @@ class ItemBaseModel with ItemBaseModelMappable {
 
   bool get unWatched => !userData.played && userData.progress <= 0 && userData.unPlayedItemCount == 0;
 
-  String? detailedName(BuildContext context) => null;
+  String? detailedName(BuildContext context) => "$name${overview.yearAired != null ? " (${overview.yearAired})" : ""}";
 
   String? get subText => null;
   String? subTextShort(BuildContext context) => null;

@@ -13,6 +13,7 @@ import 'package:fladder/models/items/item_shared_models.dart';
 import 'package:fladder/models/items/item_stream_model.dart';
 import 'package:fladder/models/items/media_streams_model.dart';
 import 'package:fladder/models/items/overview_model.dart';
+import 'package:fladder/models/library_search/library_search_options.dart';
 import 'package:fladder/screens/details_screens/movie_detail_screen.dart';
 import 'package:fladder/util/humanize_duration.dart';
 
@@ -67,10 +68,6 @@ class MovieModel extends ItemStreamModel with MovieModelMappable {
 
   @override
   bool get identifiable => true;
-
-  @override
-  String? label(BuildContext context) =>
-      overview.yearAired == null ? overview.runTime.humanize : "$name (${overview.yearAired})";
 
   @override
   ImageData? get bannerImage => images?.backDrop?.firstOrNull ?? images?.primary ?? getPosters?.primary;

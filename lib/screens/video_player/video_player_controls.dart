@@ -30,6 +30,7 @@ import 'package:fladder/screens/video_player/components/video_volume_slider.dart
 import 'package:fladder/util/adaptive_layout.dart';
 import 'package:fladder/util/duration_extensions.dart';
 import 'package:fladder/util/list_padding.dart';
+import 'package:fladder/util/localization_helper.dart';
 import 'package:fladder/util/string_extensions.dart';
 
 class DesktopControls extends ConsumerStatefulWidget {
@@ -47,29 +48,6 @@ class _DesktopControlsState extends ConsumerState<DesktopControls> {
 
   late final double topPadding = MediaQuery.of(context).viewPadding.top;
   late final double bottomPadding = MediaQuery.of(context).viewPadding.bottom;
-
-  Future<void> clear() async {
-    toggleOverlay(value: true);
-    if (!AdaptiveLayout.of(context).isDesktop) {
-      ScreenBrightness().resetScreenBrightness();
-    } else {
-      disableFullscreen();
-    }
-
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarIconBrightness: ref.read(clientSettingsProvider.select((value) => value.statusBarBrightness(context))),
-    ));
-
-    timer.cancel();
-  }
-
-  void resetTimer() => timer.reset();
-
-  Future<void> closePlayer() async {
-    clear();
-    ref.read(videoPlayerProvider).stop();
-    Navigator.of(context).pop();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -252,13 +230,7 @@ class _DesktopControlsState extends ConsumerState<DesktopControls> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     IconButton(
-                      onPressed: () {
-                        clear();
-                        ref
-                            .read(mediaPlaybackProvider.notifier)
-                            .update((state) => state.copyWith(state: VideoPlayerState.minimized));
-                        Navigator.of(context).pop();
-                      },
+                      onPressed: () => minimizePlayer(context),
                       icon: const Icon(
                         IconsaxOutline.arrow_down_1,
                         size: 24,
@@ -312,7 +284,8 @@ class _DesktopControlsState extends ConsumerState<DesktopControls> {
                   child: Row(
                     children: <Widget>[
                       IconButton(
-                          onPressed: () => showVideoPlayerOptions(context), icon: const Icon(IconsaxOutline.more)),
+                          onPressed: () => showVideoPlayerOptions(context, () => minimizePlayer(context)),
+                          icon: const Icon(IconsaxOutline.more)),
                       if (AdaptiveLayout.layoutOf(context) == LayoutState.tablet) ...[
                         IconButton(
                           onPressed: () => showSubSelection(context),
@@ -432,7 +405,7 @@ class _DesktopControlsState extends ConsumerState<DesktopControls> {
         final List<String?> details = [
           if (AdaptiveLayout.of(context).isDesktop) item?.label(context),
           mediaPlayback.duration.inMinutes > 1
-              ? 'ends at ${DateFormat('HH:mm').format(DateTime.now().add(mediaPlayback.duration - mediaPlayback.position))}'
+              ? context.localized.endsAt(DateTime.now().add(mediaPlayback.duration - mediaPlayback.position))
               : null
         ];
         return Column(
@@ -625,6 +598,35 @@ class _DesktopControlsState extends ConsumerState<DesktopControls> {
       statusBarIconBrightness: Brightness.light,
       systemNavigationBarDividerColor: Colors.transparent,
     ));
+  }
+
+  void minimizePlayer(BuildContext context) {
+    clearOverlaySettings();
+    ref.read(mediaPlaybackProvider.notifier).update((state) => state.copyWith(state: VideoPlayerState.minimized));
+    Navigator.of(context).pop();
+  }
+
+  Future<void> clearOverlaySettings() async {
+    toggleOverlay(value: true);
+    if (!AdaptiveLayout.of(context).isDesktop) {
+      ScreenBrightness().resetScreenBrightness();
+    } else {
+      disableFullscreen();
+    }
+
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarIconBrightness: ref.read(clientSettingsProvider.select((value) => value.statusBarBrightness(context))),
+    ));
+
+    timer.cancel();
+  }
+
+  void resetTimer() => timer.reset();
+
+  Future<void> closePlayer() async {
+    clearOverlaySettings();
+    ref.read(videoPlayerProvider).stop();
+    Navigator.of(context).pop();
   }
 
   Future<void> disableFullscreen() async {
