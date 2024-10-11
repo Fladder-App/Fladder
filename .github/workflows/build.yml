@@ -112,7 +112,7 @@ jobs:
           echo "APP_NAME=$APP_NAME" >> $Env:GITHUB_ENV
           echo "VERSION_NAME=$VERSION_NAME" >> $Env:GITHUB_ENV
 
-          flutter build windows
+          flutter build windows --build-name=$VERSION_NAME --build-number=$GITHUB_RUN_NUMBER
 
       - name: Archive Windows artifact
         uses: actions/upload-artifact@v4.0.0
