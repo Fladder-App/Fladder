@@ -6,6 +6,20 @@ allprojects {
 }
 
 rootProject.buildDir = '../build'
+
+//[Fixes AAPT: error: resource android:attr/lStar not found]
+subprojects {
+    afterEvaluate { project ->
+        if (project.plugins.hasPlugin("com.android.application") ||
+                project.plugins.hasPlugin("com.android.library")) {
+            project.android {
+                compileSdkVersion 34
+                buildToolsVersion "34.0.0"
+            }
+        }
+    }
+}
+
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
 }
@@ -16,3 +30,4 @@ subprojects {
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }
+
