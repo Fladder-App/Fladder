@@ -6,7 +6,6 @@ AudioServiceConfig get audioServiceConfig => const AudioServiceConfig(
       androidNotificationChannelName: 'Video playback',
       androidNotificationOngoing: true,
       androidStopForegroundOnPause: true,
-      // androidNotificationIcon: "mipmap/ic_notification_icon",
       rewindInterval: Duration(seconds: 10),
       fastForwardInterval: Duration(seconds: 15),
       androidNotificationChannelDescription: "Playback",

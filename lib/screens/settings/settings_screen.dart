@@ -139,11 +139,12 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             label: Text(context.localized.about),
             subLabel: const Text("Fladder"),
             suffix: Opacity(
-                opacity: 1,
-                child: FladderIconOutlined(
-                  size: 24,
-                  color: context.colors.onSurfaceVariant,
-                )),
+              opacity: 1,
+              child: FladderIconOutlined(
+                size: 24,
+                color: context.colors.onSurfaceVariant,
+              ),
+            ),
             onTap: () => showAboutDialog(
               context: context,
               applicationIcon: const FladderIcon(size: 85),

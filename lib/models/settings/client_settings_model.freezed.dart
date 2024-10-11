@@ -294,9 +294,8 @@ class __$$ClientSettingsModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ClientSettingsModelImpl
-    with DiagnosticableTreeMixin
-    implements _ClientSettingsModel {
+class _$ClientSettingsModelImpl extends _ClientSettingsModel
+    with DiagnosticableTreeMixin {
   _$ClientSettingsModelImpl(
       {this.syncPath,
       this.position = const Vector2(x: 0, y: 0),
@@ -313,7 +312,8 @@ class _$ClientSettingsModelImpl
       this.posterSize = 1.0,
       this.pinchPosterZoom = false,
       this.mouseDragSupport = false,
-      this.libraryPageSize});
+      this.libraryPageSize})
+      : super._();
 
   factory _$ClientSettingsModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$ClientSettingsModelImplFromJson(json);
@@ -464,7 +464,7 @@ class _$ClientSettingsModelImpl
   }
 }
 
-abstract class _ClientSettingsModel implements ClientSettingsModel {
+abstract class _ClientSettingsModel extends ClientSettingsModel {
   factory _ClientSettingsModel(
       {final String? syncPath,
       final Vector2 position,
@@ -482,6 +482,7 @@ abstract class _ClientSettingsModel implements ClientSettingsModel {
       final bool pinchPosterZoom,
       final bool mouseDragSupport,
       final int? libraryPageSize}) = _$ClientSettingsModelImpl;
+  _ClientSettingsModel._() : super._();
 
   factory _ClientSettingsModel.fromJson(Map<String, dynamic> json) =
       _$ClientSettingsModelImpl.fromJson;

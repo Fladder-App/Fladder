@@ -38,7 +38,7 @@ dependencies:
   # Icons
   cupertino_icons: ^1.0.2
   ficonsax: ^0.0.3
-  icons_launcher: ^2.1.7
+  icons_launcher: ^3.0.0
 
   # Network and HTTP
   chopper: ^7.0.4

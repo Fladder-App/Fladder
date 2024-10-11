@@ -18,14 +18,15 @@ class MovieDetails extends _$MovieDetails {
 
   Future<Response?> fetchDetails(ItemBaseModel item) async {
     try {
-      if (item is MovieModel && state == null) {
-        state = item;
+      if (item is MovieModel) {
+        state = state ?? item;
       }
+      MovieModel? newState;
       final response = await api.usersUserIdItemsItemIdGet(itemId: item.id);
       if (response.body == null) return null;
-      state = response.bodyOrThrow as MovieModel;
+      newState = (response.bodyOrThrow as MovieModel).copyWith(related: state?.related);
       final related = await ref.read(relatedUtilityProvider).relatedContent(item.id);
-      state = state?.copyWith(related: related.body);
+      state = newState.copyWith(related: related.body);
       return null;
     } catch (e) {
       _tryToCreateOfflineState(item);

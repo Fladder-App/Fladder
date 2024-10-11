@@ -1,7 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
-import 'package:fladder/util/humanize_duration.dart';
 import 'package:flutter/material.dart';
+
+import 'package:dart_mappable/dart_mappable.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:fladder/jellyfin/jellyfin_open_api.swagger.dart' as dto;
@@ -13,8 +14,7 @@ import 'package:fladder/models/items/item_stream_model.dart';
 import 'package:fladder/models/items/media_streams_model.dart';
 import 'package:fladder/models/items/overview_model.dart';
 import 'package:fladder/screens/details_screens/movie_detail_screen.dart';
-
-import 'package:dart_mappable/dart_mappable.dart';
+import 'package:fladder/util/humanize_duration.dart';
 
 part 'movie_model.mapper.dart';
 
@@ -67,10 +67,6 @@ class MovieModel extends ItemStreamModel with MovieModelMappable {
 
   @override
   bool get identifiable => true;
-
-  @override
-  String? label(BuildContext context) =>
-      overview.yearAired == null ? overview.runTime.humanize : "$name (${overview.yearAired})";
 
   @override
   ImageData? get bannerImage => images?.backDrop?.firstOrNull ?? images?.primary ?? getPosters?.primary;

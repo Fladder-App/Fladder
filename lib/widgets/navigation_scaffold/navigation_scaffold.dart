@@ -65,7 +65,7 @@ class _NavigationScaffoldState extends ConsumerState<NavigationScaffold> {
         extendBody: true,
         floatingActionButtonLocation:
             playerState == VideoPlayerState.minimized ? FloatingActionButtonLocation.centerFloat : null,
-        floatingActionButton: AdaptiveLayout.of(context).layout == LayoutState.phone
+        floatingActionButton: AdaptiveLayout.of(context).size == ScreenLayout.single
             ? switch (playerState) {
                 VideoPlayerState.minimized => const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 8),

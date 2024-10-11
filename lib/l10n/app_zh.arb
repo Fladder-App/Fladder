@@ -133,6 +133,7 @@
   "editMetadata": "编辑元数据",
   "empty": "空",
   "enabled": "启用",
+  "endsAt": "结束于 {date}",
   "episode": "{count, plural, other{集} one{集}}",
   "@episode": {
     "description": "集",
@@ -273,7 +274,7 @@
   "metadataRefreshDefault": "扫描新文件和更新的文件",
   "metadataRefreshFull": "替换所有元数据",
   "metadataRefreshValidation": "搜索缺失的元数据",
-  "minutes": "分钟",
+  "minutes": "{count}分钟",
   "@minutes": {
     "description": "分钟",
     "placeholders": {
@@ -466,7 +467,7 @@
       }
     }
   },
-  "seconds": "秒",
+  "seconds": "{count}秒",
   "@seconds": {
     "description": "秒",
     "placeholders": {

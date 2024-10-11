@@ -133,6 +133,7 @@
   "editMetadata": "Metadata bewerken",
   "empty": "Leeg",
   "enabled": "Ingeschakeld",
+  "endsAt": "eindigt om {date}",
   "episode": "{count, plural, other{Afleveringen} one{Aflevering}}",
   "@episode": {
     "description": "aflevering",
@@ -364,7 +365,7 @@
     }
   },
   "playLabel": "Afspelen",
-  "playVideos": "Video's afspelen",
+  "playVideos": "Video''s afspelen",
   "played": "Gespeeld",
   "quickConnectAction": "Voer snelverbind code in voor",
   "quickConnectInputACode": "Voer een code in",
@@ -543,14 +544,14 @@
   "showDetails": "Toon details",
   "showEmpty": "Toon leeg",
   "shuffleGallery": "Galerij shuffle",
-  "shuffleVideos": "Video's shuffle",
+  "shuffleVideos": "Video''s shuffle",
   "somethingWentWrong": "Er is iets misgegaan",
   "somethingWentWrongPasswordCheck": "Er is iets misgegaan, controleer uw wachtwoord",
   "sortBy": "Sorteer op",
   "sortName": "Naam",
   "sortOrder": "Sorteervolgorde",
   "start": "Start",
-  "studio": "{count, plural, other{Studio's} one{Studio}}",
+  "studio": "{count, plural, other{Studio''s} one{Studio}}",
   "@studio": {
     "description": "studio",
     "placeholders": {
@@ -644,7 +645,7 @@
   "videoScalingFitHeight": "Pas hoogte aan",
   "videoScalingFitWidth": "Pas breedte aan",
   "videoScalingScaleDown": "Schaal omlaag",
-  "viewPhotos": "Foto's bekijken",
+  "viewPhotos": "Foto''s bekijken",
   "watchOn": "Kijk op",
   "writer": "{count, plural, other{Schrijvers} one{Schrijver}}",
   "@writer": {

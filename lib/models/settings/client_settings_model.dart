@@ -13,6 +13,7 @@ part 'client_settings_model.g.dart';
 
 @freezed
 class ClientSettingsModel with _$ClientSettingsModel {
+  const ClientSettingsModel._();
   factory ClientSettingsModel({
     String? syncPath,
     @Default(Vector2(x: 0, y: 0)) Vector2 position,
@@ -33,6 +34,14 @@ class ClientSettingsModel with _$ClientSettingsModel {
   }) = _ClientSettingsModel;
 
   factory ClientSettingsModel.fromJson(Map<String, dynamic> json) => _$ClientSettingsModelFromJson(json);
+
+  Brightness statusBarBrightness(BuildContext context) {
+    return switch (themeMode) {
+      ThemeMode.dark => Brightness.light,
+      ThemeMode.light => Brightness.dark,
+      _ => MediaQuery.of(context).platformBrightness == Brightness.dark ? Brightness.light : Brightness.dark,
+    };
+  }
 }
 
 class LocaleConvert implements JsonConverter<Locale?, String?> {
