@@ -133,6 +133,7 @@
   "editMetadata": "メタデータを編集",
   "empty": "空",
   "enabled": "有効",
+  "endsAt": "{date}に終了",
   "episode": "{count, plural, other{エピソード} one{エピソード}}",
   "@episode": {
     "description": "エピソード",
@@ -273,7 +274,7 @@
   "metadataRefreshDefault": "新しいファイルと更新されたファイルをスキャン",
   "metadataRefreshFull": "すべてのメタデータを置き換える",
   "metadataRefreshValidation": "欠落しているメタデータを検索",
-  "minutes": "分",
+  "minutes": "{count}分",
   "@minutes": {
     "description": "分",
     "placeholders": {
@@ -466,7 +467,7 @@
       }
     }
   },
-  "seconds": "秒",
+  "seconds": "{count}秒",
   "@seconds": {
     "description": "秒",
     "placeholders": {
@@ -665,6 +666,5 @@
         "example": "1"
       }
     }
-  },
-  "endsAt": "{date}に終了"
+  }
 }

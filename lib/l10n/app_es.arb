@@ -133,6 +133,7 @@
   "editMetadata": "Editar metadatos",
   "empty": "Vacío",
   "enabled": "Habilitado",
+  "endsAt": "termina el {date}",
   "episode": "{count, plural, other{Episodios} one{Episodio}}",
   "@episode": {
     "description": "episodio",
@@ -665,6 +666,5 @@
         "example": "1"
       }
     }
-  },
-  "endsAt": "termina el {date}"
+  }
 }

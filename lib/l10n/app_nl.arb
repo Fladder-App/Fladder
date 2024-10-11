@@ -133,6 +133,7 @@
   "editMetadata": "Metadata bewerken",
   "empty": "Leeg",
   "enabled": "Ingeschakeld",
+  "endsAt": "eindigt om {date}",
   "episode": "{count, plural, other{Afleveringen} one{Aflevering}}",
   "@episode": {
     "description": "aflevering",
@@ -665,6 +666,5 @@
         "example": "1"
       }
     }
-  },
-  "endsAt": "eindigt om {date}"
+  }
 }
