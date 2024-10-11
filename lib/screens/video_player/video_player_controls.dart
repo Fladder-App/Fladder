@@ -1,9 +1,19 @@
 import 'dart:async';
 import 'dart:developer';
 
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
 import 'package:async/async.dart';
 import 'package:collection/collection.dart';
 import 'package:ficonsax/ficonsax.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:intl/intl.dart';
+import 'package:screen_brightness/screen_brightness.dart';
+import 'package:window_manager/window_manager.dart';
+
 import 'package:fladder/models/items/intro_skip_model.dart';
 import 'package:fladder/models/media_playback_model.dart';
 import 'package:fladder/models/playback/playback_model.dart';
@@ -21,14 +31,6 @@ import 'package:fladder/util/adaptive_layout.dart';
 import 'package:fladder/util/duration_extensions.dart';
 import 'package:fladder/util/list_padding.dart';
 import 'package:fladder/util/string_extensions.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:intl/intl.dart';
-import 'package:screen_brightness/screen_brightness.dart';
-import 'package:window_manager/window_manager.dart';
 
 class DesktopControls extends ConsumerStatefulWidget {
   const DesktopControls({super.key});
@@ -235,36 +237,44 @@ class _DesktopControlsState extends ConsumerState<DesktopControls> {
         child: Container(
           alignment: Alignment.topCenter,
           height: 80,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                IconButton(
-                  onPressed: () {
-                    clear();
-                    ref
-                        .read(mediaPlaybackProvider.notifier)
-                        .update((state) => state.copyWith(state: VideoPlayerState.minimized));
-                    Navigator.of(context).pop();
-                  },
-                  icon: const Icon(
-                    IconsaxOutline.arrow_down_1,
-                    size: 24,
+          child: Column(
+            children: [
+              if (AdaptiveLayout.of(context).isDesktop)
+                const Flexible(
+                  child: Align(
+                    alignment: Alignment.topRight,
+                    child: DefaultTitleBar(),
                   ),
                 ),
-                const SizedBox(width: 16),
-                if (!AdaptiveLayout.of(context).isDesktop)
-                  Flexible(
-                    child: Text(
-                      currentItem?.title ?? "",
-                      style: Theme.of(context).textTheme.titleLarge,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        clear();
+                        ref
+                            .read(mediaPlaybackProvider.notifier)
+                            .update((state) => state.copyWith(state: VideoPlayerState.minimized));
+                        Navigator.of(context).pop();
+                      },
+                      icon: const Icon(
+                        IconsaxOutline.arrow_down_1,
+                        size: 24,
+                      ),
                     ),
-                  )
-                else
-                  const Flexible(child: Align(alignment: Alignment.topRight, child: DefaultTitleBar()))
-              ],
-            ),
+                    const SizedBox(width: 16),
+                    Flexible(
+                      child: Text(
+                        currentItem?.title ?? "",
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
       ),
