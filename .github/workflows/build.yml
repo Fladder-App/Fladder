@@ -85,7 +85,8 @@ jobs:
             build/app/outputs/bundle/release/${{ env.APP_NAME }}-${{ env.VERSION_NAME }}-signed.aab
 
   build-windows:
-    runs-on: windows-latest
+    #Use windows-2019, latest(2022) causes MSVCP140.dll related crashes
+    runs-on: windows-2019
 
     steps:
       - name: Checkout repository
@@ -108,11 +109,12 @@ jobs:
           $pubspec = Get-Content pubspec.yaml
           $APP_NAME = ($pubspec | Select-String '^name:' | ForEach-Object { ($_ -split ':')[1].Trim() })
           $VERSION_NAME = ($pubspec | Select-String '^version:' | ForEach-Object { ($_ -split ':')[1].Trim().Split('+')[0] })
+          $BUILD_NUMBER = ${{ github.run_number }}
 
           echo "APP_NAME=$APP_NAME" >> $Env:GITHUB_ENV
           echo "VERSION_NAME=$VERSION_NAME" >> $Env:GITHUB_ENV
 
-          flutter build windows --build-name=$VERSION_NAME --build-number=$GITHUB_RUN_NUMBER
+          flutter build windows --build-name=$VERSION_NAME --build-number=$BUILD_NUMBER
 
       - name: Archive Windows artifact
         uses: actions/upload-artifact@v4.0.0
