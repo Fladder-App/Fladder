@@ -133,6 +133,7 @@
   "editMetadata": "Modifier les métadonnées",
   "empty": "Vide",
   "enabled": "Activé",
+  "endsAt": "se termine à {date}",
   "episode": "{count, plural, other{Épisodes} one{Épisode}}",
   "@episode": {
     "description": "épisode",

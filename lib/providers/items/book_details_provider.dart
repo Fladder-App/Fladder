@@ -98,7 +98,7 @@ class BookDetailsProviderNotifier extends StateNotifier<BookProviderModel> {
 
   Future<Response?> fetchDetails(BookModel book) async {
     state = state.copyWith(
-      parentModel: () => book,
+      parentModel: () => state.book ?? book,
     );
     String bookId = state.book?.id ?? book.id;
 
@@ -108,7 +108,7 @@ class BookDetailsProviderNotifier extends StateNotifier<BookProviderModel> {
     final parentModel = parentResponse.bodyOrThrow;
     final getViews = await api.usersUserIdViewsGet();
 
-    //Hacky solution more false positives so good enough for now.
+    //Hacky solution for determining parent views
     final parentIsView =
         getViews.body?.items?.firstWhereOrNull((element) => element.name == parentResponse.body?.name) != null;
 

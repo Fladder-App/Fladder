@@ -1,12 +1,19 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+
+import 'package:auto_route/auto_route.dart';
 import 'package:ficonsax/ficonsax.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:fladder/models/settings/home_settings_model.dart';
 import 'package:fladder/providers/settings/client_settings_provider.dart';
 import 'package:fladder/providers/settings/home_settings_provider.dart';
 import 'package:fladder/providers/shared_provider.dart';
 import 'package:fladder/providers/sync_provider.dart';
 import 'package:fladder/providers/user_provider.dart';
-import 'package:fladder/routes/build_routes/route_builder.dart';
+import 'package:fladder/routes/auto_router.gr.dart';
 import 'package:fladder/screens/settings/settings_list_tile.dart';
 import 'package:fladder/screens/settings/settings_scaffold.dart';
 import 'package:fladder/screens/settings/widgets/settings_label_divider.dart';
@@ -22,12 +29,8 @@ import 'package:fladder/util/size_formatting.dart';
 import 'package:fladder/util/theme_mode_extension.dart';
 import 'package:fladder/widgets/shared/enum_selection.dart';
 import 'package:fladder/widgets/shared/fladder_slider.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+@RoutePage()
 class ClientSettingsPage extends ConsumerStatefulWidget {
   const ClientSettingsPage({super.key});
 
@@ -65,7 +68,7 @@ class _ClientSettingsPageState extends ConsumerState<ClientSettingsPage> {
                 onTap: currentFolder != null
                     ? () async => await showDialog(
                           context: context,
-                          builder: (context) => AlertDialog.adaptive(
+                          builder: (context) => AlertDialog(
                             title: Text(context.localized.pathEditTitle),
                             content: Text(context.localized.pathEditDesc),
                             actions: [
@@ -95,7 +98,7 @@ class _ClientSettingsPageState extends ConsumerState<ClientSettingsPage> {
                         color: Theme.of(context).colorScheme.error,
                         onPressed: () async => await showDialog(
                           context: context,
-                          builder: (context) => AlertDialog.adaptive(
+                          builder: (context) => AlertDialog(
                             title: Text(context.localized.pathClearTitle),
                             content: Text(context.localized.pathEditDesc),
                             actions: [
@@ -130,10 +133,10 @@ class _ClientSettingsPageState extends ConsumerState<ClientSettingsPage> {
                         (context) async {
                           await ref.read(syncProvider.notifier).clear();
                           setState(() {});
-                          context.pop();
+                          Navigator.of(context).pop();
                         },
                         context.localized.clear,
-                        (context) => context.pop(),
+                        (context) => Navigator.of(context).pop(),
                         context.localized.cancel,
                       );
                     },
@@ -337,7 +340,7 @@ class _ClientSettingsPageState extends ConsumerState<ClientSettingsPage> {
               context,
               label: "${context.localized.theme} ${context.localized.mode}",
               items: ThemeMode.values,
-              itemBuilder: (type) => RadioListTile(
+              itemBuilder: (type) => RadioListTile.adaptive(
                 value: type,
                 title: Text(type?.label(context) ?? context.localized.other),
                 contentPadding: EdgeInsets.zero,
@@ -359,7 +362,7 @@ class _ClientSettingsPageState extends ConsumerState<ClientSettingsPage> {
                 builder: (context, ref, child) => ListTile(
                   title: Row(
                     children: [
-                      Checkbox(
+                      Checkbox.adaptive(
                         value: type == ref.watch(clientSettingsProvider.select((value) => value.themeColor)),
                         onChanged: (value) => ref.read(clientSettingsProvider.notifier).setThemeColor(type),
                       ),
@@ -448,14 +451,14 @@ class _ClientSettingsPageState extends ConsumerState<ClientSettingsPage> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             FilledButton(
-                              onPressed: () => context.pop(),
+                              onPressed: () => Navigator.of(context).pop(),
                               child: Text(context.localized.cancel),
                             ),
                             const SizedBox(width: 8),
                             ElevatedButton(
                               onPressed: () async {
                                 await ref.read(sharedPreferencesProvider).clear();
-                                context.routeGo(LoginRoute());
+                                context.router.push(const LoginRoute());
                               },
                               child: Text(context.localized.clear),
                             )

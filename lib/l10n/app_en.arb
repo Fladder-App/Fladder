@@ -133,6 +133,16 @@
   "editMetadata": "Edit metadata",
   "empty": "Empty",
   "enabled": "Enabled",
+  "endsAt": "ends at {date}",
+  "@endsAt": {
+    "description": "endsAt",
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "jm"
+      }
+    }
+  },
   "episode": "{count, plural, other{Episodes} one{Episode} }",
   "@episode": {
     "description": "episode",

@@ -33,7 +33,7 @@ Future<Duration?> showSimpleDurationPicker({
   Duration? duration;
   await showDialog(
     context: context,
-    builder: (context) => AlertDialog.adaptive(
+    builder: (context) => AlertDialog(
       title: Text(context.localized.selectTime),
       content: SimpleDurationPicker(
         initialValue: initialValue,
@@ -113,10 +113,8 @@ class SimpleDurationPicker extends ConsumerWidget {
                           final parsedValue = int.parse(value);
                           if (parsedValue >= 60) {
                             secondsTextController.text = (parsedValue % 60).toString().padLeft(2, '0');
-                            minuteTextController.text = (int.parse(minuteTextController.text) + parsedValue / 60)
-                                .floor()
-                                .toString()
-                                .padLeft(2, '0');
+                            minuteTextController.text =
+                                (int.parse(minuteTextController.text) + parsedValue / 60).floor().toString().padLeft(2, '0');
                           }
                           onChanged(
                             Duration(

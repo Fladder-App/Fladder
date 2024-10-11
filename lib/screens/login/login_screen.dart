@@ -1,34 +1,34 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:ficonsax/ficonsax.dart';
-import 'package:fladder/screens/login/lock_screen.dart';
-import 'package:fladder/screens/login/widgets/discover_servers_widget.dart';
-import 'package:fladder/screens/shared/fladder_logo.dart';
-import 'package:fladder/util/adaptive_layout.dart';
-import 'package:fladder/util/localization_helper.dart';
-import 'package:fladder/util/string_extensions.dart';
 import 'package:flutter/material.dart';
 
+import 'package:auto_route/auto_route.dart';
+import 'package:ficonsax/ficonsax.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 import 'package:fladder/models/account_model.dart';
 import 'package:fladder/providers/auth_provider.dart';
 import 'package:fladder/providers/shared_provider.dart';
 import 'package:fladder/providers/user_provider.dart';
-import 'package:fladder/routes/build_routes/home_routes.dart';
-import 'package:fladder/routes/build_routes/route_builder.dart';
+import 'package:fladder/routes/auto_router.gr.dart';
+import 'package:fladder/screens/login/lock_screen.dart';
 import 'package:fladder/screens/login/login_edit_user.dart';
 import 'package:fladder/screens/login/login_user_grid.dart';
+import 'package:fladder/screens/login/widgets/discover_servers_widget.dart';
 import 'package:fladder/screens/shared/animated_fade_size.dart';
+import 'package:fladder/screens/shared/fladder_logo.dart';
 import 'package:fladder/screens/shared/fladder_snackbar.dart';
 import 'package:fladder/screens/shared/outlined_text_field.dart';
 import 'package:fladder/screens/shared/passcode_input.dart';
+import 'package:fladder/util/adaptive_layout.dart';
 import 'package:fladder/util/auth_service.dart';
 import 'package:fladder/util/list_padding.dart';
+import 'package:fladder/util/localization_helper.dart';
+import 'package:fladder/util/string_extensions.dart';
 import 'package:fladder/widgets/navigation_scaffold/components/fladder_appbar.dart';
 
+@RoutePage()
 class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
 
@@ -164,7 +164,7 @@ class _LoginPageState extends ConsumerState<LoginScreen> {
             serverTextController.text = value;
             startAddingNewUser();
           });
-          context.pop();
+          Navigator.of(context).pop();
         },
       ),
     );
@@ -211,7 +211,7 @@ class _LoginPageState extends ConsumerState<LoginScreen> {
   void loggedInGoToHome() {
     ref.read(lockScreenActiveProvider.notifier).update((state) => false);
     if (context.mounted) {
-      context.routeGo(DashboardRoute());
+      context.router.navigate(const DashboardRoute());
     }
   }
 

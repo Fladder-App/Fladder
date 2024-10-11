@@ -35,7 +35,7 @@ class _PassCodeInputState extends ConsumerState<PassCodeInput> {
           }
         }
       },
-      child: AlertDialog.adaptive(
+      child: AlertDialog(
         scrollable: true,
         content: Column(
           mainAxisSize: MainAxisSize.min,

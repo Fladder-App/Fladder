@@ -1,16 +1,18 @@
-import 'package:ficonsax/ficonsax.dart';
-import 'package:fladder/providers/views_provider.dart';
-import 'package:fladder/widgets/navigation_scaffold/components/navigation_drawer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:collection/collection.dart';
+import 'package:ficonsax/ficonsax.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:fladder/routes/build_routes/settings_routes.dart';
+import 'package:fladder/providers/settings/client_settings_provider.dart';
+import 'package:fladder/providers/views_provider.dart';
+import 'package:fladder/routes/auto_router.gr.dart';
 import 'package:fladder/screens/shared/animated_fade_size.dart';
 import 'package:fladder/util/adaptive_layout.dart';
 import 'package:fladder/widgets/navigation_scaffold/components/adaptive_fab.dart';
 import 'package:fladder/widgets/navigation_scaffold/components/destination_model.dart';
+import 'package:fladder/widgets/navigation_scaffold/components/navigation_drawer.dart';
 import 'package:fladder/widgets/navigation_scaffold/components/settings_user_icon.dart';
 
 class NavigationBody extends ConsumerStatefulWidget {
@@ -48,6 +50,17 @@ class _NavigationBodyState extends ConsumerState<NavigationBody> {
   @override
   Widget build(BuildContext context) {
     final views = ref.watch(viewsProvider.select((value) => value.views));
+    ref.listen(
+      clientSettingsProvider,
+      (previous, next) {
+        if (previous != next) {
+          SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+            statusBarIconBrightness: next.statusBarBrightness(context),
+          ));
+        }
+      },
+    );
+
     return switch (AdaptiveLayout.layoutOf(context)) {
       LayoutState.phone => MediaQuery.removePadding(
           context: widget.parentContext,
@@ -110,7 +123,10 @@ class _NavigationBodyState extends ConsumerState<NavigationBody> {
               style: Theme.of(context).textTheme.titleSmall,
             ),
           },
-          const SizedBox(height: 8),
+          if (AdaptiveLayout.of(context).platform == TargetPlatform.macOS)
+            const SizedBox(height: 32)
+          else
+            const SizedBox(height: 16),
           IconButton(
             onPressed: () {
               if (AdaptiveLayout.layoutOf(context) != LayoutState.desktop) {
@@ -123,7 +139,7 @@ class _NavigationBodyState extends ConsumerState<NavigationBody> {
             },
             icon: const Icon(IconsaxBold.menu),
           ),
-          if (AdaptiveLayout.of(context).isDesktop) ...[
+          if (AdaptiveLayout.of(context).size == ScreenLayout.dual) ...[
             const SizedBox(height: 8),
             AnimatedFadeSize(
               child: AnimatedSwitcher(
@@ -152,7 +168,7 @@ class _NavigationBodyState extends ConsumerState<NavigationBody> {
             height: 48,
             child: AnimatedSwitcher(
                 duration: const Duration(milliseconds: 250),
-                child: widget.currentLocation.contains(SettingsRoute().route)
+                child: widget.currentLocation.contains(const SettingsRoute().routeName)
                     ? Card(
                         color: Theme.of(context).colorScheme.primaryContainer,
                         child: const Padding(

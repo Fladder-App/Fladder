@@ -1,5 +1,10 @@
+import 'package:flutter/material.dart';
+
 import 'package:ficonsax/ficonsax.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:fladder/models/item_base_model.dart';
+import 'package:fladder/models/items/season_model.dart';
 import 'package:fladder/providers/items/season_details_provider.dart';
 import 'package:fladder/providers/user_provider.dart';
 import 'package:fladder/screens/details_screens/components/overview_header.dart';
@@ -14,10 +19,9 @@ import 'package:fladder/util/item_base_model/item_base_model_extensions.dart';
 import 'package:fladder/util/list_padding.dart';
 import 'package:fladder/util/localization_helper.dart';
 import 'package:fladder/util/string_extensions.dart';
+import 'package:fladder/util/theme_extensions.dart';
 import 'package:fladder/util/widget_extensions.dart';
 import 'package:fladder/widgets/shared/selectable_icon_button.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SeasonDetailScreen extends ConsumerStatefulWidget {
   final ItemBaseModel item;
@@ -29,7 +33,8 @@ class SeasonDetailScreen extends ConsumerStatefulWidget {
 
 class _SeasonDetailScreenState extends ConsumerState<SeasonDetailScreen> {
   Set<EpisodeDetailsViewType> viewOptions = {EpisodeDetailsViewType.grid};
-  late final providerId = seasonDetailsProvider(widget.item.id);
+  AutoDisposeStateNotifierProvider<SeasonDetailsNotifier, SeasonModel?> get providerId =>
+      seasonDetailsProvider(widget.item.id);
 
   @override
   Widget build(BuildContext context) {
@@ -51,12 +56,21 @@ class _SeasonDetailScreenState extends ConsumerState<SeasonDetailScreen> {
             ? Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.35),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.25),
                   Wrap(
                     alignment: WrapAlignment.spaceAround,
                     runAlignment: WrapAlignment.center,
                     crossAxisAlignment: WrapCrossAlignment.center,
                     children: [
+                      ConstrainedBox(
+                        constraints: const BoxConstraints(maxWidth: 300),
+                        child: AspectRatio(
+                          aspectRatio: 0.67,
+                          child: Card(
+                            child: FladderImage(image: details.getPosters?.primary),
+                          ),
+                        ),
+                      ),
                       ConstrainedBox(
                         constraints: const BoxConstraints(
                           maxWidth: 600,
@@ -85,9 +99,6 @@ class _SeasonDetailScreenState extends ConsumerState<SeasonDetailScreen> {
                           ],
                         ),
                       ),
-                      ConstrainedBox(
-                          constraints: const BoxConstraints(maxWidth: 300),
-                          child: Card(child: FladderImage(image: details.getPosters?.primary))),
                     ],
                   ).padding(padding),
                   Row(
@@ -119,36 +130,40 @@ class _SeasonDetailScreenState extends ConsumerState<SeasonDetailScreen> {
                       ),
                       Row(
                         children: [
-                          Card(
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(200)),
-                            child: SegmentedButton(
-                              style: const ButtonStyle(
-                                elevation: WidgetStatePropertyAll(5),
-                                side: WidgetStatePropertyAll(BorderSide.none),
-                              ),
-                              showSelectedIcon: true,
-                              segments: EpisodeDetailsViewType.values
-                                  .map(
-                                    (e) => ButtonSegment(
-                                      value: e,
-                                      icon: Icon(e.icon),
-                                      label: SizedBox(
-                                          height: 50,
-                                          child: Center(
-                                            child: Text(
-                                              e.name.capitalize(),
-                                            ),
-                                          )),
-                                    ),
-                                  )
-                                  .toList(),
-                              selected: viewOptions,
-                              onSelectionChanged: (newOptions) {
-                                setState(() {
-                                  viewOptions = newOptions;
-                                });
-                              },
+                          SegmentedButton(
+                            style: ButtonStyle(
+                              backgroundColor: WidgetStateProperty.resolveWith((state) {
+                                if (state.contains(WidgetState.selected)) {
+                                  return context.colors.primaryContainer;
+                                }
+                                return context.colors.surfaceContainer;
+                              }),
+                              padding: const WidgetStatePropertyAll(EdgeInsets.symmetric(vertical: 8, horizontal: 16)),
+                              elevation: const WidgetStatePropertyAll(5),
+                              side: const WidgetStatePropertyAll(BorderSide.none),
                             ),
+                            showSelectedIcon: true,
+                            segments: EpisodeDetailsViewType.values
+                                .map(
+                                  (e) => ButtonSegment(
+                                    value: e,
+                                    icon: Icon(e.icon),
+                                    label: SizedBox(
+                                        height: 40,
+                                        child: Center(
+                                          child: Text(
+                                            e.name.capitalize(),
+                                          ),
+                                        )),
+                                  ),
+                                )
+                                .toList(),
+                            selected: viewOptions,
+                            onSelectionChanged: (newOptions) {
+                              setState(() {
+                                viewOptions = newOptions;
+                              });
+                            },
                           ),
                         ],
                       ),

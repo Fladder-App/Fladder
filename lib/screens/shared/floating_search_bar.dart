@@ -1,13 +1,12 @@
 import 'package:animations/animations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fladder/providers/user_provider.dart';
-import 'package:fladder/routes/build_routes/route_builder.dart';
-import 'package:fladder/routes/build_routes/settings_routes.dart';
+import 'package:fladder/routes/auto_router.gr.dart';
 import 'package:fladder/screens/search/search_screen.dart';
 import 'package:fladder/util/string_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 class FloatingSearchBar extends ConsumerStatefulWidget {
   final List<Widget> trailing;
@@ -58,9 +57,9 @@ class _FloatingSearchBarState extends ConsumerState<FloatingSearchBar> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  if (context.canPop())
+                  if (context.router.canPop())
                     IconButton(
-                      onPressed: () => context.pop(),
+                      onPressed: () => context.router.maybePop(),
                       icon: const Icon(Icons.arrow_back),
                     ),
                   const SizedBox(width: 8),
@@ -77,7 +76,7 @@ class _FloatingSearchBarState extends ConsumerState<FloatingSearchBar> {
                   ),
                   IconButton(
                     onPressed: () {
-                      context.routeGo(SecuritySettingsRoute());
+                      context.router.push(const SecuritySettingsRoute());
                     },
                     icon: ClipRRect(
                       borderRadius: BorderRadius.circular(200),

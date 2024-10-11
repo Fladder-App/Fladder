@@ -1,24 +1,39 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+import 'package:auto_route/auto_route.dart';
 import 'package:ficonsax/ficonsax.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:fladder/models/boxset_model.dart';
 import 'package:fladder/models/item_base_model.dart';
 import 'package:fladder/models/items/photos_model.dart';
+import 'package:fladder/models/library_search/library_search_model.dart';
 import 'package:fladder/models/library_search/library_search_options.dart';
 import 'package:fladder/models/media_playback_model.dart';
 import 'package:fladder/models/playlist_model.dart';
+import 'package:fladder/providers/library_search_provider.dart';
 import 'package:fladder/providers/settings/client_settings_provider.dart';
 import 'package:fladder/providers/video_player_provider.dart';
 import 'package:fladder/screens/collections/add_to_collection.dart';
+import 'package:fladder/screens/library_search/widgets/library_filter_chips.dart';
 import 'package:fladder/screens/library_search/widgets/library_sort_dialogue.dart';
+import 'package:fladder/screens/library_search/widgets/library_views.dart';
+import 'package:fladder/screens/library_search/widgets/suggestion_search_bar.dart';
 import 'package:fladder/screens/playlists/add_to_playlists.dart';
 import 'package:fladder/screens/shared/animated_fade_size.dart';
 import 'package:fladder/screens/shared/flat_button.dart';
 import 'package:fladder/screens/shared/nested_bottom_appbar.dart';
 import 'package:fladder/util/adaptive_layout.dart';
+import 'package:fladder/util/debouncer.dart';
 import 'package:fladder/util/fab_extended_anim.dart';
 import 'package:fladder/util/item_base_model/item_base_model_extensions.dart';
 import 'package:fladder/util/list_padding.dart';
 import 'package:fladder/util/localization_helper.dart';
 import 'package:fladder/util/refresh_state.dart';
+import 'package:fladder/util/router_extension.dart';
+import 'package:fladder/util/sliver_list_padding.dart';
 import 'package:fladder/widgets/navigation_scaffold/components/floating_player_bar.dart';
 import 'package:fladder/widgets/navigation_scaffold/components/settings_user_icon.dart';
 import 'package:fladder/widgets/shared/fladder_scrollbar.dart';
@@ -27,22 +42,11 @@ import 'package:fladder/widgets/shared/item_actions.dart';
 import 'package:fladder/widgets/shared/modal_bottom_sheet.dart';
 import 'package:fladder/widgets/shared/pinch_poster_zoom.dart';
 import 'package:fladder/widgets/shared/poster_size_slider.dart';
+import 'package:fladder/widgets/shared/pull_to_refresh.dart';
 import 'package:fladder/widgets/shared/scroll_position.dart';
 import 'package:fladder/widgets/shared/shapes.dart';
 
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import 'package:fladder/models/library_search/library_search_model.dart';
-import 'package:fladder/providers/library_search_provider.dart';
-import 'package:fladder/screens/library_search/widgets/library_filter_chips.dart';
-import 'package:fladder/screens/library_search/widgets/library_views.dart';
-import 'package:fladder/screens/library_search/widgets/suggestion_search_bar.dart';
-import 'package:fladder/util/debouncer.dart';
-import 'package:fladder/util/sliver_list_padding.dart';
-import 'package:fladder/widgets/shared/pull_to_refresh.dart';
-
+@RoutePage()
 class LibrarySearchScreen extends ConsumerStatefulWidget {
   final String? viewModelId;
   final bool? favourites;
@@ -51,11 +55,11 @@ class LibrarySearchScreen extends ConsumerStatefulWidget {
   final SortingOptions? sortingOptions;
   final PhotoModel? photoToView;
   const LibrarySearchScreen({
-    this.viewModelId,
-    this.folderId,
-    this.favourites,
-    this.sortOrder,
-    this.sortingOptions,
+    @QueryParam("parentId") this.viewModelId,
+    @QueryParam("folderId") this.folderId,
+    @QueryParam("favourites") this.favourites,
+    @QueryParam("sortOrder") this.sortOrder,
+    @QueryParam("sortOptions") this.sortingOptions,
     this.photoToView,
     super.key,
   });
@@ -65,9 +69,6 @@ class LibrarySearchScreen extends ConsumerStatefulWidget {
 }
 
 class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
-  late final Key uniqueKey = Key(widget.folderId?.join(',').toString() ?? widget.viewModelId ?? UniqueKey().toString());
-  late final providerKey = librarySearchProvider(uniqueKey);
-  late final libraryProvider = ref.read(providerKey.notifier);
   final SearchController searchController = SearchController();
   final Debouncer debouncer = Debouncer(const Duration(seconds: 1));
   final GlobalKey<RefreshIndicatorState> refreshKey = GlobalKey<RefreshIndicatorState>();
@@ -76,9 +77,26 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
 
   bool loadOnStart = false;
 
+  Key get uniqueKey => Key(widget.folderId?.join(',').toString() ?? widget.viewModelId ?? "EmptySearch");
+  AutoDisposeStateNotifierProvider<LibrarySearchNotifier, LibrarySearchModel> get providerKey =>
+      librarySearchProvider(uniqueKey);
+  LibrarySearchNotifier get libraryProvider => ref.read(librarySearchProvider(uniqueKey).notifier);
+
+  @override
+  void didUpdateWidget(covariant LibrarySearchScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (kIsWeb && ref.read(librarySearchProvider(uniqueKey)).posters.isEmpty) {
+      initLibrary();
+    }
+  }
+
   @override
   void initState() {
     super.initState();
+    initLibrary();
+  }
+
+  void initLibrary() {
     searchController.addListener(() {
       debouncer.run(() {
         ref.read(providerKey.notifier).setSearch(searchController.text);
@@ -87,7 +105,9 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
 
     Future.microtask(
       () async {
-        libraryProvider.setDefaultOptions(widget.sortOrder, widget.sortingOptions);
+        if (libraryProvider.mounted) {
+          libraryProvider.setDefaultOptions(widget.sortOrder, widget.sortingOptions);
+        }
         await refreshKey.currentState?.show();
         SystemChrome.setEnabledSystemUIMode(
           SystemUiMode.edgeToEdge,
@@ -113,10 +133,8 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
   Widget build(BuildContext context) {
     final isEmptySearchScreen = widget.viewModelId == null && widget.favourites == null && widget.folderId == null;
     final librarySearchResults = ref.watch(providerKey);
-    final libraryProvider = ref.read(providerKey.notifier);
     final postersList = librarySearchResults.posters.hideEmptyChildren(librarySearchResults.hideEmtpyShows);
     final playerState = ref.watch(mediaPlaybackProvider.select((value) => value.state));
-
     final libraryViewType = ref.watch(libraryViewTypeProvider);
 
     ref.listen(
@@ -130,8 +148,9 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
     );
 
     return PopScope(
+      key: uniqueKey,
       canPop: !librarySearchResults.selecteMode,
-      onPopInvoked: (popped) async {
+      onPopInvokedWithResult: (didPop, result) {
         if (librarySearchResults.selecteMode) {
           libraryProvider.toggleSelectMode();
         }
@@ -208,8 +227,12 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
                           refreshKey: refreshKey,
                           autoFocus: false,
                           contextRefresh: false,
-                          onRefresh: () async =>
-                              libraryProvider.initRefresh(widget.folderId, widget.viewModelId, widget.favourites),
+                          onRefresh: () async {
+                            if (libraryProvider.mounted) {
+                              return libraryProvider.initRefresh(
+                                  widget.folderId, widget.viewModelId, widget.favourites);
+                            }
+                          },
                           refreshOnStart: false,
                           child: CustomScrollView(
                             physics: const AlwaysScrollableNoImplicitScrollPhysics(),
@@ -218,10 +241,11 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
                               SliverAppBar(
                                 floating: !AdaptiveLayout.of(context).isDesktop,
                                 collapsedHeight: 80,
-                                automaticallyImplyLeading: true,
+                                automaticallyImplyLeading: false,
                                 pinned: AdaptiveLayout.of(context).isDesktop,
                                 primary: true,
                                 elevation: 5,
+                                leading: context.router.backButton(),
                                 surfaceTintColor: Colors.transparent,
                                 shadowColor: Colors.transparent,
                                 backgroundColor: Theme.of(context).colorScheme.surface,
@@ -264,7 +288,7 @@ class _LibrarySearchScreenState extends ConsumerState<LibrarySearchScreen> {
                                         action: () {
                                           showAdaptiveDialog(
                                             context: context,
-                                            builder: (context) => AlertDialog.adaptive(
+                                            builder: (context) => AlertDialog(
                                               content: Consumer(
                                                 builder: (context, ref, child) {
                                                   final currentType = ref.watch(libraryViewTypeProvider);

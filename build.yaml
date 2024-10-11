@@ -2,13 +2,27 @@ targets:
   $default:
     sources:
       - lib/$lib$
-      - "**/models/**.dart" # Matches models folder at any depth in lib
-      - "**/providers/**.dart" # Matches providers folder at any depth in lib
+      - "**/models/**.dart"
+      - "**/providers/**.dart"
       - lib/util/**.dart
       - lib/jellyfin/**.dart
+      - "**/**_screen.dart"
+      - "**/**_page.dart"
       - swagger/**
+      - lib/routes/auto_router.dart
       - $package$
     builders:
+      auto_route_generator:auto_router_generator:
+        options:
+          enable_cached_builds: true
+          generate_for:
+            - lib/routes/auto_router.dart
+      auto_route_generator:auto_route_generator:
+        options:
+          enable_cached_builds: true
+          generate_for:
+            - "**/**_screen.dart"
+            - "**/**_page.dart"
       freezed|freezed:
         options:
           generate_for:

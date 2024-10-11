@@ -1,6 +1,10 @@
+import 'package:flutter/material.dart';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:collection/collection.dart';
 import 'package:ficonsax/ficonsax.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:fladder/models/item_base_model.dart';
 import 'package:fladder/providers/items/identify_provider.dart';
 import 'package:fladder/screens/shared/adaptive_dialog.dart';
@@ -9,8 +13,6 @@ import 'package:fladder/screens/shared/focused_outlined_text_field.dart';
 import 'package:fladder/screens/shared/media/external_urls.dart';
 import 'package:fladder/util/localization_helper.dart';
 import 'package:fladder/util/string_extensions.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 Future<void> showIdentifyScreen(BuildContext context, ItemBaseModel item) async {
   return showDialogAdaptive(
@@ -30,7 +32,7 @@ class IdentifyScreen extends ConsumerStatefulWidget {
 }
 
 class _IdentifyScreenState extends ConsumerState<IdentifyScreen> with TickerProviderStateMixin {
-  late AutoDisposeStateNotifierProvider<IdentifyNotifier, IdentifyModel> provider = identifyProvider(widget.item.id);
+  AutoDisposeStateNotifierProvider<IdentifyNotifier, IdentifyModel> get provider => identifyProvider(widget.item.id);
   late final TabController tabController = TabController(length: 2, vsync: this);
 
   TextEditingController? currentController;

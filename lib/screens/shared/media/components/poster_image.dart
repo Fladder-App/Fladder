@@ -97,8 +97,8 @@ class _PosterImageState extends ConsumerState<PosterImage> {
         onEnter: (event) => setState(() => hover = true),
         onExit: (event) => setState(() => hover = false),
         child: Card(
-          elevation: 8,
-          color: Theme.of(context).colorScheme.secondaryContainer.withOpacity(0.2),
+          elevation: 6,
+          color: Theme.of(context).colorScheme.secondaryContainer,
           shape: RoundedRectangleBorder(
             side: BorderSide(
               width: 1.0,
@@ -191,6 +191,7 @@ class _PosterImageState extends ConsumerState<PosterImage> {
                         child: Card(
                           color: Colors.transparent,
                           elevation: 3,
+                          shadowColor: Colors.transparent,
                           child: LinearProgressIndicator(
                             minHeight: 7.5,
                             backgroundColor: Theme.of(context).colorScheme.onPrimary.withOpacity(0.5),

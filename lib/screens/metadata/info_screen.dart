@@ -1,13 +1,15 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
 import 'package:ficonsax/ficonsax.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:fladder/models/information_model.dart';
 import 'package:fladder/models/item_base_model.dart';
 import 'package:fladder/providers/items/information_provider.dart';
 import 'package:fladder/screens/shared/fladder_snackbar.dart';
 import 'package:fladder/util/localization_helper.dart';
 import 'package:fladder/widgets/shared/clickable_text.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter/services.dart';
 
 Future<void> showInfoScreen(BuildContext context, ItemBaseModel item) async {
   return showDialog(
@@ -27,7 +29,7 @@ class ItemInfoScreen extends ConsumerStatefulWidget {
 }
 
 class ItemInfoScreenState extends ConsumerState<ItemInfoScreen> {
-  late AutoDisposeStateNotifierProvider<InformationNotifier, InformationProviderModel> provider =
+  AutoDisposeStateNotifierProvider<InformationNotifier, InformationProviderModel> get provider =>
       informationProvider(widget.item.id);
 
   @override

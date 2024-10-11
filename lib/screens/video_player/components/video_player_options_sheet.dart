@@ -1,5 +1,9 @@
+import 'package:flutter/material.dart';
+
 import 'package:collection/collection.dart';
 import 'package:ficonsax/ficonsax.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:fladder/models/item_base_model.dart';
 import 'package:fladder/models/items/episode_model.dart';
 import 'package:fladder/models/playback/direct_playback_model.dart';
@@ -20,15 +24,14 @@ import 'package:fladder/util/string_extensions.dart';
 import 'package:fladder/widgets/shared/enum_selection.dart';
 import 'package:fladder/widgets/shared/modal_bottom_sheet.dart';
 import 'package:fladder/widgets/shared/spaced_list_tile.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-Future<void> showVideoPlayerOptions(BuildContext context) {
+Future<void> showVideoPlayerOptions(BuildContext context, Function() minimizePlayer) {
   return showBottomSheetPill(
     context: context,
     content: (context, scrollController) {
       return VideoOptions(
         controller: scrollController,
+        minimizePlayer: minimizePlayer,
       );
     },
   );
@@ -36,7 +39,8 @@ Future<void> showVideoPlayerOptions(BuildContext context) {
 
 class VideoOptions extends ConsumerStatefulWidget {
   final ScrollController controller;
-  const VideoOptions({required this.controller, super.key});
+  final Function() minimizePlayer;
+  const VideoOptions({required this.controller, required this.minimizePlayer, super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _VideoOptionsMobileState();
@@ -67,16 +71,10 @@ class _VideoOptionsMobileState extends ConsumerState<VideoOptions> {
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      if (currentItem?.title.isNotEmpty == true)
-                        Text(
-                          currentItem?.title ?? "",
-                          style: Theme.of(context).textTheme.titleLarge,
-                        ),
-                      if (currentItem?.detailedName(context)?.isNotEmpty == true)
-                        Text(
-                          currentItem?.detailedName(context) ?? "",
-                          style: Theme.of(context).textTheme.titleSmall,
-                        )
+                      Text(
+                        currentItem?.title ?? "",
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
                     ],
                   ),
                   const Spacer(),
@@ -173,86 +171,6 @@ class _VideoOptionsMobileState extends ConsumerState<VideoOptions> {
                 ],
               ),
             ),
-          // ListTile(
-          //   title: const Text("Playback settings"),
-          //   onTap: () => setState(() => page = 1),
-          // ),
-        ],
-      );
-    }
-
-    Widget itemOptions() {
-      final currentItem = ref.watch(playBackModel.select((value) => value?.item));
-      return ListView(
-        shrinkWrap: true,
-        children: [
-          navTitle("${currentItem?.title} \n${currentItem?.detailedName}"),
-          if (currentItem != null) ...{
-            if (currentItem.type == FladderItemType.episode)
-              ListTile(
-                onTap: () {
-                  //Pop twice once for sheet once for player
-                  Navigator.of(context).pop();
-                  Navigator.of(context).pop();
-                  (this as EpisodeModel).parentBaseModel.navigateTo(context);
-                },
-                title: const Text("Open show"),
-              ),
-            ListTile(
-              onTap: () async {
-                //Pop twice once for sheet once for player
-                Navigator.of(context).pop();
-                Navigator.of(context).pop();
-                await currentItem.navigateTo(context);
-              },
-              title: const Text("Show details"),
-            ),
-            if (currentItem.type != FladderItemType.boxset)
-              ListTile(
-                onTap: () async {
-                  await addItemToCollection(context, [currentItem]);
-                  if (context.mounted) {
-                    context.refreshData();
-                  }
-                },
-                title: const Text("Add to collection"),
-              ),
-            if (currentItem.type != FladderItemType.playlist)
-              ListTile(
-                onTap: () async {
-                  await addItemToPlaylist(context, [currentItem]);
-                  if (context.mounted) {
-                    context.refreshData();
-                  }
-                },
-                title: const Text("Add to playlist"),
-              ),
-            ListTile(
-              onTap: () {
-                final favourite = !(currentItem.userData.isFavourite == true);
-                ref.read(userProvider.notifier).setAsFavorite(favourite, currentItem.id);
-                final newUserData = currentItem.userData;
-                final playbackModel = switch (ref.read(playBackModel)) {
-                  DirectPlaybackModel value => value.copyWith(item: currentItem.copyWith(userData: newUserData)),
-                  TranscodePlaybackModel value => value.copyWith(item: currentItem.copyWith(userData: newUserData)),
-                  OfflinePlaybackModel value => value.copyWith(item: currentItem.copyWith(userData: newUserData)),
-                  _ => null
-                };
-                if (playbackModel != null) {
-                  ref.read(playBackModel.notifier).update((state) => playbackModel);
-                }
-                Navigator.of(context).pop();
-              },
-              title: Text(currentItem.userData.isFavourite == true ? "Remove from favorites" : "Add to favourites"),
-            ),
-            ListTile(
-              onTap: () {
-                Navigator.of(context).pop();
-                showInfoScreen(context, currentItem);
-              },
-              title: const Text('Media info'),
-            ),
-          }
         ],
       );
     }
@@ -264,7 +182,7 @@ class _VideoOptionsMobileState extends ConsumerState<VideoOptions> {
         shrinkWrap: true,
         controller: widget.controller,
         children: [
-          navTitle("Playback Settings"),
+          navTitle("Playback Settings", null),
           if (playbackState?.queue.isNotEmpty == true)
             ListTile(
               leading: const Icon(Icons.video_collection_rounded),
@@ -294,7 +212,7 @@ class _VideoOptionsMobileState extends ConsumerState<VideoOptions> {
             duration: const Duration(milliseconds: 250),
             child: switch (page) {
               1 => playbackSettings(),
-              2 => itemOptions(),
+              2 => itemInfo(currentItem, context),
               _ => mainPage(),
             },
           ),
@@ -304,7 +222,79 @@ class _VideoOptionsMobileState extends ConsumerState<VideoOptions> {
     );
   }
 
-  Widget navTitle(String title) {
+  ListView itemInfo(ItemBaseModel? currentItem, BuildContext context) {
+    return ListView(
+      shrinkWrap: true,
+      children: [
+        navTitle(currentItem?.title, currentItem?.subTextShort(context)),
+        if (currentItem != null) ...{
+          if (currentItem.type == FladderItemType.episode)
+            ListTile(
+              onTap: () {
+                Navigator.of(context).pop();
+                widget.minimizePlayer();
+                (this as EpisodeModel).parentBaseModel.navigateTo(context);
+              },
+              title: const Text("Open show"),
+            ),
+          ListTile(
+            onTap: () async {
+              Navigator.of(context).pop();
+              widget.minimizePlayer();
+              await currentItem.navigateTo(context);
+            },
+            title: const Text("Show details"),
+          ),
+          if (currentItem.type != FladderItemType.boxset)
+            ListTile(
+              onTap: () async {
+                await addItemToCollection(context, [currentItem]);
+                if (context.mounted) {
+                  context.refreshData();
+                }
+              },
+              title: const Text("Add to collection"),
+            ),
+          if (currentItem.type != FladderItemType.playlist)
+            ListTile(
+              onTap: () async {
+                await addItemToPlaylist(context, [currentItem]);
+                if (context.mounted) {
+                  context.refreshData();
+                }
+              },
+              title: const Text("Add to playlist"),
+            ),
+          ListTile(
+            onTap: () async {
+              final response = await ref
+                  .read(userProvider.notifier)
+                  .setAsFavorite(!(currentItem.userData.isFavourite == true), currentItem.id);
+              final newItem = currentItem.copyWith(userData: response?.body);
+              final playbackModel = switch (ref.read(playBackModel)) {
+                DirectPlaybackModel value => value.copyWith(item: newItem),
+                TranscodePlaybackModel value => value.copyWith(item: newItem),
+                OfflinePlaybackModel value => value.copyWith(item: newItem),
+                _ => null
+              };
+              ref.read(playBackModel.notifier).update((state) => playbackModel);
+              Navigator.of(context).pop();
+            },
+            title: Text(currentItem.userData.isFavourite == true ? "Remove from favorites" : "Add to favourites"),
+          ),
+          ListTile(
+            onTap: () {
+              Navigator.of(context).pop();
+              showInfoScreen(context, currentItem);
+            },
+            title: const Text('Media info'),
+          ),
+        }
+      ],
+    );
+  }
+
+  Widget navTitle(String? title, String? subText) {
     return Column(
       children: [
         Row(
@@ -314,10 +304,20 @@ class _VideoOptionsMobileState extends ConsumerState<VideoOptions> {
               onPressed: () => setState(() => page = 0),
             ),
             const SizedBox(width: 16),
-            Text(
-              title,
-              style: Theme.of(context).textTheme.titleLarge,
-            )
+            Column(
+              children: [
+                if (title != null)
+                  Text(
+                    title,
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                if (subText != null)
+                  Text(
+                    subText,
+                    style: Theme.of(context).textTheme.titleMedium,
+                  )
+              ],
+            ),
           ],
         ),
         const SizedBox(height: 12),

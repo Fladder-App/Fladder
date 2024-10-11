@@ -11,7 +11,7 @@ Future<Response<dynamic>?> showDeleteDialog(BuildContext context, ItemBaseModel 
   await showDialog(
     context: context,
     barrierDismissible: false,
-    builder: (context) => AlertDialog.adaptive(
+    builder: (context) => AlertDialog(
       title: Text(context.localized.deleteItem(item.type.label(context))),
       content: Text(
         context.localized.deleteFileFromSystem(item.name),

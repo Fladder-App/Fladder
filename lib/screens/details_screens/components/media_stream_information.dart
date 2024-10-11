@@ -1,10 +1,10 @@
-import 'package:fladder/util/localization_helper.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:fladder/models/items/media_streams_model.dart';
 import 'package:fladder/screens/details_screens/components/label_title_item.dart';
+import 'package:fladder/util/localization_helper.dart';
 
 class MediaStreamInformation extends ConsumerWidget {
   final MediaStreamsModel mediaStream;
@@ -27,8 +27,8 @@ class MediaStreamInformation extends ConsumerWidget {
                 .map(
                   (e) => PopupMenuItem(
                     value: e,
+                    padding: EdgeInsets.zero,
                     child: Text(e.prettyName),
-                    onTap: () {},
                   ),
                 )
                 .toList(),
@@ -42,7 +42,8 @@ class MediaStreamInformation extends ConsumerWidget {
                   (e) => PopupMenuItem(
                     value: e,
                     padding: EdgeInsets.zero,
-                    child: textWidget(context, selected: mediaStream.currentAudioStream == e, label: e.displayTitle),
+                    child: textWidget(context,
+                        selected: mediaStream.currentAudioStream?.index == e.index, label: e.displayTitle),
                     onTap: () => onAudioIndexChanged?.call(e.index),
                   ),
                 )
@@ -57,7 +58,8 @@ class MediaStreamInformation extends ConsumerWidget {
                   (e) => PopupMenuItem(
                     value: e,
                     padding: EdgeInsets.zero,
-                    child: textWidget(context, selected: mediaStream.currentSubStream == e, label: e.displayTitle),
+                    child: textWidget(context,
+                        selected: mediaStream.currentSubStream?.index == e.index, label: e.displayTitle),
                     onTap: () => onSubIndexChanged?.call(e.index),
                   ),
                 )
@@ -100,7 +102,7 @@ class _StreamOptionSelect<T> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textStyle = Theme.of(context).textTheme.titleMedium;
-    const padding = EdgeInsets.all(6.0);
+    const padding = EdgeInsets.all(6);
     final itemList = itemBuilder(context);
     return LabelTitleItem(
       title: label,
@@ -110,6 +112,7 @@ class _StreamOptionSelect<T> extends StatelessWidget {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
           enabled: itemList.length > 1,
           itemBuilder: itemBuilder,
+          menuPadding: const EdgeInsets.symmetric(vertical: 16),
           padding: padding,
           child: Padding(
             padding: padding,
