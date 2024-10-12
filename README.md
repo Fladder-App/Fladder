@@ -52,6 +52,8 @@
    <img src="https://github.com/Fladder-App/Fladder/blob/develop/assets/marketing/screenshots/Tablet/Sync.png?raw=true" alt="Fladder" width="1280">    
 </details>
 
+Web/Desktop [try it out!](https://fladder-app.github.io/Fladder)
+
 ## Planned Features
 
 * Music playback
