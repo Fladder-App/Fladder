@@ -28,6 +28,7 @@
 * Intro/Credits skipping
 * Trickplay support (timeline scrubbing)
 * Dark/Light mode
+* Simple book reading support
 * Sync supported on Mobile/Desktop
 * Platforms
   - Android - Web - macOS - Windows
