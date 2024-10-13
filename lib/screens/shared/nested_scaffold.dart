@@ -27,7 +27,9 @@ class NestedScaffold extends ConsumerWidget {
               _ => null,
             },
         },
-        body: body,
+        body: SafeArea(          
+          child: body,
+        ),
       ),
     );
   }
