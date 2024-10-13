@@ -3,22 +3,12 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+
 import 'package:background_downloader/background_downloader.dart';
 import 'package:collection/collection.dart';
 import 'package:file_picker/file_picker.dart';
-import 'package:fladder/models/items/chapters_model.dart';
-import 'package:fladder/models/items/movie_model.dart';
-import 'package:fladder/models/items/trick_play_model.dart';
-import 'package:fladder/models/syncing/download_stream.dart';
-import 'package:fladder/models/syncing/i_synced_item.dart';
-import 'package:fladder/models/syncing/sync_item.dart';
-import 'package:fladder/models/syncing/sync_settings_model.dart';
-import 'package:fladder/providers/service_provider.dart';
-import 'package:fladder/providers/settings/client_settings_provider.dart';
-import 'package:fladder/providers/sync/background_download_provider.dart';
-import 'package:fladder/screens/shared/fladder_snackbar.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 import 'package:isar/isar.dart';
@@ -26,14 +16,25 @@ import 'package:path/path.dart' as path;
 
 import 'package:fladder/jellyfin/jellyfin_open_api.swagger.dart';
 import 'package:fladder/models/item_base_model.dart';
+import 'package:fladder/models/items/chapters_model.dart';
 import 'package:fladder/models/items/episode_model.dart';
 import 'package:fladder/models/items/images_models.dart';
 import 'package:fladder/models/items/media_streams_model.dart';
+import 'package:fladder/models/items/movie_model.dart';
 import 'package:fladder/models/items/series_model.dart';
+import 'package:fladder/models/items/trick_play_model.dart';
+import 'package:fladder/models/syncing/download_stream.dart';
+import 'package:fladder/models/syncing/i_synced_item.dart';
+import 'package:fladder/models/syncing/sync_item.dart';
+import 'package:fladder/models/syncing/sync_settings_model.dart';
 import 'package:fladder/models/video_stream_model.dart';
 import 'package:fladder/profiles/default_profile.dart';
 import 'package:fladder/providers/api_provider.dart';
+import 'package:fladder/providers/service_provider.dart';
+import 'package:fladder/providers/settings/client_settings_provider.dart';
+import 'package:fladder/providers/sync/background_download_provider.dart';
 import 'package:fladder/providers/user_provider.dart';
+import 'package:fladder/screens/shared/fladder_snackbar.dart';
 
 final syncProvider = StateNotifierProvider<SyncNotifier, SyncSettingsModel>((ref) => throw UnimplementedError());
 
@@ -147,7 +148,7 @@ class SyncNotifier extends StateNotifier<SyncSettingsModel> {
     while (toProcess.isNotEmpty) {
       final currentLevel = toProcess.map(
         (parent) {
-          final children = syncedItems?.where().parentIdEqualTo(parent.id).sortBySortKey().findAll();
+          final children = syncedItems?.where().parentIdEqualTo(parent.id).sortBySortName().findAll();
           return children?.map((e) => SyncedItem.fromIsar(e, ref.read(syncProvider.notifier).syncPath ?? "")) ??
               <SyncedItem>[];
         },
@@ -159,7 +160,7 @@ class SyncNotifier extends StateNotifier<SyncSettingsModel> {
   }
 
   List<SyncedItem> getChildren(SyncedItem item) {
-    return (syncedItems?.where().parentIdEqualTo(item.id).sortBySortKey().findAll())
+    return (syncedItems?.where().parentIdEqualTo(item.id).sortBySortName().findAll())
             ?.map(
               (e) => SyncedItem.fromIsar(e, syncPath ?? ""),
             )
@@ -493,7 +494,7 @@ extension SyncNotifierHelpers on SyncNotifier {
     return syncItem.copyWith(
       id: item.id,
       parentId: parent?.id,
-      sortKey: (response.parentIndexNumber ?? 0) * (response.indexNumber ?? 0),
+      sortName: response.sortName,
       path: directory.path,
       fChapters: await saveChapterImages(origChapters, directory) ?? [],
       fileSize: response.mediaSources?.firstOrNull?.size ?? 0,
