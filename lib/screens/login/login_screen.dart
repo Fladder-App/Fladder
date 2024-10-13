@@ -234,9 +234,7 @@ class _LoginPageState extends ConsumerState<LoginScreen> {
           }
         };
 
-  bool emptyFields() {
-    return usernameController.text.isEmpty || passwordController.text.isEmpty;
-  }
+  bool emptyFields() => usernameController.text.isEmpty;
 
   void retrieveListOfUsers() async {
     serverTextController.text = serverTextController.text.rtrim('/');
