@@ -211,7 +211,7 @@ class _LoginPageState extends ConsumerState<LoginScreen> {
   void loggedInGoToHome() {
     ref.read(lockScreenActiveProvider.notifier).update((state) => false);
     if (context.mounted) {
-      context.router.navigate(const DashboardRoute());
+      context.router.replaceAll([const DashboardRoute()]);
     }
   }
 

@@ -131,7 +131,7 @@ class AuthGuard extends AutoRouteGuard {
       if (value) {
         resolver.next(true);
       } else {
-        router.navigate(const LoginRoute());
+        router.replace(const LoginRoute());
       }
     }));
   }
