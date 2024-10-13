@@ -3,16 +3,17 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class StatusCard extends ConsumerWidget {
   final Color? color;
+  final bool useFittedBox;
   final Widget child;
 
-  const StatusCard({this.color, required this.child, super.key});
+  const StatusCard({this.color, this.useFittedBox = false, required this.child, super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
       padding: const EdgeInsets.all(5),
       child: SizedBox(
-        width: 33,
+        width: 40,
         height: 33,
         child: Card(
           elevation: 10,
@@ -22,7 +23,14 @@ class StatusCard extends ConsumerWidget {
             data: IconThemeData(
               color: color,
             ),
-            child: Center(child: child),
+            child: Center(
+              child: useFittedBox
+                  ? FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: child,
+                    )
+                  : child,
+            ),
           ),
         ),
       ),

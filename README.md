@@ -25,7 +25,10 @@
 * Manage your library – Refresh content and edit metadata.
 * Multiple profiles – Lock profiles and connect to different servers.
 * Direct/Transcode playback
+* Intro/Credits skipping
+* Trickplay support (timeline scrubbing)
 * Dark/Light mode
+* Simple book reading support
 * Sync supported on Mobile/Desktop
 * Platforms
   - Android - Web - macOS - Windows
