@@ -171,7 +171,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                               tooltip: context.localized.switchUser,
                               onPressed: () async {
                                 await ref.read(userProvider.notifier).logoutUser();
-                                context.router.navigate(const LoginRoute());
+                                context.router.replaceAll([const LoginRoute()]);
                               },
                               child: const Icon(
                                 IconsaxOutline.arrow_swap_horizontal,
@@ -208,7 +208,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                                         onPressed: () async {
                                           await ref.read(authProvider.notifier).logOutUser();
                                           if (context.mounted) {
-                                            context.router.navigate(const LoginRoute());
+                                            context.router.replaceAll([const LoginRoute()]);
                                           }
                                         },
                                         child: Text(context.localized.logout),
