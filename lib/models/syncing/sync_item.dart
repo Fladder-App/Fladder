@@ -1,8 +1,14 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter/material.dart';
+
 import 'package:background_downloader/background_downloader.dart';
 import 'package:ficonsax/ficonsax.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:path/path.dart';
+
 import 'package:fladder/jellyfin/jellyfin_open_api.swagger.dart';
 import 'package:fladder/models/item_base_model.dart';
 import 'package:fladder/models/items/chapters_model.dart';
@@ -14,13 +20,8 @@ import 'package:fladder/models/items/trick_play_model.dart';
 import 'package:fladder/models/syncing/i_synced_item.dart';
 import 'package:fladder/providers/sync/sync_provider_helpers.dart';
 import 'package:fladder/providers/sync_provider.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:path/path.dart';
 
 part 'sync_item.freezed.dart';
-part 'sync_item.g.dart';
 
 @freezed
 class SyncedItem with _$SyncedItem {
@@ -32,7 +33,7 @@ class SyncedItem with _$SyncedItem {
     required String userId,
     String? path,
     @Default(false) bool markedForDelete,
-    int? sortKey,
+    String? sortName,
     int? fileSize,
     String? videoFileName,
     IntroOutSkipModel? introOutSkipModel,
@@ -119,14 +120,12 @@ class SyncedItem with _$SyncedItem {
     );
   }
 
-  factory SyncedItem.fromJson(Map<String, dynamic> json) => _$SyncedItemFromJson(json);
-
   factory SyncedItem.fromIsar(ISyncedItem isarSyncedItem, String savePath) {
     return SyncedItem(
       id: isarSyncedItem.id,
       parentId: isarSyncedItem.parentId,
       userId: isarSyncedItem.userId ?? "",
-      sortKey: isarSyncedItem.sortKey,
+      sortName: isarSyncedItem.sortName,
       path: joinAll([savePath, isarSyncedItem.path ?? ""]),
       fileSize: isarSyncedItem.fileSize,
       videoFileName: isarSyncedItem.videoFileName,

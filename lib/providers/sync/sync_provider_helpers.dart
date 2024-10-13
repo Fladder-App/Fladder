@@ -1,10 +1,10 @@
-import 'package:fladder/models/syncing/i_synced_item.dart';
-import 'package:fladder/providers/sync_provider.dart';
-
-import 'package:fladder/models/syncing/download_stream.dart';
-import 'package:fladder/models/syncing/sync_item.dart';
 import 'package:isar/isar.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+import 'package:fladder/models/syncing/download_stream.dart';
+import 'package:fladder/models/syncing/i_synced_item.dart';
+import 'package:fladder/models/syncing/sync_item.dart';
+import 'package:fladder/providers/sync_provider.dart';
 
 part 'sync_provider_helpers.g.dart';
 
@@ -18,7 +18,7 @@ class SyncChildren extends _$SyncChildren {
     while (toProcess.isNotEmpty) {
       final currentLevel = toProcess.map(
         (parent) {
-          final children = syncedItemIsar?.iSyncedItems.where().parentIdEqualTo(parent.id).sortBySortKey().findAll();
+          final children = syncedItemIsar?.iSyncedItems.where().parentIdEqualTo(parent.id).sortBySortName().findAll();
           return children?.map((e) => SyncedItem.fromIsar(e, ref.read(syncProvider.notifier).syncPath ?? "")) ??
               <SyncedItem>[];
         },

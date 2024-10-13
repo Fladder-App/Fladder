@@ -29,8 +29,8 @@ const ISyncedItemSchema = IsarGeneratedSchema(
         type: IsarType.string,
       ),
       IsarPropertySchema(
-        name: 'sortKey',
-        type: IsarType.long,
+        name: 'sortName',
+        type: IsarType.string,
       ),
       IsarPropertySchema(
         name: 'parentId',
@@ -94,7 +94,14 @@ int serializeISyncedItem(IsarWriter writer, ISyncedItem object) {
     }
   }
   IsarCore.writeString(writer, 2, object.id);
-  IsarCore.writeLong(writer, 3, object.sortKey ?? -9223372036854775808);
+  {
+    final value = object.sortName;
+    if (value == null) {
+      IsarCore.writeNull(writer, 3);
+    } else {
+      IsarCore.writeString(writer, 3, value);
+    }
+  }
   {
     final value = object.parentId;
     if (value == null) {
@@ -185,15 +192,8 @@ ISyncedItem deserializeISyncedItem(IsarReader reader) {
   _userId = IsarCore.readString(reader, 1);
   final String _id;
   _id = IsarCore.readString(reader, 2) ?? '';
-  final int? _sortKey;
-  {
-    final value = IsarCore.readLong(reader, 3);
-    if (value == -9223372036854775808) {
-      _sortKey = null;
-    } else {
-      _sortKey = value;
-    }
-  }
+  final String? _sortName;
+  _sortName = IsarCore.readString(reader, 3);
   final String? _parentId;
   _parentId = IsarCore.readString(reader, 4);
   final String? _path;
@@ -254,7 +254,7 @@ ISyncedItem deserializeISyncedItem(IsarReader reader) {
   final object = ISyncedItem(
     userId: _userId,
     id: _id,
-    sortKey: _sortKey,
+    sortName: _sortName,
     parentId: _parentId,
     path: _path,
     fileSize: _fileSize,
@@ -277,14 +277,7 @@ dynamic deserializeISyncedItemProp(IsarReader reader, int property) {
     case 2:
       return IsarCore.readString(reader, 2) ?? '';
     case 3:
-      {
-        final value = IsarCore.readLong(reader, 3);
-        if (value == -9223372036854775808) {
-          return null;
-        } else {
-          return value;
-        }
-      }
+      return IsarCore.readString(reader, 3);
     case 4:
       return IsarCore.readString(reader, 4);
     case 5:
@@ -351,7 +344,7 @@ sealed class _ISyncedItemUpdate {
   bool call({
     required String id,
     String? userId,
-    int? sortKey,
+    String? sortName,
     String? parentId,
     String? path,
     int? fileSize,
@@ -372,7 +365,7 @@ class _ISyncedItemUpdateImpl implements _ISyncedItemUpdate {
   bool call({
     required String id,
     Object? userId = ignore,
-    Object? sortKey = ignore,
+    Object? sortName = ignore,
     Object? parentId = ignore,
     Object? path = ignore,
     Object? fileSize = ignore,
@@ -386,7 +379,7 @@ class _ISyncedItemUpdateImpl implements _ISyncedItemUpdate {
           id
         ], {
           if (userId != ignore) 1: userId as String?,
-          if (sortKey != ignore) 3: sortKey as int?,
+          if (sortName != ignore) 3: sortName as String?,
           if (parentId != ignore) 4: parentId as String?,
           if (path != ignore) 5: path as String?,
           if (fileSize != ignore) 6: fileSize as int?,
@@ -404,7 +397,7 @@ sealed class _ISyncedItemUpdateAll {
   int call({
     required List<String> id,
     String? userId,
-    int? sortKey,
+    String? sortName,
     String? parentId,
     String? path,
     int? fileSize,
@@ -425,7 +418,7 @@ class _ISyncedItemUpdateAllImpl implements _ISyncedItemUpdateAll {
   int call({
     required List<String> id,
     Object? userId = ignore,
-    Object? sortKey = ignore,
+    Object? sortName = ignore,
     Object? parentId = ignore,
     Object? path = ignore,
     Object? fileSize = ignore,
@@ -437,7 +430,7 @@ class _ISyncedItemUpdateAllImpl implements _ISyncedItemUpdateAll {
   }) {
     return collection.updateProperties(id, {
       if (userId != ignore) 1: userId as String?,
-      if (sortKey != ignore) 3: sortKey as int?,
+      if (sortName != ignore) 3: sortName as String?,
       if (parentId != ignore) 4: parentId as String?,
       if (path != ignore) 5: path as String?,
       if (fileSize != ignore) 6: fileSize as int?,
@@ -459,7 +452,7 @@ extension ISyncedItemUpdate on IsarCollection<String, ISyncedItem> {
 sealed class _ISyncedItemQueryUpdate {
   int call({
     String? userId,
-    int? sortKey,
+    String? sortName,
     String? parentId,
     String? path,
     int? fileSize,
@@ -480,7 +473,7 @@ class _ISyncedItemQueryUpdateImpl implements _ISyncedItemQueryUpdate {
   @override
   int call({
     Object? userId = ignore,
-    Object? sortKey = ignore,
+    Object? sortName = ignore,
     Object? parentId = ignore,
     Object? path = ignore,
     Object? fileSize = ignore,
@@ -492,7 +485,7 @@ class _ISyncedItemQueryUpdateImpl implements _ISyncedItemQueryUpdate {
   }) {
     return query.updateProperties(limit: limit, {
       if (userId != ignore) 1: userId as String?,
-      if (sortKey != ignore) 3: sortKey as int?,
+      if (sortName != ignore) 3: sortName as String?,
       if (parentId != ignore) 4: parentId as String?,
       if (path != ignore) 5: path as String?,
       if (fileSize != ignore) 6: fileSize as int?,
@@ -521,7 +514,7 @@ class _ISyncedItemQueryBuilderUpdateImpl implements _ISyncedItemQueryUpdate {
   @override
   int call({
     Object? userId = ignore,
-    Object? sortKey = ignore,
+    Object? sortName = ignore,
     Object? parentId = ignore,
     Object? path = ignore,
     Object? fileSize = ignore,
@@ -535,7 +528,7 @@ class _ISyncedItemQueryBuilderUpdateImpl implements _ISyncedItemQueryUpdate {
     try {
       return q.updateProperties(limit: limit, {
         if (userId != ignore) 1: userId as String?,
-        if (sortKey != ignore) 3: sortKey as int?,
+        if (sortName != ignore) 3: sortName as String?,
         if (parentId != ignore) 4: parentId as String?,
         if (path != ignore) 5: path as String?,
         if (fileSize != ignore) 6: fileSize as int?,
@@ -928,97 +921,193 @@ extension ISyncedItemQueryFilter
   }
 
   QueryBuilder<ISyncedItem, ISyncedItem, QAfterFilterCondition>
-      sortKeyIsNull() {
+      sortNameIsNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const IsNullCondition(property: 3));
     });
   }
 
   QueryBuilder<ISyncedItem, ISyncedItem, QAfterFilterCondition>
-      sortKeyIsNotNull() {
+      sortNameIsNotNull() {
     return QueryBuilder.apply(not(), (query) {
       return query.addFilterCondition(const IsNullCondition(property: 3));
     });
   }
 
-  QueryBuilder<ISyncedItem, ISyncedItem, QAfterFilterCondition> sortKeyEqualTo(
-    int? value,
-  ) {
+  QueryBuilder<ISyncedItem, ISyncedItem, QAfterFilterCondition> sortNameEqualTo(
+    String? value, {
+    bool caseSensitive = true,
+  }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         EqualCondition(
           property: 3,
           value: value,
+          caseSensitive: caseSensitive,
         ),
       );
     });
   }
 
   QueryBuilder<ISyncedItem, ISyncedItem, QAfterFilterCondition>
-      sortKeyGreaterThan(
-    int? value,
-  ) {
+      sortNameGreaterThan(
+    String? value, {
+    bool caseSensitive = true,
+  }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         GreaterCondition(
           property: 3,
           value: value,
+          caseSensitive: caseSensitive,
         ),
       );
     });
   }
 
   QueryBuilder<ISyncedItem, ISyncedItem, QAfterFilterCondition>
-      sortKeyGreaterThanOrEqualTo(
-    int? value,
-  ) {
+      sortNameGreaterThanOrEqualTo(
+    String? value, {
+    bool caseSensitive = true,
+  }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         GreaterOrEqualCondition(
           property: 3,
           value: value,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<ISyncedItem, ISyncedItem, QAfterFilterCondition> sortKeyLessThan(
-    int? value,
-  ) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        LessCondition(
-          property: 3,
-          value: value,
+          caseSensitive: caseSensitive,
         ),
       );
     });
   }
 
   QueryBuilder<ISyncedItem, ISyncedItem, QAfterFilterCondition>
-      sortKeyLessThanOrEqualTo(
-    int? value,
-  ) {
+      sortNameLessThan(
+    String? value, {
+    bool caseSensitive = true,
+  }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
-        LessOrEqualCondition(
+        LessCondition(
           property: 3,
           value: value,
+          caseSensitive: caseSensitive,
         ),
       );
     });
   }
 
-  QueryBuilder<ISyncedItem, ISyncedItem, QAfterFilterCondition> sortKeyBetween(
-    int? lower,
-    int? upper,
-  ) {
+  QueryBuilder<ISyncedItem, ISyncedItem, QAfterFilterCondition>
+      sortNameLessThanOrEqualTo(
+    String? value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessOrEqualCondition(
+          property: 3,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<ISyncedItem, ISyncedItem, QAfterFilterCondition> sortNameBetween(
+    String? lower,
+    String? upper, {
+    bool caseSensitive = true,
+  }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         BetweenCondition(
           property: 3,
           lower: lower,
           upper: upper,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<ISyncedItem, ISyncedItem, QAfterFilterCondition>
+      sortNameStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        StartsWithCondition(
+          property: 3,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<ISyncedItem, ISyncedItem, QAfterFilterCondition>
+      sortNameEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        EndsWithCondition(
+          property: 3,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<ISyncedItem, ISyncedItem, QAfterFilterCondition>
+      sortNameContains(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        ContainsCondition(
+          property: 3,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<ISyncedItem, ISyncedItem, QAfterFilterCondition> sortNameMatches(
+      String pattern,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        MatchesCondition(
+          property: 3,
+          wildcard: pattern,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<ISyncedItem, ISyncedItem, QAfterFilterCondition>
+      sortNameIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        const EqualCondition(
+          property: 3,
+          value: '',
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<ISyncedItem, ISyncedItem, QAfterFilterCondition>
+      sortNameIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        const GreaterCondition(
+          property: 3,
+          value: '',
         ),
       );
     });
@@ -2937,15 +3026,24 @@ extension ISyncedItemQuerySortBy
     });
   }
 
-  QueryBuilder<ISyncedItem, ISyncedItem, QAfterSortBy> sortBySortKey() {
+  QueryBuilder<ISyncedItem, ISyncedItem, QAfterSortBy> sortBySortName(
+      {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(3);
+      return query.addSortBy(
+        3,
+        caseSensitive: caseSensitive,
+      );
     });
   }
 
-  QueryBuilder<ISyncedItem, ISyncedItem, QAfterSortBy> sortBySortKeyDesc() {
+  QueryBuilder<ISyncedItem, ISyncedItem, QAfterSortBy> sortBySortNameDesc(
+      {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(3, sort: Sort.desc);
+      return query.addSortBy(
+        3,
+        sort: Sort.desc,
+        caseSensitive: caseSensitive,
+      );
     });
   }
 
@@ -3139,15 +3237,17 @@ extension ISyncedItemQuerySortThenBy
     });
   }
 
-  QueryBuilder<ISyncedItem, ISyncedItem, QAfterSortBy> thenBySortKey() {
+  QueryBuilder<ISyncedItem, ISyncedItem, QAfterSortBy> thenBySortName(
+      {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(3);
+      return query.addSortBy(3, caseSensitive: caseSensitive);
     });
   }
 
-  QueryBuilder<ISyncedItem, ISyncedItem, QAfterSortBy> thenBySortKeyDesc() {
+  QueryBuilder<ISyncedItem, ISyncedItem, QAfterSortBy> thenBySortNameDesc(
+      {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(3, sort: Sort.desc);
+      return query.addSortBy(3, sort: Sort.desc, caseSensitive: caseSensitive);
     });
   }
 
@@ -3271,9 +3371,10 @@ extension ISyncedItemQueryWhereDistinct
     });
   }
 
-  QueryBuilder<ISyncedItem, ISyncedItem, QAfterDistinct> distinctBySortKey() {
+  QueryBuilder<ISyncedItem, ISyncedItem, QAfterDistinct> distinctBySortName(
+      {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(3);
+      return query.addDistinctBy(3, caseSensitive: caseSensitive);
     });
   }
 
@@ -3359,7 +3460,7 @@ extension ISyncedItemQueryProperty1
     });
   }
 
-  QueryBuilder<ISyncedItem, int?, QAfterProperty> sortKeyProperty() {
+  QueryBuilder<ISyncedItem, String?, QAfterProperty> sortNameProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addProperty(3);
     });
@@ -3441,7 +3542,7 @@ extension ISyncedItemQueryProperty2<R>
     });
   }
 
-  QueryBuilder<ISyncedItem, (R, int?), QAfterProperty> sortKeyProperty() {
+  QueryBuilder<ISyncedItem, (R, String?), QAfterProperty> sortNameProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addProperty(3);
     });
@@ -3527,7 +3628,7 @@ extension ISyncedItemQueryProperty3<R1, R2>
     });
   }
 
-  QueryBuilder<ISyncedItem, (R1, R2, int?), QOperations> sortKeyProperty() {
+  QueryBuilder<ISyncedItem, (R1, R2, String?), QOperations> sortNameProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addProperty(3);
     });
