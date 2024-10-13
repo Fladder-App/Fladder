@@ -361,13 +361,14 @@ class _PosterImageState extends ConsumerState<PosterImage> {
                     alignment: Alignment.topRight,
                     child: StatusCard(
                       color: Theme.of(context).colorScheme.primary,
+                      useFittedBox: widget.poster.unPlayedItemCount != 0,
                       child: Padding(
                         padding: const EdgeInsets.all(6),
                         child: widget.poster.unPlayedItemCount != 0
-                            ? Container(
-                                constraints: const BoxConstraints(minWidth: 18),
+                            ? Container(                                
+                                constraints: const BoxConstraints(minWidth: 16),
                                 child: Text(
-                                  widget.poster.userData.unPlayedItemCount.toString(),
+                                  widget.poster.userData.unPlayedItemCount.toString(),                                   
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     color: Theme.of(context).colorScheme.primary,
