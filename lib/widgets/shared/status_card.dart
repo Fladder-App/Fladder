@@ -13,7 +13,7 @@ class StatusCard extends ConsumerWidget {
     return Padding(
       padding: const EdgeInsets.all(5),
       child: SizedBox(
-        width: 33,
+        width: 40,
         height: 33,
         child: Card(
           elevation: 10,
