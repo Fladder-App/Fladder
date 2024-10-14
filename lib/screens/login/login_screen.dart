@@ -211,7 +211,7 @@ class _LoginPageState extends ConsumerState<LoginScreen> {
   void loggedInGoToHome() {
     ref.read(lockScreenActiveProvider.notifier).update((state) => false);
     if (context.mounted) {
-      context.router.navigate(const DashboardRoute());
+      context.router.replaceAll([const DashboardRoute()]);
     }
   }
 
@@ -234,9 +234,7 @@ class _LoginPageState extends ConsumerState<LoginScreen> {
           }
         };
 
-  bool emptyFields() {
-    return usernameController.text.isEmpty || passwordController.text.isEmpty;
-  }
+  bool emptyFields() => usernameController.text.isEmpty;
 
   void retrieveListOfUsers() async {
     serverTextController.text = serverTextController.text.rtrim('/');

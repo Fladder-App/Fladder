@@ -14,10 +14,6 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-SyncedItem _$SyncedItemFromJson(Map<String, dynamic> json) {
-  return _SyncItem.fromJson(json);
-}
-
 /// @nodoc
 mixin _$SyncedItem {
   String get id => throw _privateConstructorUsedError;
@@ -25,7 +21,7 @@ mixin _$SyncedItem {
   String get userId => throw _privateConstructorUsedError;
   String? get path => throw _privateConstructorUsedError;
   bool get markedForDelete => throw _privateConstructorUsedError;
-  int? get sortKey => throw _privateConstructorUsedError;
+  String? get sortName => throw _privateConstructorUsedError;
   int? get fileSize => throw _privateConstructorUsedError;
   String? get videoFileName => throw _privateConstructorUsedError;
   IntroOutSkipModel? get introOutSkipModel =>
@@ -37,7 +33,6 @@ mixin _$SyncedItem {
   @UserDataJsonSerializer()
   UserData? get userData => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SyncedItemCopyWith<SyncedItem> get copyWith =>
       throw _privateConstructorUsedError;
@@ -55,7 +50,7 @@ abstract class $SyncedItemCopyWith<$Res> {
       String userId,
       String? path,
       bool markedForDelete,
-      int? sortKey,
+      String? sortName,
       int? fileSize,
       String? videoFileName,
       IntroOutSkipModel? introOutSkipModel,
@@ -87,7 +82,7 @@ class _$SyncedItemCopyWithImpl<$Res, $Val extends SyncedItem>
     Object? userId = null,
     Object? path = freezed,
     Object? markedForDelete = null,
-    Object? sortKey = freezed,
+    Object? sortName = freezed,
     Object? fileSize = freezed,
     Object? videoFileName = freezed,
     Object? introOutSkipModel = freezed,
@@ -118,10 +113,10 @@ class _$SyncedItemCopyWithImpl<$Res, $Val extends SyncedItem>
           ? _value.markedForDelete
           : markedForDelete // ignore: cast_nullable_to_non_nullable
               as bool,
-      sortKey: freezed == sortKey
-          ? _value.sortKey
-          : sortKey // ignore: cast_nullable_to_non_nullable
-              as int?,
+      sortName: freezed == sortName
+          ? _value.sortName
+          : sortName // ignore: cast_nullable_to_non_nullable
+              as String?,
       fileSize: freezed == fileSize
           ? _value.fileSize
           : fileSize // ignore: cast_nullable_to_non_nullable
@@ -196,7 +191,7 @@ abstract class _$$SyncItemImplCopyWith<$Res>
       String userId,
       String? path,
       bool markedForDelete,
-      int? sortKey,
+      String? sortName,
       int? fileSize,
       String? videoFileName,
       IntroOutSkipModel? introOutSkipModel,
@@ -228,7 +223,7 @@ class __$$SyncItemImplCopyWithImpl<$Res>
     Object? userId = null,
     Object? path = freezed,
     Object? markedForDelete = null,
-    Object? sortKey = freezed,
+    Object? sortName = freezed,
     Object? fileSize = freezed,
     Object? videoFileName = freezed,
     Object? introOutSkipModel = freezed,
@@ -259,10 +254,10 @@ class __$$SyncItemImplCopyWithImpl<$Res>
           ? _value.markedForDelete
           : markedForDelete // ignore: cast_nullable_to_non_nullable
               as bool,
-      sortKey: freezed == sortKey
-          ? _value.sortKey
-          : sortKey // ignore: cast_nullable_to_non_nullable
-              as int?,
+      sortName: freezed == sortName
+          ? _value.sortName
+          : sortName // ignore: cast_nullable_to_non_nullable
+              as String?,
       fileSize: freezed == fileSize
           ? _value.fileSize
           : fileSize // ignore: cast_nullable_to_non_nullable
@@ -300,7 +295,7 @@ class __$$SyncItemImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$SyncItemImpl extends _SyncItem {
   _$SyncItemImpl(
       {required this.id,
@@ -308,7 +303,7 @@ class _$SyncItemImpl extends _SyncItem {
       required this.userId,
       this.path,
       this.markedForDelete = false,
-      this.sortKey,
+      this.sortName,
       this.fileSize,
       this.videoFileName,
       this.introOutSkipModel,
@@ -320,9 +315,6 @@ class _$SyncItemImpl extends _SyncItem {
       : _fChapters = fChapters,
         _subtitles = subtitles,
         super._();
-
-  factory _$SyncItemImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SyncItemImplFromJson(json);
 
   @override
   final String id;
@@ -336,7 +328,7 @@ class _$SyncItemImpl extends _SyncItem {
   @JsonKey()
   final bool markedForDelete;
   @override
-  final int? sortKey;
+  final String? sortName;
   @override
   final int? fileSize;
   @override
@@ -371,7 +363,7 @@ class _$SyncItemImpl extends _SyncItem {
 
   @override
   String toString() {
-    return 'SyncedItem(id: $id, parentId: $parentId, userId: $userId, path: $path, markedForDelete: $markedForDelete, sortKey: $sortKey, fileSize: $fileSize, videoFileName: $videoFileName, introOutSkipModel: $introOutSkipModel, fTrickPlayModel: $fTrickPlayModel, fImages: $fImages, fChapters: $fChapters, subtitles: $subtitles, userData: $userData)';
+    return 'SyncedItem(id: $id, parentId: $parentId, userId: $userId, path: $path, markedForDelete: $markedForDelete, sortName: $sortName, fileSize: $fileSize, videoFileName: $videoFileName, introOutSkipModel: $introOutSkipModel, fTrickPlayModel: $fTrickPlayModel, fImages: $fImages, fChapters: $fChapters, subtitles: $subtitles, userData: $userData)';
   }
 
   @override
@@ -386,7 +378,8 @@ class _$SyncItemImpl extends _SyncItem {
             (identical(other.path, path) || other.path == path) &&
             (identical(other.markedForDelete, markedForDelete) ||
                 other.markedForDelete == markedForDelete) &&
-            (identical(other.sortKey, sortKey) || other.sortKey == sortKey) &&
+            (identical(other.sortName, sortName) ||
+                other.sortName == sortName) &&
             (identical(other.fileSize, fileSize) ||
                 other.fileSize == fileSize) &&
             (identical(other.videoFileName, videoFileName) ||
@@ -404,7 +397,6 @@ class _$SyncItemImpl extends _SyncItem {
                 other.userData == userData));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -413,7 +405,7 @@ class _$SyncItemImpl extends _SyncItem {
       userId,
       path,
       markedForDelete,
-      sortKey,
+      sortName,
       fileSize,
       videoFileName,
       introOutSkipModel,
@@ -428,13 +420,6 @@ class _$SyncItemImpl extends _SyncItem {
   @pragma('vm:prefer-inline')
   _$$SyncItemImplCopyWith<_$SyncItemImpl> get copyWith =>
       __$$SyncItemImplCopyWithImpl<_$SyncItemImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SyncItemImplToJson(
-      this,
-    );
-  }
 }
 
 abstract class _SyncItem extends SyncedItem {
@@ -444,7 +429,7 @@ abstract class _SyncItem extends SyncedItem {
       required final String userId,
       final String? path,
       final bool markedForDelete,
-      final int? sortKey,
+      final String? sortName,
       final int? fileSize,
       final String? videoFileName,
       final IntroOutSkipModel? introOutSkipModel,
@@ -454,9 +439,6 @@ abstract class _SyncItem extends SyncedItem {
       final List<SubStreamModel> subtitles,
       @UserDataJsonSerializer() final UserData? userData}) = _$SyncItemImpl;
   _SyncItem._() : super._();
-
-  factory _SyncItem.fromJson(Map<String, dynamic> json) =
-      _$SyncItemImpl.fromJson;
 
   @override
   String get id;
@@ -469,7 +451,7 @@ abstract class _SyncItem extends SyncedItem {
   @override
   bool get markedForDelete;
   @override
-  int? get sortKey;
+  String? get sortName;
   @override
   int? get fileSize;
   @override

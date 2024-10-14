@@ -101,6 +101,7 @@ class SeasonPoster extends ConsumerWidget {
                       alignment: Alignment.topRight,
                       child: StatusCard(
                         color: Theme.of(context).colorScheme.primary,
+                        useFittedBox: true,
                         child: Center(
                           child: Text(
                             season.userData.unPlayedItemCount.toString(),

@@ -1,7 +1,8 @@
 import 'dart:convert';
 
-import 'package:fladder/models/syncing/sync_item.dart';
 import 'package:isar/isar.dart';
+
+import 'package:fladder/models/syncing/sync_item.dart';
 
 part 'i_synced_item.g.dart';
 
@@ -27,7 +28,7 @@ part 'i_synced_item.g.dart';
 class ISyncedItem {
   String? userId;
   String id;
-  int? sortKey;
+  String? sortName;
   String? parentId;
   String? path;
   int? fileSize;
@@ -41,7 +42,7 @@ class ISyncedItem {
   ISyncedItem({
     this.userId,
     required this.id,
-    this.sortKey,
+    this.sortName,
     this.parentId,
     this.path,
     this.fileSize,
@@ -61,7 +62,7 @@ class ISyncedItem {
       userId: syncedItem.userId,
       path: syncedItem.path?.replaceAll(path ?? "", '').substring(1),
       fileSize: syncedItem.fileSize,
-      sortKey: syncedItem.sortKey,
+      sortName: syncedItem.sortName,
       videoFileName: syncedItem.videoFileName,
       trickPlayModel: syncedItem.fTrickPlayModel != null ? jsonEncode(syncedItem.fTrickPlayModel?.toJson()) : null,
       introOutroSkipModel:

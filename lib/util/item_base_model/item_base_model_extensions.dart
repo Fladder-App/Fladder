@@ -1,4 +1,8 @@
+import 'package:flutter/material.dart';
+
 import 'package:ficonsax/ficonsax.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:fladder/models/book_model.dart';
 import 'package:fladder/models/item_base_model.dart';
 import 'package:fladder/models/items/episode_model.dart';
@@ -10,8 +14,8 @@ import 'package:fladder/screens/collections/add_to_collection.dart';
 import 'package:fladder/screens/metadata/edit_item.dart';
 import 'package:fladder/screens/metadata/identifty_screen.dart';
 import 'package:fladder/screens/metadata/info_screen.dart';
-import 'package:fladder/screens/playlists/add_to_playlists.dart';
 import 'package:fladder/screens/metadata/refresh_metadata.dart';
+import 'package:fladder/screens/playlists/add_to_playlists.dart';
 import 'package:fladder/screens/shared/fladder_snackbar.dart';
 import 'package:fladder/screens/syncing/sync_button.dart';
 import 'package:fladder/screens/syncing/sync_item_details.dart';
@@ -20,8 +24,6 @@ import 'package:fladder/util/localization_helper.dart';
 import 'package:fladder/util/refresh_state.dart';
 import 'package:fladder/widgets/pop_up/delete_file.dart';
 import 'package:fladder/widgets/shared/item_actions.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 extension ItemBaseModelsBooleans on List<ItemBaseModel> {
   Map<FladderItemType, List<ItemBaseModel>> get groupedItems {
@@ -195,7 +197,7 @@ extension ItemBaseModelExtensions on ItemBaseModel {
           },
           label: Text(context.localized.refreshMetadata),
         ),
-      if (!exclude.contains(ItemActions.download) && downloadEnabled) ...{
+      if (!exclude.contains(ItemActions.download) && downloadEnabled)
         if (syncedItem == null)
           ItemActionButton(
             icon: const Icon(IconsaxOutline.arrow_down_2),
@@ -207,8 +209,7 @@ extension ItemBaseModelExtensions on ItemBaseModel {
             icon: IgnorePointer(child: SyncButton(item: this, syncedItem: syncedItem)),
             action: () => showSyncItemDetails(context, syncedItem, ref),
             label: Text(context.localized.syncDetails),
-          )
-      },
+          ),
       if (canDelete == true)
         ItemActionButton(
           icon: Container(
