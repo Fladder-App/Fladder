@@ -1,4 +1,4 @@
-name: Build Fladder artifacts
+name: Build Fladder
 
 on:
   push:
