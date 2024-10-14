@@ -1,4 +1,4 @@
-name: Build Fladder artifacts
+name: Build Fladder
 
 on:
   push:
@@ -109,12 +109,11 @@ jobs:
           $pubspec = Get-Content pubspec.yaml
           $APP_NAME = ($pubspec | Select-String '^name:' | ForEach-Object { ($_ -split ':')[1].Trim() })
           $VERSION_NAME = ($pubspec | Select-String '^version:' | ForEach-Object { ($_ -split ':')[1].Trim().Split('+')[0] })
-          $BUILD_NUMBER = ${{ github.run_number }}
 
           echo "APP_NAME=$APP_NAME" >> $Env:GITHUB_ENV
           echo "VERSION_NAME=$VERSION_NAME" >> $Env:GITHUB_ENV
 
-          flutter build windows --build-name=$VERSION_NAME --build-number=$BUILD_NUMBER
+          flutter build windows --build-name=$VERSION_NAME --build-number=${{ github.run_number }}
 
       - name: Archive Windows artifact
         uses: actions/upload-artifact@v4.0.0
@@ -122,46 +121,45 @@ jobs:
           name: ${{ env.APP_NAME }}-Windows-${{ env.VERSION_NAME }}
           path: build\windows\x64\runner\Release\
 
-  # build-ios:
-  #   runs-on: macos-latest
+  build-ios:
+    runs-on: macos-latest
 
-  #   steps:
-  #     - name: Checkout repository
-  #       uses: actions/checkout@v4.1.1
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.1.1
 
-  #     - name: Set up Flutter
-  #       uses: subosito/flutter-action@v2.16.0
-  #       with:
-  #         channel: ${{ vars.FLUTTER_CHANNEL }}
-  #         flutter-version: ${{ vars.FLUTTER_VERSION }}
-  #         cache: true
-  #         cache-key: "flutter-:os:-:channel:-:version:-:arch:-:hash:" # optional
-  #         cache-path: "${{ runner.tool_cache }}/flutter/:channel:-:version:-:arch:" # optional
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2.16.0
+        with:
+          channel: ${{ vars.FLUTTER_CHANNEL }}
+          flutter-version: ${{ vars.FLUTTER_VERSION }}
+          cache: true
+          cache-key: "flutter-:os:-:channel:-:version:-:arch:-:hash:" # optional, change this to specify the cache path
+          cache-path: "${{ runner.tool_cache }}/flutter/:channel:-:version:-:arch:" # optional, change this to specify the cache path
 
-  #     - name: Get dependencies
-  #       run: flutter pub get
+      - name: Get dependencies
+        run: flutter pub get
 
-  #     - name: Build iOS app
-  #       run: |
-  #         APP_NAME=$(grep '^name:' pubspec.yaml | cut -d ':' -f2 | tr -d ' ')
-  #         VERSION_NAME=$(grep '^version:' pubspec.yaml | cut -d ':' -f2 | cut -d '+' -f1 | tr -d ' ')
-  #         echo "APP_NAME=$APP_NAME" >> $GITHUB_ENV
-  #         echo "VERSION_NAME=$VERSION_NAME" >> $GITHUB_ENV
+      - name: Build iOS app
+        run: |
+          APP_NAME=$(grep '^name:' pubspec.yaml | cut -d ':' -f2 | tr -d ' ')
+          VERSION_NAME=$(grep '^version:' pubspec.yaml | cut -d ':' -f2 | cut -d '+' -f1 | tr -d ' ')
+          echo "PACKAGE_NAME=$APP_NAME-iOS-$VERSION_NAME" >> $GITHUB_ENV
 
-  #         flutter build ipa --no-codesign
+          flutter build ipa --no-codesign --build-name=$VERSION_NAME --build-number=${{ github.run_number }}
 
-  #     - name: Export IPA from .xcarchive
-  #       run: |
-  #         xcodebuild -exportArchive \
-  #           -archivePath build/ios/archive/Runner.xcarchive \
-  #           -exportOptionsPlist ios/exportOptions.plist \
-  #           -exportPath build/ios/ipa
+      - name: Create unsigned IPA
+        run: |
+          cd build/ios/archive/Runner.xcarchive/Products/Applications/
+          mkdir Payload
+          mv Runner.app Payload/
+          zip -r ${{ env.PACKAGE_NAME }}.ipa Payload
 
-  #     - name: Archive iOS IPA artifact
-  #       uses: actions/upload-artifact@v4.0.0
-  #       with:
-  #         name: ios-${{ env.VERSION_NAME }}
-  #         path: build/ios/ipa/*.ipa
+      - name: Archive iOS IPA artifact
+        uses: actions/upload-artifact@v4.0.0
+        with:
+          name: ${{ env.PACKAGE_NAME }}
+          path: build/ios/archive/Runner.xcarchive/Products/Applications/${{ env.PACKAGE_NAME }}.ipa
 
   build-macos:
     runs-on: macos-latest
@@ -186,20 +184,19 @@ jobs:
         run: |
           APP_NAME=$(grep '^name:' pubspec.yaml | cut -d ':' -f2 | tr -d ' ')
           VERSION_NAME=$(grep '^version:' pubspec.yaml | cut -d ':' -f2 | cut -d '+' -f1 | tr -d ' ')
-          echo "APP_NAME=$APP_NAME" >> $GITHUB_ENV
-          echo "VERSION_NAME=$VERSION_NAME" >> $GITHUB_ENV
+          echo "PACKAGE_NAME=$APP_NAME-macOS-$VERSION_NAME" >> $GITHUB_ENV
 
           flutter build macos
 
       - name: Create DMG file
         run: |
-          hdiutil create -format UDZO -srcfolder build/macos/Build/Products/Release/fladder.app build/macos/Build/Products/Release/fladder.dmg
+          hdiutil create -format UDZO -srcfolder build/macos/Build/Products/Release/fladder.app build/macos/Build/Products/Release/${{ env.PACKAGE_NAME }}.dmg
 
       - name: Archive macOS artifact
         uses: actions/upload-artifact@v4.0.0
         with:
-          name: ${{ env.APP_NAME }}-macOS-${{ env.VERSION_NAME }}
-          path: build/macos/Build/Products/Release/fladder.dmg
+          name: ${{ env.PACKAGE_NAME }}
+          path: build/macos/Build/Products/Release/${{ env.PACKAGE_NAME }}.dmg
 
   # build-linux:
   #     runs-on: ubuntu-latest
@@ -257,15 +254,14 @@ jobs:
         run: |
           APP_NAME=$(grep '^name:' pubspec.yaml | cut -d ':' -f2 | tr -d ' ')
           VERSION_NAME=$(grep '^version:' pubspec.yaml | cut -d ':' -f2 | cut -d '+' -f1 | tr -d ' ')
-          echo "APP_NAME=$APP_NAME" >> $GITHUB_ENV
-          echo "VERSION_NAME=$VERSION_NAME" >> $GITHUB_ENV
+          echo "PACKAGE_NAME=$APP_NAME-Web-$VERSION_NAME" >> $GITHUB_ENV
 
           flutter build web --base-href /${{ github.event.repository.name }}/ --release --build-number=$GITHUB_RUN_NUMBER
 
       - name: Archive web artifact
         uses: actions/upload-artifact@v4.0.0
         with:
-          name: ${{ env.APP_NAME }}-Web-${{ env.VERSION_NAME }}
+          name: ${{ env.PACKAGE_NAME }}
           path: build/web
 
       - name: Deploy to GitHub Pages

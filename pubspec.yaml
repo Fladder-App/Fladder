@@ -92,7 +92,7 @@ dependencies:
 
   # Navigation
   auto_route: ^9.2.2
-  url_launcher: ^6.1.10
+  url_launcher: ^6.3.1
   flutter_custom_tabs: ^1.0.4
 
   # Utility

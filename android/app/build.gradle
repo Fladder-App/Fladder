@@ -45,6 +45,10 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
     }
 
+	configurations.all {
+    	resolutionStrategy { force 'androidx.browser:browser:1.6.0' }
+	}
+
     defaultConfig {
         applicationId "nl.jknaapen.fladder"
         minSdkVersion 26
