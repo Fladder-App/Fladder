@@ -73,7 +73,7 @@ Web/Desktop [try it out!](https://fladder-app.github.io/Fladder)
 
 The latest release executeables for Windows,MacOS,iOS,Android and web can be found [here](https://github.com/Fladder-App/Fladder/releases).
 
-The android app is currently in testing you can help by joining this at this link https://groups.google.com/g/fladder
+The Android app is currently in testing you can help testing by joining this group https://groups.google.com/g/fladder
 <a href='https://play.google.com/store/apps/details?id=nl.jknaapen.fladder&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width=250/></a>
 
 ## How to Contribute
