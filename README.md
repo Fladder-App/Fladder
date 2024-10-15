@@ -71,7 +71,7 @@ Web/Desktop [try it out the web build!](https://fladder-app.github.io/Fladder)
 
 ## Download
 
-The latest release executeables for Windows,MacOS,iOS,Android and web can be found [here](https://github.com/Fladder-App/Fladder/releases).
+The latest release executeables for Windows, MacOS, iOS, Android and Web can be found [here](https://github.com/Fladder-App/Fladder/releases).
 
 ### Playstore
 The Android app is currently in testing you can help testing by joining this group https://groups.google.com/g/fladder
