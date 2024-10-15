@@ -1,3 +1,5 @@
+import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 import 'dart:ui';
 
@@ -35,6 +37,8 @@ import 'package:fladder/util/application_info.dart';
 import 'package:fladder/util/string_extensions.dart';
 import 'package:fladder/util/themes_data.dart';
 
+String? baseUrl;
+
 bool get _isDesktop {
   if (kIsWeb) return false;
   return [
@@ -57,13 +61,24 @@ class CustomCacheManager {
   );
 }
 
+Future<Map<String, dynamic>> loadConfig() async {
+  final configString = await rootBundle.loadString('config/config.json');
+  return jsonDecode(configString);
+}
+
 void main() async {
-  if (kIsWeb) {
-    html.document.onContextMenu.listen((event) => event.preventDefault());
-  }
   _setupLogging();
   WidgetsFlutterBinding.ensureInitialized();
   MediaKit.ensureInitialized();
+
+  if (kIsWeb) {
+    html.document.onContextMenu.listen((event) => event.preventDefault());
+    final result = await loadConfig();
+    baseUrl = result['baseUrl'];
+    if (baseUrl?.isNotEmpty == true) {
+      log('Base url was set $baseUrl');
+    }
+  }
 
   final sharedPreferences = await SharedPreferences.getInstance();
 
