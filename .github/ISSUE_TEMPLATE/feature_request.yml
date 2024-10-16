@@ -1,32 +1,8 @@
 name: "💡 Feature Request"
 description: Create a new ticket for a new feature request
-title: "💡 [REQUEST] - <title>"
+title: "💡 <title>"
 labels: ["question"]
 body:
-  - type: input
-    id: start_date
-    attributes:
-      label: "Start Date"
-      description: Start of development
-      placeholder: "month/day/year"
-    validations:
-      required: false
-  - type: textarea
-    id: implementation_pr
-    attributes:
-      label: "Implementation PR"
-      description: Pull request used
-      placeholder: "#Pull Request ID"
-    validations:
-      required: false
-  - type: textarea
-    id: reference_issues
-    attributes:
-      label: "Reference Issues"
-      description: Common issues
-      placeholder: "#Issues IDs"
-    validations:
-      required: false
   - type: textarea
     id: summary
     attributes:

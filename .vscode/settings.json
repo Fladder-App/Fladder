@@ -1,12 +1,14 @@
 {
-  "cSpell.words": [
-    "Jellyfin"
-  ],
-  "dart.flutterSdkPath": ".fvm/versions/3.24.3",
-  "search.exclude": {
-    "**/.fvm": true
-  },
-  "files.watcherExclude": {
-    "**/.fvm": true
-  }
+	"cSpell.words": [
+		"Jellyfin"
+	],
+	"dart.flutterSdkPath": ".fvm/versions/3.24.3",
+	"search.exclude": {
+		"**/.fvm": true
+	},
+	"files.watcherExclude": {
+		"**/.fvm": true
+	},
+	"editor.detectIndentation": true,
+	"dart.lineLength": 120
 }
