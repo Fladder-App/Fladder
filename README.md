@@ -37,8 +37,12 @@
 * Simple book reading support
 * Sync supported on Mobile/Desktop
 * Platforms
-  - Android - Web - macOS - Windows - iOS
-  - Linux ready for testing
+  - Android
+  - Web
+  - macOS
+  - Windows 
+  - iOS 
+  - Linux 
  
 ## Screenshots
 <details close>
