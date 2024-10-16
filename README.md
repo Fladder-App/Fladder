@@ -19,6 +19,12 @@
   <a href="#license">License</a>
 </p>
 
+<p align="center">
+  <a href="https://github.com/Fladder-App/Fladder/actions/workflows/build.yml">
+    <img src="https://github.com/Fladder-App/Fladder/actions/workflows/build.yml/badge.svg?branch=develop" alt="Build Fladder" />
+  </a>
+</p>
+
 ## Key Features
 
 * Play media – Stream or sync content locally to your device.
@@ -31,8 +37,7 @@
 * Simple book reading support
 * Sync supported on Mobile/Desktop
 * Platforms
-  - Android - Web - macOS - Windows
-  - iOS working but no way to deploy/publish
+  - Android - Web - macOS - Windows - iOS
   - Linux ready for testing
  
 ## Screenshots
@@ -55,7 +60,7 @@
    <img src="https://github.com/Fladder-App/Fladder/blob/develop/assets/marketing/screenshots/Tablet/Sync.png?raw=true" alt="Fladder" width="1280">    
 </details>
 
-Web/Desktop [try it out!](https://fladder-app.github.io/Fladder)
+Web/Desktop [try it out the web build!](https://fladder-app.github.io/Fladder)
 
 ## Planned Features
 
@@ -66,7 +71,12 @@ Web/Desktop [try it out!](https://fladder-app.github.io/Fladder)
 
 ## Download
 
-The latest release can be found [here](https://github.com/Fladder-App/Fladder/releases).
+The latest release executeables for Windows, MacOS, iOS, Android and Web can be found [here](https://github.com/Fladder-App/Fladder/releases).
+
+### Playstore
+The Android app is currently in testing you can help testing by joining this group https://groups.google.com/g/fladder
+
+<a href='https://play.google.com/store/apps/details?id=nl.jknaapen.fladder&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width=250/></a>
 
 ## How to Contribute
 
