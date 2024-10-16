@@ -1,11 +1,11 @@
 {
-    "name": "Fladder",
-    "short_name": "Fladder",
+    "name": "fladder",
+    "short_name": "fladder",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#5B364D",
     "theme_color": "#5B364D",
-    "description": "A simple cross-platform Jellyfin client.",
+    "description": "A new Flutter project.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
