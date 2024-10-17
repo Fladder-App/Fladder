@@ -82,8 +82,12 @@ The Android app is currently in testing you can help testing by joining this gro
 
 <a href='https://play.google.com/store/apps/details?id=nl.jknaapen.fladder&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width=250/></a>
 
-## How to Contribute
+### AltStore
+The iOS app can be installed through AltStore by adding this repo
 
+<a href='https://shorturl.at/Pj7Z7'><img alt='Get it on AltStore' src='https://camo.githubusercontent.com/d09e24361b730206b40f7c3a5950a17ba3341e67c533e27c155ddb34f0440b44/68747470733a2f2f692e696d6775722e636f6d2f343671684541762e706e67' width=250/></a>
+
+## How to Contribute
 Interest in contributing? Here are a couple of ways you can help:
 
 ### 🐛 Reporting Bugs
