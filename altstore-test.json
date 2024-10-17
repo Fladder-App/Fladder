@@ -1,24 +1,24 @@
 {
     "name": "PartyDonut's Repository",
     "apps": [
-        {
-            "beta": "true",
-            "name": "Fladder",
-            "bundleIdentifier": "nl.jknaapen.fladder",
-            "developerName": "PartyDonut",
-            "subtitle": "A Simple Jellyfin Frontend built on top of Flutter.",
-            "version": "v0.2.5",
-            "versionDate": "2024-10-16",
-            "versionDescription": "Initial iOS release",
-            "downloadURL": "https://github.com/Fladder-App/Fladder/releases/download/v0.2.5/fladder-iOS-0.2.5.ipa",
-            "localizedDescription": "A Simple Jellyfin Frontend built on top of Flutter.",
-            "iconURL": "https://github.com/Fladder-App/Fladder/raw/develop/icons/fladder_macos_icon.png?raw=true",
-            "tintColor": "#5CA399",
-            "size": 28835840,
-            "screenshotURLs": [
-                "https://github.com/Fladder-App/Fladder/blob/develop/assets/marketing/screenshots/Mobile/Dashboard.png?raw=true",
-                "https://github.com/Fladder-App/Fladder/blob/develop/assets/marketing/screenshots/Mobile/Details.png?raw=true"
-            ]
-        }
-    ]
+    {
+        "name": "My Example App",
+        "bundleIdentifier": "com.example.myapp",
+        "marketplaceID": "12345678",
+        "developerName": "Example Developer",
+        "subtitle": "An awesome app.",
+        "localizedDescription": "This is an awesome app only available on AltStore.",
+        "iconURL": "https://example.com/myapp_icon.png",
+        "tintColor": "#F54F32",
+        "category": "utilities",
+        "screenshots": [
+            "https://example.com/myapp_screenshot1.png",
+            "https://example.com/myapp_screenshot2.png",
+            "https://example.com/myapp_screenshot3.png"
+        ],
+        "versions": [],
+        "appPermissions": {},
+        "patreon": {},
+    },
+]
 }
