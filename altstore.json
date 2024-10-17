@@ -6,7 +6,7 @@
   "apps": [
     {
       "name": "Fladder",
-      "bundleIdentifer": "com.app.Fladder",
+      "bundleIdentifer": "nl.jknaapen.fladder",
       "developerName": "PartyDonut",
       "localizedDescription": "A Simple Jellyfin Frontend built on top of Flutter.",
       "iconURL": "https://github.com/Fladder-App/Fladder/raw/develop/icons/fladder_macos_icon.png?raw=true",
@@ -27,8 +27,8 @@
       ],
       "versions": [
         {
-          "version": "0.2.5-alpha",
-          "buildVersion": "60",
+          "version": "0.2.5",
+          "buildVersion": "52",
           "date": "2024-10-16",
           "downloadURL": "https://github.com/Fladder-App/Fladder/releases/download/v0.2.5/fladder-iOS-0.2.5.ipa",
           "minOSVersion": "13"
