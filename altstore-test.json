@@ -1,48 +1,29 @@
 {
-    "name": "My Example Source",
-    "subtitle": "All my apps in one place.",
+    "name": "PartyDonut's Repository",
+    "subtitle": "A source for Fladder and co.",
     "description": "Welcome to my source! Here you'll find all of my apps.",
-    "iconURL": "https://f000.backblazeb2.com/file/rileytestut/ExampleSource/OctoSource.png",
-    "headerURL": "https://f000.backblazeb2.com/file/rileytestut/ExampleSource/OceanHeader.png",
-    "website": "https://example.com",
+    "iconURL": "https://avatars.githubusercontent.com/u/42371342",
     "tintColor": "#4185A9",
-    "featuredApps": [
-        "com.example.myapp",
-        "com.example.anotherapp"
-    ],
     "apps": [
         {
-            "name": "My Example App",
-            "bundleIdentifier": "com.example.myapp",
-            "developerName": "Example Developer",
-            "subtitle": "An awesome app.",
-            "localizedDescription": "This is an awesome app only available on AltStore.",
-            "iconURL": "https://f000.backblazeb2.com/file/rileytestut/ExampleSource/FishApp.png",
+            "name": "Fladder",
+            "bundleIdentifier": "nl.jknaapen.fladder",
+            "developerName": "PartyDonut",
+            "subtitle": "A Simple Jellyfin Frontend built on top of Flutter.",
+            "iconURL": "https://github.com/Fladder-App/Fladder/raw/develop/icons/fladder_macos_icon.png?raw=true",
             "tintColor": "#5CA399",
             "screenshots": [
-                "https://example.com/myapp_portrait_screenshot1.png",
-                "https://example.com/myapp_portrait_screenshot2.png",
-                {
-                    "imageURL": "https://example.com/myapp_landscape_screenshot.png",
-                    "width": 2556,
-                    "height": 1179
-                }
+                "https://github.com/Fladder-App/Fladder/blob/develop/assets/marketing/screenshots/Mobile/Dashboard.png?raw=true",
+                "https://github.com/Fladder-App/Fladder/blob/develop/assets/marketing/screenshots/Mobile/Details.png?raw=true"
             ],
             "versions": [
                 {
-                    "version": "1.1",
-                    "date": "2022-05-01T09:00:00-08:00",
-                    "size": 20000000,
-                    "downloadURL": "https://example.com/myapp_v1.1.ipa",
-                    "localizedDescription": "New features and bug fixes.",
-                    "minOSVersion": "12.0"
-                },
-                {
-                    "version": "1.0",
-                    "date": "2022-03-16T07:00:00-08:00",
-                    "size": 10000000,
-                    "downloadURL": "https://example.com/myapp_v1.0.ipa",
-                    "localizedDescription": "Initial release."
+                    "version": "0.2.5",
+                    "date": "2024-10-16",
+                    "size": 28835840,
+                    "downloadURL": "https://github.com/Fladder-App/Fladder/releases/download/v0.2.5/fladder-iOS-0.2.5.ipa",
+                    "localizedDescription": "First iOS relase",
+                    "minOSVersion": "13.0"
                 }
             ],
             "appPermissions": {
@@ -54,73 +35,6 @@
                     "NSPhotoLibraryUsageDescription": "App saves photos to your Photo Library.",
                     "NSCameraUsageDescription": "App uses camera to take photos.",
                     "NSMicrophoneUsageDescription": "App uses microphone to record video."
-                }
-            }
-        },
-        {
-            "name": "Another Example App",
-            "bundleIdentifier": "com.example.anotherapp",
-            "developerName": "Example Developer",
-            "subtitle": "Another awesome app.",
-            "localizedDescription": "This is another awesome app only available on AltStore.",
-            "iconURL": "https://f000.backblazeb2.com/file/rileytestut/ExampleSource/SharkApp.png",
-            "tintColor": "#3660A2",
-            "screenshots": {
-                "iphone": [
-                    "https://example.com/anotherapp_portrait_1.png",
-                    "https://example.com/anotherapp_portrait_2.png",
-                    {
-                        "imageURL": "https://example.com/anotherapp_landscape.png",
-                        "width": 2556,
-                        "height": 1179
-                    }
-                ],
-                "ipad": [
-                    {
-                        "imageURL": "https://example.com/anotherapp_ipad_portrait.png",
-                        "width": 1668,
-                        "height": 2388
-                    },
-                    {
-                        "imageURL": "https://example.com/anotherapp_ipad_landscape.png",
-                        "width": 2388,
-                        "height": 1668
-                    }
-                ]
-            },
-            "versions": [
-                {
-                    "version": "1.2",
-                    "date": "2022-06-21T09:00:00-08:00",
-                    "downloadURL": "https://example.com/anotherapp_v1.2.ipa",
-                    "localizedDescription": "Bug fixes and performance improvements.",
-                    "size": 81514,
-                    "minOSVersion": "13.0"
-                },
-                {
-                    "version": "1.1",
-                    "date": "2022-04-15T10:00:00-08:00",
-                    "downloadURL": "https://example.com/anotherapp_v1.1.ipa",
-                    "localizedDescription": "New features!",
-                    "size": 81364,
-                    "minOSVersion": "13.0",
-                    "maxOSVersion": "16.3"
-                },
-                {
-                    "version": "1.0",
-                    "date": "2022-02-02T07:00:00-08:00",
-                    "downloadURL": "https://example.com/anotherapp_v1.0.ipa",
-                    "localizedDescription": "Initial release.",
-                    "size": 79821
-                }
-            ],
-            "appPermissions": {
-                "entitlements": [
-                    "com.apple.developer.healthkit",
-                    "com.apple.developer.game-center"
-                ],
-                "privacy": {
-                    "NSLocalNetworkUsageDescription": "App scans the local network for nearby computers."
                 }
             }
         }
