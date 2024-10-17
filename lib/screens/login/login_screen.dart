@@ -23,6 +23,7 @@ import 'package:fladder/screens/shared/outlined_text_field.dart';
 import 'package:fladder/screens/shared/passcode_input.dart';
 import 'package:fladder/util/adaptive_layout.dart';
 import 'package:fladder/util/auth_service.dart';
+import 'package:fladder/util/fladder_config.dart';
 import 'package:fladder/util/list_padding.dart';
 import 'package:fladder/util/localization_helper.dart';
 import 'package:fladder/util/string_extensions.dart';
@@ -43,7 +44,7 @@ class _LoginPageState extends ConsumerState<LoginScreen> {
   bool startCheckingForErrors = false;
   bool addingNewUser = false;
   bool editingUsers = false;
-  late final TextEditingController serverTextController = TextEditingController(text: "");
+  late final TextEditingController serverTextController = TextEditingController(text: '');
 
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
@@ -64,6 +65,11 @@ class _LoginPageState extends ConsumerState<LoginScreen> {
       final currentAccounts = ref.read(authProvider.notifier).getSavedAccounts();
       addingNewUser = currentAccounts.isEmpty;
       ref.read(lockScreenActiveProvider.notifier).update((state) => true);
+      if (FladderConfig.baseUrl != null) {
+        serverTextController.text = FladderConfig.baseUrl!;
+        _parseUrl(FladderConfig.baseUrl!);
+        retrieveListOfUsers();
+      }
     });
   }
 
@@ -258,7 +264,7 @@ class _LoginPageState extends ConsumerState<LoginScreen> {
     return Column(
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             if (accounts.isNotEmpty)
@@ -282,33 +288,35 @@ class _LoginPageState extends ConsumerState<LoginScreen> {
                   ),
                 ),
               ),
-            Flexible(
-              child: OutlinedTextField(
-                controller: serverTextController,
-                onChanged: _parseUrl,
-                onSubmitted: (value) => retrieveListOfUsers(),
-                autoFillHints: const [AutofillHints.url],
-                keyboardType: TextInputType.url,
-                textInputAction: TextInputAction.go,
-                label: context.localized.server,
-                errorText: (invalidUrl == null || serverTextController.text.isEmpty || !startCheckingForErrors)
-                    ? null
-                    : invalidUrl,
+            if (FladderConfig.baseUrl == null) ...[
+              Flexible(
+                child: OutlinedTextField(
+                  controller: serverTextController,
+                  onChanged: _parseUrl,
+                  onSubmitted: (value) => retrieveListOfUsers(),
+                  autoFillHints: const [AutofillHints.url],
+                  keyboardType: TextInputType.url,
+                  textInputAction: TextInputAction.go,
+                  label: context.localized.server,
+                  errorText: (invalidUrl == null || serverTextController.text.isEmpty || !startCheckingForErrors)
+                      ? null
+                      : invalidUrl,
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Tooltip(
-                message: context.localized.retrievePublicListOfUsers,
-                waitDuration: const Duration(seconds: 1),
-                child: IconButton.filled(
-                  onPressed: () => retrieveListOfUsers(),
-                  icon: const Icon(
-                    IconsaxOutline.refresh,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Tooltip(
+                  message: context.localized.retrievePublicListOfUsers,
+                  waitDuration: const Duration(seconds: 1),
+                  child: IconButton.filled(
+                    onPressed: () => retrieveListOfUsers(),
+                    icon: const Icon(
+                      IconsaxOutline.refresh,
+                    ),
                   ),
                 ),
               ),
-            ),
+            ],
           ],
         ),
         AnimatedFadeSize(

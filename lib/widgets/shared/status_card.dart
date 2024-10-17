@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class StatusCard extends ConsumerWidget {
@@ -12,9 +13,8 @@ class StatusCard extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
       padding: const EdgeInsets.all(5),
-      child: SizedBox(
-        width: 40,
-        height: 33,
+      child: SizedBox.square(
+        dimension: 33,
         child: Card(
           elevation: 10,
           surfaceTintColor: color,

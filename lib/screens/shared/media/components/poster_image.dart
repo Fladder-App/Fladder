@@ -1,4 +1,8 @@
+import 'package:flutter/material.dart';
+
 import 'package:ficonsax/ficonsax.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:fladder/models/book_model.dart';
 import 'package:fladder/models/item_base_model.dart';
 import 'package:fladder/models/items/item_shared_models.dart';
@@ -17,8 +21,6 @@ import 'package:fladder/util/string_extensions.dart';
 import 'package:fladder/widgets/shared/item_actions.dart';
 import 'package:fladder/widgets/shared/modal_bottom_sheet.dart';
 import 'package:fladder/widgets/shared/status_card.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class PosterImage extends ConsumerStatefulWidget {
   final ItemBaseModel poster;
@@ -365,10 +367,10 @@ class _PosterImageState extends ConsumerState<PosterImage> {
                       child: Padding(
                         padding: const EdgeInsets.all(6),
                         child: widget.poster.unPlayedItemCount != 0
-                            ? Container(                                
+                            ? Container(
                                 constraints: const BoxConstraints(minWidth: 16),
                                 child: Text(
-                                  widget.poster.userData.unPlayedItemCount.toString(),                                   
+                                  widget.poster.userData.unPlayedItemCount.toString(),
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     color: Theme.of(context).colorScheme.primary,

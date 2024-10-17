@@ -1,3 +1,5 @@
+import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 import 'dart:ui';
 
@@ -32,6 +34,7 @@ import 'package:fladder/screens/login/lock_screen.dart';
 import 'package:fladder/theme.dart';
 import 'package:fladder/util/adaptive_layout.dart';
 import 'package:fladder/util/application_info.dart';
+import 'package:fladder/util/fladder_config.dart';
 import 'package:fladder/util/string_extensions.dart';
 import 'package:fladder/util/themes_data.dart';
 
@@ -57,13 +60,23 @@ class CustomCacheManager {
   );
 }
 
+Future<Map<String, dynamic>> loadConfig() async {
+  final configString = await rootBundle.loadString('config/config.json');
+  return jsonDecode(configString);
+}
+
 void main() async {
-  if (kIsWeb) {
-    html.document.onContextMenu.listen((event) => event.preventDefault());
-  }
   _setupLogging();
   WidgetsFlutterBinding.ensureInitialized();
   MediaKit.ensureInitialized();
+
+  if (kIsWeb) {
+    html.document.onContextMenu.listen((event) => event.preventDefault());
+    final result = await loadConfig();
+    log(result.toString());
+    FladderConfig.fromJson(result);
+    log(FladderConfig.baseUrl.toString());
+  }
 
   final sharedPreferences = await SharedPreferences.getInstance();
 
