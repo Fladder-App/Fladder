@@ -1,7 +1,7 @@
 
 <h1 align="center">
   <br>
-    <a href="https://github.com/Fladder-App/Fladder"><img src="https://github.com/Fladder-App/Fladder/blob/develop/icons/fladder_macos_icon.png?raw=true" alt="Fladder" width="200"></a>
+    <a href="https://github.com/DonutWare/Fladder"><img src="https://github.com/DonutWare/Fladder/blob/develop/icons/fladder_macos_icon.png?raw=true" alt="Fladder" width="200"></a>
   <br>
   Fladder
   <br>
@@ -20,9 +20,9 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Fladder-App/Fladder/actions/workflows/build.yml"><img src="https://github.com/Fladder-App/Fladder/actions/workflows/build.yml/badge.svg?branch=develop" alt="Build" /></a>
-  <a href="https://github.com/Fladder-App/Fladder/releases/latest"> <img alt="GitHub Downloads (all assets, all releases)" src="https://img.shields.io/github/downloads/Fladder-app/fladder/total"></a>
-  <a href="https://github.com/Fladder-App/Fladder/releases/latest"> <img alt="GitHub Release" src="https://img.shields.io/github/v/release/Fladder-app/fladder?display_name=tag"></a>   
+  <a href="https://github.com/DonutWare/Fladder/actions/workflows/build.yml"><img src="https://github.com/DonutWare/Fladder/actions/workflows/build.yml/badge.svg?branch=develop" alt="Build" /></a>
+  <a href="https://github.com/DonutWare/Fladder/releases/latest"> <img alt="GitHub Downloads (all assets, all releases)" src="https://img.shields.io/github/downloads/Fladder-app/fladder/total"></a>
+  <a href="https://github.com/DonutWare/Fladder/releases/latest"> <img alt="GitHub Release" src="https://img.shields.io/github/v/release/Fladder-app/fladder?display_name=tag"></a>   
 </p>
 
 ## Key Features
@@ -47,21 +47,21 @@
 ## Screenshots
 <details close>
   <summary>Mobile</summary>
-   <img src="https://github.com/Fladder-App/Fladder/blob/develop/assets/marketing/screenshots/Mobile/Dashboard.png?raw=true" alt="Fladder" width="200">  
-   <img src="https://github.com/Fladder-App/Fladder/blob/develop/assets/marketing/screenshots/Mobile/Details_2.png?raw=true" alt="Fladder" width="200">  
-   <img src="https://github.com/Fladder-App/Fladder/blob/develop/assets/marketing/screenshots/Mobile/Favourites.png?raw=true" alt="Fladder" width="200">  
-   <img src="https://github.com/Fladder-App/Fladder/blob/develop/assets/marketing/screenshots/Mobile/Library.png?raw=true" alt="Fladder" width="200">  
-   <img src="https://github.com/Fladder-App/Fladder/blob/develop/assets/marketing/screenshots/Mobile/Resume_Tab.png?raw=true" alt="Fladder" width="200">  
-   <img src="https://github.com/Fladder-App/Fladder/blob/develop/assets/marketing/screenshots/Mobile/Sync.png?raw=true" alt="Fladder" width="200">  
-   <img src="https://github.com/Fladder-App/Fladder/blob/develop/assets/marketing/screenshots/Mobile/Player.png?raw=true" alt="Fladder" width="1280">  
+   <img src="https://github.com/DonutWare/Fladder/blob/develop/assets/marketing/screenshots/Mobile/Dashboard.png?raw=true" alt="Fladder" width="200">  
+   <img src="https://github.com/DonutWare/Fladder/blob/develop/assets/marketing/screenshots/Mobile/Details_2.png?raw=true" alt="Fladder" width="200">  
+   <img src="https://github.com/DonutWare/Fladder/blob/develop/assets/marketing/screenshots/Mobile/Favourites.png?raw=true" alt="Fladder" width="200">  
+   <img src="https://github.com/DonutWare/Fladder/blob/develop/assets/marketing/screenshots/Mobile/Library.png?raw=true" alt="Fladder" width="200">  
+   <img src="https://github.com/DonutWare/Fladder/blob/develop/assets/marketing/screenshots/Mobile/Resume_Tab.png?raw=true" alt="Fladder" width="200">  
+   <img src="https://github.com/DonutWare/Fladder/blob/develop/assets/marketing/screenshots/Mobile/Sync.png?raw=true" alt="Fladder" width="200">  
+   <img src="https://github.com/DonutWare/Fladder/blob/develop/assets/marketing/screenshots/Mobile/Player.png?raw=true" alt="Fladder" width="1280">  
 </details>
 
 <details close>
   <summary>Tablet</summary>
-   <img src="https://github.com/Fladder-App/Fladder/blob/develop/assets/marketing/screenshots/Tablet/Dashboard.png?raw=true" alt="Fladder" width="1280">  
-   <img src="https://github.com/Fladder-App/Fladder/blob/develop/assets/marketing/screenshots/Tablet/Details.png?raw=true" alt="Fladder" width="1280">  
-   <img src="https://github.com/Fladder-App/Fladder/blob/develop/assets/marketing/screenshots/Tablet/Settings.png?raw=true" alt="Fladder" width="1280">  
-   <img src="https://github.com/Fladder-App/Fladder/blob/develop/assets/marketing/screenshots/Tablet/Sync.png?raw=true" alt="Fladder" width="1280">    
+   <img src="https://github.com/DonutWare/Fladder/blob/develop/assets/marketing/screenshots/Tablet/Dashboard.png?raw=true" alt="Fladder" width="1280">  
+   <img src="https://github.com/DonutWare/Fladder/blob/develop/assets/marketing/screenshots/Tablet/Details.png?raw=true" alt="Fladder" width="1280">  
+   <img src="https://github.com/DonutWare/Fladder/blob/develop/assets/marketing/screenshots/Tablet/Settings.png?raw=true" alt="Fladder" width="1280">  
+   <img src="https://github.com/DonutWare/Fladder/blob/develop/assets/marketing/screenshots/Tablet/Sync.png?raw=true" alt="Fladder" width="1280">    
 </details>
 
 Web/Desktop [try it out the web build!](https://fladder-app.github.io/Fladder)
@@ -75,7 +75,7 @@ Web/Desktop [try it out the web build!](https://fladder-app.github.io/Fladder)
 
 ## Download
 
-The latest release executeables for Windows, MacOS, iOS, Android and Web can be found [here](https://github.com/Fladder-App/Fladder/releases).
+The latest release executeables for Windows, MacOS, iOS, Android and Web can be found [here](https://github.com/DonutWare/Fladder/releases).
 
 ### Playstore
 The Android app is currently in testing you can help testing by joining this group https://groups.google.com/g/fladder
