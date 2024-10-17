@@ -278,3 +278,11 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }} # Automatically provided by GitHub Actions
           publish_dir: ./build/web
+
+      - name: Deploy to ghcr.io
+        uses: mr-smithers-excellent/docker-build-push@v6
+        with:
+          image: fladder
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}

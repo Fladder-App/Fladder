@@ -159,6 +159,7 @@ flutter:
   assets:
     - icons/
     - assets/fonts/
+    - config/
 
   fonts:
     - family: mp-font
