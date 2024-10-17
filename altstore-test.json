@@ -1,7 +1,6 @@
 {
     "name": "PartyDonut's Repository",
-    "apps": [
-    {
+    "apps": [{
         "name": "My Example App",
         "bundleIdentifier": "com.example.myapp",
         "marketplaceID": "12345678",
@@ -18,7 +17,6 @@
         ],
         "versions": [],
         "appPermissions": {},
-        "patreon": {},
-    },
-]
+        "patreon": {}
+    }]
 }
