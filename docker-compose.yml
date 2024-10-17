@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+  fladder:
+    image: ghcr.io/donutware/fladder:v0.2.6
+    ports:
+      - 80:80
+    environment:
+      - BASE_URL=https://server-url #OPTIONAL: Locks the Fladder front-end to a certain jellyfin server
