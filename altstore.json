@@ -6,7 +6,7 @@
   "apps": [
     {
       "name": "Fladder",
-      "bundleIdentifer": "",
+      "bundleIdentifer": "com.app.Fladder",
       "developerName": "PartyDonut",
       "localizedDescription": "A Simple Jellyfin Frontend built on top of Flutter.",
       "iconURL": "https://github.com/Fladder-App/Fladder/raw/develop/icons/fladder_macos_icon.png?raw=true",
