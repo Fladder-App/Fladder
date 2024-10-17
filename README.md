@@ -64,7 +64,7 @@
    <img src="https://github.com/DonutWare/Fladder/blob/develop/assets/marketing/screenshots/Tablet/Sync.png?raw=true" alt="Fladder" width="1280">    
 </details>
 
-Web/Desktop [try it out the web build!](https://DonutWare.github.io/Fladder)
+Web/Desktop [try out the web build!](https://DonutWare.github.io/Fladder)
 
 ## Planned Features
 
