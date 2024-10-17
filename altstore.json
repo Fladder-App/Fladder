@@ -33,7 +33,18 @@
           "downloadURL": "https://github.com/Fladder-App/Fladder/releases/download/v0.2.5/fladder-iOS-0.2.5.ipa",
           "minOSVersion": "13"
         }
-      ]
+      ],
+      "appPermissions": {
+        "entitlements": [
+            "com.apple.security.application-groups",
+            "com.apple.developer.siri"
+        ],
+        "privacy": {
+            "NSPhotoLibraryUsageDescription": "App saves photos to your Photo Library.",
+            "NSCameraUsageDescription": "App uses camera to take photos.",
+            "NSMicrophoneUsageDescription": "App uses microphone to record video."
+        }
+      }
     }
   ],
   "news": []
