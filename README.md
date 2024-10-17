@@ -20,9 +20,9 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Fladder-App/Fladder/actions/workflows/build.yml">
-    <img src="https://github.com/Fladder-App/Fladder/actions/workflows/build.yml/badge.svg?branch=develop" alt="Build Fladder" />
-  </a>
+  <a href="https://github.com/Fladder-App/Fladder/actions/workflows/build.yml"><img src="https://github.com/Fladder-App/Fladder/actions/workflows/build.yml/badge.svg?branch=develop" alt="Build" /></a>
+  <a href="https://github.com/Fladder-App/Fladder/releases/latest"> <img alt="GitHub Downloads (all assets, all releases)" src="https://img.shields.io/github/downloads/Fladder-app/fladder/total"></a>
+  <a href="https://github.com/Fladder-App/Fladder/releases/latest"> <img alt="GitHub Release" src="https://img.shields.io/github/v/release/Fladder-app/fladder?display_name=tag"></a>   
 </p>
 
 ## Key Features
