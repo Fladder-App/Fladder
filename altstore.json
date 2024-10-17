@@ -9,20 +9,20 @@
 	    "bundleIdentifier": "nl.jknaapen.fladder",
 	    "developerName": "PartyDonut",
 	    "localizedDescription": "A Simple Jellyfin Frontend built on top of Flutter.",
-	    "iconURL": "https://github.com/Fladder-App/Fladder/raw/develop/icons/fladder_macos_icon.png?raw=true",
+	    "iconURL": "https://github.com/DonutWare/Fladder/raw/develop/icons/fladder_macos_icon.png?raw=true",
 	    "category": "entertainment",
 	    "screenshots": [
 	      {
-	        "imageURL": "https://github.com/Fladder-App/Fladder/blob/develop/assets/marketing/screenshots/Mobile/Dashboard.png?raw=true"
+	        "imageURL": "https://github.com/DonutWare/Fladder/blob/develop/assets/marketing/screenshots/Mobile/Dashboard.png?raw=true"
 	      },
 	      {
-	        "imageURL": "https://github.com/Fladder-App/Fladder/blob/develop/assets/marketing/screenshots/Mobile/Details.png?raw=true"
+	        "imageURL": "https://github.com/DonutWare/Fladder/blob/develop/assets/marketing/screenshots/Mobile/Details.png?raw=true"
 	      },
 	      {
-	        "imageURL": "https://github.com/Fladder-App/Fladder/blob/develop/assets/marketing/screenshots/Mobile/Sync.png?raw=true"
+	        "imageURL": "https://github.com/DonutWare/Fladder/blob/develop/assets/marketing/screenshots/Mobile/Sync.png?raw=true"
 	      },
 	      {
-	        "imageURL": "https://github.com/Fladder-App/Fladder/blob/develop/assets/marketing/screenshots/Mobile/Favourites.png?raw=true"
+	        "imageURL": "https://github.com/DonutWare/Fladder/blob/develop/assets/marketing/screenshots/Mobile/Favourites.png?raw=true"
 	      }
 	    ],
 	    "versions": [
@@ -31,7 +31,7 @@
 	        "buildVersion": "52",
 	        "date": "2024-10-16",
             "size": 28835840,
-	        "downloadURL": "https://github.com/Fladder-App/Fladder/releases/download/v0.2.5/fladder-iOS-0.2.5.ipa",
+	        "downloadURL": "https://github.com/DonutWare/Fladder/releases/download/v0.2.5/fladder-iOS-0.2.5.ipa",
 	        "minOSVersion": "13"
 	      }
 	    ]
