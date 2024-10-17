@@ -277,6 +277,7 @@ jobs:
         uses: mr-smithers-excellent/docker-build-push@v6
         with:
           image: fladder
+          addLatest: true
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
