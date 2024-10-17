@@ -34,10 +34,9 @@ import 'package:fladder/screens/login/lock_screen.dart';
 import 'package:fladder/theme.dart';
 import 'package:fladder/util/adaptive_layout.dart';
 import 'package:fladder/util/application_info.dart';
+import 'package:fladder/util/fladder_config.dart';
 import 'package:fladder/util/string_extensions.dart';
 import 'package:fladder/util/themes_data.dart';
-
-String? baseUrl;
 
 bool get _isDesktop {
   if (kIsWeb) return false;
@@ -74,10 +73,9 @@ void main() async {
   if (kIsWeb) {
     html.document.onContextMenu.listen((event) => event.preventDefault());
     final result = await loadConfig();
-    baseUrl = result['baseUrl'];
-    if (baseUrl?.isNotEmpty == true) {
-      log('Base url was set $baseUrl');
-    }
+    log(result.toString());
+    FladderConfig.fromJson(result);
+    log(FladderConfig.baseUrl.toString());
   }
 
   final sharedPreferences = await SharedPreferences.getInstance();

@@ -7,7 +7,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:ficonsax/ficonsax.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:fladder/main.dart';
 import 'package:fladder/models/account_model.dart';
 import 'package:fladder/providers/auth_provider.dart';
 import 'package:fladder/providers/shared_provider.dart';
@@ -24,6 +23,7 @@ import 'package:fladder/screens/shared/outlined_text_field.dart';
 import 'package:fladder/screens/shared/passcode_input.dart';
 import 'package:fladder/util/adaptive_layout.dart';
 import 'package:fladder/util/auth_service.dart';
+import 'package:fladder/util/fladder_config.dart';
 import 'package:fladder/util/list_padding.dart';
 import 'package:fladder/util/localization_helper.dart';
 import 'package:fladder/util/string_extensions.dart';
@@ -65,9 +65,9 @@ class _LoginPageState extends ConsumerState<LoginScreen> {
       final currentAccounts = ref.read(authProvider.notifier).getSavedAccounts();
       addingNewUser = currentAccounts.isEmpty;
       ref.read(lockScreenActiveProvider.notifier).update((state) => true);
-      if (baseUrl != null) {
-        serverTextController.text = baseUrl!;
-        _parseUrl(baseUrl!);
+      if (FladderConfig.baseUrl != null) {
+        serverTextController.text = FladderConfig.baseUrl!;
+        _parseUrl(FladderConfig.baseUrl!);
         retrieveListOfUsers();
       }
     });
@@ -288,7 +288,7 @@ class _LoginPageState extends ConsumerState<LoginScreen> {
                   ),
                 ),
               ),
-            if (baseUrl == null) ...[
+            if (FladderConfig.baseUrl == null) ...[
               Flexible(
                 child: OutlinedTextField(
                   controller: serverTextController,

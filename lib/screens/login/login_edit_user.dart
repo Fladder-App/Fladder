@@ -4,7 +4,6 @@ import 'package:ficonsax/ficonsax.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
-import 'package:fladder/main.dart';
 import 'package:fladder/models/account_model.dart';
 import 'package:fladder/providers/auth_provider.dart';
 import 'package:fladder/providers/shared_provider.dart';
@@ -38,7 +37,7 @@ class LoginEditUser extends ConsumerWidget {
                 const Icon(Icons.http_rounded),
                 const SizedBox(width: 8),
                 Text(user.credentials.server),
-                if (onTapServer != null && baseUrl?.isEmpty == true) ...{
+                if (onTapServer != null) ...{
                   const SizedBox(width: 8),
                   IconButton.filledTonal(
                     onPressed: () {
