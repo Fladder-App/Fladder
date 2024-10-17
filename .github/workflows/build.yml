@@ -265,19 +265,13 @@ jobs:
           VERSION_NAME=$(grep '^version:' pubspec.yaml | cut -d ':' -f2 | cut -d '+' -f1 | tr -d ' ')
           echo "PACKAGE_NAME=$APP_NAME-Web-$VERSION_NAME" >> $GITHUB_ENV
 
-          flutter build web --base-href /${{ github.event.repository.name }}/ --release --build-number=$GITHUB_RUN_NUMBER
+          flutter build web --release --build-number=$GITHUB_RUN_NUMBER
 
       - name: Archive web artifact
         uses: actions/upload-artifact@v4.0.0
         with:
           name: ${{ env.PACKAGE_NAME }}
           path: build/web
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }} # Automatically provided by GitHub Actions
-          publish_dir: ./build/web
 
       - name: Deploy to ghcr.io
         uses: mr-smithers-excellent/docker-build-push@v6
@@ -286,3 +280,14 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Github pages web
+        run: flutter build web --base-href /${{ github.event.repository.name }}/ --release --build-number=$GITHUB_RUN_NUMBER
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} # Automatically provided by GitHub Actions
+          publish_dir: ./build/web
+
+ 
