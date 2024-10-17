@@ -85,9 +85,7 @@ The Android app is currently in testing you can help testing by joining this gro
 ### AltStore
 The iOS app can be currently installed through AltStore by adding the repo
 
-<a href='https://shorturl.at/xR8B9'><img alt='Get it on AltStore' src='https://camo.githubusercontent.com/d09e24361b730206b40f7c3a5950a17ba3341e67c533e27c155ddb34f0440b44/68747470733a2f2f692e696d6775722e636f6d2f343671684541762e706e67' width=250/></a>
-
-## How to Contribute
+<a href='[altstore://source?url=https://raw.githubusercontent.com/bazzadazza72/fladder-develop/refs/heads/develop/altstore.json](https://shorturl.at/KnT4S)'><img alt='Get it on AltStore' src='https://camo.githubusercontent.com/d09e24361b730206b40f7c3a5950a17ba3341e67c533e27c155ddb34f0440b44/68747470733a2f2f692e696d6775722e636f6d2f343671684541762e706e67' width=250/></a>
 
 Interest in contributing? Here are a couple of ways you can help:
 
