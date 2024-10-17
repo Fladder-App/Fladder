@@ -1,68 +1,24 @@
 {
     "name": "PartyDonut's Repository",
-    "identifier": "nl.jknaapen.source",
-    "subtitle": "A source for Fladder and co.",
-    "description": "Welcome to my source! Here you'll find all of my apps.",
-    "iconURL": "https://avatars.githubusercontent.com/u/42371342",
-    "headerURL": "https://avatars.githubusercontent.com/u/42371342",
-    "website": "https://example.com",
-    "tintColor": "#4185A9",
     "apps": [
         {
+            "beta": "true",
             "name": "Fladder",
             "bundleIdentifier": "nl.jknaapen.fladder",
             "developerName": "PartyDonut",
             "subtitle": "A Simple Jellyfin Frontend built on top of Flutter.",
+            "version": "v0.2.5",
+            "versionDate": "2024-10-16",
+            "versionDescription": "Initial iOS release",
+            "downloadURL": "https://github.com/Fladder-App/Fladder/releases/download/v0.2.5/fladder-iOS-0.2.5.ipa",
             "localizedDescription": "A Simple Jellyfin Frontend built on top of Flutter.",
             "iconURL": "https://github.com/Fladder-App/Fladder/raw/develop/icons/fladder_macos_icon.png?raw=true",
             "tintColor": "#5CA399",
-            "screenshots": [
+            "size": 28835840,
+            "screenshotURLs": [
                 "https://github.com/Fladder-App/Fladder/blob/develop/assets/marketing/screenshots/Mobile/Dashboard.png?raw=true",
                 "https://github.com/Fladder-App/Fladder/blob/develop/assets/marketing/screenshots/Mobile/Details.png?raw=true"
-            ],
-            "versions": [
-                {
-                    "version": "0.2.5",
-                    "date": "2024-10-16",
-                    "size": 28835840,
-                    "downloadURL": "https://github.com/Fladder-App/Fladder/releases/download/v0.2.5/fladder-iOS-0.2.5.ipa",
-                    "localizedDescription": "First iOS relase",
-                    "minOSVersion": "13.0"
-                }
-            ],
-            "appPermissions": {
-                "entitlements": [
-                    "com.apple.security.application-groups",
-                    "com.apple.developer.siri"
-                ],
-                "privacy": {
-                    "NSPhotoLibraryUsageDescription": "App saves photos to your Photo Library.",
-                    "NSCameraUsageDescription": "App uses camera to take photos.",
-                    "NSMicrophoneUsageDescription": "App uses microphone to record video."
-                }
-            }
-        }
-    ],
-    "news": [
-        {
-            "title": "New Feature Announcement",
-            "identifier": "new_feature",
-            "caption": "Introducing a new feature in AltStore!",
-            "date": "2023-03-15",
-            "tintColor": "#5CA399",
-            "imageURL": "https://example.com/new_feature_image.png",
-            "notify": true,
-            "url": "https://example.com/new_feature_details"
-        },
-        {
-            "title": "App Update Available",
-            "identifier": "app_update",
-            "caption": "An update is available for My Example App.",
-            "date": "2023-03-10T10:00:00-07:00",
-            "tintColor": "#3660A2",
-            "imageURL": "https://example.com/app_update_image.png",
-            "notify": false,
-            "appID": "com.example.myapp"
+            ]
         }
     ]
 }
