@@ -21,8 +21,8 @@
 
 <p align="center">
   <a href="https://github.com/DonutWare/Fladder/actions/workflows/build.yml"><img src="https://github.com/DonutWare/Fladder/actions/workflows/build.yml/badge.svg?branch=develop" alt="Build" /></a>
-  <a href="https://github.com/DonutWare/Fladder/releases/latest"> <img alt="GitHub Downloads (all assets, all releases)" src="https://img.shields.io/github/downloads/Fladder-app/fladder/total"></a>
-  <a href="https://github.com/DonutWare/Fladder/releases/latest"> <img alt="GitHub Release" src="https://img.shields.io/github/v/release/Fladder-app/fladder?display_name=tag"></a>   
+  <a href="https://github.com/DonutWare/Fladder/releases/latest"> <img alt="GitHub Downloads (all assets, all releases)" src="https://img.shields.io/github/downloads/DonutWare/fladder/total"></a>
+  <a href="https://github.com/DonutWare/Fladder/releases/latest"> <img alt="GitHub Release" src="https://img.shields.io/github/v/release/DonutWare/fladder?display_name=tag"></a>   
 </p>
 
 ## Key Features
@@ -64,7 +64,7 @@
    <img src="https://github.com/DonutWare/Fladder/blob/develop/assets/marketing/screenshots/Tablet/Sync.png?raw=true" alt="Fladder" width="1280">    
 </details>
 
-Web/Desktop [try it out the web build!](https://fladder-app.github.io/Fladder)
+Web/Desktop [try it out the web build!](https://DonutWare.github.io/Fladder)
 
 ## Planned Features
 
