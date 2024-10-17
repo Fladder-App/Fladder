@@ -3,6 +3,8 @@
     "subtitle": "A source for Fladder and co.",
     "description": "Welcome to my source! Here you'll find all of my apps.",
     "iconURL": "https://avatars.githubusercontent.com/u/42371342",
+    "headerURL": "https://avatars.githubusercontent.com/u/42371342",
+    "website": "https://example.com",
     "tintColor": "#4185A9",
     "apps": [
         {
@@ -10,6 +12,7 @@
             "bundleIdentifier": "nl.jknaapen.fladder",
             "developerName": "PartyDonut",
             "subtitle": "A Simple Jellyfin Frontend built on top of Flutter.",
+            "localizedDescription": "A Simple Jellyfin Frontend built on top of Flutter.",
             "iconURL": "https://github.com/Fladder-App/Fladder/raw/develop/icons/fladder_macos_icon.png?raw=true",
             "tintColor": "#5CA399",
             "screenshots": [
