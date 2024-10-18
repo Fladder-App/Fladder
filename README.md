@@ -1,7 +1,7 @@
 
 <h1 align="center">
   <br>
-    <a href="https://github.com/DonutWare/Fladder"><img src="https://github.com/DonutWare/Fladder/blob/develop/icons/fladder_macos_icon.png?raw=true" alt="Fladder" width="200"></a>
+    <a href="https://github.com/DonutWare/Fladder"><img src="https://raw.githubusercontent.com/DonutWare/Fladder/refs/heads/develop/icons/production/fladder_macos_icon.png" alt="Fladder" width="200"></a>
   <br>
   Fladder
   <br>
@@ -99,6 +99,12 @@ Interest in contributing? Here are a couple of ways you can help:
 - **Pull requests are always welcome!** 
 - For new features or large changes, please open a discussion or issue first to ensure that no one else is already working on it.
 - **Keep pull requests short and focused**: try to avoid fixing multiple issues in a single pull request. This helps make the review process smoother and quicker.
+
+### 🌐 Translations 
+Help with translations is always welcome!
+<a href="https://hosted.weblate.org/engage/fladder/">
+<img src="https://hosted.weblate.org/widget/fladder/fladder/multi-auto.svg" alt="Translation status" />
+</a>
 
 Thank you for helping to make this project better! 🙌
 
