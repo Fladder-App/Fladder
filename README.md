@@ -101,7 +101,6 @@ Interest in contributing? Here are a couple of ways you can help:
 - **Keep pull requests short and focused**: try to avoid fixing multiple issues in a single pull request. This helps make the review process smoother and quicker.
 
 ### 🌐 Translations 
-Help with translations is always welcome!
 <a href="https://hosted.weblate.org/engage/fladder/">
 <img src="https://hosted.weblate.org/widget/fladder/fladder/multi-auto.svg" alt="Translation status" />
 </a>
