@@ -12,7 +12,7 @@
 <p align="center">
   <a href="#key-features">Key Features</a> •
   <a href="#screenshots">Screenshots</a> •
-  <a href="#planned-features">Planned Featuress</a> •
+  <a href="#planned-features">Planned Features</a> •
   <a href="#download">Download</a> •
   <a href="#how-to-contribute">Contributing</a> •
   <a href="#credits">Credits</a> •
